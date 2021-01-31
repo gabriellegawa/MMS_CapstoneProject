@@ -14,10 +14,13 @@ namespace MMS_CapstoneProject
     public partial class MainForm : Form
     {
         List<ClientModel> clients = new List<ClientModel>();
+        List<ClientModel> clients1 = new List<ClientModel>();
         public MainForm()
         {
-            clients = SqliteDataAccess.LoadClient();
-            clients = SqliteDataAccess.LoadClient();
+            clients = SqliteDataAccess.LoadAllClient();
+            clients1 = SqliteDataAccess.LoadClient(1);
+
+            Console.WriteLine("ASD");
 
             InitializeComponent();
 
