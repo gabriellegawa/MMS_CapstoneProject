@@ -92,7 +92,7 @@ namespace MMSLibrary
                 command.Parameters["@updatedPrimaryContactName"].Value = updatedClient.PrimaryContactName;
                 command.Parameters["@primaryContactCell"].Value = updatedClient.PrimaryContactCell;
                 command.Parameters["@primaryContactEmail"].Value = updatedClient.PrimaryContactEmail;
-                command.Parameters["@isDeleted"].Value = updatedClient.isDeleted;
+                command.Parameters["@isDeleted"].Value = updatedClient.IsDeleted;
 
                 command.Parameters["@id"].Value = oldClient.Id;
                 command.Parameters["@oldName"].Value = oldClient.Name;

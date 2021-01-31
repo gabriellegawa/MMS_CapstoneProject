@@ -11,6 +11,6 @@ namespace MMSLibrary
         public string PrimaryContactName { get; set; }
         public string PrimaryContactCell { get; set; }
         public string PrimaryContactEmail { get; set; }
-        public bool isDeleted { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MMSLibrary
 {
-    class TrackWorkerModel
+    public class TrackWorkerModel
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -20,6 +20,6 @@ namespace MMSLibrary
                 return $"{FirstName} {LastName}";
             }
         }
-
+        public List<ClientEventModel> ClientEvents { get; set; }
     }
 }
