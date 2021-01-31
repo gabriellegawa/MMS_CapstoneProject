@@ -10,7 +10,7 @@ namespace MMSLibrary
         public string Name { get; set; }
         public string PrimaryContactName { get; set; }
         public string PrimaryContactCell { get; set; }
-        public string PrimaryContactEmailCell { get; set; }
+        public string PrimaryContactEmail { get; set; }
         public bool isDeleted { get; set; }
     }
 }
