@@ -64,6 +64,12 @@ namespace MMSLibrary
         }
         #endregion
 
+        /// <summary>
+        /// UpdateClient - update client record
+        /// </summary>
+        /// <param name="updatedClient">Updated ClientModel object</param>
+        /// <param name="oldClient">Old ClientModel object</param>
+        /// <returns>num of rows affected</returns>
         public static int UpdateClient(ClientModel updatedClient, ClientModel oldClient)
         {
             int result;
@@ -102,6 +108,7 @@ namespace MMSLibrary
 
                 try
                 {
+                    command.Prepare();
                     result = command.ExecuteNonQuery();
                 }
                 catch (SQLiteException ex)
