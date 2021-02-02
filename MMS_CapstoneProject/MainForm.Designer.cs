@@ -29,7 +29,7 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Client = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblPrimaryContactEmail = new System.Windows.Forms.Label();
@@ -50,23 +50,23 @@ namespace MMS_CapstoneProject
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
+            this.Client.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // Client
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Client.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(1, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(878, 556);
-            this.tabControl1.TabIndex = 0;
+            this.Client.Controls.Add(this.tabPage1);
+            this.Client.Controls.Add(this.tabPage2);
+            this.Client.Location = new System.Drawing.Point(1, 0);
+            this.Client.Name = "Client";
+            this.Client.SelectedIndex = 0;
+            this.Client.Size = new System.Drawing.Size(878, 556);
+            this.Client.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -109,7 +109,7 @@ namespace MMS_CapstoneProject
             // lblPrimaryContactEmail
             // 
             this.lblPrimaryContactEmail.AutoSize = true;
-            this.lblPrimaryContactEmail.Location = new System.Drawing.Point(3, 155);
+            this.lblPrimaryContactEmail.Location = new System.Drawing.Point(25, 128);
             this.lblPrimaryContactEmail.Name = "lblPrimaryContactEmail";
             this.lblPrimaryContactEmail.Size = new System.Drawing.Size(112, 13);
             this.lblPrimaryContactEmail.TabIndex = 6;
@@ -118,7 +118,7 @@ namespace MMS_CapstoneProject
             // lblPrimaryContactCell
             // 
             this.lblPrimaryContactCell.AutoSize = true;
-            this.lblPrimaryContactCell.Location = new System.Drawing.Point(7, 124);
+            this.lblPrimaryContactCell.Location = new System.Drawing.Point(33, 99);
             this.lblPrimaryContactCell.Name = "lblPrimaryContactCell";
             this.lblPrimaryContactCell.Size = new System.Drawing.Size(104, 13);
             this.lblPrimaryContactCell.TabIndex = 4;
@@ -127,7 +127,7 @@ namespace MMS_CapstoneProject
             // lblPrimaryContactName
             // 
             this.lblPrimaryContactName.AutoSize = true;
-            this.lblPrimaryContactName.Location = new System.Drawing.Point(22, 82);
+            this.lblPrimaryContactName.Location = new System.Drawing.Point(22, 69);
             this.lblPrimaryContactName.Name = "lblPrimaryContactName";
             this.lblPrimaryContactName.Size = new System.Drawing.Size(115, 13);
             this.lblPrimaryContactName.TabIndex = 2;
@@ -136,7 +136,7 @@ namespace MMS_CapstoneProject
             // lblClientName
             // 
             this.lblClientName.AutoSize = true;
-            this.lblClientName.Location = new System.Drawing.Point(22, 40);
+            this.lblClientName.Location = new System.Drawing.Point(70, 40);
             this.lblClientName.Name = "lblClientName";
             this.lblClientName.Size = new System.Drawing.Size(67, 13);
             this.lblClientName.TabIndex = 0;
@@ -144,35 +144,35 @@ namespace MMS_CapstoneProject
             // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(274, 40);
+            this.txtClientName.Location = new System.Drawing.Point(178, 40);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(100, 20);
             this.txtClientName.TabIndex = 1;
             // 
             // txtPrimaryContactName
             // 
-            this.txtPrimaryContactName.Location = new System.Drawing.Point(274, 82);
+            this.txtPrimaryContactName.Location = new System.Drawing.Point(178, 69);
             this.txtPrimaryContactName.Name = "txtPrimaryContactName";
             this.txtPrimaryContactName.Size = new System.Drawing.Size(100, 20);
             this.txtPrimaryContactName.TabIndex = 3;
             // 
             // txtPrimaryContactCell
             // 
-            this.txtPrimaryContactCell.Location = new System.Drawing.Point(274, 121);
+            this.txtPrimaryContactCell.Location = new System.Drawing.Point(178, 99);
             this.txtPrimaryContactCell.Name = "txtPrimaryContactCell";
             this.txtPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
             this.txtPrimaryContactCell.TabIndex = 5;
             // 
             // txtPrimaryContactEmail
             // 
-            this.txtPrimaryContactEmail.Location = new System.Drawing.Point(274, 148);
+            this.txtPrimaryContactEmail.Location = new System.Drawing.Point(178, 128);
             this.txtPrimaryContactEmail.Name = "txtPrimaryContactEmail";
             this.txtPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
             this.txtPrimaryContactEmail.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(45, 192);
+            this.button1.Location = new System.Drawing.Point(25, 190);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -181,7 +181,7 @@ namespace MMS_CapstoneProject
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(165, 192);
+            this.button2.Location = new System.Drawing.Point(106, 190);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -190,7 +190,7 @@ namespace MMS_CapstoneProject
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(274, 191);
+            this.button3.Location = new System.Drawing.Point(187, 190);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
@@ -199,7 +199,7 @@ namespace MMS_CapstoneProject
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(402, 190);
+            this.button4.Location = new System.Drawing.Point(268, 190);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 11;
@@ -208,7 +208,7 @@ namespace MMS_CapstoneProject
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(57, 249);
+            this.button5.Location = new System.Drawing.Point(25, 219);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 12;
@@ -217,7 +217,7 @@ namespace MMS_CapstoneProject
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(178, 249);
+            this.button6.Location = new System.Drawing.Point(106, 219);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 13;
@@ -226,7 +226,7 @@ namespace MMS_CapstoneProject
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(283, 248);
+            this.button7.Location = new System.Drawing.Point(187, 219);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 14;
@@ -235,7 +235,7 @@ namespace MMS_CapstoneProject
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(13, 298);
+            this.button8.Location = new System.Drawing.Point(25, 248);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 15;
@@ -244,7 +244,7 @@ namespace MMS_CapstoneProject
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(165, 298);
+            this.button9.Location = new System.Drawing.Point(106, 248);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 16;
@@ -264,10 +264,10 @@ namespace MMS_CapstoneProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 557);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.Client);
             this.Name = "MainForm";
-            this.Text = "Form1";
-            this.tabControl1.ResumeLayout(false);
+            this.Text = "Motorsport Marshalling Services Track Day Management Suite";
+            this.Client.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -277,7 +277,7 @@ namespace MMS_CapstoneProject
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl Client;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtPrimaryContactEmail;
         private System.Windows.Forms.TextBox txtPrimaryContactCell;
