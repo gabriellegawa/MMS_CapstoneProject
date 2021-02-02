@@ -122,6 +122,10 @@ namespace MMSLibrary
 
         }
 
+        /// <summary>
+        /// SaveClient - save a new client
+        /// </summary>
+        /// <param name="client">new client</param>
         public static void SaveClient(ClientModel client)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
