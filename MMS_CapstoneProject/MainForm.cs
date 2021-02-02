@@ -48,7 +48,7 @@ namespace MMS_CapstoneProject
             string primaryContactCell = txtPrimaryContactCell.Text;
             string primaryContactEmail = txtPrimaryContactEmail.Text;
 
-            ClientModel client = new ClientModel(clientName, primaryContactName, primaryContactCell, primaryContactCell, false);
+            //ClientModel client = new ClientModel(clientName, primaryContactName, primaryContactCell, primaryContactCell, false);
 
             
             Console.WriteLine(clientName);
