@@ -15,6 +15,7 @@ namespace MMS_CapstoneProject
     {
         List<ClientModel> clients = new List<ClientModel>();
         List<ClientModel> clients1 = new List<ClientModel>();
+
         public MainForm()
         {
             clients = SqliteDataAccess.LoadAllClient();
@@ -23,6 +24,20 @@ namespace MMS_CapstoneProject
             Console.WriteLine("ASD");
 
             InitializeComponent();
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
+            var source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
+
+            dataGridView1.DataSource = source;
+            dataGridView1.AutoResizeColumns();
+
+            int dgv_width = dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+
+            this.Width = 373 + dgv_width;
 
         }
     }

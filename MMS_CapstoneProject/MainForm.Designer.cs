@@ -29,8 +29,8 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.Client = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TabControl1 = new System.Windows.Forms.TabControl();
+            this.tpClient = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblPrimaryContactEmail = new System.Windows.Forms.Label();
             this.lblPrimaryContactCell = new System.Windows.Forms.Label();
@@ -40,68 +40,68 @@ namespace MMS_CapstoneProject
             this.txtPrimaryContactName = new System.Windows.Forms.TextBox();
             this.txtPrimaryContactCell = new System.Windows.Forms.TextBox();
             this.txtPrimaryContactEmail = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAddNew = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnRefreshData = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Client.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.TabControl1.SuspendLayout();
+            this.tpClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Client
+            // TabControl1
             // 
-            this.Client.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Client.Controls.Add(this.tabPage1);
-            this.Client.Controls.Add(this.tabPage2);
-            this.Client.Location = new System.Drawing.Point(1, 0);
-            this.Client.Name = "Client";
-            this.Client.SelectedIndex = 0;
-            this.Client.Size = new System.Drawing.Size(878, 556);
-            this.Client.TabIndex = 0;
+            this.TabControl1.Controls.Add(this.tpClient);
+            this.TabControl1.Controls.Add(this.tabPage2);
+            this.TabControl1.Location = new System.Drawing.Point(1, 0);
+            this.TabControl1.Name = "TabControl1";
+            this.TabControl1.SelectedIndex = 0;
+            this.TabControl1.Size = new System.Drawing.Size(743, 430);
+            this.TabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tpClient
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.button9);
-            this.tabPage1.Controls.Add(this.button8);
-            this.tabPage1.Controls.Add(this.button7);
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.txtPrimaryContactEmail);
-            this.tabPage1.Controls.Add(this.txtPrimaryContactCell);
-            this.tabPage1.Controls.Add(this.txtPrimaryContactName);
-            this.tabPage1.Controls.Add(this.txtClientName);
-            this.tabPage1.Controls.Add(this.lblPrimaryContactEmail);
-            this.tabPage1.Controls.Add(this.lblPrimaryContactCell);
-            this.tabPage1.Controls.Add(this.lblPrimaryContactName);
-            this.tabPage1.Controls.Add(this.lblClientName);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(870, 530);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpClient.Controls.Add(this.dataGridView1);
+            this.tpClient.Controls.Add(this.btnExit);
+            this.tpClient.Controls.Add(this.btnRefreshData);
+            this.tpClient.Controls.Add(this.btnUpdate);
+            this.tpClient.Controls.Add(this.btnAddNew);
+            this.tpClient.Controls.Add(this.btnDelete);
+            this.tpClient.Controls.Add(this.btnLast);
+            this.tpClient.Controls.Add(this.btnNext);
+            this.tpClient.Controls.Add(this.btnPrevious);
+            this.tpClient.Controls.Add(this.btnFirst);
+            this.tpClient.Controls.Add(this.txtPrimaryContactEmail);
+            this.tpClient.Controls.Add(this.txtPrimaryContactCell);
+            this.tpClient.Controls.Add(this.txtPrimaryContactName);
+            this.tpClient.Controls.Add(this.txtClientName);
+            this.tpClient.Controls.Add(this.lblPrimaryContactEmail);
+            this.tpClient.Controls.Add(this.lblPrimaryContactCell);
+            this.tpClient.Controls.Add(this.lblPrimaryContactName);
+            this.tpClient.Controls.Add(this.lblClientName);
+            this.tpClient.Location = new System.Drawing.Point(4, 22);
+            this.tpClient.Name = "tpClient";
+            this.tpClient.Padding = new System.Windows.Forms.Padding(3);
+            this.tpClient.Size = new System.Drawing.Size(735, 404);
+            this.tpClient.TabIndex = 0;
+            this.tpClient.Text = "Client";
+            this.tpClient.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(870, 530);
+            this.tabPage2.Size = new System.Drawing.Size(904, 404);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -170,106 +170,110 @@ namespace MMS_CapstoneProject
             this.txtPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
             this.txtPrimaryContactEmail.TabIndex = 7;
             // 
-            // button1
+            // btnFirst
             // 
-            this.button1.Location = new System.Drawing.Point(25, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFirst.Location = new System.Drawing.Point(25, 190);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 23);
+            this.btnFirst.TabIndex = 8;
+            this.btnFirst.Text = "|<";
+            this.btnFirst.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnPrevious
             // 
-            this.button2.Location = new System.Drawing.Point(106, 190);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPrevious.Location = new System.Drawing.Point(106, 190);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.TabIndex = 9;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnNext
             // 
-            this.button3.Location = new System.Drawing.Point(187, 190);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnNext.Location = new System.Drawing.Point(187, 190);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 10;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnLast
             // 
-            this.button4.Location = new System.Drawing.Point(268, 190);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLast.Location = new System.Drawing.Point(268, 190);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 23);
+            this.btnLast.TabIndex = 11;
+            this.btnLast.Text = ">|";
+            this.btnLast.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnDelete
             // 
-            this.button5.Location = new System.Drawing.Point(25, 219);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(25, 219);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnAddNew
             // 
-            this.button6.Location = new System.Drawing.Point(106, 219);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnAddNew.Location = new System.Drawing.Point(106, 219);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNew.TabIndex = 13;
+            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnUpdate
             // 
-            this.button7.Location = new System.Drawing.Point(187, 219);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(187, 219);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 14;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnRefreshData
             // 
-            this.button8.Location = new System.Drawing.Point(25, 248);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 15;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnRefreshData.Location = new System.Drawing.Point(25, 248);
+            this.btnRefreshData.Name = "btnRefreshData";
+            this.btnRefreshData.Size = new System.Drawing.Size(75, 23);
+            this.btnRefreshData.TabIndex = 15;
+            this.btnRefreshData.Text = "Refresh Data";
+            this.btnRefreshData.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnExit
             // 
-            this.button9.Location = new System.Drawing.Point(106, 248);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 16;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(106, 248);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 16;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(496, 40);
+            this.dataGridView1.Location = new System.Drawing.Point(353, 6);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(374, 393);
             this.dataGridView1.TabIndex = 17;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 557);
-            this.Controls.Add(this.Client);
+            this.ClientSize = new System.Drawing.Size(744, 431);
+            this.Controls.Add(this.TabControl1);
             this.Name = "MainForm";
             this.Text = "Motorsport Marshalling Services Track Day Management Suite";
-            this.Client.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.TabControl1.ResumeLayout(false);
+            this.tpClient.ResumeLayout(false);
+            this.tpClient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -277,8 +281,8 @@ namespace MMS_CapstoneProject
 
         #endregion
 
-        private System.Windows.Forms.TabControl Client;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl TabControl1;
+        private System.Windows.Forms.TabPage tpClient;
         private System.Windows.Forms.TextBox txtPrimaryContactEmail;
         private System.Windows.Forms.TextBox txtPrimaryContactCell;
         private System.Windows.Forms.TextBox txtPrimaryContactName;
@@ -289,15 +293,15 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Label lblClientName;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnRefreshData;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAddNew;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnPrevious;
     }
 }
 
