@@ -40,5 +40,18 @@ namespace MMS_CapstoneProject
             this.Width = 373 + dgv_width;
 
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            string clientName = txtClientName.Text;
+            string primaryContactName = txtPrimaryContactName.Text;
+            string primaryContactCell = txtPrimaryContactCell.Text;
+            string primaryContactEmail = txtPrimaryContactEmail.Text;
+
+            ClientModel client = new ClientModel(clientName, primaryContactName, primaryContactCell, primaryContactCell, false);
+
+            
+            Console.WriteLine(clientName);
+        }
     }
 }

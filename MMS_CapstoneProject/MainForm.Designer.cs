@@ -223,6 +223,7 @@ namespace MMS_CapstoneProject
             this.btnAddNew.TabIndex = 13;
             this.btnAddNew.Text = "Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnUpdate
             // 

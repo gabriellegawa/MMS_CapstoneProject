@@ -6,6 +6,15 @@ namespace MMSLibrary
 {
     public class ClientModel
     {
+        public ClientModel(string name, string primaryContactName, string primaryContactCell, string primaryContactEmail, bool isDeleted)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            PrimaryContactName = primaryContactName ?? throw new ArgumentNullException(nameof(primaryContactName));
+            PrimaryContactCell = primaryContactCell ?? throw new ArgumentNullException(nameof(primaryContactCell));
+            PrimaryContactEmail = primaryContactEmail ?? throw new ArgumentNullException(nameof(primaryContactEmail));
+            IsDeleted = isDeleted;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string PrimaryContactName { get; set; }
