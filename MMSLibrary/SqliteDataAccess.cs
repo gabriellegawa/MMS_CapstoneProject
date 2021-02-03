@@ -128,9 +128,32 @@ namespace MMSLibrary
         /// <param name="client">new client</param>
         public static void SaveClient(ClientModel client)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT into Clients values (@)", client);
+                cnn.Open();
+                string sqlStatement = "INSERT INTO Clients(name, primaryContactName, primaryContactCell, primaryContactEmail, isDeleted) VALUES(@name, @primaryContactName, @primaryContactCell, @primaryContactEmail, @isDeleted)";
+
+                var cmd = new SQLiteCommand(sqlStatement,cnn);
+                cmd.Parameters.AddWithValue("@name", client.Name);
+                cmd.Parameters.AddWithValue("@primaryContactName", client.PrimaryContactName);
+                cmd.Parameters.AddWithValue("@primaryContactCell", client.PrimaryContactCell);
+                cmd.Parameters.AddWithValue("@primaryContactEmail", client.PrimaryContactEmail);
+                // HARD CODED FALSE
+                cmd.Parameters.AddWithValue("@isDeleted", false);
+
+                try
+                {
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
             }
         }
         public static string LoadConnectionString(string id = "Default")

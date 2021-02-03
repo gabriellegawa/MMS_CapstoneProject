@@ -21,7 +21,6 @@ namespace MMS_CapstoneProject
             clients = SqliteDataAccess.LoadAllClient();
             clients1 = SqliteDataAccess.LoadClient(1);
 
-            Console.WriteLine("ASD");
 
             InitializeComponent();
 
@@ -49,9 +48,19 @@ namespace MMS_CapstoneProject
             string primaryContactEmail = txtPrimaryContactEmail.Text;
 
             //ClientModel client = new ClientModel(clientName, primaryContactName, primaryContactCell, primaryContactCell, false);
+            ClientModel client = new ClientModel();
+            client.Name = clientName;
+            client.PrimaryContactName = primaryContactName;
+            client.PrimaryContactCell = primaryContactCell;
+            client.PrimaryContactEmail = primaryContactEmail;
 
-            
-            Console.WriteLine(clientName);
+            SqliteDataAccess.SaveClient(client);
+            var source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
+
+            dataGridView1.DataSource = source;
+
+            Console.WriteLine(client);
+            Console.WriteLine(client);
         }
     }
 }
