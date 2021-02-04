@@ -31,6 +31,8 @@ namespace MMS_CapstoneProject
         {
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tpClient = new System.Windows.Forms.TabPage();
+            this.txtClientId = new System.Windows.Forms.TextBox();
+            this.lblClientId = new System.Windows.Forms.Label();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRefreshData = new System.Windows.Forms.Button();
@@ -50,8 +52,6 @@ namespace MMS_CapstoneProject
             this.lblPrimaryContactName = new System.Windows.Forms.Label();
             this.lblClientName = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblClientId = new System.Windows.Forms.Label();
-            this.txtClientId = new System.Windows.Forms.TextBox();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
@@ -100,8 +100,26 @@ namespace MMS_CapstoneProject
             this.tpClient.Text = "Client";
             this.tpClient.UseVisualStyleBackColor = true;
             // 
+            // txtClientId
+            // 
+            this.txtClientId.Enabled = false;
+            this.txtClientId.Location = new System.Drawing.Point(178, 13);
+            this.txtClientId.Name = "txtClientId";
+            this.txtClientId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientId.TabIndex = 1;
+            // 
+            // lblClientId
+            // 
+            this.lblClientId.AutoSize = true;
+            this.lblClientId.Location = new System.Drawing.Point(116, 16);
+            this.lblClientId.Name = "lblClientId";
+            this.lblClientId.Size = new System.Drawing.Size(21, 13);
+            this.lblClientId.TabIndex = 0;
+            this.lblClientId.Text = "ID:";
+            // 
             // dataGridViewClient
             // 
+            this.dataGridViewClient.AllowUserToAddRows = false;
             this.dataGridViewClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -267,23 +285,6 @@ namespace MMS_CapstoneProject
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lblClientId
-            // 
-            this.lblClientId.AutoSize = true;
-            this.lblClientId.Location = new System.Drawing.Point(116, 16);
-            this.lblClientId.Name = "lblClientId";
-            this.lblClientId.Size = new System.Drawing.Size(21, 13);
-            this.lblClientId.TabIndex = 0;
-            this.lblClientId.Text = "ID:";
-            // 
-            // txtClientId
-            // 
-            this.txtClientId.Enabled = false;
-            this.txtClientId.Location = new System.Drawing.Point(178, 13);
-            this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(100, 20);
-            this.txtClientId.TabIndex = 1;
             // 
             // MainForm
             // 
