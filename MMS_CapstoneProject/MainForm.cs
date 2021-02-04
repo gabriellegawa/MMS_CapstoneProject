@@ -29,14 +29,7 @@ namespace MMS_CapstoneProject
         private void MainForm_Load(object sender, EventArgs e)
         {
             //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
-            var source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
-
-            dataGridView1.DataSource = source;
-            dataGridView1.AutoResizeColumns();
-
-            int dgv_width = dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-
-            this.Width = 373 + dgv_width;
+            RefreshDataGridViewData();
 
         }
 
@@ -55,12 +48,39 @@ namespace MMS_CapstoneProject
             client.PrimaryContactEmail = primaryContactEmail;
 
             SqliteDataAccess.SaveClient(client);
+            RefreshDataGridViewData();
+
+            Console.WriteLine(client);
+            Console.WriteLine(client);
+        }
+
+        /// <summary>
+        /// re
+        /// </summary>
+        public void RefreshDataGridViewData()
+        {
             var source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
 
-            dataGridView1.DataSource = source;
+            dataGridViewClient.DataSource = source;
+            dataGridViewClient.AutoResizeColumns();
 
-            Console.WriteLine(client);
-            Console.WriteLine(client);
+            int dgv_width = dataGridViewClient.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+
+            this.Width = 373 + dgv_width;
+        }
+
+        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridViewClient.Rows[e.RowIndex];
+                txtClientId.Text = row.Cells[0].Value.ToString();
+                txtClientName.Text = row.Cells[1].Value.ToString();
+                txtPrimaryContactName.Text = row.Cells[2].Value.ToString();
+                txtPrimaryContactCell.Text = row.Cells[3].Value.ToString();
+                txtPrimaryContactEmail.Text = row.Cells[4].Value.ToString();
+            }
+
         }
     }
 }
