@@ -107,5 +107,18 @@ namespace MMS_CapstoneProject
         {
             this.Close();
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtClientId.Clear();
+            txtClientName.Clear();
+            txtPrimaryContactName.Clear();
+            txtPrimaryContactCell.Clear();
+            txtPrimaryContactEmail.Clear();
+
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+
+        }
     }
 }
