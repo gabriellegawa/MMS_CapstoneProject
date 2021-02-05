@@ -89,7 +89,23 @@ namespace MMS_CapstoneProject
 
 
             }
+            btnDelete.Enabled = true;
+            btnUpdate.Enabled = true;
+        }
 
+        private void btnRefreshData_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridViewData(dataGridViewClient);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

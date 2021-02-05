@@ -52,6 +52,7 @@ namespace MMS_CapstoneProject
             this.lblPrimaryContactName = new System.Windows.Forms.Label();
             this.lblClientName = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnClear = new System.Windows.Forms.Button();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
@@ -72,6 +73,7 @@ namespace MMS_CapstoneProject
             // 
             // tpClient
             // 
+            this.tpClient.Controls.Add(this.btnClear);
             this.tpClient.Controls.Add(this.txtClientId);
             this.tpClient.Controls.Add(this.lblClientId);
             this.tpClient.Controls.Add(this.dataGridViewClient);
@@ -127,34 +129,37 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient.Location = new System.Drawing.Point(353, 6);
             this.dataGridViewClient.Name = "dataGridViewClient";
             this.dataGridViewClient.Size = new System.Drawing.Size(374, 393);
-            this.dataGridViewClient.TabIndex = 19;
+            this.dataGridViewClient.TabIndex = 20;
             this.dataGridViewClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClient_CellClick);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(106, 248);
+            this.btnExit.Location = new System.Drawing.Point(187, 248);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 18;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Size = new System.Drawing.Size(156, 23);
+            this.btnExit.TabIndex = 19;
+            this.btnExit.Text = "&Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRefreshData
             // 
             this.btnRefreshData.Location = new System.Drawing.Point(25, 248);
             this.btnRefreshData.Name = "btnRefreshData";
-            this.btnRefreshData.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshData.TabIndex = 17;
-            this.btnRefreshData.Text = "Refresh Data";
+            this.btnRefreshData.Size = new System.Drawing.Size(156, 23);
+            this.btnRefreshData.TabIndex = 18;
+            this.btnRefreshData.Text = "&Refresh Data";
             this.btnRefreshData.UseVisualStyleBackColor = true;
+            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(187, 219);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 16;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnAddNew
@@ -163,18 +168,20 @@ namespace MMS_CapstoneProject
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 15;
-            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.Text = "&Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(25, 219);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 14;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnLast
             // 
@@ -286,6 +293,15 @@ namespace MMS_CapstoneProject
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(269, 219);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 17;
+            this.btnClear.Text = "&Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,6 +344,7 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.TextBox txtClientId;
         private System.Windows.Forms.Label lblClientId;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
