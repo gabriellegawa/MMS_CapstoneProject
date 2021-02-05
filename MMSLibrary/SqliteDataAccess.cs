@@ -156,6 +156,63 @@ namespace MMSLibrary
                 }
             }
         }
+
+        public static bool DeactivateClient(int id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "UPDATE Clients SET isDeleted = 1 WHERE id = @id ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                // HARD CODED FALSE
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+        }
+        public static bool ActivateClient(int id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "UPDATE Clients SET isDeleted = 0 WHERE id = @id ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                // HARD CODED FALSE
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+        }
         public static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

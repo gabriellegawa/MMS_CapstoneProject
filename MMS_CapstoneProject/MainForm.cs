@@ -21,6 +21,7 @@ namespace MMS_CapstoneProject
             clients = SqliteDataAccess.LoadAllClient();
             clients1 = SqliteDataAccess.LoadClient(1);
 
+            bool test = SqliteDataAccess.ActivateClient(1);
 
             InitializeComponent();
 
