@@ -37,6 +37,7 @@ namespace MMSLibrary
                 return output.ToList();
             }
         }
+
         /// <summary>
         /// LoadClient - Retrieve client excluding the deleted 
         /// </summary>
@@ -60,6 +61,72 @@ namespace MMSLibrary
             {
                 var output = cnn.Query<ClientModel>("SELECT * FROM Clients WHERE isDeleted = 0", new DynamicParameters());
                 return output.ToList();
+            }
+        }
+
+        /// <summary>
+        /// DeactivateClient - deactivate client by setting isDeleted field to true
+        /// </summary>
+        /// <param name="id">client id</param>
+        /// <returns>bool true or false</returns>
+        public static bool DeactivateClient(int id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "UPDATE Clients SET isDeleted = 1 WHERE id = @id ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+        }
+
+        /// <summary>
+        /// ActivateClient - activate client by setting isDeleted field to false
+        /// </summary>
+        /// <param name="id">client id</param>
+        /// <returns>bool true or false</returns>
+        public static bool ActivateClient(int id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "UPDATE Clients SET isDeleted = 0 WHERE id = @id ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
             }
         }
         #endregion
@@ -133,7 +200,7 @@ namespace MMSLibrary
                 cnn.Open();
                 string sqlStatement = "INSERT INTO Clients(name, primaryContactName, primaryContactCell, primaryContactEmail, isDeleted) VALUES(@name, @primaryContactName, @primaryContactCell, @primaryContactEmail, @isDeleted)";
 
-                var cmd = new SQLiteCommand(sqlStatement,cnn);
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@name", client.Name);
                 cmd.Parameters.AddWithValue("@primaryContactName", client.PrimaryContactName);
                 cmd.Parameters.AddWithValue("@primaryContactCell", client.PrimaryContactCell);
@@ -157,62 +224,13 @@ namespace MMSLibrary
             }
         }
 
-        public static bool DeactivateClient(int id)
-        {
-            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var ReturnVal = 0;
-                cnn.Open();
-                string sqlStatement = "UPDATE Clients SET isDeleted = 1 WHERE id = @id ";
 
-                var cmd = new SQLiteCommand(sqlStatement, cnn);
-                // HARD CODED FALSE
-                cmd.Parameters.AddWithValue("@id", id);
 
-                try
-                {
-                    cmd.Prepare();
-                    ReturnVal = cmd.ExecuteNonQuery();
-                }
-                catch (SQLiteException ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    cnn.Close();
-                }
-                return ReturnVal == 1;
-            }
-        }
-        public static bool ActivateClient(int id)
-        {
-            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var ReturnVal = 0;
-                cnn.Open();
-                string sqlStatement = "UPDATE Clients SET isDeleted = 0 WHERE id = @id ";
-
-                var cmd = new SQLiteCommand(sqlStatement, cnn);
-                // HARD CODED FALSE
-                cmd.Parameters.AddWithValue("@id", id);
-
-                try
-                {
-                    cmd.Prepare();
-                    ReturnVal = cmd.ExecuteNonQuery();
-                }
-                catch (SQLiteException ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    cnn.Close();
-                }
-                return ReturnVal == 1;
-            }
-        }
+        /// <summary>
+        /// LoadConnectionString - setting up connection to sqlite database file
+        /// </summary>
+        /// <param name="id">default - check app config to modify</param>
+        /// <returns>cpnnection string</returns>
         public static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
