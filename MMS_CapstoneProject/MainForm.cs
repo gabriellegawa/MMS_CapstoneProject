@@ -36,25 +36,60 @@ namespace MMS_CapstoneProject
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            string errorMessage = string.Empty;
+            lblErrorMessage.Visible = false;
             string clientName = txtClientName.Text;
             string primaryContactName = txtPrimaryContactName.Text;
             string primaryContactCell = txtPrimaryContactCell.Text;
             string primaryContactEmail = txtPrimaryContactEmail.Text;
 
-            //ClientModel client = new ClientModel(clientName, primaryContactName, primaryContactCell, primaryContactCell, false);
-            ClientModel client = new ClientModel();
-            client.Name = clientName;
-            client.PrimaryContactName = primaryContactName;
-            client.PrimaryContactCell = primaryContactCell;
-            client.PrimaryContactEmail = primaryContactEmail;
+            if (clientName == string.Empty)
+            {
+                errorMessage += "Please fill out client name\n";
+            }
+            if (primaryContactName == string.Empty)
+            {
+                errorMessage += "Please fill out primary contact name\n";
+            }
+            if (primaryContactCell == string.Empty)
+            {
+                errorMessage += "Please fill out primary contact cell\n";
+            }
+            if (primaryContactEmail == string.Empty)
+            {
+                errorMessage += "Please fill out primary contact email\n";
+            }
+            else if (IsValidEmail(primaryContactEmail))
+            {
+                errorMessage += primaryContactEmail + " is not a valid email\n";
+            }
 
-            SqliteDataAccess.SaveClient(client);
-            RefreshDataGridViewData(dataGridViewClient);
+            if (errorMessage == string.Empty)
+            {
+                ClientModel client = new ClientModel();
+                client.Name = clientName;
+                client.PrimaryContactName = primaryContactName;
+                client.PrimaryContactCell = primaryContactCell;
+                client.PrimaryContactEmail = primaryContactEmail;
 
-            txtClientName.Text = string.Empty;
-            txtPrimaryContactName.Clear();
-            txtPrimaryContactCell.Clear();
-            txtPrimaryContactEmail.Clear();
+                SqliteDataAccess.SaveClient(client);
+                RefreshDataGridViewData(dataGridViewClient);
+
+                txtClientName.Text = string.Empty;
+                txtPrimaryContactName.Clear();
+                txtPrimaryContactCell.Clear();
+                txtPrimaryContactEmail.Clear();
+
+                lblErrorMessage.Text = "Successfully inserted new client";
+                lblErrorMessage.Visible = true;
+            }
+            else
+            {
+                lblErrorMessage.Text = "Error Message: " + errorMessage;
+                lblErrorMessage.Visible = true;
+            }
+
+
         }
 
         /// <summary>
@@ -127,6 +162,8 @@ namespace MMS_CapstoneProject
             gbEdit.Visible = false;
             gbMenu.Visible = false;
             gbCreate.Visible = true;
+
+            dataGridViewClient.Enabled = false;
         }
 
         private void btnEditMode_Click(object sender, EventArgs e)
@@ -134,6 +171,8 @@ namespace MMS_CapstoneProject
             gbEdit.Visible = true;
             gbMenu.Visible = false;
             gbCreate.Visible = false;
+
+            dataGridViewClient.Enabled = true;
         }
 
         private void btnBackMenu_Click(object sender, EventArgs e)
@@ -142,11 +181,27 @@ namespace MMS_CapstoneProject
             gbMenu.Visible = true;
             gbCreate.Visible = false;
 
+            dataGridViewClient.Enabled = false;
+
             txtClientId.Clear();
             txtClientName.Clear();
             txtPrimaryContactName.Clear();
             txtPrimaryContactCell.Clear();
             txtPrimaryContactEmail.Clear();
         }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

@@ -279,7 +279,7 @@ namespace MMS_CapstoneProject
             // 
             this.lblErrorMessage.Location = new System.Drawing.Point(25, 151);
             this.lblErrorMessage.Name = "lblErrorMessage";
-            this.lblErrorMessage.Size = new System.Drawing.Size(318, 36);
+            this.lblErrorMessage.Size = new System.Drawing.Size(318, 62);
             this.lblErrorMessage.TabIndex = 16;
             this.lblErrorMessage.Text = "Error Message:";
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -309,6 +309,7 @@ namespace MMS_CapstoneProject
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClient.Enabled = false;
             this.dataGridViewClient.Location = new System.Drawing.Point(353, 6);
             this.dataGridViewClient.Name = "dataGridViewClient";
             this.dataGridViewClient.Size = new System.Drawing.Size(374, 393);
