@@ -114,10 +114,10 @@ namespace MMS_CapstoneProject
             // 
             this.gbMenu.Controls.Add(this.btnEditMode);
             this.gbMenu.Controls.Add(this.btnCreateNewMode);
-            this.gbMenu.Location = new System.Drawing.Point(25, 208);
+            this.gbMenu.Location = new System.Drawing.Point(25, 244);
             this.gbMenu.Name = "gbMenu";
             this.gbMenu.Size = new System.Drawing.Size(318, 34);
-            this.gbMenu.TabIndex = 26;
+            this.gbMenu.TabIndex = 10;
             this.gbMenu.TabStop = false;
             // 
             // btnEditMode
@@ -125,8 +125,8 @@ namespace MMS_CapstoneProject
             this.btnEditMode.Location = new System.Drawing.Point(162, 8);
             this.btnEditMode.Name = "btnEditMode";
             this.btnEditMode.Size = new System.Drawing.Size(156, 23);
-            this.btnEditMode.TabIndex = 23;
-            this.btnEditMode.Text = "Edit Mode";
+            this.btnEditMode.TabIndex = 1;
+            this.btnEditMode.Text = "&Edit Mode";
             this.btnEditMode.UseVisualStyleBackColor = true;
             this.btnEditMode.Click += new System.EventHandler(this.btnEditMode_Click);
             // 
@@ -135,8 +135,8 @@ namespace MMS_CapstoneProject
             this.btnCreateNewMode.Location = new System.Drawing.Point(0, 8);
             this.btnCreateNewMode.Name = "btnCreateNewMode";
             this.btnCreateNewMode.Size = new System.Drawing.Size(156, 23);
-            this.btnCreateNewMode.TabIndex = 24;
-            this.btnCreateNewMode.Text = "Create New Mode";
+            this.btnCreateNewMode.TabIndex = 0;
+            this.btnCreateNewMode.Text = "Create &New Mode";
             this.btnCreateNewMode.UseVisualStyleBackColor = true;
             this.btnCreateNewMode.Click += new System.EventHandler(this.btnCreateNewMode_Click);
             // 
@@ -145,10 +145,10 @@ namespace MMS_CapstoneProject
             this.gbCreate.Controls.Add(this.btnBackMenu_1);
             this.gbCreate.Controls.Add(this.btnAddNew);
             this.gbCreate.Controls.Add(this.btnClear);
-            this.gbCreate.Location = new System.Drawing.Point(25, 180);
+            this.gbCreate.Location = new System.Drawing.Point(25, 216);
             this.gbCreate.Name = "gbCreate";
             this.gbCreate.Size = new System.Drawing.Size(318, 62);
-            this.gbCreate.TabIndex = 25;
+            this.gbCreate.TabIndex = 11;
             this.gbCreate.TabStop = false;
             this.gbCreate.Visible = false;
             // 
@@ -157,8 +157,8 @@ namespace MMS_CapstoneProject
             this.btnBackMenu_1.Location = new System.Drawing.Point(0, 38);
             this.btnBackMenu_1.Name = "btnBackMenu_1";
             this.btnBackMenu_1.Size = new System.Drawing.Size(318, 23);
-            this.btnBackMenu_1.TabIndex = 22;
-            this.btnBackMenu_1.Text = "Back to Menu";
+            this.btnBackMenu_1.TabIndex = 2;
+            this.btnBackMenu_1.Text = "&Back to Menu";
             this.btnBackMenu_1.UseVisualStyleBackColor = true;
             this.btnBackMenu_1.Click += new System.EventHandler(this.btnBackMenu_Click);
             // 
@@ -167,7 +167,7 @@ namespace MMS_CapstoneProject
             this.btnAddNew.Location = new System.Drawing.Point(0, 9);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(156, 23);
-            this.btnAddNew.TabIndex = 15;
+            this.btnAddNew.TabIndex = 0;
             this.btnAddNew.Text = "&Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
@@ -177,7 +177,7 @@ namespace MMS_CapstoneProject
             this.btnClear.Location = new System.Drawing.Point(162, 9);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(156, 23);
-            this.btnClear.TabIndex = 17;
+            this.btnClear.TabIndex = 1;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -192,10 +192,10 @@ namespace MMS_CapstoneProject
             this.gbEdit.Controls.Add(this.btnNext);
             this.gbEdit.Controls.Add(this.btnPrevious);
             this.gbEdit.Controls.Add(this.btnFirst);
-            this.gbEdit.Location = new System.Drawing.Point(25, 154);
+            this.gbEdit.Location = new System.Drawing.Point(25, 190);
             this.gbEdit.Name = "gbEdit";
             this.gbEdit.Size = new System.Drawing.Size(318, 88);
-            this.gbEdit.TabIndex = 22;
+            this.gbEdit.TabIndex = 12;
             this.gbEdit.TabStop = false;
             this.gbEdit.Visible = false;
             // 
@@ -204,8 +204,8 @@ namespace MMS_CapstoneProject
             this.btnBackMenu.Location = new System.Drawing.Point(0, 65);
             this.btnBackMenu.Name = "btnBackMenu";
             this.btnBackMenu.Size = new System.Drawing.Size(318, 23);
-            this.btnBackMenu.TabIndex = 21;
-            this.btnBackMenu.Text = "Back to Menu";
+            this.btnBackMenu.TabIndex = 7;
+            this.btnBackMenu.Text = "&Back to Menu";
             this.btnBackMenu.UseVisualStyleBackColor = true;
             this.btnBackMenu.Click += new System.EventHandler(this.btnBackMenu_Click);
             // 
@@ -214,7 +214,7 @@ namespace MMS_CapstoneProject
             this.btnClear_1.Location = new System.Drawing.Point(217, 36);
             this.btnClear_1.Name = "btnClear_1";
             this.btnClear_1.Size = new System.Drawing.Size(101, 23);
-            this.btnClear_1.TabIndex = 20;
+            this.btnClear_1.TabIndex = 6;
             this.btnClear_1.Text = "&Clear";
             this.btnClear_1.UseVisualStyleBackColor = true;
             this.btnClear_1.Click += new System.EventHandler(this.btnClear_Click);
@@ -225,7 +225,7 @@ namespace MMS_CapstoneProject
             this.btnUpdate.Location = new System.Drawing.Point(0, 36);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(101, 23);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -235,7 +235,7 @@ namespace MMS_CapstoneProject
             this.btnDelete.Location = new System.Drawing.Point(107, 36);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(101, 23);
-            this.btnDelete.TabIndex = 18;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
@@ -244,7 +244,7 @@ namespace MMS_CapstoneProject
             this.btnLast.Location = new System.Drawing.Point(243, 10);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(75, 23);
-            this.btnLast.TabIndex = 17;
+            this.btnLast.TabIndex = 3;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
             // 
@@ -253,7 +253,7 @@ namespace MMS_CapstoneProject
             this.btnNext.Location = new System.Drawing.Point(162, 10);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 16;
+            this.btnNext.TabIndex = 2;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
@@ -262,7 +262,7 @@ namespace MMS_CapstoneProject
             this.btnPrevious.Location = new System.Drawing.Point(81, 10);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btnPrevious.TabIndex = 15;
+            this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             // 
@@ -271,7 +271,7 @@ namespace MMS_CapstoneProject
             this.btnFirst.Location = new System.Drawing.Point(0, 10);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(75, 23);
-            this.btnFirst.TabIndex = 14;
+            this.btnFirst.TabIndex = 0;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
             // 
@@ -280,7 +280,7 @@ namespace MMS_CapstoneProject
             this.lblErrorMessage.Location = new System.Drawing.Point(25, 151);
             this.lblErrorMessage.Name = "lblErrorMessage";
             this.lblErrorMessage.Size = new System.Drawing.Size(318, 36);
-            this.lblErrorMessage.TabIndex = 21;
+            this.lblErrorMessage.TabIndex = 16;
             this.lblErrorMessage.Text = "Error Message:";
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblErrorMessage.Visible = false;
@@ -312,25 +312,25 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient.Location = new System.Drawing.Point(353, 6);
             this.dataGridViewClient.Name = "dataGridViewClient";
             this.dataGridViewClient.Size = new System.Drawing.Size(374, 393);
-            this.dataGridViewClient.TabIndex = 20;
+            this.dataGridViewClient.TabIndex = 15;
             this.dataGridViewClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClient_CellClick);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(187, 248);
+            this.btnExit.Location = new System.Drawing.Point(187, 284);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(156, 23);
-            this.btnExit.TabIndex = 19;
+            this.btnExit.TabIndex = 14;
             this.btnExit.Text = "&Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRefreshData
             // 
-            this.btnRefreshData.Location = new System.Drawing.Point(25, 248);
+            this.btnRefreshData.Location = new System.Drawing.Point(25, 284);
             this.btnRefreshData.Name = "btnRefreshData";
             this.btnRefreshData.Size = new System.Drawing.Size(156, 23);
-            this.btnRefreshData.TabIndex = 18;
+            this.btnRefreshData.TabIndex = 13;
             this.btnRefreshData.Text = "&Refresh Data";
             this.btnRefreshData.UseVisualStyleBackColor = true;
             this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
