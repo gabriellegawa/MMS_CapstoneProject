@@ -31,18 +31,28 @@ namespace MMS_CapstoneProject
         {
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tpClient = new System.Windows.Forms.TabPage();
-            this.txtClientId = new System.Windows.Forms.TextBox();
-            this.lblClientId = new System.Windows.Forms.Label();
-            this.dataGridViewClient = new System.Windows.Forms.DataGridView();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnRefreshData = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.gbMenu = new System.Windows.Forms.GroupBox();
+            this.btnEditMode = new System.Windows.Forms.Button();
+            this.btnCreateNewMode = new System.Windows.Forms.Button();
+            this.gbCreate = new System.Windows.Forms.GroupBox();
+            this.btnBackMenu_1 = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.gbEdit = new System.Windows.Forms.GroupBox();
+            this.btnBackMenu = new System.Windows.Forms.Button();
+            this.btnClear_1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
+            this.lblErrorMessage = new System.Windows.Forms.Label();
+            this.txtClientId = new System.Windows.Forms.TextBox();
+            this.lblClientId = new System.Windows.Forms.Label();
+            this.dataGridViewClient = new System.Windows.Forms.DataGridView();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnRefreshData = new System.Windows.Forms.Button();
             this.txtPrimaryContactEmail = new System.Windows.Forms.TextBox();
             this.txtPrimaryContactCell = new System.Windows.Forms.TextBox();
             this.txtPrimaryContactName = new System.Windows.Forms.TextBox();
@@ -52,9 +62,11 @@ namespace MMS_CapstoneProject
             this.lblPrimaryContactName = new System.Windows.Forms.Label();
             this.lblClientName = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnClear = new System.Windows.Forms.Button();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
+            this.gbMenu.SuspendLayout();
+            this.gbCreate.SuspendLayout();
+            this.gbEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,19 +85,15 @@ namespace MMS_CapstoneProject
             // 
             // tpClient
             // 
-            this.tpClient.Controls.Add(this.btnClear);
+            this.tpClient.Controls.Add(this.gbMenu);
+            this.tpClient.Controls.Add(this.gbCreate);
+            this.tpClient.Controls.Add(this.gbEdit);
+            this.tpClient.Controls.Add(this.lblErrorMessage);
             this.tpClient.Controls.Add(this.txtClientId);
             this.tpClient.Controls.Add(this.lblClientId);
             this.tpClient.Controls.Add(this.dataGridViewClient);
             this.tpClient.Controls.Add(this.btnExit);
             this.tpClient.Controls.Add(this.btnRefreshData);
-            this.tpClient.Controls.Add(this.btnUpdate);
-            this.tpClient.Controls.Add(this.btnAddNew);
-            this.tpClient.Controls.Add(this.btnDelete);
-            this.tpClient.Controls.Add(this.btnLast);
-            this.tpClient.Controls.Add(this.btnNext);
-            this.tpClient.Controls.Add(this.btnPrevious);
-            this.tpClient.Controls.Add(this.btnFirst);
             this.tpClient.Controls.Add(this.txtPrimaryContactEmail);
             this.tpClient.Controls.Add(this.txtPrimaryContactCell);
             this.tpClient.Controls.Add(this.txtPrimaryContactName);
@@ -101,6 +109,181 @@ namespace MMS_CapstoneProject
             this.tpClient.TabIndex = 0;
             this.tpClient.Text = "Client";
             this.tpClient.UseVisualStyleBackColor = true;
+            // 
+            // gbMenu
+            // 
+            this.gbMenu.Controls.Add(this.btnEditMode);
+            this.gbMenu.Controls.Add(this.btnCreateNewMode);
+            this.gbMenu.Location = new System.Drawing.Point(25, 208);
+            this.gbMenu.Name = "gbMenu";
+            this.gbMenu.Size = new System.Drawing.Size(318, 34);
+            this.gbMenu.TabIndex = 26;
+            this.gbMenu.TabStop = false;
+            // 
+            // btnEditMode
+            // 
+            this.btnEditMode.Location = new System.Drawing.Point(162, 8);
+            this.btnEditMode.Name = "btnEditMode";
+            this.btnEditMode.Size = new System.Drawing.Size(156, 23);
+            this.btnEditMode.TabIndex = 23;
+            this.btnEditMode.Text = "Edit Mode";
+            this.btnEditMode.UseVisualStyleBackColor = true;
+            this.btnEditMode.Click += new System.EventHandler(this.btnEditMode_Click);
+            // 
+            // btnCreateNewMode
+            // 
+            this.btnCreateNewMode.Location = new System.Drawing.Point(0, 8);
+            this.btnCreateNewMode.Name = "btnCreateNewMode";
+            this.btnCreateNewMode.Size = new System.Drawing.Size(156, 23);
+            this.btnCreateNewMode.TabIndex = 24;
+            this.btnCreateNewMode.Text = "Create New Mode";
+            this.btnCreateNewMode.UseVisualStyleBackColor = true;
+            this.btnCreateNewMode.Click += new System.EventHandler(this.btnCreateNewMode_Click);
+            // 
+            // gbCreate
+            // 
+            this.gbCreate.Controls.Add(this.btnBackMenu_1);
+            this.gbCreate.Controls.Add(this.btnAddNew);
+            this.gbCreate.Controls.Add(this.btnClear);
+            this.gbCreate.Location = new System.Drawing.Point(25, 180);
+            this.gbCreate.Name = "gbCreate";
+            this.gbCreate.Size = new System.Drawing.Size(318, 62);
+            this.gbCreate.TabIndex = 25;
+            this.gbCreate.TabStop = false;
+            this.gbCreate.Visible = false;
+            // 
+            // btnBackMenu_1
+            // 
+            this.btnBackMenu_1.Location = new System.Drawing.Point(0, 38);
+            this.btnBackMenu_1.Name = "btnBackMenu_1";
+            this.btnBackMenu_1.Size = new System.Drawing.Size(318, 23);
+            this.btnBackMenu_1.TabIndex = 22;
+            this.btnBackMenu_1.Text = "Back to Menu";
+            this.btnBackMenu_1.UseVisualStyleBackColor = true;
+            this.btnBackMenu_1.Click += new System.EventHandler(this.btnBackMenu_Click);
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(0, 9);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(156, 23);
+            this.btnAddNew.TabIndex = 15;
+            this.btnAddNew.Text = "&Add New";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(162, 9);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(156, 23);
+            this.btnClear.TabIndex = 17;
+            this.btnClear.Text = "&Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // gbEdit
+            // 
+            this.gbEdit.Controls.Add(this.btnBackMenu);
+            this.gbEdit.Controls.Add(this.btnClear_1);
+            this.gbEdit.Controls.Add(this.btnUpdate);
+            this.gbEdit.Controls.Add(this.btnDelete);
+            this.gbEdit.Controls.Add(this.btnLast);
+            this.gbEdit.Controls.Add(this.btnNext);
+            this.gbEdit.Controls.Add(this.btnPrevious);
+            this.gbEdit.Controls.Add(this.btnFirst);
+            this.gbEdit.Location = new System.Drawing.Point(25, 154);
+            this.gbEdit.Name = "gbEdit";
+            this.gbEdit.Size = new System.Drawing.Size(318, 88);
+            this.gbEdit.TabIndex = 22;
+            this.gbEdit.TabStop = false;
+            this.gbEdit.Visible = false;
+            // 
+            // btnBackMenu
+            // 
+            this.btnBackMenu.Location = new System.Drawing.Point(0, 65);
+            this.btnBackMenu.Name = "btnBackMenu";
+            this.btnBackMenu.Size = new System.Drawing.Size(318, 23);
+            this.btnBackMenu.TabIndex = 21;
+            this.btnBackMenu.Text = "Back to Menu";
+            this.btnBackMenu.UseVisualStyleBackColor = true;
+            this.btnBackMenu.Click += new System.EventHandler(this.btnBackMenu_Click);
+            // 
+            // btnClear_1
+            // 
+            this.btnClear_1.Location = new System.Drawing.Point(217, 36);
+            this.btnClear_1.Name = "btnClear_1";
+            this.btnClear_1.Size = new System.Drawing.Size(101, 23);
+            this.btnClear_1.TabIndex = 20;
+            this.btnClear_1.Text = "&Clear";
+            this.btnClear_1.UseVisualStyleBackColor = true;
+            this.btnClear_1.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Location = new System.Drawing.Point(0, 36);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(101, 23);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.Text = "&Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(107, 36);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(101, 23);
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnLast
+            // 
+            this.btnLast.Location = new System.Drawing.Point(243, 10);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 23);
+            this.btnLast.TabIndex = 17;
+            this.btnLast.Text = ">|";
+            this.btnLast.UseVisualStyleBackColor = true;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(162, 10);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 16;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(81, 10);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.TabIndex = 15;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(0, 10);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 23);
+            this.btnFirst.TabIndex = 14;
+            this.btnFirst.Text = "|<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            // 
+            // lblErrorMessage
+            // 
+            this.lblErrorMessage.Location = new System.Drawing.Point(25, 151);
+            this.lblErrorMessage.Name = "lblErrorMessage";
+            this.lblErrorMessage.Size = new System.Drawing.Size(318, 36);
+            this.lblErrorMessage.TabIndex = 21;
+            this.lblErrorMessage.Text = "Error Message:";
+            this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErrorMessage.Visible = false;
             // 
             // txtClientId
             // 
@@ -151,73 +334,6 @@ namespace MMS_CapstoneProject
             this.btnRefreshData.Text = "&Refresh Data";
             this.btnRefreshData.UseVisualStyleBackColor = true;
             this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(187, 219);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 16;
-            this.btnUpdate.Text = "&Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Location = new System.Drawing.Point(106, 219);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNew.TabIndex = 15;
-            this.btnAddNew.Text = "&Add New";
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(25, 219);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 14;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnLast
-            // 
-            this.btnLast.Location = new System.Drawing.Point(268, 190);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(75, 23);
-            this.btnLast.TabIndex = 13;
-            this.btnLast.Text = ">|";
-            this.btnLast.UseVisualStyleBackColor = true;
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(187, 190);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 12;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Location = new System.Drawing.Point(106, 190);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btnPrevious.TabIndex = 11;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.Location = new System.Drawing.Point(25, 190);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 23);
-            this.btnFirst.TabIndex = 10;
-            this.btnFirst.Text = "|<";
-            this.btnFirst.UseVisualStyleBackColor = true;
             // 
             // txtPrimaryContactEmail
             // 
@@ -293,16 +409,6 @@ namespace MMS_CapstoneProject
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(269, 219);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 17;
-            this.btnClear.Text = "&Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +421,9 @@ namespace MMS_CapstoneProject
             this.TabControl1.ResumeLayout(false);
             this.tpClient.ResumeLayout(false);
             this.tpClient.PerformLayout();
+            this.gbMenu.ResumeLayout(false);
+            this.gbCreate.ResumeLayout(false);
+            this.gbEdit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
             this.ResumeLayout(false);
 
@@ -336,16 +445,25 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.DataGridView dataGridViewClient;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRefreshData;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnLast;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnFirst;
-        private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.TextBox txtClientId;
         private System.Windows.Forms.Label lblClientId;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label lblErrorMessage;
+        private System.Windows.Forms.GroupBox gbEdit;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnCreateNewMode;
+        private System.Windows.Forms.Button btnEditMode;
+        private System.Windows.Forms.Button btnClear_1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.GroupBox gbCreate;
+        private System.Windows.Forms.Button btnBackMenu_1;
+        private System.Windows.Forms.Button btnBackMenu;
+        private System.Windows.Forms.GroupBox gbMenu;
     }
 }
 

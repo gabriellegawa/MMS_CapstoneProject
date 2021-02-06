@@ -91,6 +91,7 @@ namespace MMS_CapstoneProject
             }
             btnDelete.Enabled = true;
             btnUpdate.Enabled = true;
+            btnAddNew.Enabled = false;
         }
 
         private void btnRefreshData_Click(object sender, EventArgs e)
@@ -119,6 +120,33 @@ namespace MMS_CapstoneProject
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
 
+        }
+
+        private void btnCreateNewMode_Click(object sender, EventArgs e)
+        {
+            gbEdit.Visible = false;
+            gbMenu.Visible = false;
+            gbCreate.Visible = true;
+        }
+
+        private void btnEditMode_Click(object sender, EventArgs e)
+        {
+            gbEdit.Visible = true;
+            gbMenu.Visible = false;
+            gbCreate.Visible = false;
+        }
+
+        private void btnBackMenu_Click(object sender, EventArgs e)
+        {
+            gbEdit.Visible = false;
+            gbMenu.Visible = true;
+            gbCreate.Visible = false;
+
+            txtClientId.Clear();
+            txtClientName.Clear();
+            txtPrimaryContactName.Clear();
+            txtPrimaryContactCell.Clear();
+            txtPrimaryContactEmail.Clear();
         }
     }
 }
