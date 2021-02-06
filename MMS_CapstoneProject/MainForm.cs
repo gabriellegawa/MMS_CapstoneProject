@@ -32,6 +32,7 @@ namespace MMS_CapstoneProject
             //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
             RefreshDataGridViewData(dataGridViewClient);
 
+
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace MMS_CapstoneProject
             {
                 errorMessage += "Please fill out primary contact name\n";
             }
-            if (primaryContactCell == string.Empty)
+            if (!txtPrimaryContactCell.MaskCompleted)
             {
                 errorMessage += "Please fill out primary contact cell\n";
             }
@@ -108,7 +109,9 @@ namespace MMS_CapstoneProject
             dataGridView.AutoResizeColumns();
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-            this.Width = 373 + dgv_width;
+            this.Width = 430 + dgv_width;
+
+            dataGridViewClient.ClearSelection();
         }
 
         private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -155,6 +158,7 @@ namespace MMS_CapstoneProject
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
 
+            dataGridViewClient.ClearSelection();
         }
 
         private void btnCreateNewMode_Click(object sender, EventArgs e)
@@ -162,6 +166,7 @@ namespace MMS_CapstoneProject
             gbEdit.Visible = false;
             gbMenu.Visible = false;
             gbCreate.Visible = true;
+            gbClientTexBox.Enabled = true;
 
             dataGridViewClient.Enabled = false;
         }
@@ -171,6 +176,7 @@ namespace MMS_CapstoneProject
             gbEdit.Visible = true;
             gbMenu.Visible = false;
             gbCreate.Visible = false;
+            gbClientTexBox.Enabled = true;
 
             dataGridViewClient.Enabled = true;
         }
@@ -182,12 +188,17 @@ namespace MMS_CapstoneProject
             gbCreate.Visible = false;
 
             dataGridViewClient.Enabled = false;
+            dataGridViewClient.ClearSelection();
+
+            gbClientTexBox.Enabled = false;
 
             txtClientId.Clear();
             txtClientName.Clear();
             txtPrimaryContactName.Clear();
             txtPrimaryContactCell.Clear();
             txtPrimaryContactEmail.Clear();
+
+
         }
 
         private bool IsValidEmail(string email)
@@ -202,6 +213,5 @@ namespace MMS_CapstoneProject
                 return false;
             }
         }
-
     }
 }

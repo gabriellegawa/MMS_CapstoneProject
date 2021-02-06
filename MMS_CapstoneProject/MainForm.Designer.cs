@@ -47,27 +47,29 @@ namespace MMS_CapstoneProject
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
-            this.lblErrorMessage = new System.Windows.Forms.Label();
-            this.txtClientId = new System.Windows.Forms.TextBox();
-            this.lblClientId = new System.Windows.Forms.Label();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRefreshData = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gbClientTexBox = new System.Windows.Forms.GroupBox();
+            this.txtClientId = new System.Windows.Forms.TextBox();
+            this.lblClientId = new System.Windows.Forms.Label();
             this.txtPrimaryContactEmail = new System.Windows.Forms.TextBox();
-            this.txtPrimaryContactCell = new System.Windows.Forms.TextBox();
             this.txtPrimaryContactName = new System.Windows.Forms.TextBox();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.lblPrimaryContactEmail = new System.Windows.Forms.Label();
             this.lblPrimaryContactCell = new System.Windows.Forms.Label();
             this.lblPrimaryContactName = new System.Windows.Forms.Label();
             this.lblClientName = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblErrorMessage = new System.Windows.Forms.Label();
+            this.txtPrimaryContactCell = new System.Windows.Forms.MaskedTextBox();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
             this.gbMenu.SuspendLayout();
             this.gbCreate.SuspendLayout();
             this.gbEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
+            this.gbClientTexBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl1
@@ -85,23 +87,13 @@ namespace MMS_CapstoneProject
             // 
             // tpClient
             // 
+            this.tpClient.Controls.Add(this.gbClientTexBox);
             this.tpClient.Controls.Add(this.gbMenu);
             this.tpClient.Controls.Add(this.gbCreate);
             this.tpClient.Controls.Add(this.gbEdit);
-            this.tpClient.Controls.Add(this.lblErrorMessage);
-            this.tpClient.Controls.Add(this.txtClientId);
-            this.tpClient.Controls.Add(this.lblClientId);
             this.tpClient.Controls.Add(this.dataGridViewClient);
             this.tpClient.Controls.Add(this.btnExit);
             this.tpClient.Controls.Add(this.btnRefreshData);
-            this.tpClient.Controls.Add(this.txtPrimaryContactEmail);
-            this.tpClient.Controls.Add(this.txtPrimaryContactCell);
-            this.tpClient.Controls.Add(this.txtPrimaryContactName);
-            this.tpClient.Controls.Add(this.txtClientName);
-            this.tpClient.Controls.Add(this.lblPrimaryContactEmail);
-            this.tpClient.Controls.Add(this.lblPrimaryContactCell);
-            this.tpClient.Controls.Add(this.lblPrimaryContactName);
-            this.tpClient.Controls.Add(this.lblClientName);
             this.tpClient.Location = new System.Drawing.Point(4, 22);
             this.tpClient.Name = "tpClient";
             this.tpClient.Padding = new System.Windows.Forms.Padding(3);
@@ -114,7 +106,7 @@ namespace MMS_CapstoneProject
             // 
             this.gbMenu.Controls.Add(this.btnEditMode);
             this.gbMenu.Controls.Add(this.btnCreateNewMode);
-            this.gbMenu.Location = new System.Drawing.Point(25, 244);
+            this.gbMenu.Location = new System.Drawing.Point(25, 275);
             this.gbMenu.Name = "gbMenu";
             this.gbMenu.Size = new System.Drawing.Size(318, 34);
             this.gbMenu.TabIndex = 10;
@@ -145,7 +137,7 @@ namespace MMS_CapstoneProject
             this.gbCreate.Controls.Add(this.btnBackMenu_1);
             this.gbCreate.Controls.Add(this.btnAddNew);
             this.gbCreate.Controls.Add(this.btnClear);
-            this.gbCreate.Location = new System.Drawing.Point(25, 216);
+            this.gbCreate.Location = new System.Drawing.Point(25, 247);
             this.gbCreate.Name = "gbCreate";
             this.gbCreate.Size = new System.Drawing.Size(318, 62);
             this.gbCreate.TabIndex = 11;
@@ -192,7 +184,7 @@ namespace MMS_CapstoneProject
             this.gbEdit.Controls.Add(this.btnNext);
             this.gbEdit.Controls.Add(this.btnPrevious);
             this.gbEdit.Controls.Add(this.btnFirst);
-            this.gbEdit.Location = new System.Drawing.Point(25, 190);
+            this.gbEdit.Location = new System.Drawing.Point(25, 221);
             this.gbEdit.Name = "gbEdit";
             this.gbEdit.Size = new System.Drawing.Size(318, 88);
             this.gbEdit.TabIndex = 12;
@@ -275,33 +267,6 @@ namespace MMS_CapstoneProject
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
             // 
-            // lblErrorMessage
-            // 
-            this.lblErrorMessage.Location = new System.Drawing.Point(25, 151);
-            this.lblErrorMessage.Name = "lblErrorMessage";
-            this.lblErrorMessage.Size = new System.Drawing.Size(318, 62);
-            this.lblErrorMessage.TabIndex = 16;
-            this.lblErrorMessage.Text = "Error Message:";
-            this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblErrorMessage.Visible = false;
-            // 
-            // txtClientId
-            // 
-            this.txtClientId.Enabled = false;
-            this.txtClientId.Location = new System.Drawing.Point(178, 13);
-            this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(100, 20);
-            this.txtClientId.TabIndex = 1;
-            // 
-            // lblClientId
-            // 
-            this.lblClientId.AutoSize = true;
-            this.lblClientId.Location = new System.Drawing.Point(116, 16);
-            this.lblClientId.Name = "lblClientId";
-            this.lblClientId.Size = new System.Drawing.Size(21, 13);
-            this.lblClientId.TabIndex = 0;
-            this.lblClientId.Text = "ID:";
-            // 
             // dataGridViewClient
             // 
             this.dataGridViewClient.AllowUserToAddRows = false;
@@ -318,7 +283,7 @@ namespace MMS_CapstoneProject
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(187, 284);
+            this.btnExit.Location = new System.Drawing.Point(187, 315);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(156, 23);
             this.btnExit.TabIndex = 14;
@@ -328,77 +293,13 @@ namespace MMS_CapstoneProject
             // 
             // btnRefreshData
             // 
-            this.btnRefreshData.Location = new System.Drawing.Point(25, 284);
+            this.btnRefreshData.Location = new System.Drawing.Point(25, 315);
             this.btnRefreshData.Name = "btnRefreshData";
             this.btnRefreshData.Size = new System.Drawing.Size(156, 23);
             this.btnRefreshData.TabIndex = 13;
             this.btnRefreshData.Text = "&Refresh Data";
             this.btnRefreshData.UseVisualStyleBackColor = true;
             this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
-            // 
-            // txtPrimaryContactEmail
-            // 
-            this.txtPrimaryContactEmail.Location = new System.Drawing.Point(178, 128);
-            this.txtPrimaryContactEmail.Name = "txtPrimaryContactEmail";
-            this.txtPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtPrimaryContactEmail.TabIndex = 9;
-            // 
-            // txtPrimaryContactCell
-            // 
-            this.txtPrimaryContactCell.Location = new System.Drawing.Point(178, 99);
-            this.txtPrimaryContactCell.Name = "txtPrimaryContactCell";
-            this.txtPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
-            this.txtPrimaryContactCell.TabIndex = 7;
-            // 
-            // txtPrimaryContactName
-            // 
-            this.txtPrimaryContactName.Location = new System.Drawing.Point(178, 69);
-            this.txtPrimaryContactName.Name = "txtPrimaryContactName";
-            this.txtPrimaryContactName.Size = new System.Drawing.Size(100, 20);
-            this.txtPrimaryContactName.TabIndex = 5;
-            // 
-            // txtClientName
-            // 
-            this.txtClientName.Location = new System.Drawing.Point(178, 40);
-            this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(100, 20);
-            this.txtClientName.TabIndex = 3;
-            // 
-            // lblPrimaryContactEmail
-            // 
-            this.lblPrimaryContactEmail.AutoSize = true;
-            this.lblPrimaryContactEmail.Location = new System.Drawing.Point(25, 128);
-            this.lblPrimaryContactEmail.Name = "lblPrimaryContactEmail";
-            this.lblPrimaryContactEmail.Size = new System.Drawing.Size(112, 13);
-            this.lblPrimaryContactEmail.TabIndex = 8;
-            this.lblPrimaryContactEmail.Text = "Primary Contact Email:";
-            // 
-            // lblPrimaryContactCell
-            // 
-            this.lblPrimaryContactCell.AutoSize = true;
-            this.lblPrimaryContactCell.Location = new System.Drawing.Point(33, 99);
-            this.lblPrimaryContactCell.Name = "lblPrimaryContactCell";
-            this.lblPrimaryContactCell.Size = new System.Drawing.Size(104, 13);
-            this.lblPrimaryContactCell.TabIndex = 6;
-            this.lblPrimaryContactCell.Text = "Primary Contact Cell:";
-            // 
-            // lblPrimaryContactName
-            // 
-            this.lblPrimaryContactName.AutoSize = true;
-            this.lblPrimaryContactName.Location = new System.Drawing.Point(22, 69);
-            this.lblPrimaryContactName.Name = "lblPrimaryContactName";
-            this.lblPrimaryContactName.Size = new System.Drawing.Size(115, 13);
-            this.lblPrimaryContactName.TabIndex = 4;
-            this.lblPrimaryContactName.Text = "Primary Contact Name:";
-            // 
-            // lblClientName
-            // 
-            this.lblClientName.AutoSize = true;
-            this.lblClientName.Location = new System.Drawing.Point(70, 40);
-            this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(67, 13);
-            this.lblClientName.TabIndex = 2;
-            this.lblClientName.Text = "Client Name:";
             // 
             // tabPage2
             // 
@@ -409,6 +310,118 @@ namespace MMS_CapstoneProject
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gbClientTexBox
+            // 
+            this.gbClientTexBox.Controls.Add(this.txtPrimaryContactCell);
+            this.gbClientTexBox.Controls.Add(this.lblErrorMessage);
+            this.gbClientTexBox.Controls.Add(this.txtClientId);
+            this.gbClientTexBox.Controls.Add(this.lblClientId);
+            this.gbClientTexBox.Controls.Add(this.txtPrimaryContactEmail);
+            this.gbClientTexBox.Controls.Add(this.txtPrimaryContactName);
+            this.gbClientTexBox.Controls.Add(this.txtClientName);
+            this.gbClientTexBox.Controls.Add(this.lblPrimaryContactEmail);
+            this.gbClientTexBox.Controls.Add(this.lblPrimaryContactCell);
+            this.gbClientTexBox.Controls.Add(this.lblPrimaryContactName);
+            this.gbClientTexBox.Controls.Add(this.lblClientName);
+            this.gbClientTexBox.Enabled = false;
+            this.gbClientTexBox.Location = new System.Drawing.Point(25, 6);
+            this.gbClientTexBox.Name = "gbClientTexBox";
+            this.gbClientTexBox.Size = new System.Drawing.Size(318, 219);
+            this.gbClientTexBox.TabIndex = 17;
+            this.gbClientTexBox.TabStop = false;
+            // 
+            // txtClientId
+            // 
+            this.txtClientId.Enabled = false;
+            this.txtClientId.Location = new System.Drawing.Point(187, 15);
+            this.txtClientId.Name = "txtClientId";
+            this.txtClientId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientId.TabIndex = 11;
+            // 
+            // lblClientId
+            // 
+            this.lblClientId.AutoSize = true;
+            this.lblClientId.Location = new System.Drawing.Point(125, 18);
+            this.lblClientId.Name = "lblClientId";
+            this.lblClientId.Size = new System.Drawing.Size(21, 13);
+            this.lblClientId.TabIndex = 10;
+            this.lblClientId.Text = "ID:";
+            // 
+            // txtPrimaryContactEmail
+            // 
+            this.txtPrimaryContactEmail.Location = new System.Drawing.Point(187, 130);
+            this.txtPrimaryContactEmail.Name = "txtPrimaryContactEmail";
+            this.txtPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtPrimaryContactEmail.TabIndex = 19;
+            // 
+            // txtPrimaryContactName
+            // 
+            this.txtPrimaryContactName.Location = new System.Drawing.Point(187, 71);
+            this.txtPrimaryContactName.Name = "txtPrimaryContactName";
+            this.txtPrimaryContactName.Size = new System.Drawing.Size(100, 20);
+            this.txtPrimaryContactName.TabIndex = 15;
+            // 
+            // txtClientName
+            // 
+            this.txtClientName.Location = new System.Drawing.Point(187, 42);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(100, 20);
+            this.txtClientName.TabIndex = 13;
+            // 
+            // lblPrimaryContactEmail
+            // 
+            this.lblPrimaryContactEmail.AutoSize = true;
+            this.lblPrimaryContactEmail.Location = new System.Drawing.Point(34, 130);
+            this.lblPrimaryContactEmail.Name = "lblPrimaryContactEmail";
+            this.lblPrimaryContactEmail.Size = new System.Drawing.Size(112, 13);
+            this.lblPrimaryContactEmail.TabIndex = 18;
+            this.lblPrimaryContactEmail.Text = "Primary Contact Email:";
+            // 
+            // lblPrimaryContactCell
+            // 
+            this.lblPrimaryContactCell.AutoSize = true;
+            this.lblPrimaryContactCell.Location = new System.Drawing.Point(42, 101);
+            this.lblPrimaryContactCell.Name = "lblPrimaryContactCell";
+            this.lblPrimaryContactCell.Size = new System.Drawing.Size(104, 13);
+            this.lblPrimaryContactCell.TabIndex = 16;
+            this.lblPrimaryContactCell.Text = "Primary Contact Cell:";
+            // 
+            // lblPrimaryContactName
+            // 
+            this.lblPrimaryContactName.AutoSize = true;
+            this.lblPrimaryContactName.Location = new System.Drawing.Point(31, 71);
+            this.lblPrimaryContactName.Name = "lblPrimaryContactName";
+            this.lblPrimaryContactName.Size = new System.Drawing.Size(115, 13);
+            this.lblPrimaryContactName.TabIndex = 14;
+            this.lblPrimaryContactName.Text = "Primary Contact Name:";
+            // 
+            // lblClientName
+            // 
+            this.lblClientName.AutoSize = true;
+            this.lblClientName.Location = new System.Drawing.Point(79, 42);
+            this.lblClientName.Name = "lblClientName";
+            this.lblClientName.Size = new System.Drawing.Size(67, 13);
+            this.lblClientName.TabIndex = 12;
+            this.lblClientName.Text = "Client Name:";
+            // 
+            // lblErrorMessage
+            // 
+            this.lblErrorMessage.Location = new System.Drawing.Point(0, 153);
+            this.lblErrorMessage.Name = "lblErrorMessage";
+            this.lblErrorMessage.Size = new System.Drawing.Size(318, 62);
+            this.lblErrorMessage.TabIndex = 20;
+            this.lblErrorMessage.Text = "Error Message:";
+            this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErrorMessage.Visible = false;
+            // 
+            // txtPrimaryContactCell
+            // 
+            this.txtPrimaryContactCell.Location = new System.Drawing.Point(187, 97);
+            this.txtPrimaryContactCell.Mask = "(999) 000-0000";
+            this.txtPrimaryContactCell.Name = "txtPrimaryContactCell";
+            this.txtPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
+            this.txtPrimaryContactCell.TabIndex = 17;
             // 
             // MainForm
             // 
@@ -421,11 +434,12 @@ namespace MMS_CapstoneProject
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.TabControl1.ResumeLayout(false);
             this.tpClient.ResumeLayout(false);
-            this.tpClient.PerformLayout();
             this.gbMenu.ResumeLayout(false);
             this.gbCreate.ResumeLayout(false);
             this.gbEdit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
+            this.gbClientTexBox.ResumeLayout(false);
+            this.gbClientTexBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -434,23 +448,12 @@ namespace MMS_CapstoneProject
 
         private System.Windows.Forms.TabControl TabControl1;
         private System.Windows.Forms.TabPage tpClient;
-        private System.Windows.Forms.TextBox txtPrimaryContactEmail;
-        private System.Windows.Forms.TextBox txtPrimaryContactCell;
-        private System.Windows.Forms.TextBox txtPrimaryContactName;
-        private System.Windows.Forms.TextBox txtClientName;
-        private System.Windows.Forms.Label lblPrimaryContactEmail;
-        private System.Windows.Forms.Label lblPrimaryContactCell;
-        private System.Windows.Forms.Label lblPrimaryContactName;
-        private System.Windows.Forms.Label lblClientName;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridViewClient;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRefreshData;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.TextBox txtClientId;
-        private System.Windows.Forms.Label lblClientId;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label lblErrorMessage;
         private System.Windows.Forms.GroupBox gbEdit;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnNext;
@@ -465,6 +468,18 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnBackMenu_1;
         private System.Windows.Forms.Button btnBackMenu;
         private System.Windows.Forms.GroupBox gbMenu;
+        private System.Windows.Forms.GroupBox gbClientTexBox;
+        private System.Windows.Forms.Label lblErrorMessage;
+        private System.Windows.Forms.TextBox txtClientId;
+        private System.Windows.Forms.Label lblClientId;
+        private System.Windows.Forms.TextBox txtPrimaryContactEmail;
+        private System.Windows.Forms.TextBox txtPrimaryContactName;
+        private System.Windows.Forms.TextBox txtClientName;
+        private System.Windows.Forms.Label lblPrimaryContactEmail;
+        private System.Windows.Forms.Label lblPrimaryContactCell;
+        private System.Windows.Forms.Label lblPrimaryContactName;
+        private System.Windows.Forms.Label lblClientName;
+        private System.Windows.Forms.MaskedTextBox txtPrimaryContactCell;
     }
 }
 
