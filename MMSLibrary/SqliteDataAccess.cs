@@ -137,55 +137,47 @@ namespace MMSLibrary
         /// <param name="updatedClient">Updated ClientModel object</param>
         /// <param name="oldClient">Old ClientModel object</param>
         /// <returns>num of rows affected</returns>
-        public static int UpdateClient(ClientModel updatedClient, ClientModel oldClient)
+        public static bool UpdateClient(ClientModel updatedClient, ClientModel oldClient)
         {
-            int result;
 
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
+                var ReturnVal = 0;
+                cnn.Open();
+
                 string sqlStatement = "UPDATE Clients SET [name] = @updatedName, [primaryContactName] = @updatedPrimaryContactName, "
                                     + "[primaryContactCell] = @updatedPrimaryContactCell, [primaryContactEmail] = @updatedPrimaryContactEmail, [isDeleted] = @updatedIsDeleted "
                                     + "WHERE [id] = @id, [name] = @oldName, [primaryContactName] = @oldPrimaryContactName "
                                     + "[primaryContactCell] = @oldPrimaryContactCell, [primaryContactEmail] = @oldPrimaryContactEmail";
 
-                SQLiteCommand command = new SQLiteCommand(sqlStatement, cnn);
-                command.Parameters.Add(new SQLiteParameter("@updatedName"));
-                command.Parameters.Add(new SQLiteParameter("@updatedPrimaryContactName"));
-                command.Parameters.Add(new SQLiteParameter("@updatedPrimaryContactCell"));
-                command.Parameters.Add(new SQLiteParameter("@updatedPrimaryContactEmail"));
-                command.Parameters.Add(new SQLiteParameter("@updatedIsDeleted"));
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@updatedName", updatedClient.Name);
+                cmd.Parameters.AddWithValue("@updatedPrimaryContactName", updatedClient.PrimaryContactName);
+                cmd.Parameters.AddWithValue("@updatedPrimaryContactCell", updatedClient.PrimaryContactCell);
+                cmd.Parameters.AddWithValue("@updatedPrimaryContactEmail", updatedClient.PrimaryContactEmail);
+                cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedClient.IsDeleted);
 
-                command.Parameters.Add(new SQLiteParameter("@id"));
-                command.Parameters.Add(new SQLiteParameter("@idoldName"));
-                command.Parameters.Add(new SQLiteParameter("@oldPrimaryContactName"));
-                command.Parameters.Add(new SQLiteParameter("@oldPrimaryContactCell"));
-                command.Parameters.Add(new SQLiteParameter("@oldPrimaryContactEmail"));
-
-                command.Parameters["@updatedName"].Value = updatedClient.Name;
-                command.Parameters["@updatedPrimaryContactName"].Value = updatedClient.PrimaryContactName;
-                command.Parameters["@primaryContactCell"].Value = updatedClient.PrimaryContactCell;
-                command.Parameters["@primaryContactEmail"].Value = updatedClient.PrimaryContactEmail;
-                command.Parameters["@isDeleted"].Value = updatedClient.IsDeleted;
-
-                command.Parameters["@id"].Value = oldClient.Id;
-                command.Parameters["@oldName"].Value = oldClient.Name;
-                command.Parameters["@oldPrimaryContactName"].Value = oldClient.PrimaryContactName;
-                command.Parameters["@oldPrimaryContactCell"].Value = oldClient.PrimaryContactCell;
-                command.Parameters["@oldPrimaryContactEmail"].Value = oldClient.PrimaryContactEmail;
+                cmd.Parameters.AddWithValue("@id", oldClient.Id);
+                cmd.Parameters.AddWithValue("@oldName", oldClient.Name);
+                cmd.Parameters.AddWithValue("@oldPrimaryContactName", oldClient.PrimaryContactName);
+                cmd.Parameters.AddWithValue("@oldPrimaryContactCell", oldClient.PrimaryContactCell);
+                cmd.Parameters.AddWithValue("@oldPrimaryContactEmail", oldClient.PrimaryContactEmail);
 
                 try
                 {
-                    command.Prepare();
-                    result = command.ExecuteNonQuery();
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
                 }
                 catch (SQLiteException ex)
                 {
                     throw ex;
                 }
-
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
             }
-
-            return result;
 
         }
 

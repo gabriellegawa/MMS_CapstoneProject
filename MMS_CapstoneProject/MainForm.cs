@@ -32,7 +32,6 @@ namespace MMS_CapstoneProject
             //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
             RefreshDataGridViewData(dataGridViewClient);
 
-
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -197,8 +196,6 @@ namespace MMS_CapstoneProject
             txtPrimaryContactName.Clear();
             txtPrimaryContactCell.Clear();
             txtPrimaryContactEmail.Clear();
-
-
         }
 
         private bool IsValidEmail(string email)
