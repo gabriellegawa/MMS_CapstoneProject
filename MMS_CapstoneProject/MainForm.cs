@@ -113,23 +113,24 @@ namespace MMS_CapstoneProject
             dataGridViewClient.ClearSelection();
         }
 
-        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridViewClient.Rows[e.RowIndex];
-                txtClientId.Text = row.Cells[0].Value.ToString();
-                txtClientName.Text = row.Cells[1].Value.ToString();
-                txtPrimaryContactName.Text = row.Cells[2].Value.ToString();
-                txtPrimaryContactCell.Text = row.Cells[3].Value.ToString();
-                txtPrimaryContactEmail.Text = row.Cells[4].Value.ToString();
+        // REPLACED WITH CURRENT CELL CHANGED
+        //private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex >= 0)
+        //    {
+        //        DataGridViewRow row = dataGridViewClient.Rows[e.RowIndex];
+        //        txtClientId.Text = row.Cells[0].Value.ToString();
+        //        txtClientName.Text = row.Cells[1].Value.ToString();
+        //        txtPrimaryContactName.Text = row.Cells[2].Value.ToString();
+        //        txtPrimaryContactCell.Text = row.Cells[3].Value.ToString();
+        //        txtPrimaryContactEmail.Text = row.Cells[4].Value.ToString();
 
 
-            }
-            btnDelete.Enabled = true;
-            btnUpdate.Enabled = true;
-            btnAddNew.Enabled = false;
-        }
+        //    }
+        //    btnDelete.Enabled = true;
+        //    btnUpdate.Enabled = true;
+        //    btnAddNew.Enabled = false;
+        //}
 
         private void btnRefreshData_Click(object sender, EventArgs e)
         {
@@ -208,6 +209,65 @@ namespace MMS_CapstoneProject
             catch
             {
                 return false;
+            }
+        }
+
+        private void dataGridViewClient_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClient.CurrentRow != null)
+            {
+                txtClientId.Text = dataGridViewClient.CurrentRow.Cells[0].Value.ToString();
+                txtClientName.Text = dataGridViewClient.CurrentRow.Cells[1].Value.ToString();
+                txtPrimaryContactName.Text = dataGridViewClient.CurrentRow.Cells[2].Value.ToString();
+                txtPrimaryContactCell.Text = dataGridViewClient.CurrentRow.Cells[3].Value.ToString();
+                txtPrimaryContactEmail.Text = dataGridViewClient.CurrentRow.Cells[4].Value.ToString();
+
+                btnDelete.Enabled = true;
+                btnUpdate.Enabled = true;
+                btnAddNew.Enabled = false;
+            }
+        }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[0].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = true;
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[dataGridViewClient.Rows.Count - 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+            btnNext.Enabled = false;
+            btnPrevious.Enabled = true;
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClient.CurrentRow.Index < dataGridViewClient.Rows.Count - 1)
+            {
+                btnPrevious.Enabled = true;
+                this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[this.dataGridViewClient.CurrentRow.Index + 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+                if (this.dataGridViewClient.CurrentRow.Index == dataGridViewClient.Rows.Count - 1)
+                    btnNext.Enabled = false;
+            }
+            else
+            {
+                btnNext.Enabled = false;
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClient.CurrentRow.Index > 0)
+            {
+                btnNext.Enabled = true;
+                this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[this.dataGridViewClient.CurrentRow.Index - 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+                if (this.dataGridViewClient.CurrentRow.Index == 0)
+                    btnPrevious.Enabled = false;
+            }
+            else
+            {
+                btnPrevious.Enabled = false;
             }
         }
     }

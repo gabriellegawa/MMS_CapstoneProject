@@ -63,6 +63,7 @@ namespace MMS_CapstoneProject
             this.lblClientName = new System.Windows.Forms.Label();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.txtPrimaryContactCell = new System.Windows.Forms.MaskedTextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
             this.gbMenu.SuspendLayout();
@@ -239,6 +240,7 @@ namespace MMS_CapstoneProject
             this.btnLast.TabIndex = 3;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnNext
             // 
@@ -248,6 +250,7 @@ namespace MMS_CapstoneProject
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -257,6 +260,7 @@ namespace MMS_CapstoneProject
             this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnFirst
             // 
@@ -266,6 +270,7 @@ namespace MMS_CapstoneProject
             this.btnFirst.TabIndex = 0;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // dataGridViewClient
             // 
@@ -279,7 +284,7 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient.Name = "dataGridViewClient";
             this.dataGridViewClient.Size = new System.Drawing.Size(374, 393);
             this.dataGridViewClient.TabIndex = 15;
-            this.dataGridViewClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClient_CellClick);
+            this.dataGridViewClient.CurrentCellChanged += new System.EventHandler(this.dataGridViewClient_CurrentCellChanged);
             // 
             // btnExit
             // 
@@ -313,6 +318,7 @@ namespace MMS_CapstoneProject
             // 
             // gbClientTexBox
             // 
+            this.gbClientTexBox.Controls.Add(this.radioButton1);
             this.gbClientTexBox.Controls.Add(this.txtPrimaryContactCell);
             this.gbClientTexBox.Controls.Add(this.lblErrorMessage);
             this.gbClientTexBox.Controls.Add(this.txtClientId);
@@ -423,6 +429,17 @@ namespace MMS_CapstoneProject
             this.txtPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
             this.txtPrimaryContactCell.TabIndex = 17;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(187, 157);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 21;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,6 +497,7 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Label lblPrimaryContactName;
         private System.Windows.Forms.Label lblClientName;
         private System.Windows.Forms.MaskedTextBox txtPrimaryContactCell;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 
