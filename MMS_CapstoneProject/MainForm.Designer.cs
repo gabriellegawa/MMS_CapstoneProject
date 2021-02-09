@@ -408,6 +408,7 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient.Enabled = false;
             this.dataGridViewClient.Location = new System.Drawing.Point(353, 6);
             this.dataGridViewClient.Name = "dataGridViewClient";
+            this.dataGridViewClient.ReadOnly = true;
             this.dataGridViewClient.Size = new System.Drawing.Size(374, 393);
             this.dataGridViewClient.TabIndex = 15;
             this.dataGridViewClient.CurrentCellChanged += new System.EventHandler(this.dataGridViewClient_CurrentCellChanged);

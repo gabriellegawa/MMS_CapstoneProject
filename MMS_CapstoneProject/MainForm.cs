@@ -23,7 +23,6 @@ namespace MMS_CapstoneProject
         {
             RefreshDataGridViewData(dataGridViewClient);
             ClearClientTextBox();
-
         }
 
         #region EVENTS
@@ -53,7 +52,6 @@ namespace MMS_CapstoneProject
 
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
-
         }
         #endregion
         #region GroupBox Create Mode Event
@@ -112,8 +110,6 @@ namespace MMS_CapstoneProject
                 lblErrorMessage.Text = "Error Message: " + errorMessage;
                 lblErrorMessage.Visible = true;
             }
-
-
         }
         #endregion
         #region GroupBox Edit Mode Event
@@ -268,11 +264,15 @@ namespace MMS_CapstoneProject
 
                 btnDelete.Enabled = true;
                 btnUpdate.Enabled = true;
-                //btnAddNew.Enabled = false;
             }
         }
         #endregion
         #region FUNCTIONS
+        /// <summary>
+        /// IsValidEmail - Check if email is valid
+        /// </summary>
+        /// <param name="email">string, input email address</param>
+        /// <returns>bool, true or false</returns>
         private bool IsValidEmail(string email)
         {
             try
@@ -286,7 +286,7 @@ namespace MMS_CapstoneProject
             }
         }
         /// <summary>
-        /// ClearClientTextBox - 
+        /// ClearClientTextBox - clear all textbox in client form
         /// </summary>
         private void ClearClientTextBox()
         {
@@ -318,5 +318,9 @@ namespace MMS_CapstoneProject
         }
         #endregion
 
+        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
