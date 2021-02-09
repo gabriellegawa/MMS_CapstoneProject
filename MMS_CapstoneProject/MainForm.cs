@@ -13,18 +13,10 @@ namespace MMS_CapstoneProject
 {
     public partial class MainForm : Form
     {
-        List<ClientModel> clients = new List<ClientModel>();
-        List<ClientModel> clients1 = new List<ClientModel>();
 
         public MainForm()
         {
-            clients = SqliteDataAccess.LoadAllClient();
-            clients1 = SqliteDataAccess.LoadClient(1);
-
-            bool test = SqliteDataAccess.ActivateClient(1);
-
             InitializeComponent();
-
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -32,11 +24,7 @@ namespace MMS_CapstoneProject
             //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
             RefreshDataGridViewData(dataGridViewClient);
 
-            txtClientId.Clear();
-            txtClientName.Clear();
-            txtPrimaryContactName.Clear();
-            txtPrimaryContactCell.Clear();
-            txtPrimaryContactEmail.Clear();
+            ClearClientTextBox();
 
         }
 
@@ -119,25 +107,6 @@ namespace MMS_CapstoneProject
             dataGridViewClient.ClearSelection();
         }
 
-        // REPLACED WITH CURRENT CELL CHANGED
-        //private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0)
-        //    {
-        //        DataGridViewRow row = dataGridViewClient.Rows[e.RowIndex];
-        //        txtClientId.Text = row.Cells[0].Value.ToString();
-        //        txtClientName.Text = row.Cells[1].Value.ToString();
-        //        txtPrimaryContactName.Text = row.Cells[2].Value.ToString();
-        //        txtPrimaryContactCell.Text = row.Cells[3].Value.ToString();
-        //        txtPrimaryContactEmail.Text = row.Cells[4].Value.ToString();
-
-
-        //    }
-        //    btnDelete.Enabled = true;
-        //    btnUpdate.Enabled = true;
-        //    btnAddNew.Enabled = false;
-        //}
-
         private void btnRefreshData_Click(object sender, EventArgs e)
         {
             RefreshDataGridViewData(dataGridViewClient);
@@ -147,11 +116,7 @@ namespace MMS_CapstoneProject
         {
             SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
 
-            txtClientId.Clear();
-            txtClientName.Clear();
-            txtPrimaryContactName.Clear();
-            txtPrimaryContactCell.Clear();
-            txtPrimaryContactEmail.Clear();
+            ClearClientTextBox();
 
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
@@ -167,11 +132,7 @@ namespace MMS_CapstoneProject
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtClientId.Clear();
-            txtClientName.Clear();
-            txtPrimaryContactName.Clear();
-            txtPrimaryContactCell.Clear();
-            txtPrimaryContactEmail.Clear();
+            ClearClientTextBox();
 
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
@@ -181,11 +142,7 @@ namespace MMS_CapstoneProject
 
         private void btnCreateNewMode_Click(object sender, EventArgs e)
         {
-            txtClientId.Clear();
-            txtClientName.Clear();
-            txtPrimaryContactName.Clear();
-            txtPrimaryContactCell.Clear();
-            txtPrimaryContactEmail.Clear();
+            ClearClientTextBox();
 
             gbEdit.Visible = false;
             gbMenu.Visible = false;
@@ -220,11 +177,6 @@ namespace MMS_CapstoneProject
 
             gbClientTexBox.Enabled = false;
 
-            //txtClientId.Clear();
-            //txtClientName.Clear();
-            //txtPrimaryContactName.Clear();
-            //txtPrimaryContactCell.Clear();
-            //txtPrimaryContactEmail.Clear();
         }
 
         private bool IsValidEmail(string email)
@@ -355,6 +307,15 @@ namespace MMS_CapstoneProject
             }
 
 
+        }
+
+        private void ClearClientTextBox()
+        {
+            txtClientId.Clear();
+            txtClientName.Clear();
+            txtPrimaryContactName.Clear();
+            txtPrimaryContactCell.Clear();
+            txtPrimaryContactEmail.Clear();
         }
 
     }
