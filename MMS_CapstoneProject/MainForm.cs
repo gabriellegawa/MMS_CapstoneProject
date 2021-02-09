@@ -178,6 +178,8 @@ namespace MMS_CapstoneProject
             btnDelete.Enabled = false;
 
             dataGridViewClient.ClearSelection();
+
+            RefreshDataGridViewData(dataGridViewClient);
         }
         private void btnFirst_Click(object sender, EventArgs e)
         {
@@ -220,11 +222,6 @@ namespace MMS_CapstoneProject
             }
         }
         #endregion
-        private void btnRefreshData_Click(object sender, EventArgs e)
-        {
-            RefreshDataGridViewData(dataGridViewClient);
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();

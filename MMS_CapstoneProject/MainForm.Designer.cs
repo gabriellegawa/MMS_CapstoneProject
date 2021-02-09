@@ -62,7 +62,6 @@ namespace MMS_CapstoneProject
             this.btnFirst = new System.Windows.Forms.Button();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnRefreshData = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
@@ -94,7 +93,6 @@ namespace MMS_CapstoneProject
             this.tpClient.Controls.Add(this.gbEdit);
             this.tpClient.Controls.Add(this.dataGridViewClient);
             this.tpClient.Controls.Add(this.btnExit);
-            this.tpClient.Controls.Add(this.btnRefreshData);
             this.tpClient.Location = new System.Drawing.Point(4, 22);
             this.tpClient.Name = "tpClient";
             this.tpClient.Padding = new System.Windows.Forms.Padding(3);
@@ -415,23 +413,13 @@ namespace MMS_CapstoneProject
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(187, 315);
+            this.btnExit.Location = new System.Drawing.Point(25, 315);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(156, 23);
+            this.btnExit.Size = new System.Drawing.Size(318, 23);
             this.btnExit.TabIndex = 14;
-            this.btnExit.Text = "&Exit";
+            this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnRefreshData
-            // 
-            this.btnRefreshData.Location = new System.Drawing.Point(25, 315);
-            this.btnRefreshData.Name = "btnRefreshData";
-            this.btnRefreshData.Size = new System.Drawing.Size(156, 23);
-            this.btnRefreshData.TabIndex = 13;
-            this.btnRefreshData.Text = "&Refresh Data";
-            this.btnRefreshData.UseVisualStyleBackColor = true;
-            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
             // tabPage2
             // 
@@ -471,7 +459,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridViewClient;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnRefreshData;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.GroupBox gbEdit;
