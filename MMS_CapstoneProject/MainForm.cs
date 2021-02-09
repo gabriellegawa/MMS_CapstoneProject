@@ -32,6 +32,12 @@ namespace MMS_CapstoneProject
             //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
             RefreshDataGridViewData(dataGridViewClient);
 
+            txtClientId.Clear();
+            txtClientName.Clear();
+            txtPrimaryContactName.Clear();
+            txtPrimaryContactCell.Clear();
+            txtPrimaryContactEmail.Clear();
+
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -139,6 +145,18 @@ namespace MMS_CapstoneProject
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
+
+            txtClientId.Clear();
+            txtClientName.Clear();
+            txtPrimaryContactName.Clear();
+            txtPrimaryContactCell.Clear();
+            txtPrimaryContactEmail.Clear();
+
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+
+            dataGridViewClient.ClearSelection();
 
         }
 
@@ -163,6 +181,12 @@ namespace MMS_CapstoneProject
 
         private void btnCreateNewMode_Click(object sender, EventArgs e)
         {
+            txtClientId.Clear();
+            txtClientName.Clear();
+            txtPrimaryContactName.Clear();
+            txtPrimaryContactCell.Clear();
+            txtPrimaryContactEmail.Clear();
+
             gbEdit.Visible = false;
             gbMenu.Visible = false;
             gbCreate.Visible = true;
@@ -179,6 +203,10 @@ namespace MMS_CapstoneProject
             gbClientTexBox.Enabled = true;
 
             dataGridViewClient.Enabled = true;
+
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+
         }
 
         private void btnBackMenu_Click(object sender, EventArgs e)
@@ -192,11 +220,11 @@ namespace MMS_CapstoneProject
 
             gbClientTexBox.Enabled = false;
 
-            txtClientId.Clear();
-            txtClientName.Clear();
-            txtPrimaryContactName.Clear();
-            txtPrimaryContactCell.Clear();
-            txtPrimaryContactEmail.Clear();
+            //txtClientId.Clear();
+            //txtClientName.Clear();
+            //txtPrimaryContactName.Clear();
+            //txtPrimaryContactCell.Clear();
+            //txtPrimaryContactEmail.Clear();
         }
 
         private bool IsValidEmail(string email)
@@ -224,7 +252,7 @@ namespace MMS_CapstoneProject
 
                 btnDelete.Enabled = true;
                 btnUpdate.Enabled = true;
-                btnAddNew.Enabled = false;
+                //btnAddNew.Enabled = false;
             }
         }
         private void btnFirst_Click(object sender, EventArgs e)
@@ -270,5 +298,64 @@ namespace MMS_CapstoneProject
                 btnPrevious.Enabled = false;
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string errorMessage = string.Empty;
+            lblErrorMessage.Visible = false;
+            string clientName = txtClientName.Text;
+            string primaryContactName = txtPrimaryContactName.Text;
+            string primaryContactCell = txtPrimaryContactCell.Text;
+            string primaryContactEmail = txtPrimaryContactEmail.Text;
+
+            if (clientName == string.Empty)
+            {
+                errorMessage += "Please fill out client name\n";
+            }
+            if (primaryContactName == string.Empty)
+            {
+                errorMessage += "Please fill out primary contact name\n";
+            }
+            if (!txtPrimaryContactCell.MaskCompleted)
+            {
+                errorMessage += "Please fill out primary contact cell\n";
+            }
+            if (primaryContactEmail == string.Empty)
+            {
+                errorMessage += "Please fill out primary contact email\n";
+            }
+            else if (!IsValidEmail(primaryContactEmail))
+            {
+                errorMessage += primaryContactEmail + " is not a valid email\n";
+            }
+
+            if (errorMessage == string.Empty)
+            {
+                ClientModel client = new ClientModel();
+                client.Name = clientName;
+                client.PrimaryContactName = primaryContactName;
+                client.PrimaryContactCell = primaryContactCell;
+                client.PrimaryContactEmail = primaryContactEmail;
+
+                SqliteDataAccess.UpdateClient(client, int.Parse(txtClientId.Text));
+                RefreshDataGridViewData(dataGridViewClient);
+
+                txtClientName.Text = string.Empty;
+                txtPrimaryContactName.Clear();
+                txtPrimaryContactCell.Clear();
+                txtPrimaryContactEmail.Clear();
+
+                lblErrorMessage.Text = "Successfully update client";
+                lblErrorMessage.Visible = true;
+            }
+            else
+            {
+                lblErrorMessage.Text = "Error Message: " + errorMessage;
+                lblErrorMessage.Visible = true;
+            }
+
+
+        }
+
     }
 }

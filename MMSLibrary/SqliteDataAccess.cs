@@ -182,6 +182,51 @@ namespace MMSLibrary
         }
 
         /// <summary>
+        /// UpdateClient - update client record
+        /// </summary>
+        /// <param name="updatedClient">updated client information</param>
+        /// <param name="id">client id</param>
+        /// <returns>bool true or false</returns>
+        public static bool UpdateClient(ClientModel updatedClient, int id)
+        {
+
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+
+                string sqlStatement = "UPDATE Clients SET [name] = @updatedName, [primaryContactName] = @updatedPrimaryContactName, "
+                                    + "[primaryContactCell] = @updatedPrimaryContactCell, [primaryContactEmail] = @updatedPrimaryContactEmail, [isDeleted] = @updatedIsDeleted "
+                                    + "WHERE [id] = @id";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@updatedName", updatedClient.Name);
+                cmd.Parameters.AddWithValue("@updatedPrimaryContactName", updatedClient.PrimaryContactName);
+                cmd.Parameters.AddWithValue("@updatedPrimaryContactCell", updatedClient.PrimaryContactCell);
+                cmd.Parameters.AddWithValue("@updatedPrimaryContactEmail", updatedClient.PrimaryContactEmail);
+                cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedClient.IsDeleted);
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+
+        }
+
+        /// <summary>
         /// SaveClient - save a new client
         /// </summary>
         /// <param name="client">new client</param>
