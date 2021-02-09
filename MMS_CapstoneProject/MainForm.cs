@@ -21,17 +21,47 @@ namespace MMS_CapstoneProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //TODO: Better make it into a function since we are going to use it multiple time to refresh the data
             RefreshDataGridViewData(dataGridViewClient);
-
             ClearClientTextBox();
 
         }
 
+        #region EVENTS
+        #region GroupBoxMenu Event
+        private void btnCreateNewMode_Click(object sender, EventArgs e)
+        {
+            ClearClientTextBox();
+
+            gbEdit.Visible = false;
+            gbMenu.Visible = false;
+            gbCreate.Visible = true;
+            gbClientTexBox.Enabled = true;
+
+            dataGridViewClient.Enabled = false;
+        }
+
+        private void btnEditMode_Click(object sender, EventArgs e)
+        {
+            ClearClientTextBox();
+
+            gbEdit.Visible = true;
+            gbMenu.Visible = false;
+            gbCreate.Visible = false;
+            gbClientTexBox.Enabled = true;
+
+            dataGridViewClient.Enabled = true;
+
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+
+        }
+        #endregion
+        #region GroupBox Create Mode Event
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            string errorMessage = string.Empty;
             lblErrorMessage.Visible = false;
+
+            string errorMessage = string.Empty;
             string clientName = txtClientName.Text;
             string primaryContactName = txtPrimaryContactName.Text;
             string primaryContactCell = txtPrimaryContactCell.Text;
@@ -85,172 +115,8 @@ namespace MMS_CapstoneProject
 
 
         }
-
-        /// <summary>
-        /// re
-        /// </summary>
-        public void RefreshDataGridViewData(DataGridView dataGridView)
-        {
-            var source = new BindingSource();
-
-            if (dataGridView == dataGridViewClient)
-            {
-                source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
-            }
-
-            dataGridView.DataSource = source;
-            dataGridView.AutoResizeColumns();
-
-            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-            this.Width = 430 + dgv_width;
-
-            dataGridViewClient.ClearSelection();
-        }
-
-        private void btnRefreshData_Click(object sender, EventArgs e)
-        {
-            RefreshDataGridViewData(dataGridViewClient);
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
-
-            ClearClientTextBox();
-
-            btnUpdate.Enabled = false;
-            btnDelete.Enabled = false;
-
-            dataGridViewClient.ClearSelection();
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearClientTextBox();
-
-            btnUpdate.Enabled = false;
-            btnDelete.Enabled = false;
-
-            dataGridViewClient.ClearSelection();
-        }
-
-        private void btnCreateNewMode_Click(object sender, EventArgs e)
-        {
-            ClearClientTextBox();
-
-            gbEdit.Visible = false;
-            gbMenu.Visible = false;
-            gbCreate.Visible = true;
-            gbClientTexBox.Enabled = true;
-
-            dataGridViewClient.Enabled = false;
-        }
-
-        private void btnEditMode_Click(object sender, EventArgs e)
-        {
-            gbEdit.Visible = true;
-            gbMenu.Visible = false;
-            gbCreate.Visible = false;
-            gbClientTexBox.Enabled = true;
-
-            dataGridViewClient.Enabled = true;
-
-            btnUpdate.Enabled = false;
-            btnDelete.Enabled = false;
-
-        }
-
-        private void btnBackMenu_Click(object sender, EventArgs e)
-        {
-            gbEdit.Visible = false;
-            gbMenu.Visible = true;
-            gbCreate.Visible = false;
-
-            dataGridViewClient.Enabled = false;
-            dataGridViewClient.ClearSelection();
-
-            gbClientTexBox.Enabled = false;
-
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private void dataGridViewClient_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (this.dataGridViewClient.CurrentRow != null)
-            {
-                txtClientId.Text = dataGridViewClient.CurrentRow.Cells[0].Value.ToString();
-                txtClientName.Text = dataGridViewClient.CurrentRow.Cells[1].Value.ToString();
-                txtPrimaryContactName.Text = dataGridViewClient.CurrentRow.Cells[2].Value.ToString();
-                txtPrimaryContactCell.Text = dataGridViewClient.CurrentRow.Cells[3].Value.ToString();
-                txtPrimaryContactEmail.Text = dataGridViewClient.CurrentRow.Cells[4].Value.ToString();
-
-                btnDelete.Enabled = true;
-                btnUpdate.Enabled = true;
-                //btnAddNew.Enabled = false;
-            }
-        }
-        private void btnFirst_Click(object sender, EventArgs e)
-        {
-            this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[0].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
-            btnPrevious.Enabled = false;
-            btnNext.Enabled = true;
-        }
-
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[dataGridViewClient.Rows.Count - 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
-            btnNext.Enabled = false;
-            btnPrevious.Enabled = true;
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridViewClient.CurrentRow.Index < dataGridViewClient.Rows.Count - 1)
-            {
-                btnPrevious.Enabled = true;
-                this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[this.dataGridViewClient.CurrentRow.Index + 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
-                if (this.dataGridViewClient.CurrentRow.Index == dataGridViewClient.Rows.Count - 1)
-                    btnNext.Enabled = false;
-            }
-            else
-            {
-                btnNext.Enabled = false;
-            }
-        }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridViewClient.CurrentRow.Index > 0)
-            {
-                btnNext.Enabled = true;
-                this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[this.dataGridViewClient.CurrentRow.Index - 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
-                if (this.dataGridViewClient.CurrentRow.Index == 0)
-                    btnPrevious.Enabled = false;
-            }
-            else
-            {
-                btnPrevious.Enabled = false;
-            }
-        }
-
+        #endregion
+        #region GroupBox Edit Mode Event
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string errorMessage = string.Empty;
@@ -305,10 +171,123 @@ namespace MMS_CapstoneProject
                 lblErrorMessage.Text = "Error Message: " + errorMessage;
                 lblErrorMessage.Visible = true;
             }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
 
+            ClearClientTextBox();
 
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+
+            dataGridViewClient.ClearSelection();
+        }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[0].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = true;
+        }
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[dataGridViewClient.Rows.Count - 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+            btnNext.Enabled = false;
+            btnPrevious.Enabled = true;
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClient.CurrentRow.Index < dataGridViewClient.Rows.Count - 1)
+            {
+                btnPrevious.Enabled = true;
+                this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[this.dataGridViewClient.CurrentRow.Index + 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+                if (this.dataGridViewClient.CurrentRow.Index == dataGridViewClient.Rows.Count - 1)
+                    btnNext.Enabled = false;
+            }
+            else
+            {
+                btnNext.Enabled = false;
+            }
+        }
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClient.CurrentRow.Index > 0)
+            {
+                btnNext.Enabled = true;
+                this.dataGridViewClient.CurrentCell = this.dataGridViewClient.Rows[this.dataGridViewClient.CurrentRow.Index - 1].Cells[this.dataGridViewClient.CurrentCell.ColumnIndex];
+                if (this.dataGridViewClient.CurrentRow.Index == 0)
+                    btnPrevious.Enabled = false;
+            }
+            else
+            {
+                btnPrevious.Enabled = false;
+            }
+        }
+        #endregion
+        private void btnRefreshData_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridViewData(dataGridViewClient);
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearClientTextBox();
+
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+
+            dataGridViewClient.ClearSelection();
+        }
+
+        private void btnBackMenu_Click(object sender, EventArgs e)
+        {
+            gbEdit.Visible = false;
+            gbMenu.Visible = true;
+            gbCreate.Visible = false;
+
+            dataGridViewClient.Enabled = false;
+            dataGridViewClient.ClearSelection();
+
+            gbClientTexBox.Enabled = false;
+
+        }
+        private void dataGridViewClient_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClient.CurrentRow != null)
+            {
+                txtClientId.Text = dataGridViewClient.CurrentRow.Cells[0].Value.ToString();
+                txtClientName.Text = dataGridViewClient.CurrentRow.Cells[1].Value.ToString();
+                txtPrimaryContactName.Text = dataGridViewClient.CurrentRow.Cells[2].Value.ToString();
+                txtPrimaryContactCell.Text = dataGridViewClient.CurrentRow.Cells[3].Value.ToString();
+                txtPrimaryContactEmail.Text = dataGridViewClient.CurrentRow.Cells[4].Value.ToString();
+
+                btnDelete.Enabled = true;
+                btnUpdate.Enabled = true;
+                //btnAddNew.Enabled = false;
+            }
+        }
+        #endregion
+        #region FUNCTIONS
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// ClearClientTextBox - 
+        /// </summary>
         private void ClearClientTextBox()
         {
             txtClientId.Clear();
@@ -317,6 +296,27 @@ namespace MMS_CapstoneProject
             txtPrimaryContactCell.Clear();
             txtPrimaryContactEmail.Clear();
         }
+        /// <summary>
+        /// RefreshDataGridViewData -  refresh data grid data
+        /// </summary>
+        public void RefreshDataGridViewData(DataGridView dataGridView)
+        {
+            var source = new BindingSource();
+
+            if (dataGridView == dataGridViewClient)
+            {
+                source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
+            }
+
+            dataGridView.DataSource = source;
+            dataGridView.AutoResizeColumns();
+
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 430 + dgv_width;
+
+            dataGridViewClient.ClearSelection();
+        }
+        #endregion
 
     }
 }
