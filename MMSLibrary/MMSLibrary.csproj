@@ -54,8 +54,8 @@
     <Compile Include="Class Model\ClientEventModel.cs" />
     <Compile Include="Class Model\ClientModel.cs" />
     <Compile Include="Data Access\ClientDataAccess.cs" />
-    <Compile Include="Data Access\EventDataAccess.cs" />
-    <Compile Include="Data Access\WorkerDataAccess.cs" />
+    <Compile Include="Data Access\ClientEventDataAccess.cs" />
+    <Compile Include="Data Access\TrackWorkerDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data Access\SqliteDataAccess.cs" />
     <Compile Include="Data Access\TrackDataAccess.cs" />

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
-    class ClientDataAccess
+    class ClientDataAccess : SqliteDataAccess
     {
         /// <summary>
         /// LoadAllClient - Retrieve every client record from database

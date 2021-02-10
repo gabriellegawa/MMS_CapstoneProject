@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
-    class EventDataAccess
+    class ClientEventDataAccess : SqliteDataAccess
     {
     }
 }
