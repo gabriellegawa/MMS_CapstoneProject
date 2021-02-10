@@ -32,7 +32,7 @@ namespace MMS_CapstoneProject
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tpClient = new System.Windows.Forms.TabPage();
             this.gbClientTexBox = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbClientIsDeleted = new System.Windows.Forms.RadioButton();
             this.txtPrimaryContactCell = new System.Windows.Forms.MaskedTextBox();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.txtClientId = new System.Windows.Forms.TextBox();
@@ -63,6 +63,7 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rbClientIsDeleted_1 = new System.Windows.Forms.RadioButton();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
             this.gbClientTexBox.SuspendLayout();
@@ -103,7 +104,8 @@ namespace MMS_CapstoneProject
             // 
             // gbClientTexBox
             // 
-            this.gbClientTexBox.Controls.Add(this.radioButton1);
+            this.gbClientTexBox.Controls.Add(this.rbClientIsDeleted_1);
+            this.gbClientTexBox.Controls.Add(this.rbClientIsDeleted);
             this.gbClientTexBox.Controls.Add(this.txtPrimaryContactCell);
             this.gbClientTexBox.Controls.Add(this.lblErrorMessage);
             this.gbClientTexBox.Controls.Add(this.txtClientId);
@@ -118,20 +120,22 @@ namespace MMS_CapstoneProject
             this.gbClientTexBox.Enabled = false;
             this.gbClientTexBox.Location = new System.Drawing.Point(25, 6);
             this.gbClientTexBox.Name = "gbClientTexBox";
-            this.gbClientTexBox.Size = new System.Drawing.Size(318, 219);
+            this.gbClientTexBox.Size = new System.Drawing.Size(318, 259);
             this.gbClientTexBox.TabIndex = 17;
             this.gbClientTexBox.TabStop = false;
             // 
-            // radioButton1
+            // rbClientIsDeleted
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(187, 157);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 21;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbClientIsDeleted.AutoSize = true;
+            this.rbClientIsDeleted.Checked = true;
+            this.rbClientIsDeleted.Location = new System.Drawing.Point(45, 161);
+            this.rbClientIsDeleted.Name = "rbClientIsDeleted";
+            this.rbClientIsDeleted.Size = new System.Drawing.Size(64, 17);
+            this.rbClientIsDeleted.TabIndex = 21;
+            this.rbClientIsDeleted.TabStop = true;
+            this.rbClientIsDeleted.Text = "Enabled";
+            this.rbClientIsDeleted.UseVisualStyleBackColor = true;
+            this.rbClientIsDeleted.CheckedChanged += new System.EventHandler(this.rbClientIsDeleted_CheckedChanged);
             // 
             // txtPrimaryContactCell
             // 
@@ -143,7 +147,7 @@ namespace MMS_CapstoneProject
             // 
             // lblErrorMessage
             // 
-            this.lblErrorMessage.Location = new System.Drawing.Point(0, 153);
+            this.lblErrorMessage.Location = new System.Drawing.Point(0, 200);
             this.lblErrorMessage.Name = "lblErrorMessage";
             this.lblErrorMessage.Size = new System.Drawing.Size(318, 62);
             this.lblErrorMessage.TabIndex = 20;
@@ -229,7 +233,7 @@ namespace MMS_CapstoneProject
             // 
             this.gbMenu.Controls.Add(this.btnEditMode);
             this.gbMenu.Controls.Add(this.btnCreateNewMode);
-            this.gbMenu.Location = new System.Drawing.Point(25, 275);
+            this.gbMenu.Location = new System.Drawing.Point(25, 315);
             this.gbMenu.Name = "gbMenu";
             this.gbMenu.Size = new System.Drawing.Size(318, 34);
             this.gbMenu.TabIndex = 10;
@@ -260,7 +264,7 @@ namespace MMS_CapstoneProject
             this.gbCreate.Controls.Add(this.btnBackMenu_1);
             this.gbCreate.Controls.Add(this.btnAddNew);
             this.gbCreate.Controls.Add(this.btnClear);
-            this.gbCreate.Location = new System.Drawing.Point(25, 247);
+            this.gbCreate.Location = new System.Drawing.Point(25, 287);
             this.gbCreate.Name = "gbCreate";
             this.gbCreate.Size = new System.Drawing.Size(318, 62);
             this.gbCreate.TabIndex = 11;
@@ -307,7 +311,7 @@ namespace MMS_CapstoneProject
             this.gbEdit.Controls.Add(this.btnNext);
             this.gbEdit.Controls.Add(this.btnPrevious);
             this.gbEdit.Controls.Add(this.btnFirst);
-            this.gbEdit.Location = new System.Drawing.Point(25, 221);
+            this.gbEdit.Location = new System.Drawing.Point(25, 261);
             this.gbEdit.Name = "gbEdit";
             this.gbEdit.Size = new System.Drawing.Size(318, 88);
             this.gbEdit.TabIndex = 12;
@@ -413,7 +417,7 @@ namespace MMS_CapstoneProject
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(25, 315);
+            this.btnExit.Location = new System.Drawing.Point(25, 355);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(318, 23);
             this.btnExit.TabIndex = 14;
@@ -430,6 +434,18 @@ namespace MMS_CapstoneProject
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rbClientIsDeleted_1
+            // 
+            this.rbClientIsDeleted_1.AutoSize = true;
+            this.rbClientIsDeleted_1.Location = new System.Drawing.Point(187, 161);
+            this.rbClientIsDeleted_1.Name = "rbClientIsDeleted_1";
+            this.rbClientIsDeleted_1.Size = new System.Drawing.Size(66, 17);
+            this.rbClientIsDeleted_1.TabIndex = 22;
+            this.rbClientIsDeleted_1.TabStop = true;
+            this.rbClientIsDeleted_1.Text = "Disabled";
+            this.rbClientIsDeleted_1.UseVisualStyleBackColor = true;
+            this.rbClientIsDeleted_1.CheckedChanged += new System.EventHandler(this.rbClientIsDeleted_CheckedChanged);
             // 
             // MainForm
             // 
@@ -487,7 +503,8 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Label lblPrimaryContactName;
         private System.Windows.Forms.Label lblClientName;
         private System.Windows.Forms.MaskedTextBox txtPrimaryContactCell;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbClientIsDeleted;
+        private System.Windows.Forms.RadioButton rbClientIsDeleted_1;
     }
 }
 

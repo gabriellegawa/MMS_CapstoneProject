@@ -261,6 +261,15 @@ namespace MMS_CapstoneProject
 
                 btnDelete.Enabled = true;
                 btnUpdate.Enabled = true;
+
+                if (dataGridViewClient.CurrentRow.Cells[5].Value.ToString() == "False")
+                {
+                    rbClientIsDeleted.Checked = true;
+                }
+                else
+                {
+                    rbClientIsDeleted_1.Checked = true;
+                }
             }
         }
         #endregion
@@ -315,7 +324,7 @@ namespace MMS_CapstoneProject
         }
         #endregion
 
-        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void rbClientIsDeleted_CheckedChanged(object sender, EventArgs e)
         {
 
         }
