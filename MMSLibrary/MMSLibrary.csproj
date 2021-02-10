@@ -51,16 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientEventModel.cs" />
-    <Compile Include="ClientModel.cs" />
-    <Compile Include="DataAccess\ClientDataAccess.cs" />
-    <Compile Include="DataAccess\EventDataAccess.cs" />
-    <Compile Include="DataAccess\WorkerDataAccess.cs" />
+    <Compile Include="Class Model\ClientEventModel.cs" />
+    <Compile Include="Class Model\ClientModel.cs" />
+    <Compile Include="Data Access\ClientDataAccess.cs" />
+    <Compile Include="Data Access\EventDataAccess.cs" />
+    <Compile Include="Data Access\WorkerDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataAccess\SqliteDataAccess.cs" />
-    <Compile Include="DataAccess\TrackDataAccess.cs" />
-    <Compile Include="TrackModel.cs" />
-    <Compile Include="TrackWorkerModel.cs" />
+    <Compile Include="Data Access\SqliteDataAccess.cs" />
+    <Compile Include="Data Access\TrackDataAccess.cs" />
+    <Compile Include="Class Model\TrackModel.cs" />
+    <Compile Include="Class Model\TrackWorkerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
