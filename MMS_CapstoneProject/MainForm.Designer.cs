@@ -32,7 +32,6 @@ namespace MMS_CapstoneProject
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tpClient = new System.Windows.Forms.TabPage();
             this.gbClientTexBox = new System.Windows.Forms.GroupBox();
-            this.rbClientIsDeleted = new System.Windows.Forms.RadioButton();
             this.txtPrimaryContactCell = new System.Windows.Forms.MaskedTextBox();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.txtClientId = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rbClientIsDeleted = new System.Windows.Forms.RadioButton();
             this.rbClientIsDeleted_1 = new System.Windows.Forms.RadioButton();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
@@ -123,19 +123,6 @@ namespace MMS_CapstoneProject
             this.gbClientTexBox.Size = new System.Drawing.Size(318, 259);
             this.gbClientTexBox.TabIndex = 17;
             this.gbClientTexBox.TabStop = false;
-            // 
-            // rbClientIsDeleted
-            // 
-            this.rbClientIsDeleted.AutoSize = true;
-            this.rbClientIsDeleted.Checked = true;
-            this.rbClientIsDeleted.Location = new System.Drawing.Point(45, 161);
-            this.rbClientIsDeleted.Name = "rbClientIsDeleted";
-            this.rbClientIsDeleted.Size = new System.Drawing.Size(64, 17);
-            this.rbClientIsDeleted.TabIndex = 21;
-            this.rbClientIsDeleted.TabStop = true;
-            this.rbClientIsDeleted.Text = "Enabled";
-            this.rbClientIsDeleted.UseVisualStyleBackColor = true;
-            this.rbClientIsDeleted.CheckedChanged += new System.EventHandler(this.rbClientIsDeleted_CheckedChanged);
             // 
             // txtPrimaryContactCell
             // 
@@ -435,6 +422,18 @@ namespace MMS_CapstoneProject
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // rbClientIsDeleted
+            // 
+            this.rbClientIsDeleted.AutoSize = true;
+            this.rbClientIsDeleted.Checked = true;
+            this.rbClientIsDeleted.Location = new System.Drawing.Point(45, 161);
+            this.rbClientIsDeleted.Name = "rbClientIsDeleted";
+            this.rbClientIsDeleted.Size = new System.Drawing.Size(64, 17);
+            this.rbClientIsDeleted.TabIndex = 21;
+            this.rbClientIsDeleted.TabStop = true;
+            this.rbClientIsDeleted.Text = "Enabled";
+            this.rbClientIsDeleted.UseVisualStyleBackColor = true;
+            // 
             // rbClientIsDeleted_1
             // 
             this.rbClientIsDeleted_1.AutoSize = true;
@@ -442,10 +441,8 @@ namespace MMS_CapstoneProject
             this.rbClientIsDeleted_1.Name = "rbClientIsDeleted_1";
             this.rbClientIsDeleted_1.Size = new System.Drawing.Size(66, 17);
             this.rbClientIsDeleted_1.TabIndex = 22;
-            this.rbClientIsDeleted_1.TabStop = true;
             this.rbClientIsDeleted_1.Text = "Disabled";
             this.rbClientIsDeleted_1.UseVisualStyleBackColor = true;
-            this.rbClientIsDeleted_1.CheckedChanged += new System.EventHandler(this.rbClientIsDeleted_CheckedChanged);
             // 
             // MainForm
             // 

@@ -13,6 +13,8 @@ namespace MMS_CapstoneProject
 {
     public partial class MainForm : Form
     {
+        private bool btnEditModeClicked = false;
+
 
         public MainForm()
         {
@@ -22,7 +24,6 @@ namespace MMS_CapstoneProject
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshDataGridViewData(dataGridViewClient);
-            ClearClientTextBox();
         }
 
         #region EVENTS
@@ -41,6 +42,8 @@ namespace MMS_CapstoneProject
 
         private void btnEditMode_Click(object sender, EventArgs e)
         {
+            btnEditModeClicked = true;
+
             ClearClientTextBox();
 
             gbEdit.Visible = true;
@@ -151,8 +154,6 @@ namespace MMS_CapstoneProject
                 client.PrimaryContactCell = primaryContactCell;
                 client.PrimaryContactEmail = primaryContactEmail;
 
-                SqliteDataAccess.UpdateClient(client, int.Parse(txtClientId.Text));
-                RefreshDataGridViewData(dataGridViewClient);
 
                 txtClientName.Text = string.Empty;
                 txtPrimaryContactName.Clear();
@@ -161,6 +162,21 @@ namespace MMS_CapstoneProject
 
                 lblErrorMessage.Text = "Successfully update client";
                 lblErrorMessage.Visible = true;
+
+
+                var test = rbClientIsDeleted_1.Checked;
+
+                if (rbClientIsDeleted_1.Checked)
+                {
+                    SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
+                }
+                else
+                {
+                    SqliteDataAccess.ActivateClient(int.Parse(txtClientId.Text));
+                }
+
+                SqliteDataAccess.UpdateClient(client, int.Parse(txtClientId.Text));
+                RefreshDataGridViewData(dataGridViewClient);
             }
             else
             {
@@ -239,6 +255,8 @@ namespace MMS_CapstoneProject
 
         private void btnBackMenu_Click(object sender, EventArgs e)
         {
+            btnEditModeClicked = false;
+
             gbEdit.Visible = false;
             gbMenu.Visible = true;
             gbCreate.Visible = false;
@@ -251,7 +269,7 @@ namespace MMS_CapstoneProject
         }
         private void dataGridViewClient_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (this.dataGridViewClient.CurrentRow != null)
+            if (this.dataGridViewClient.CurrentRow != null && btnEditModeClicked)
             {
                 txtClientId.Text = dataGridViewClient.CurrentRow.Cells[0].Value.ToString();
                 txtClientName.Text = dataGridViewClient.CurrentRow.Cells[1].Value.ToString();
@@ -324,9 +342,5 @@ namespace MMS_CapstoneProject
         }
         #endregion
 
-        private void rbClientIsDeleted_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
