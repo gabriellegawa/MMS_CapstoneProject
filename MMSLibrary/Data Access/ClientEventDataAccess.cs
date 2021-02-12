@@ -37,12 +37,67 @@ namespace MMSLibrary.DataAccess
             }
         }
 
-        public static List<ClientEventModel> LoadClientEvent()
+        public static List<ClientEventModel> LoadDeletedClientEvent()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<ClientEventModel>("SELECT * FROM ClientEvents WHERE isDeleted = 1 ", new DynamicParameters());
                 return output.ToList();
+            }
+        }
+
+        public static bool DeactivateClientEvent(int id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "UPDATE ClientEvents SET isDeleted = 1 WHERE id = @id ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+        }
+        public static bool ActivateClientEvent(int id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "UPDATE ClientEvents SET isDeleted = 0 WHERE id = @id ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
             }
         }
     }
