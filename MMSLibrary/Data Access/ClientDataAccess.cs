@@ -24,16 +24,6 @@ namespace MMSLibrary.DataAccess
             }
         }
 
-        private static string LoadConnectionString()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static object LoadTrack()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// LoadClient - Retrieve client excluding the deleted 
         /// </summary>
