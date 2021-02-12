@@ -15,37 +15,37 @@ namespace MMSLibrary.DataAccess
         /// LoadAllClient - Retrieve every client record from database
         /// </summary>
         /// <returns>List of Client Model</returns>
-        public static List<TrackModel> LoadAllTrackWorker()
+        public static List<TrackWorkerModel> LoadAllTrackWorker()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers", new DynamicParameters());
+                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers", new DynamicParameters());
                 return output.ToList();
             }
         }
-        public static List<TrackModel> LoadTrackWorker()
+        public static List<TrackWorkerModel> LoadTrackWorker()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0", new DynamicParameters());
-                return output.ToList();
-            }
-        }
-
-        public static List<TrackModel> LoadTrackWorker(int id)
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0", new DynamicParameters());
                 return output.ToList();
             }
         }
 
-        public static List<TrackModel> LoadDeletedTrackWorker()
+        public static List<TrackWorkerModel> LoadTrackWorker(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 1 ", new DynamicParameters());
+                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<TrackWorkerModel> LoadDeletedTrackWorker()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 1 ", new DynamicParameters());
                 return output.ToList();
             }
         }
