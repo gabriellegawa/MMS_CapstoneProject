@@ -143,5 +143,37 @@ namespace MMSLibrary.DataAccess
             }
 
         }
+        public static void SaveTrackWorker(TrackWorkerModel trackWorker)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Open();
+                string sqlStatement = "INSERT INTO TrackWorkers(firstName, lastName, cell, email, isCapableCaptain, isDeleted) VALUES(@firstName, @lastName, @cell, @email, isCapableCaptain, @isDeleted)";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@firstName", trackWorker.FirstName);
+                cmd.Parameters.AddWithValue("@lastName", trackWorker.LastName);
+                cmd.Parameters.AddWithValue("@cell", trackWorker.Cell);
+                cmd.Parameters.AddWithValue("@email", trackWorker.Email);
+                cmd.Parameters.AddWithValue("@isCapableCaptain", trackWorker.IsCapableCaptain);
+                // HARD CODED FALSE
+                cmd.Parameters.AddWithValue("@isDeleted", false);
+
+                try
+                {
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+        }
+
     }
 }
