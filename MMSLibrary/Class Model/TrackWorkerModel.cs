@@ -11,8 +11,8 @@ namespace MMSLibrary
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Cell { get; set; }
-        public bool isCapableCaptain { get; set; }
-        public bool isDeleted { get; set; }
+        public bool IsCapableCaptain { get; set; }
+        public bool IsDeleted { get; set; }
         public string FullName
         {
             get
