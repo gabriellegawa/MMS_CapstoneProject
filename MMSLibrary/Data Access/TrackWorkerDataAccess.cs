@@ -23,5 +23,31 @@ namespace MMSLibrary.DataAccess
                 return output.ToList();
             }
         }
+        public static List<TrackModel> LoadTrack()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<TrackModel> LoadTrack(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<TrackModel> LoadDeletedTrack()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TrackModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 1 ", new DynamicParameters());
+                return output.ToList();
+            }
+        }
     }
 }
