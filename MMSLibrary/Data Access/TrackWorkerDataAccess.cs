@@ -113,7 +113,7 @@ namespace MMSLibrary.DataAccess
                 cnn.Open();
 
                 string sqlStatement = "UPDATE TrackWorkers SET [firstName] = @updatedFirstName, [lastName] = @updatedLastName, "
-                                    + "[cell] = @updatedCell, [email] = @updatedEmail, [isCapableCaptain] = @updatedIsCapableCaptain [isDeleted] = @updatedIsDeleted "
+                                    + "[cell] = @updatedCell, [email] = @updatedEmail, [isCapableCaptain] = @updatedIsCapableCaptain, [isDeleted] = @updatedIsDeleted "
                                     + "WHERE [id] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);

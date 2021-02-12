@@ -21,6 +21,7 @@ namespace MMSLibrary
         public bool IsUsingLowerPaddock { get; set; }
         public bool WorkerCalloutSent { get; set; }
         public bool RequiresSafetyDemo { get; set; }
+        public bool IsDeleted { get; set; }
         public List<TrackWorkerModel> TrackWorkers { get; set; }
         
     }

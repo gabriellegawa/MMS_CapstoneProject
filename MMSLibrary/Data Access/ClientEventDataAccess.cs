@@ -100,5 +100,93 @@ namespace MMSLibrary.DataAccess
                 return ReturnVal == 1;
             }
         }
+
+        public static bool UpdateClientEvent(ClientEventModel updatedClientEvent, int id)
+        {
+
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+
+                string sqlStatement = "UPDATE ClientEvent SET [clientId] = @updatedClientId, [trackId] = @updatedTrackId, [date] = @updatedDate, "
+                                    + "[workersRequested] = @updatedWorkersRequested, [isLunchProvided] = @updatedIsLunchProvided, " 
+                                    + "[isUsingUpperPaddock] = @updatedisUsingUpperPaddock, [isUsingMiddlePaddock] = @updatedisUsingMiddlePaddock, " 
+                                    + "[isUsingLowerPaddock] = @updatedisUsingLowerPaddock, [workerCalloutSent] = @updatedWorkerCalloutSent, " 
+                                    + "[requiredSafetyDemo] = @updatedRequiredSafetyDemo, [isDeleted] = @updatedIsDeleted "
+                                    + "WHERE [id] = @id";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@updatedClientId", updatedClientEvent.ClientId);
+                cmd.Parameters.AddWithValue("@updatedTrackId", updatedClientEvent.ClientEventTrack);
+                cmd.Parameters.AddWithValue("@updatedDate", updatedClientEvent.ClientEventDate);
+                cmd.Parameters.AddWithValue("@updatedWorkersRequested", updatedClientEvent.ClientEventWorkerRequested);
+                cmd.Parameters.AddWithValue("@updatedIsLunchProvided", updatedClientEvent.IsLunchProvided);
+                cmd.Parameters.AddWithValue("@updatedisUsingUpperPaddock", updatedClientEvent.IsUsingUpperPaddock);
+                cmd.Parameters.AddWithValue("@updatedisUsingMiddlePaddock", updatedClientEvent.IsUsingMiddlePaddock);
+                cmd.Parameters.AddWithValue("@updatedisUsingLowerPaddock", updatedClientEvent.IsUsingLowerPaddock);
+                cmd.Parameters.AddWithValue("@updatedWorkerCalloutSent", updatedClientEvent.WorkerCalloutSent);
+                cmd.Parameters.AddWithValue("@updatedRequiredSafetyDemo", updatedClientEvent.RequiresSafetyDemo);
+                cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedClientEvent.IsDeleted);
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+
+        }
+
+        public static void SaveClientEvent(ClientEventModel clientEvent)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Open();
+                string sqlStatement = "INSERT INTO ClientEvents(clientId, trackId, date, workersRequested, isLunchProvided, " 
+                    + "isUsingUpperPaddock, isUsingMiddlePaddock, isUsingLowerPaddock, workerCalloutSent, requireSafetyDemo, " 
+                    + "isDeleted) VALUES( @clientId, @trackId, @date, @workerRequested, @isLunchProvided, @isUsingUpperPaddock, " 
+                    + "@isUsingMiddlePaddock, @isUsingLowerPaddock, @workerCalloutSent, @requireSafetyDemo, @isDeleted )";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@clientId", clientEvent.ClientId);
+                cmd.Parameters.AddWithValue("@trackId", clientEvent.ClientEventTrack);
+                cmd.Parameters.AddWithValue("@date", clientEvent.ClientEventDate);
+                cmd.Parameters.AddWithValue("@workerRequested", clientEvent.ClientEventWorkerRequested);
+                cmd.Parameters.AddWithValue("@isLunchProvided", clientEvent.IsLunchProvided);
+                cmd.Parameters.AddWithValue("@isUsingUpperPaddock", clientEvent.IsUsingUpperPaddock);
+                cmd.Parameters.AddWithValue("@isUsingMiddlePaddock", clientEvent.IsUsingMiddlePaddock);
+                cmd.Parameters.AddWithValue("@isUsingLowerPaddock", clientEvent.IsUsingLowerPaddock);
+                cmd.Parameters.AddWithValue("@workerCalloutSent", clientEvent.WorkerCalloutSent);
+                cmd.Parameters.AddWithValue("@requireSafetyDemo", clientEvent.RequiresSafetyDemo);
+                // HARD CODED FALSE
+                cmd.Parameters.AddWithValue("@isDeleted", false);
+
+                try
+                {
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+        }
     }
 }
