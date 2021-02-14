@@ -12,7 +12,7 @@ namespace MMSLibrary.DataAccess
     class TrackWorkerDataAccess : SqliteDataAccess
     {
         /// <summary>
-        /// LoadAllClient - Retrieve every client record from database
+        /// LoadAllTrackWorker - Retrieve every track worker record from database
         /// </summary>
         /// <returns>List of Client Model</returns>
         public static List<TrackWorkerModel> LoadAllTrackWorker()
@@ -23,6 +23,11 @@ namespace MMSLibrary.DataAccess
                 return output.ToList();
             }
         }
+
+        /// <summary>
+        /// LoadTrackWorker - Retrieve track worker excluding the deleted 
+        /// </summary>
+        /// <returns>List of track worker Model</returns>
         public static List<TrackWorkerModel> LoadTrackWorker()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -32,6 +37,11 @@ namespace MMSLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// LoadTrackWorker - Retrieve a specific track worker
+        /// </summary>
+        /// <param name="id">track worker id</param>
+        /// <returns>List of track worker Model</returns>
         public static List<TrackWorkerModel> LoadTrackWorker(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -41,6 +51,10 @@ namespace MMSLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// LoadDeletedTrackWorker - Retrieve deleted track worker from database
+        /// </summary>
+        /// <returns>List of track worker Model</returns>
         public static List<TrackWorkerModel> LoadDeletedTrackWorker()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -50,6 +64,11 @@ namespace MMSLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// DeactivateTrackWorker - deactivate track worker by setting isDeleted field to true
+        /// </summary>
+        /// <param name="id">track worker id</param>
+        /// <returns>bool true or false</returns>
         public static bool DeactivateTrackWorker(int id)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -77,6 +96,11 @@ namespace MMSLibrary.DataAccess
                 return ReturnVal == 1;
             }
         }
+        /// <summary>
+        /// ActivateTrackWorker - activate track worker by setting isDeleted field to false
+        /// </summary>
+        /// <param name="id">track worker id</param>
+        /// <returns>bool true or false</returns>
         public static bool ActivateTrackWorker(int id)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -104,6 +128,12 @@ namespace MMSLibrary.DataAccess
                 return ReturnVal == 1;
             }
         }
+        /// <summary>
+        /// UpdateTrackWorker - update track worker record
+        /// </summary>
+        /// <param name="updatedClient">Updated track worker object</param>
+        /// <param name="id">track worker id</param>
+        /// <returns>bool true or false</returns>
         public static bool UpdateTrackWorker(TrackWorkerModel updatedTrackWorker, int id)
         {
 
@@ -143,6 +173,11 @@ namespace MMSLibrary.DataAccess
             }
 
         }
+
+        /// <summary>
+        /// SaveTrackWorker -  save a new track worker record
+        /// </summary>
+        /// <param name="trackWorker">new track worker</param>
         public static void SaveTrackWorker(TrackWorkerModel trackWorker)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))

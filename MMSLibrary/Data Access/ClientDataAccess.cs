@@ -40,6 +40,7 @@ namespace MMSLibrary.DataAccess
         /// <summary>
         /// LoadClient - Retrieve client excluding the deleted 
         /// </summary>
+        /// <param name="id">client id</param>
         /// <returns>List of Client Model</returns>
         public static List<ClientModel> LoadClient(int id)
         {
@@ -128,6 +129,7 @@ namespace MMSLibrary.DataAccess
                 return ReturnVal == 1;
             }
         }
+
         /// <summary>
         /// UpdateClient - update client record
         /// </summary>

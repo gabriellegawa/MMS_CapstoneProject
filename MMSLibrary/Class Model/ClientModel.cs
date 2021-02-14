@@ -6,6 +6,10 @@ namespace MMSLibrary
 {
     public class ClientModel
     {
+        /// <summary>
+        /// Client model - this class attribute is based on Clients table in database
+        /// </summary>
+
         //public ClientModel(string name, string primaryContactName, string primaryContactCell, string primaryContactEmail, bool isDeleted)
         //{
         //    Name = name ?? throw new ArgumentNullException(nameof(name));

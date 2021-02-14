@@ -6,6 +6,9 @@ namespace MMSLibrary
 {
     public class TrackWorkerModel
     {
+        /// <summary>
+        /// Track worker model - this class attribute is based on TrackWorkers table in database
+        /// </summary>
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

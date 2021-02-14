@@ -9,6 +9,10 @@ namespace MMSLibrary
 {
     public class ClientEventModel
     {
+        /// <summary>
+        /// Client Event model - this class attribute is based on ClientEvents table in database
+        /// </summary>
+
         [Key]
         public int Id { get; set; }
         public ClientModel ClientId { get; set; }

@@ -12,9 +12,9 @@ namespace MMSLibrary
     class TrackDataAccess : SqliteDataAccess
     {
         /// <summary>
-        /// LoadAllClient - Retrieve every client record from database
+        /// LoadAllTrack - Retrieve every track record from database
         /// </summary>
-        /// <returns>List of Client Model</returns>
+        /// <returns>List of Track Model</returns>
         public static List<TrackModel> LoadAllTrack()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -25,9 +25,9 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// LoadClient - Retrieve client excluding the deleted 
+        /// LoadTrack - Retrieve every track excluding the deleted 
         /// </summary>
-        /// <returns>List of Client Model</returns>
+        /// <returns>List of Track Model</returns>
         public static List<TrackModel> LoadTrack()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -38,9 +38,10 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// LoadClient - Retrieve client excluding the deleted 
+        /// LoadClient - Retrieve a specific Track from database
         /// </summary>
-        /// <returns>List of Client Model</returns>
+        /// <param name="id">track id</param>
+        /// <returns>List of Track Model</returns>
         public static List<TrackModel> LoadTrack(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -51,7 +52,7 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// LoadDeletedClient - Retrieve deleted client from database
+        /// LoadDeletedTrack - Retrieve deleted track from database
         /// </summary>
         /// <returns>List of Client Model</returns>
         public static List<TrackModel> LoadDeletedTrack()
@@ -64,9 +65,9 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// DeactivateClient - deactivate client by setting isDeleted field to true
+        /// DeactivateTrack - deactivate track by setting isDeleted field to true
         /// </summary>
-        /// <param name="id">client id</param>
+        /// <param name="id">track id</param>
         /// <returns>bool true or false</returns>
         public static bool DeactivateTrack(int id)
         {
@@ -97,9 +98,9 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// ActivateClient - activate client by setting isDeleted field to false
+        /// ActivateTrack - activate track by setting isDeleted field to false
         /// </summary>
-        /// <param name="id">client id</param>
+        /// <param name="id">track id</param>
         /// <returns>bool true or false</returns>
         public static bool ActivateTrack(int id)
         {
@@ -130,10 +131,10 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// UpdateClient - update client record
+        /// UpdateTrack - update track record
         /// </summary>
-        /// <param name="updatedClient">updated client information</param>
-        /// <param name="id">client id</param>
+        /// <param name="updatedClient">updated track information</param>
+        /// <param name="id">track id</param>
         /// <returns>bool true or false</returns>
         public static bool UpdateTrack(TrackModel updatedTrack, int id)
         {
@@ -171,9 +172,9 @@ namespace MMSLibrary
         }
 
         /// <summary>
-        /// SaveClient - save a new client
+        /// SaveTrack - save a new track
         /// </summary>
-        /// <param name="client">new client</param>
+        /// <param name="client">new track</param>
         public static void SaveTrack(TrackModel track)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
