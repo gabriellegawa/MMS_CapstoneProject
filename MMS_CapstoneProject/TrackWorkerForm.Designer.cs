@@ -30,15 +30,15 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             this.lblTrackWorkerId = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTrackWorkerId = new System.Windows.Forms.TextBox();
+            this.txtTrackWorkerFirstName = new System.Windows.Forms.TextBox();
             this.lblTrackWorkerFirstName = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTrackWorkerLastName = new System.Windows.Forms.TextBox();
             this.lblTrackWorkerLastName = new System.Windows.Forms.Label();
             this.lblTrackWorkerCell = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtTrackWorkerCell = new System.Windows.Forms.MaskedTextBox();
             this.lblClientWorkerEmail = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTrackWorkerEmail = new System.Windows.Forms.TextBox();
             this.lblTrackWorkerIsCapableCaptain = new System.Windows.Forms.Label();
             this.gbIsCapableCaptain = new System.Windows.Forms.GroupBox();
             this.rdioIsCapableCaptain_False = new System.Windows.Forms.RadioButton();
@@ -62,19 +62,19 @@ namespace MMS_CapstoneProject
             this.lblTrackWorkerId.TabIndex = 0;
             this.lblTrackWorkerId.Text = "ID:";
             // 
-            // textBox1
+            // txtTrackWorkerId
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtTrackWorkerId.Location = new System.Drawing.Point(159, 25);
+            this.txtTrackWorkerId.Name = "txtTrackWorkerId";
+            this.txtTrackWorkerId.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerId.TabIndex = 1;
             // 
-            // textBox2
+            // txtTrackWorkerFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtTrackWorkerFirstName.Location = new System.Drawing.Point(159, 58);
+            this.txtTrackWorkerFirstName.Name = "txtTrackWorkerFirstName";
+            this.txtTrackWorkerFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerFirstName.TabIndex = 3;
             // 
             // lblTrackWorkerFirstName
             // 
@@ -85,12 +85,12 @@ namespace MMS_CapstoneProject
             this.lblTrackWorkerFirstName.TabIndex = 2;
             this.lblTrackWorkerFirstName.Text = "First Name:";
             // 
-            // textBox3
+            // txtTrackWorkerLastName
             // 
-            this.textBox3.Location = new System.Drawing.Point(159, 101);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtTrackWorkerLastName.Location = new System.Drawing.Point(159, 101);
+            this.txtTrackWorkerLastName.Name = "txtTrackWorkerLastName";
+            this.txtTrackWorkerLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerLastName.TabIndex = 5;
             // 
             // lblTrackWorkerLastName
             // 
@@ -110,12 +110,12 @@ namespace MMS_CapstoneProject
             this.lblTrackWorkerCell.TabIndex = 6;
             this.lblTrackWorkerCell.Text = "Cell:";
             // 
-            // maskedTextBox1
+            // txtTrackWorkerCell
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(159, 128);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 7;
+            this.txtTrackWorkerCell.Location = new System.Drawing.Point(159, 128);
+            this.txtTrackWorkerCell.Name = "txtTrackWorkerCell";
+            this.txtTrackWorkerCell.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerCell.TabIndex = 7;
             // 
             // lblClientWorkerEmail
             // 
@@ -126,12 +126,12 @@ namespace MMS_CapstoneProject
             this.lblClientWorkerEmail.TabIndex = 8;
             this.lblClientWorkerEmail.Text = "Email:";
             // 
-            // textBox4
+            // txtTrackWorkerEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(159, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 9;
+            this.txtTrackWorkerEmail.Location = new System.Drawing.Point(159, 158);
+            this.txtTrackWorkerEmail.Name = "txtTrackWorkerEmail";
+            this.txtTrackWorkerEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerEmail.TabIndex = 9;
             // 
             // lblTrackWorkerIsCapableCaptain
             // 
@@ -245,15 +245,15 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.gbIsDeleted);
             this.Controls.Add(this.gbIsCapableCaptain);
             this.Controls.Add(this.lblTrackWorkerIsCapableCaptain);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtTrackWorkerEmail);
             this.Controls.Add(this.lblClientWorkerEmail);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.txtTrackWorkerCell);
             this.Controls.Add(this.lblTrackWorkerCell);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtTrackWorkerLastName);
             this.Controls.Add(this.lblTrackWorkerLastName);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtTrackWorkerFirstName);
             this.Controls.Add(this.lblTrackWorkerFirstName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTrackWorkerId);
             this.Controls.Add(this.lblTrackWorkerId);
             this.Name = "TrackWorkerForm";
             this.Text = "TrackWorkerForm";
@@ -269,15 +269,15 @@ namespace MMS_CapstoneProject
         #endregion
 
         private System.Windows.Forms.Label lblTrackWorkerId;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTrackWorkerId;
+        private System.Windows.Forms.TextBox txtTrackWorkerFirstName;
         private System.Windows.Forms.Label lblTrackWorkerFirstName;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTrackWorkerLastName;
         private System.Windows.Forms.Label lblTrackWorkerLastName;
         private System.Windows.Forms.Label lblTrackWorkerCell;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtTrackWorkerCell;
         private System.Windows.Forms.Label lblClientWorkerEmail;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTrackWorkerEmail;
         private System.Windows.Forms.Label lblTrackWorkerIsCapableCaptain;
         private System.Windows.Forms.GroupBox gbIsCapableCaptain;
         private System.Windows.Forms.RadioButton rdioIsCapableCaptain_False;

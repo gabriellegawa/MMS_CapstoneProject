@@ -78,6 +78,9 @@
     <Compile Include="TrackWorkerForm.Designer.cs">
       <DependentUpon>TrackWorkerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ClientEventForm.resx">
+      <DependentUpon>ClientEventForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
