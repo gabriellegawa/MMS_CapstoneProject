@@ -44,8 +44,8 @@ namespace MMS_CapstoneProject
             this.rdioIsCapableCaptain_False = new System.Windows.Forms.RadioButton();
             this.rdioIsCapableCaptain_True = new System.Windows.Forms.RadioButton();
             this.gbIsDeleted = new System.Windows.Forms.GroupBox();
-            this.rdoIsDeleted_False = new System.Windows.Forms.RadioButton();
-            this.rdoIsDeleted_True = new System.Windows.Forms.RadioButton();
+            this.rdoIsDeleted_Disabled = new System.Windows.Forms.RadioButton();
+            this.rdoIsDeleted_Enabled = new System.Windows.Forms.RadioButton();
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnEscape = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -176,35 +176,35 @@ namespace MMS_CapstoneProject
             // 
             // gbIsDeleted
             // 
-            this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_False);
-            this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_True);
+            this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Disabled);
+            this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Enabled);
             this.gbIsDeleted.Location = new System.Drawing.Point(140, 242);
             this.gbIsDeleted.Name = "gbIsDeleted";
             this.gbIsDeleted.Size = new System.Drawing.Size(200, 100);
             this.gbIsDeleted.TabIndex = 12;
             this.gbIsDeleted.TabStop = false;
             // 
-            // rdoIsDeleted_False
+            // rdoIsDeleted_Disabled
             // 
-            this.rdoIsDeleted_False.AutoSize = true;
-            this.rdoIsDeleted_False.Location = new System.Drawing.Point(58, 54);
-            this.rdoIsDeleted_False.Name = "rdoIsDeleted_False";
-            this.rdoIsDeleted_False.Size = new System.Drawing.Size(50, 17);
-            this.rdoIsDeleted_False.TabIndex = 1;
-            this.rdoIsDeleted_False.Text = "False";
-            this.rdoIsDeleted_False.UseVisualStyleBackColor = true;
+            this.rdoIsDeleted_Disabled.AutoSize = true;
+            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(58, 54);
+            this.rdoIsDeleted_Disabled.Name = "rdoIsDeleted_Disabled";
+            this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
+            this.rdoIsDeleted_Disabled.TabIndex = 1;
+            this.rdoIsDeleted_Disabled.Text = "Disabled";
+            this.rdoIsDeleted_Disabled.UseVisualStyleBackColor = true;
             // 
-            // rdoIsDeleted_True
+            // rdoIsDeleted_Enabled
             // 
-            this.rdoIsDeleted_True.AutoSize = true;
-            this.rdoIsDeleted_True.Checked = true;
-            this.rdoIsDeleted_True.Location = new System.Drawing.Point(58, 30);
-            this.rdoIsDeleted_True.Name = "rdoIsDeleted_True";
-            this.rdoIsDeleted_True.Size = new System.Drawing.Size(47, 17);
-            this.rdoIsDeleted_True.TabIndex = 0;
-            this.rdoIsDeleted_True.TabStop = true;
-            this.rdoIsDeleted_True.Text = "True";
-            this.rdoIsDeleted_True.UseVisualStyleBackColor = true;
+            this.rdoIsDeleted_Enabled.AutoSize = true;
+            this.rdoIsDeleted_Enabled.Checked = true;
+            this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(58, 30);
+            this.rdoIsDeleted_Enabled.Name = "rdoIsDeleted_Enabled";
+            this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
+            this.rdoIsDeleted_Enabled.TabIndex = 0;
+            this.rdoIsDeleted_Enabled.TabStop = true;
+            this.rdoIsDeleted_Enabled.Text = "Enabled";
+            this.rdoIsDeleted_Enabled.UseVisualStyleBackColor = true;
             // 
             // btnEnter
             // 
@@ -283,8 +283,8 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.RadioButton rdioIsCapableCaptain_False;
         private System.Windows.Forms.RadioButton rdioIsCapableCaptain_True;
         private System.Windows.Forms.GroupBox gbIsDeleted;
-        private System.Windows.Forms.RadioButton rdoIsDeleted_False;
-        private System.Windows.Forms.RadioButton rdoIsDeleted_True;
+        private System.Windows.Forms.RadioButton rdoIsDeleted_Disabled;
+        private System.Windows.Forms.RadioButton rdoIsDeleted_Enabled;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnEscape;
         private System.Windows.Forms.Button btnClear;

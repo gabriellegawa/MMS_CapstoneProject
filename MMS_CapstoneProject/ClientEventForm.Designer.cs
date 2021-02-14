@@ -30,45 +30,45 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             this.lblClientEventId = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblClientEventClientId = new System.Windows.Forms.Label();
+            this.lblClientEventTrackId = new System.Windows.Forms.Label();
+            this.lblClientEventDate = new System.Windows.Forms.Label();
+            this.lblClientEventWorkersRequested = new System.Windows.Forms.Label();
+            this.gbClientEventIsLunchProvided = new System.Windows.Forms.GroupBox();
+            this.rdoClientEventIsLunchProvided_True = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsLunchProvided_False = new System.Windows.Forms.RadioButton();
+            this.gbClientEventIsUsingPaddock = new System.Windows.Forms.GroupBox();
+            this.rdoClientEventIsUsingUpperPaddock = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsUsingMiddlePaddock = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsUsingLowerPaddock = new System.Windows.Forms.RadioButton();
+            this.lblClientEventIsLunchProvided = new System.Windows.Forms.Label();
+            this.lblClientEventIsUsingPaddock = new System.Windows.Forms.Label();
+            this.lblClientEventWorkerCalloutSent = new System.Windows.Forms.Label();
+            this.lblClientEventRequireSafetyDemo = new System.Windows.Forms.Label();
+            this.gbClientEventWorkerCalloutSent = new System.Windows.Forms.GroupBox();
+            this.rdoClientEventWorkerCalloutSent_True = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventWorkerCalloutSent_False = new System.Windows.Forms.RadioButton();
+            this.txtClientEventId = new System.Windows.Forms.TextBox();
+            this.txtClientEventClientId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gbClientEventRequireSafetyDemo = new System.Windows.Forms.GroupBox();
+            this.rdoClientEventRequireSafetyDemo_False = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventRequireSafetyDemo_True = new System.Windows.Forms.RadioButton();
+            this.gbClientEventIsDeleted = new System.Windows.Forms.GroupBox();
+            this.rdoClientEventIsDeleted_Disabled = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsDeleted_Enabled = new System.Windows.Forms.RadioButton();
+            this.btnEnter = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEscape = new System.Windows.Forms.Button();
+            this.gbClientEventIsLunchProvided.SuspendLayout();
+            this.gbClientEventIsUsingPaddock.SuspendLayout();
+            this.gbClientEventWorkerCalloutSent.SuspendLayout();
+            this.gbClientEventRequireSafetyDemo.SuspendLayout();
+            this.gbClientEventIsDeleted.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClientEventId
@@ -80,209 +80,206 @@ namespace MMS_CapstoneProject
             this.lblClientEventId.TabIndex = 0;
             this.lblClientEventId.Text = "ID:";
             // 
-            // label2
+            // lblClientEventClientId
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lblClientEventClientId.AutoSize = true;
+            this.lblClientEventClientId.Location = new System.Drawing.Point(46, 45);
+            this.lblClientEventClientId.Name = "lblClientEventClientId";
+            this.lblClientEventClientId.Size = new System.Drawing.Size(50, 13);
+            this.lblClientEventClientId.TabIndex = 2;
+            this.lblClientEventClientId.Text = "Client ID:";
             // 
-            // label3
+            // lblClientEventTrackId
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.lblClientEventTrackId.AutoSize = true;
+            this.lblClientEventTrackId.Location = new System.Drawing.Point(61, 90);
+            this.lblClientEventTrackId.Name = "lblClientEventTrackId";
+            this.lblClientEventTrackId.Size = new System.Drawing.Size(52, 13);
+            this.lblClientEventTrackId.TabIndex = 5;
+            this.lblClientEventTrackId.Text = "Track ID:";
             // 
-            // label4
+            // lblClientEventDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.lblClientEventDate.AutoSize = true;
+            this.lblClientEventDate.Location = new System.Drawing.Point(61, 116);
+            this.lblClientEventDate.Name = "lblClientEventDate";
+            this.lblClientEventDate.Size = new System.Drawing.Size(33, 13);
+            this.lblClientEventDate.TabIndex = 8;
+            this.lblClientEventDate.Text = "Date:";
             // 
-            // label5
+            // lblClientEventWorkersRequested
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.lblClientEventWorkersRequested.AutoSize = true;
+            this.lblClientEventWorkersRequested.Location = new System.Drawing.Point(64, 142);
+            this.lblClientEventWorkersRequested.Name = "lblClientEventWorkersRequested";
+            this.lblClientEventWorkersRequested.Size = new System.Drawing.Size(100, 13);
+            this.lblClientEventWorkersRequested.TabIndex = 10;
+            this.lblClientEventWorkersRequested.Text = "Worker Requested:";
             // 
-            // groupBox1
+            // gbClientEventIsLunchProvided
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(126, 183);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.gbClientEventIsLunchProvided.Controls.Add(this.rdoClientEventIsLunchProvided_False);
+            this.gbClientEventIsLunchProvided.Controls.Add(this.rdoClientEventIsLunchProvided_True);
+            this.gbClientEventIsLunchProvided.Location = new System.Drawing.Point(152, 183);
+            this.gbClientEventIsLunchProvided.Name = "gbClientEventIsLunchProvided";
+            this.gbClientEventIsLunchProvided.Size = new System.Drawing.Size(200, 45);
+            this.gbClientEventIsLunchProvided.TabIndex = 13;
+            this.gbClientEventIsLunchProvided.TabStop = false;
             // 
-            // radioButton1
+            // rdoClientEventIsLunchProvided_True
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(24, 26);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsLunchProvided_True.AutoSize = true;
+            this.rdoClientEventIsLunchProvided_True.Location = new System.Drawing.Point(6, 12);
+            this.rdoClientEventIsLunchProvided_True.Name = "rdoClientEventIsLunchProvided_True";
+            this.rdoClientEventIsLunchProvided_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventIsLunchProvided_True.TabIndex = 0;
+            this.rdoClientEventIsLunchProvided_True.TabStop = true;
+            this.rdoClientEventIsLunchProvided_True.Text = "True";
+            this.rdoClientEventIsLunchProvided_True.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdoClientEventIsLunchProvided_False
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(37, 62);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsLunchProvided_False.AutoSize = true;
+            this.rdoClientEventIsLunchProvided_False.Location = new System.Drawing.Point(99, 12);
+            this.rdoClientEventIsLunchProvided_False.Name = "rdoClientEventIsLunchProvided_False";
+            this.rdoClientEventIsLunchProvided_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventIsLunchProvided_False.TabIndex = 1;
+            this.rdoClientEventIsLunchProvided_False.TabStop = true;
+            this.rdoClientEventIsLunchProvided_False.Text = "False";
+            this.rdoClientEventIsLunchProvided_False.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbClientEventIsUsingPaddock
             // 
-            this.groupBox2.Controls.Add(this.radioButton5);
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Location = new System.Drawing.Point(126, 289);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.gbClientEventIsUsingPaddock.Controls.Add(this.rdoClientEventIsUsingLowerPaddock);
+            this.gbClientEventIsUsingPaddock.Controls.Add(this.rdoClientEventIsUsingMiddlePaddock);
+            this.gbClientEventIsUsingPaddock.Controls.Add(this.rdoClientEventIsUsingUpperPaddock);
+            this.gbClientEventIsUsingPaddock.Location = new System.Drawing.Point(132, 244);
+            this.gbClientEventIsUsingPaddock.Name = "gbClientEventIsUsingPaddock";
+            this.gbClientEventIsUsingPaddock.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventIsUsingPaddock.TabIndex = 15;
+            this.gbClientEventIsUsingPaddock.TabStop = false;
             // 
-            // radioButton3
+            // rdoClientEventIsUsingUpperPaddock
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsUsingUpperPaddock.AutoSize = true;
+            this.rdoClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(6, 19);
+            this.rdoClientEventIsUsingUpperPaddock.Name = "rdoClientEventIsUsingUpperPaddock";
+            this.rdoClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(100, 17);
+            this.rdoClientEventIsUsingUpperPaddock.TabIndex = 0;
+            this.rdoClientEventIsUsingUpperPaddock.TabStop = true;
+            this.rdoClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
+            this.rdoClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rdoClientEventIsUsingMiddlePaddock
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(47, 42);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsUsingMiddlePaddock.AutoSize = true;
+            this.rdoClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(47, 42);
+            this.rdoClientEventIsUsingMiddlePaddock.Name = "rdoClientEventIsUsingMiddlePaddock";
+            this.rdoClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(102, 17);
+            this.rdoClientEventIsUsingMiddlePaddock.TabIndex = 1;
+            this.rdoClientEventIsUsingMiddlePaddock.TabStop = true;
+            this.rdoClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
+            this.rdoClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rdoClientEventIsUsingLowerPaddock
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(94, 66);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(85, 17);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "radioButton5";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsUsingLowerPaddock.AutoSize = true;
+            this.rdoClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(94, 66);
+            this.rdoClientEventIsUsingLowerPaddock.Name = "rdoClientEventIsUsingLowerPaddock";
+            this.rdoClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(100, 17);
+            this.rdoClientEventIsUsingLowerPaddock.TabIndex = 2;
+            this.rdoClientEventIsUsingLowerPaddock.TabStop = true;
+            this.rdoClientEventIsUsingLowerPaddock.Text = "Lower Paddock";
+            this.rdoClientEventIsUsingLowerPaddock.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // lblClientEventIsLunchProvided
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 195);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "label6";
+            this.lblClientEventIsLunchProvided.AutoSize = true;
+            this.lblClientEventIsLunchProvided.Location = new System.Drawing.Point(61, 195);
+            this.lblClientEventIsLunchProvided.Name = "lblClientEventIsLunchProvided";
+            this.lblClientEventIsLunchProvided.Size = new System.Drawing.Size(85, 13);
+            this.lblClientEventIsLunchProvided.TabIndex = 12;
+            this.lblClientEventIsLunchProvided.Text = "Lunch Provided:";
             // 
-            // label7
+            // lblClientEventIsUsingPaddock
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 312);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "label7";
+            this.lblClientEventIsUsingPaddock.AutoSize = true;
+            this.lblClientEventIsUsingPaddock.Location = new System.Drawing.Point(64, 256);
+            this.lblClientEventIsUsingPaddock.Name = "lblClientEventIsUsingPaddock";
+            this.lblClientEventIsUsingPaddock.Size = new System.Drawing.Size(53, 13);
+            this.lblClientEventIsUsingPaddock.TabIndex = 14;
+            this.lblClientEventIsUsingPaddock.Text = "Paddock:";
             // 
-            // label8
+            // lblClientEventWorkerCalloutSent
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 437);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "label8";
+            this.lblClientEventWorkerCalloutSent.AutoSize = true;
+            this.lblClientEventWorkerCalloutSent.Location = new System.Drawing.Point(36, 437);
+            this.lblClientEventWorkerCalloutSent.Name = "lblClientEventWorkerCalloutSent";
+            this.lblClientEventWorkerCalloutSent.Size = new System.Drawing.Size(105, 13);
+            this.lblClientEventWorkerCalloutSent.TabIndex = 16;
+            this.lblClientEventWorkerCalloutSent.Text = "Worker Callout Sent:";
             // 
-            // label9
+            // lblClientEventRequireSafetyDemo
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 529);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "label9";
+            this.lblClientEventRequireSafetyDemo.AutoSize = true;
+            this.lblClientEventRequireSafetyDemo.Location = new System.Drawing.Point(36, 529);
+            this.lblClientEventRequireSafetyDemo.Name = "lblClientEventRequireSafetyDemo";
+            this.lblClientEventRequireSafetyDemo.Size = new System.Drawing.Size(111, 13);
+            this.lblClientEventRequireSafetyDemo.TabIndex = 18;
+            this.lblClientEventRequireSafetyDemo.Text = "Require Safety Demo:";
             // 
-            // groupBox3
+            // gbClientEventWorkerCalloutSent
             // 
-            this.groupBox3.Controls.Add(this.radioButton7);
-            this.groupBox3.Controls.Add(this.radioButton6);
-            this.groupBox3.Location = new System.Drawing.Point(126, 404);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.gbClientEventWorkerCalloutSent.Controls.Add(this.rdoClientEventWorkerCalloutSent_False);
+            this.gbClientEventWorkerCalloutSent.Controls.Add(this.rdoClientEventWorkerCalloutSent_True);
+            this.gbClientEventWorkerCalloutSent.Location = new System.Drawing.Point(126, 404);
+            this.gbClientEventWorkerCalloutSent.Name = "gbClientEventWorkerCalloutSent";
+            this.gbClientEventWorkerCalloutSent.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventWorkerCalloutSent.TabIndex = 17;
+            this.gbClientEventWorkerCalloutSent.TabStop = false;
             // 
-            // radioButton6
+            // rdoClientEventWorkerCalloutSent_True
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(32, 31);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(85, 17);
-            this.radioButton6.TabIndex = 0;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "radioButton6";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rdoClientEventWorkerCalloutSent_True.AutoSize = true;
+            this.rdoClientEventWorkerCalloutSent_True.Location = new System.Drawing.Point(32, 31);
+            this.rdoClientEventWorkerCalloutSent_True.Name = "rdoClientEventWorkerCalloutSent_True";
+            this.rdoClientEventWorkerCalloutSent_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventWorkerCalloutSent_True.TabIndex = 0;
+            this.rdoClientEventWorkerCalloutSent_True.TabStop = true;
+            this.rdoClientEventWorkerCalloutSent_True.Text = "True";
+            this.rdoClientEventWorkerCalloutSent_True.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // rdoClientEventWorkerCalloutSent_False
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(32, 67);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(85, 17);
-            this.radioButton7.TabIndex = 1;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "radioButton7";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.rdoClientEventWorkerCalloutSent_False.AutoSize = true;
+            this.rdoClientEventWorkerCalloutSent_False.Location = new System.Drawing.Point(32, 67);
+            this.rdoClientEventWorkerCalloutSent_False.Name = "rdoClientEventWorkerCalloutSent_False";
+            this.rdoClientEventWorkerCalloutSent_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventWorkerCalloutSent_False.TabIndex = 1;
+            this.rdoClientEventWorkerCalloutSent_False.TabStop = true;
+            this.rdoClientEventWorkerCalloutSent_False.Text = "False";
+            this.rdoClientEventWorkerCalloutSent_False.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtClientEventId
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtClientEventId.Location = new System.Drawing.Point(99, 9);
+            this.txtClientEventId.Name = "txtClientEventId";
+            this.txtClientEventId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientEventId.TabIndex = 1;
             // 
-            // textBox2
+            // txtClientEventClientId
             // 
-            this.textBox2.Location = new System.Drawing.Point(114, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 13;
+            this.txtClientEventClientId.Location = new System.Drawing.Point(114, 45);
+            this.txtClientEventClientId.Name = "txtClientEventClientId";
+            this.txtClientEventClientId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientEventClientId.TabIndex = 3;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(220, 40);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
+            this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -291,7 +288,7 @@ namespace MMS_CapstoneProject
             this.button2.Location = new System.Drawing.Point(220, 78);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 16;
+            this.button2.TabIndex = 7;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -300,156 +297,154 @@ namespace MMS_CapstoneProject
             this.textBox3.Location = new System.Drawing.Point(114, 83);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 15;
+            this.textBox3.TabIndex = 6;
             // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(114, 109);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 17;
+            this.maskedTextBox1.TabIndex = 9;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(114, 142);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 18;
+            this.textBox4.TabIndex = 11;
             // 
-            // groupBox4
+            // gbClientEventRequireSafetyDemo
             // 
-            this.groupBox4.Controls.Add(this.radioButton8);
-            this.groupBox4.Controls.Add(this.radioButton9);
-            this.groupBox4.Location = new System.Drawing.Point(126, 520);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 100);
-            this.groupBox4.TabIndex = 12;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.gbClientEventRequireSafetyDemo.Controls.Add(this.rdoClientEventRequireSafetyDemo_False);
+            this.gbClientEventRequireSafetyDemo.Controls.Add(this.rdoClientEventRequireSafetyDemo_True);
+            this.gbClientEventRequireSafetyDemo.Location = new System.Drawing.Point(126, 520);
+            this.gbClientEventRequireSafetyDemo.Name = "gbClientEventRequireSafetyDemo";
+            this.gbClientEventRequireSafetyDemo.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventRequireSafetyDemo.TabIndex = 19;
+            this.gbClientEventRequireSafetyDemo.TabStop = false;
             // 
-            // radioButton8
+            // rdoClientEventRequireSafetyDemo_False
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(32, 67);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(85, 17);
-            this.radioButton8.TabIndex = 1;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "radioButton8";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.rdoClientEventRequireSafetyDemo_False.AutoSize = true;
+            this.rdoClientEventRequireSafetyDemo_False.Location = new System.Drawing.Point(32, 67);
+            this.rdoClientEventRequireSafetyDemo_False.Name = "rdoClientEventRequireSafetyDemo_False";
+            this.rdoClientEventRequireSafetyDemo_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventRequireSafetyDemo_False.TabIndex = 1;
+            this.rdoClientEventRequireSafetyDemo_False.TabStop = true;
+            this.rdoClientEventRequireSafetyDemo_False.Text = "False";
+            this.rdoClientEventRequireSafetyDemo_False.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // rdoClientEventRequireSafetyDemo_True
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(32, 31);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(85, 17);
-            this.radioButton9.TabIndex = 0;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "radioButton9";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rdoClientEventRequireSafetyDemo_True.AutoSize = true;
+            this.rdoClientEventRequireSafetyDemo_True.Location = new System.Drawing.Point(32, 31);
+            this.rdoClientEventRequireSafetyDemo_True.Name = "rdoClientEventRequireSafetyDemo_True";
+            this.rdoClientEventRequireSafetyDemo_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventRequireSafetyDemo_True.TabIndex = 0;
+            this.rdoClientEventRequireSafetyDemo_True.TabStop = true;
+            this.rdoClientEventRequireSafetyDemo_True.Text = "True";
+            this.rdoClientEventRequireSafetyDemo_True.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // gbClientEventIsDeleted
             // 
-            this.groupBox5.Controls.Add(this.radioButton10);
-            this.groupBox5.Controls.Add(this.radioButton11);
-            this.groupBox5.Location = new System.Drawing.Point(126, 626);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 100);
-            this.groupBox5.TabIndex = 13;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "groupBox5";
+            this.gbClientEventIsDeleted.Controls.Add(this.rdoClientEventIsDeleted_Disabled);
+            this.gbClientEventIsDeleted.Controls.Add(this.rdoClientEventIsDeleted_Enabled);
+            this.gbClientEventIsDeleted.Location = new System.Drawing.Point(126, 626);
+            this.gbClientEventIsDeleted.Name = "gbClientEventIsDeleted";
+            this.gbClientEventIsDeleted.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventIsDeleted.TabIndex = 20;
+            this.gbClientEventIsDeleted.TabStop = false;
             // 
-            // radioButton10
+            // rdoClientEventIsDeleted_Disabled
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(32, 67);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(91, 17);
-            this.radioButton10.TabIndex = 1;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "radioButton10";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsDeleted_Disabled.AutoSize = true;
+            this.rdoClientEventIsDeleted_Disabled.Location = new System.Drawing.Point(32, 67);
+            this.rdoClientEventIsDeleted_Disabled.Name = "rdoClientEventIsDeleted_Disabled";
+            this.rdoClientEventIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
+            this.rdoClientEventIsDeleted_Disabled.TabIndex = 1;
+            this.rdoClientEventIsDeleted_Disabled.TabStop = true;
+            this.rdoClientEventIsDeleted_Disabled.Text = "Disabled";
+            this.rdoClientEventIsDeleted_Disabled.UseVisualStyleBackColor = true;
             // 
-            // radioButton11
+            // rdoClientEventIsDeleted_Enabled
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(32, 31);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(91, 17);
-            this.radioButton11.TabIndex = 0;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "radioButton11";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.rdoClientEventIsDeleted_Enabled.AutoSize = true;
+            this.rdoClientEventIsDeleted_Enabled.Location = new System.Drawing.Point(32, 31);
+            this.rdoClientEventIsDeleted_Enabled.Name = "rdoClientEventIsDeleted_Enabled";
+            this.rdoClientEventIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
+            this.rdoClientEventIsDeleted_Enabled.TabIndex = 0;
+            this.rdoClientEventIsDeleted_Enabled.TabStop = true;
+            this.rdoClientEventIsDeleted_Enabled.Text = "Enabled";
+            this.rdoClientEventIsDeleted_Enabled.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEnter
             // 
-            this.button3.Location = new System.Drawing.Point(39, 746);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEnter.Location = new System.Drawing.Point(39, 746);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 21;
+            this.btnEnter.Text = "Create";
+            this.btnEnter.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnClear
             // 
-            this.button4.Location = new System.Drawing.Point(132, 745);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnClear.Location = new System.Drawing.Point(139, 746);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnEscape
             // 
-            this.button5.Location = new System.Drawing.Point(251, 745);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnEscape.Location = new System.Drawing.Point(230, 746);
+            this.btnEscape.Name = "btnEscape";
+            this.btnEscape.Size = new System.Drawing.Size(75, 23);
+            this.btnEscape.TabIndex = 23;
+            this.btnEscape.Text = "Cancel";
+            this.btnEscape.UseVisualStyleBackColor = true;
             // 
             // ClientEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 816);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnEscape);
+            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.gbClientEventIsDeleted);
+            this.Controls.Add(this.gbClientEventRequireSafetyDemo);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtClientEventClientId);
+            this.Controls.Add(this.txtClientEventId);
+            this.Controls.Add(this.gbClientEventWorkerCalloutSent);
+            this.Controls.Add(this.lblClientEventRequireSafetyDemo);
+            this.Controls.Add(this.lblClientEventWorkerCalloutSent);
+            this.Controls.Add(this.lblClientEventIsUsingPaddock);
+            this.Controls.Add(this.lblClientEventIsLunchProvided);
+            this.Controls.Add(this.gbClientEventIsUsingPaddock);
+            this.Controls.Add(this.gbClientEventIsLunchProvided);
+            this.Controls.Add(this.lblClientEventWorkersRequested);
+            this.Controls.Add(this.lblClientEventDate);
+            this.Controls.Add(this.lblClientEventTrackId);
+            this.Controls.Add(this.lblClientEventClientId);
             this.Controls.Add(this.lblClientEventId);
             this.Name = "ClientEventForm";
             this.Text = "ClientEventForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gbClientEventIsLunchProvided.ResumeLayout(false);
+            this.gbClientEventIsLunchProvided.PerformLayout();
+            this.gbClientEventIsUsingPaddock.ResumeLayout(false);
+            this.gbClientEventIsUsingPaddock.PerformLayout();
+            this.gbClientEventWorkerCalloutSent.ResumeLayout(false);
+            this.gbClientEventWorkerCalloutSent.PerformLayout();
+            this.gbClientEventRequireSafetyDemo.ResumeLayout(false);
+            this.gbClientEventRequireSafetyDemo.PerformLayout();
+            this.gbClientEventIsDeleted.ResumeLayout(false);
+            this.gbClientEventIsDeleted.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,39 +453,39 @@ namespace MMS_CapstoneProject
         #endregion
 
         private System.Windows.Forms.Label lblClientEventId;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblClientEventClientId;
+        private System.Windows.Forms.Label lblClientEventTrackId;
+        private System.Windows.Forms.Label lblClientEventDate;
+        private System.Windows.Forms.Label lblClientEventWorkersRequested;
+        private System.Windows.Forms.GroupBox gbClientEventIsLunchProvided;
+        private System.Windows.Forms.RadioButton rdoClientEventIsLunchProvided_False;
+        private System.Windows.Forms.RadioButton rdoClientEventIsLunchProvided_True;
+        private System.Windows.Forms.GroupBox gbClientEventIsUsingPaddock;
+        private System.Windows.Forms.RadioButton rdoClientEventIsUsingLowerPaddock;
+        private System.Windows.Forms.RadioButton rdoClientEventIsUsingMiddlePaddock;
+        private System.Windows.Forms.RadioButton rdoClientEventIsUsingUpperPaddock;
+        private System.Windows.Forms.Label lblClientEventIsLunchProvided;
+        private System.Windows.Forms.Label lblClientEventIsUsingPaddock;
+        private System.Windows.Forms.Label lblClientEventWorkerCalloutSent;
+        private System.Windows.Forms.Label lblClientEventRequireSafetyDemo;
+        private System.Windows.Forms.GroupBox gbClientEventWorkerCalloutSent;
+        private System.Windows.Forms.RadioButton rdoClientEventWorkerCalloutSent_False;
+        private System.Windows.Forms.RadioButton rdoClientEventWorkerCalloutSent_True;
+        private System.Windows.Forms.TextBox txtClientEventId;
+        private System.Windows.Forms.TextBox txtClientEventClientId;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.GroupBox gbClientEventRequireSafetyDemo;
+        private System.Windows.Forms.RadioButton rdoClientEventRequireSafetyDemo_False;
+        private System.Windows.Forms.RadioButton rdoClientEventRequireSafetyDemo_True;
+        private System.Windows.Forms.GroupBox gbClientEventIsDeleted;
+        private System.Windows.Forms.RadioButton rdoClientEventIsDeleted_Disabled;
+        private System.Windows.Forms.RadioButton rdoClientEventIsDeleted_Enabled;
+        private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEscape;
     }
 }
