@@ -56,7 +56,7 @@ namespace MMS_CapstoneProject
             // lblTrackWorkerId
             // 
             this.lblTrackWorkerId.AutoSize = true;
-            this.lblTrackWorkerId.Location = new System.Drawing.Point(76, 25);
+            this.lblTrackWorkerId.Location = new System.Drawing.Point(88, 9);
             this.lblTrackWorkerId.Name = "lblTrackWorkerId";
             this.lblTrackWorkerId.Size = new System.Drawing.Size(21, 13);
             this.lblTrackWorkerId.TabIndex = 0;
@@ -64,14 +64,14 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackWorkerId
             // 
-            this.txtTrackWorkerId.Location = new System.Drawing.Point(159, 25);
+            this.txtTrackWorkerId.Location = new System.Drawing.Point(116, 6);
             this.txtTrackWorkerId.Name = "txtTrackWorkerId";
             this.txtTrackWorkerId.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerId.TabIndex = 1;
             // 
             // txtTrackWorkerFirstName
             // 
-            this.txtTrackWorkerFirstName.Location = new System.Drawing.Point(159, 58);
+            this.txtTrackWorkerFirstName.Location = new System.Drawing.Point(116, 32);
             this.txtTrackWorkerFirstName.Name = "txtTrackWorkerFirstName";
             this.txtTrackWorkerFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerFirstName.TabIndex = 3;
@@ -79,7 +79,7 @@ namespace MMS_CapstoneProject
             // lblTrackWorkerFirstName
             // 
             this.lblTrackWorkerFirstName.AutoSize = true;
-            this.lblTrackWorkerFirstName.Location = new System.Drawing.Point(76, 58);
+            this.lblTrackWorkerFirstName.Location = new System.Drawing.Point(49, 35);
             this.lblTrackWorkerFirstName.Name = "lblTrackWorkerFirstName";
             this.lblTrackWorkerFirstName.Size = new System.Drawing.Size(60, 13);
             this.lblTrackWorkerFirstName.TabIndex = 2;
@@ -87,7 +87,7 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackWorkerLastName
             // 
-            this.txtTrackWorkerLastName.Location = new System.Drawing.Point(159, 101);
+            this.txtTrackWorkerLastName.Location = new System.Drawing.Point(116, 58);
             this.txtTrackWorkerLastName.Name = "txtTrackWorkerLastName";
             this.txtTrackWorkerLastName.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerLastName.TabIndex = 5;
@@ -95,7 +95,7 @@ namespace MMS_CapstoneProject
             // lblTrackWorkerLastName
             // 
             this.lblTrackWorkerLastName.AutoSize = true;
-            this.lblTrackWorkerLastName.Location = new System.Drawing.Point(76, 101);
+            this.lblTrackWorkerLastName.Location = new System.Drawing.Point(48, 61);
             this.lblTrackWorkerLastName.Name = "lblTrackWorkerLastName";
             this.lblTrackWorkerLastName.Size = new System.Drawing.Size(61, 13);
             this.lblTrackWorkerLastName.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace MMS_CapstoneProject
             // lblTrackWorkerCell
             // 
             this.lblTrackWorkerCell.AutoSize = true;
-            this.lblTrackWorkerCell.Location = new System.Drawing.Point(79, 136);
+            this.lblTrackWorkerCell.Location = new System.Drawing.Point(82, 87);
             this.lblTrackWorkerCell.Name = "lblTrackWorkerCell";
             this.lblTrackWorkerCell.Size = new System.Drawing.Size(27, 13);
             this.lblTrackWorkerCell.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackWorkerCell
             // 
-            this.txtTrackWorkerCell.Location = new System.Drawing.Point(159, 128);
+            this.txtTrackWorkerCell.Location = new System.Drawing.Point(116, 84);
             this.txtTrackWorkerCell.Name = "txtTrackWorkerCell";
             this.txtTrackWorkerCell.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerCell.TabIndex = 7;
@@ -120,7 +120,7 @@ namespace MMS_CapstoneProject
             // lblClientWorkerEmail
             // 
             this.lblClientWorkerEmail.AutoSize = true;
-            this.lblClientWorkerEmail.Location = new System.Drawing.Point(82, 166);
+            this.lblClientWorkerEmail.Location = new System.Drawing.Point(74, 113);
             this.lblClientWorkerEmail.Name = "lblClientWorkerEmail";
             this.lblClientWorkerEmail.Size = new System.Drawing.Size(35, 13);
             this.lblClientWorkerEmail.TabIndex = 8;
@@ -128,7 +128,7 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackWorkerEmail
             // 
-            this.txtTrackWorkerEmail.Location = new System.Drawing.Point(159, 158);
+            this.txtTrackWorkerEmail.Location = new System.Drawing.Point(116, 110);
             this.txtTrackWorkerEmail.Name = "txtTrackWorkerEmail";
             this.txtTrackWorkerEmail.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerEmail.TabIndex = 9;
@@ -136,7 +136,7 @@ namespace MMS_CapstoneProject
             // lblTrackWorkerIsCapableCaptain
             // 
             this.lblTrackWorkerIsCapableCaptain.AutoSize = true;
-            this.lblTrackWorkerIsCapableCaptain.Location = new System.Drawing.Point(65, 195);
+            this.lblTrackWorkerIsCapableCaptain.Location = new System.Drawing.Point(21, 149);
             this.lblTrackWorkerIsCapableCaptain.Name = "lblTrackWorkerIsCapableCaptain";
             this.lblTrackWorkerIsCapableCaptain.Size = new System.Drawing.Size(88, 13);
             this.lblTrackWorkerIsCapableCaptain.TabIndex = 10;
@@ -146,16 +146,16 @@ namespace MMS_CapstoneProject
             // 
             this.gbIsCapableCaptain.Controls.Add(this.rdioIsCapableCaptain_False);
             this.gbIsCapableCaptain.Controls.Add(this.rdioIsCapableCaptain_True);
-            this.gbIsCapableCaptain.Location = new System.Drawing.Point(159, 184);
+            this.gbIsCapableCaptain.Location = new System.Drawing.Point(116, 136);
             this.gbIsCapableCaptain.Name = "gbIsCapableCaptain";
-            this.gbIsCapableCaptain.Size = new System.Drawing.Size(195, 52);
+            this.gbIsCapableCaptain.Size = new System.Drawing.Size(114, 34);
             this.gbIsCapableCaptain.TabIndex = 11;
             this.gbIsCapableCaptain.TabStop = false;
             // 
             // rdioIsCapableCaptain_False
             // 
             this.rdioIsCapableCaptain_False.AutoSize = true;
-            this.rdioIsCapableCaptain_False.Location = new System.Drawing.Point(103, 23);
+            this.rdioIsCapableCaptain_False.Location = new System.Drawing.Point(59, 11);
             this.rdioIsCapableCaptain_False.Name = "rdioIsCapableCaptain_False";
             this.rdioIsCapableCaptain_False.Size = new System.Drawing.Size(50, 17);
             this.rdioIsCapableCaptain_False.TabIndex = 1;
@@ -166,7 +166,7 @@ namespace MMS_CapstoneProject
             // 
             this.rdioIsCapableCaptain_True.AutoSize = true;
             this.rdioIsCapableCaptain_True.Checked = true;
-            this.rdioIsCapableCaptain_True.Location = new System.Drawing.Point(12, 23);
+            this.rdioIsCapableCaptain_True.Location = new System.Drawing.Point(6, 11);
             this.rdioIsCapableCaptain_True.Name = "rdioIsCapableCaptain_True";
             this.rdioIsCapableCaptain_True.Size = new System.Drawing.Size(47, 17);
             this.rdioIsCapableCaptain_True.TabIndex = 0;
@@ -178,16 +178,16 @@ namespace MMS_CapstoneProject
             // 
             this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Disabled);
             this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Enabled);
-            this.gbIsDeleted.Location = new System.Drawing.Point(140, 242);
+            this.gbIsDeleted.Location = new System.Drawing.Point(116, 176);
             this.gbIsDeleted.Name = "gbIsDeleted";
-            this.gbIsDeleted.Size = new System.Drawing.Size(200, 100);
+            this.gbIsDeleted.Size = new System.Drawing.Size(148, 35);
             this.gbIsDeleted.TabIndex = 12;
             this.gbIsDeleted.TabStop = false;
             // 
             // rdoIsDeleted_Disabled
             // 
             this.rdoIsDeleted_Disabled.AutoSize = true;
-            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(58, 54);
+            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(76, 12);
             this.rdoIsDeleted_Disabled.Name = "rdoIsDeleted_Disabled";
             this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
             this.rdoIsDeleted_Disabled.TabIndex = 1;
@@ -198,7 +198,7 @@ namespace MMS_CapstoneProject
             // 
             this.rdoIsDeleted_Enabled.AutoSize = true;
             this.rdoIsDeleted_Enabled.Checked = true;
-            this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(58, 30);
+            this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(8, 12);
             this.rdoIsDeleted_Enabled.Name = "rdoIsDeleted_Enabled";
             this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
             this.rdoIsDeleted_Enabled.TabIndex = 0;
@@ -208,7 +208,7 @@ namespace MMS_CapstoneProject
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(85, 348);
+            this.btnEnter.Location = new System.Drawing.Point(13, 229);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 13;
@@ -217,7 +217,7 @@ namespace MMS_CapstoneProject
             // 
             // btnEscape
             // 
-            this.btnEscape.Location = new System.Drawing.Point(262, 348);
+            this.btnEscape.Location = new System.Drawing.Point(175, 229);
             this.btnEscape.Name = "btnEscape";
             this.btnEscape.Size = new System.Drawing.Size(75, 23);
             this.btnEscape.TabIndex = 15;
@@ -226,7 +226,7 @@ namespace MMS_CapstoneProject
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(171, 348);
+            this.btnClear.Location = new System.Drawing.Point(94, 229);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 14;
@@ -238,7 +238,7 @@ namespace MMS_CapstoneProject
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(282, 276);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
             this.Controls.Add(this.btnEnter);

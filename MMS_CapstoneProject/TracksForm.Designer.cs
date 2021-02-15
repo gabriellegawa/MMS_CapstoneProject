@@ -33,16 +33,21 @@ namespace MMS_CapstoneProject
             this.txtTrackName = new System.Windows.Forms.TextBox();
             this.lblTrackConfiguration = new System.Windows.Forms.Label();
             this.cbTrackConfiguration = new System.Windows.Forms.ComboBox();
-            this.rbTrackIsDeleted = new System.Windows.Forms.RadioButton();
-            this.rbTrackIsDeleted_1 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblTrackId = new System.Windows.Forms.Label();
+            this.txtTrackId = new System.Windows.Forms.TextBox();
+            this.gbIsDeleted = new System.Windows.Forms.GroupBox();
+            this.rdoIsDeleted_Disabled = new System.Windows.Forms.RadioButton();
+            this.rdoIsDeleted_Enabled = new System.Windows.Forms.RadioButton();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEscape = new System.Windows.Forms.Button();
+            this.btnEnter = new System.Windows.Forms.Button();
+            this.gbIsDeleted.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTrackName
             // 
             this.lblTrackName.AutoSize = true;
-            this.lblTrackName.Location = new System.Drawing.Point(26, 29);
+            this.lblTrackName.Location = new System.Drawing.Point(68, 41);
             this.lblTrackName.Name = "lblTrackName";
             this.lblTrackName.Size = new System.Drawing.Size(69, 13);
             this.lblTrackName.TabIndex = 0;
@@ -50,7 +55,7 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackName
             // 
-            this.txtTrackName.Location = new System.Drawing.Point(174, 26);
+            this.txtTrackName.Location = new System.Drawing.Point(147, 38);
             this.txtTrackName.Name = "txtTrackName";
             this.txtTrackName.Size = new System.Drawing.Size(100, 20);
             this.txtTrackName.TabIndex = 1;
@@ -58,69 +63,106 @@ namespace MMS_CapstoneProject
             // lblTrackConfiguration
             // 
             this.lblTrackConfiguration.AutoSize = true;
-            this.lblTrackConfiguration.Location = new System.Drawing.Point(29, 57);
+            this.lblTrackConfiguration.Location = new System.Drawing.Point(34, 72);
             this.lblTrackConfiguration.Name = "lblTrackConfiguration";
-            this.lblTrackConfiguration.Size = new System.Drawing.Size(100, 13);
+            this.lblTrackConfiguration.Size = new System.Drawing.Size(103, 13);
             this.lblTrackConfiguration.TabIndex = 2;
-            this.lblTrackConfiguration.Text = "Track Configuration";
+            this.lblTrackConfiguration.Text = "Track Configuration:";
             // 
             // cbTrackConfiguration
             // 
             this.cbTrackConfiguration.FormattingEnabled = true;
-            this.cbTrackConfiguration.Location = new System.Drawing.Point(174, 49);
+            this.cbTrackConfiguration.Location = new System.Drawing.Point(147, 64);
             this.cbTrackConfiguration.Name = "cbTrackConfiguration";
             this.cbTrackConfiguration.Size = new System.Drawing.Size(121, 21);
             this.cbTrackConfiguration.TabIndex = 3;
             // 
-            // rbTrackIsDeleted
+            // lblTrackId
             // 
-            this.rbTrackIsDeleted.AutoSize = true;
-            this.rbTrackIsDeleted.Location = new System.Drawing.Point(174, 77);
-            this.rbTrackIsDeleted.Name = "rbTrackIsDeleted";
-            this.rbTrackIsDeleted.Size = new System.Drawing.Size(64, 17);
-            this.rbTrackIsDeleted.TabIndex = 21;
-            this.rbTrackIsDeleted.TabStop = true;
-            this.rbTrackIsDeleted.Text = "Enabled";
-            this.rbTrackIsDeleted.UseVisualStyleBackColor = true;
+            this.lblTrackId.AutoSize = true;
+            this.lblTrackId.Location = new System.Drawing.Point(117, 15);
+            this.lblTrackId.Name = "lblTrackId";
+            this.lblTrackId.Size = new System.Drawing.Size(21, 13);
+            this.lblTrackId.TabIndex = 25;
+            this.lblTrackId.Text = "ID:";
             // 
-            // rbTrackIsDeleted_1
+            // txtTrackId
             // 
-            this.rbTrackIsDeleted_1.AutoSize = true;
-            this.rbTrackIsDeleted_1.Location = new System.Drawing.Point(174, 101);
-            this.rbTrackIsDeleted_1.Name = "rbTrackIsDeleted_1";
-            this.rbTrackIsDeleted_1.Size = new System.Drawing.Size(66, 17);
-            this.rbTrackIsDeleted_1.TabIndex = 22;
-            this.rbTrackIsDeleted_1.TabStop = true;
-            this.rbTrackIsDeleted_1.Text = "Disabled";
-            this.rbTrackIsDeleted_1.UseVisualStyleBackColor = true;
+            this.txtTrackId.Location = new System.Drawing.Point(147, 12);
+            this.txtTrackId.Name = "txtTrackId";
+            this.txtTrackId.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackId.TabIndex = 26;
             // 
-            // button1
+            // gbIsDeleted
             // 
-            this.button1.Location = new System.Drawing.Point(29, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Disabled);
+            this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Enabled);
+            this.gbIsDeleted.Location = new System.Drawing.Point(147, 91);
+            this.gbIsDeleted.Name = "gbIsDeleted";
+            this.gbIsDeleted.Size = new System.Drawing.Size(148, 35);
+            this.gbIsDeleted.TabIndex = 27;
+            this.gbIsDeleted.TabStop = false;
             // 
-            // button2
+            // rdoIsDeleted_Disabled
             // 
-            this.button2.Location = new System.Drawing.Point(143, 128);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.rdoIsDeleted_Disabled.AutoSize = true;
+            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(76, 12);
+            this.rdoIsDeleted_Disabled.Name = "rdoIsDeleted_Disabled";
+            this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
+            this.rdoIsDeleted_Disabled.TabIndex = 1;
+            this.rdoIsDeleted_Disabled.Text = "Disabled";
+            this.rdoIsDeleted_Disabled.UseVisualStyleBackColor = true;
+            // 
+            // rdoIsDeleted_Enabled
+            // 
+            this.rdoIsDeleted_Enabled.AutoSize = true;
+            this.rdoIsDeleted_Enabled.Checked = true;
+            this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(8, 12);
+            this.rdoIsDeleted_Enabled.Name = "rdoIsDeleted_Enabled";
+            this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
+            this.rdoIsDeleted_Enabled.TabIndex = 0;
+            this.rdoIsDeleted_Enabled.TabStop = true;
+            this.rdoIsDeleted_Enabled.Text = "Enabled";
+            this.rdoIsDeleted_Enabled.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(118, 141);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 29;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // btnEscape
+            // 
+            this.btnEscape.Location = new System.Drawing.Point(199, 141);
+            this.btnEscape.Name = "btnEscape";
+            this.btnEscape.Size = new System.Drawing.Size(75, 23);
+            this.btnEscape.TabIndex = 30;
+            this.btnEscape.Text = "Cancel";
+            this.btnEscape.UseVisualStyleBackColor = true;
+            // 
+            // btnEnter
+            // 
+            this.btnEnter.Location = new System.Drawing.Point(37, 141);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 28;
+            this.btnEnter.Text = "Create";
+            this.btnEnter.UseVisualStyleBackColor = true;
             // 
             // TracksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.rbTrackIsDeleted_1);
-            this.Controls.Add(this.rbTrackIsDeleted);
+            this.ClientSize = new System.Drawing.Size(324, 198);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnEscape);
+            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.gbIsDeleted);
+            this.Controls.Add(this.txtTrackId);
+            this.Controls.Add(this.lblTrackId);
             this.Controls.Add(this.cbTrackConfiguration);
             this.Controls.Add(this.lblTrackConfiguration);
             this.Controls.Add(this.txtTrackName);
@@ -128,6 +170,8 @@ namespace MMS_CapstoneProject
             this.Name = "TracksForm";
             this.Text = "TracksForm";
             this.Load += new System.EventHandler(this.TracksForm_Load);
+            this.gbIsDeleted.ResumeLayout(false);
+            this.gbIsDeleted.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,9 +183,13 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.TextBox txtTrackName;
         private System.Windows.Forms.Label lblTrackConfiguration;
         private System.Windows.Forms.ComboBox cbTrackConfiguration;
-        private System.Windows.Forms.RadioButton rbTrackIsDeleted;
-        private System.Windows.Forms.RadioButton rbTrackIsDeleted_1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblTrackId;
+        private System.Windows.Forms.TextBox txtTrackId;
+        private System.Windows.Forms.GroupBox gbIsDeleted;
+        private System.Windows.Forms.RadioButton rdoIsDeleted_Disabled;
+        private System.Windows.Forms.RadioButton rdoIsDeleted_Enabled;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEscape;
+        private System.Windows.Forms.Button btnEnter;
     }
 }

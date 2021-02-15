@@ -35,19 +35,19 @@ namespace MMS_CapstoneProject
             this.lblClientEventDate = new System.Windows.Forms.Label();
             this.lblClientEventWorkersRequested = new System.Windows.Forms.Label();
             this.gbClientEventIsLunchProvided = new System.Windows.Forms.GroupBox();
-            this.rdoClientEventIsLunchProvided_True = new System.Windows.Forms.RadioButton();
             this.rdoClientEventIsLunchProvided_False = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsLunchProvided_True = new System.Windows.Forms.RadioButton();
             this.gbClientEventIsUsingPaddock = new System.Windows.Forms.GroupBox();
-            this.rdoClientEventIsUsingUpperPaddock = new System.Windows.Forms.RadioButton();
-            this.rdoClientEventIsUsingMiddlePaddock = new System.Windows.Forms.RadioButton();
             this.rdoClientEventIsUsingLowerPaddock = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsUsingMiddlePaddock = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventIsUsingUpperPaddock = new System.Windows.Forms.RadioButton();
             this.lblClientEventIsLunchProvided = new System.Windows.Forms.Label();
             this.lblClientEventIsUsingPaddock = new System.Windows.Forms.Label();
             this.lblClientEventWorkerCalloutSent = new System.Windows.Forms.Label();
             this.lblClientEventRequireSafetyDemo = new System.Windows.Forms.Label();
             this.gbClientEventWorkerCalloutSent = new System.Windows.Forms.GroupBox();
-            this.rdoClientEventWorkerCalloutSent_True = new System.Windows.Forms.RadioButton();
             this.rdoClientEventWorkerCalloutSent_False = new System.Windows.Forms.RadioButton();
+            this.rdoClientEventWorkerCalloutSent_True = new System.Windows.Forms.RadioButton();
             this.txtClientEventId = new System.Windows.Forms.TextBox();
             this.txtClientEventClientId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@ namespace MMS_CapstoneProject
             // lblClientEventId
             // 
             this.lblClientEventId.AutoSize = true;
-            this.lblClientEventId.Location = new System.Drawing.Point(46, 9);
+            this.lblClientEventId.Location = new System.Drawing.Point(107, 9);
             this.lblClientEventId.Name = "lblClientEventId";
             this.lblClientEventId.Size = new System.Drawing.Size(21, 13);
             this.lblClientEventId.TabIndex = 0;
@@ -83,7 +83,7 @@ namespace MMS_CapstoneProject
             // lblClientEventClientId
             // 
             this.lblClientEventClientId.AutoSize = true;
-            this.lblClientEventClientId.Location = new System.Drawing.Point(46, 45);
+            this.lblClientEventClientId.Location = new System.Drawing.Point(78, 35);
             this.lblClientEventClientId.Name = "lblClientEventClientId";
             this.lblClientEventClientId.Size = new System.Drawing.Size(50, 13);
             this.lblClientEventClientId.TabIndex = 2;
@@ -92,7 +92,7 @@ namespace MMS_CapstoneProject
             // lblClientEventTrackId
             // 
             this.lblClientEventTrackId.AutoSize = true;
-            this.lblClientEventTrackId.Location = new System.Drawing.Point(61, 90);
+            this.lblClientEventTrackId.Location = new System.Drawing.Point(73, 58);
             this.lblClientEventTrackId.Name = "lblClientEventTrackId";
             this.lblClientEventTrackId.Size = new System.Drawing.Size(52, 13);
             this.lblClientEventTrackId.TabIndex = 5;
@@ -101,7 +101,7 @@ namespace MMS_CapstoneProject
             // lblClientEventDate
             // 
             this.lblClientEventDate.AutoSize = true;
-            this.lblClientEventDate.Location = new System.Drawing.Point(61, 116);
+            this.lblClientEventDate.Location = new System.Drawing.Point(92, 84);
             this.lblClientEventDate.Name = "lblClientEventDate";
             this.lblClientEventDate.Size = new System.Drawing.Size(33, 13);
             this.lblClientEventDate.TabIndex = 8;
@@ -110,7 +110,7 @@ namespace MMS_CapstoneProject
             // lblClientEventWorkersRequested
             // 
             this.lblClientEventWorkersRequested.AutoSize = true;
-            this.lblClientEventWorkersRequested.Location = new System.Drawing.Point(64, 142);
+            this.lblClientEventWorkersRequested.Location = new System.Drawing.Point(28, 114);
             this.lblClientEventWorkersRequested.Name = "lblClientEventWorkersRequested";
             this.lblClientEventWorkersRequested.Size = new System.Drawing.Size(100, 13);
             this.lblClientEventWorkersRequested.TabIndex = 10;
@@ -120,11 +120,22 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventIsLunchProvided.Controls.Add(this.rdoClientEventIsLunchProvided_False);
             this.gbClientEventIsLunchProvided.Controls.Add(this.rdoClientEventIsLunchProvided_True);
-            this.gbClientEventIsLunchProvided.Location = new System.Drawing.Point(152, 183);
+            this.gbClientEventIsLunchProvided.Location = new System.Drawing.Point(134, 136);
             this.gbClientEventIsLunchProvided.Name = "gbClientEventIsLunchProvided";
-            this.gbClientEventIsLunchProvided.Size = new System.Drawing.Size(200, 45);
+            this.gbClientEventIsLunchProvided.Size = new System.Drawing.Size(114, 34);
             this.gbClientEventIsLunchProvided.TabIndex = 13;
             this.gbClientEventIsLunchProvided.TabStop = false;
+            // 
+            // rdoClientEventIsLunchProvided_False
+            // 
+            this.rdoClientEventIsLunchProvided_False.AutoSize = true;
+            this.rdoClientEventIsLunchProvided_False.Location = new System.Drawing.Point(59, 12);
+            this.rdoClientEventIsLunchProvided_False.Name = "rdoClientEventIsLunchProvided_False";
+            this.rdoClientEventIsLunchProvided_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventIsLunchProvided_False.TabIndex = 1;
+            this.rdoClientEventIsLunchProvided_False.TabStop = true;
+            this.rdoClientEventIsLunchProvided_False.Text = "False";
+            this.rdoClientEventIsLunchProvided_False.UseVisualStyleBackColor = true;
             // 
             // rdoClientEventIsLunchProvided_True
             // 
@@ -137,54 +148,21 @@ namespace MMS_CapstoneProject
             this.rdoClientEventIsLunchProvided_True.Text = "True";
             this.rdoClientEventIsLunchProvided_True.UseVisualStyleBackColor = true;
             // 
-            // rdoClientEventIsLunchProvided_False
-            // 
-            this.rdoClientEventIsLunchProvided_False.AutoSize = true;
-            this.rdoClientEventIsLunchProvided_False.Location = new System.Drawing.Point(99, 12);
-            this.rdoClientEventIsLunchProvided_False.Name = "rdoClientEventIsLunchProvided_False";
-            this.rdoClientEventIsLunchProvided_False.Size = new System.Drawing.Size(50, 17);
-            this.rdoClientEventIsLunchProvided_False.TabIndex = 1;
-            this.rdoClientEventIsLunchProvided_False.TabStop = true;
-            this.rdoClientEventIsLunchProvided_False.Text = "False";
-            this.rdoClientEventIsLunchProvided_False.UseVisualStyleBackColor = true;
-            // 
             // gbClientEventIsUsingPaddock
             // 
             this.gbClientEventIsUsingPaddock.Controls.Add(this.rdoClientEventIsUsingLowerPaddock);
             this.gbClientEventIsUsingPaddock.Controls.Add(this.rdoClientEventIsUsingMiddlePaddock);
             this.gbClientEventIsUsingPaddock.Controls.Add(this.rdoClientEventIsUsingUpperPaddock);
-            this.gbClientEventIsUsingPaddock.Location = new System.Drawing.Point(132, 244);
+            this.gbClientEventIsUsingPaddock.Location = new System.Drawing.Point(134, 176);
             this.gbClientEventIsUsingPaddock.Name = "gbClientEventIsUsingPaddock";
-            this.gbClientEventIsUsingPaddock.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventIsUsingPaddock.Size = new System.Drawing.Size(221, 63);
             this.gbClientEventIsUsingPaddock.TabIndex = 15;
             this.gbClientEventIsUsingPaddock.TabStop = false;
-            // 
-            // rdoClientEventIsUsingUpperPaddock
-            // 
-            this.rdoClientEventIsUsingUpperPaddock.AutoSize = true;
-            this.rdoClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(6, 19);
-            this.rdoClientEventIsUsingUpperPaddock.Name = "rdoClientEventIsUsingUpperPaddock";
-            this.rdoClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(100, 17);
-            this.rdoClientEventIsUsingUpperPaddock.TabIndex = 0;
-            this.rdoClientEventIsUsingUpperPaddock.TabStop = true;
-            this.rdoClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
-            this.rdoClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
-            // 
-            // rdoClientEventIsUsingMiddlePaddock
-            // 
-            this.rdoClientEventIsUsingMiddlePaddock.AutoSize = true;
-            this.rdoClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(47, 42);
-            this.rdoClientEventIsUsingMiddlePaddock.Name = "rdoClientEventIsUsingMiddlePaddock";
-            this.rdoClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(102, 17);
-            this.rdoClientEventIsUsingMiddlePaddock.TabIndex = 1;
-            this.rdoClientEventIsUsingMiddlePaddock.TabStop = true;
-            this.rdoClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
-            this.rdoClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
             // 
             // rdoClientEventIsUsingLowerPaddock
             // 
             this.rdoClientEventIsUsingLowerPaddock.AutoSize = true;
-            this.rdoClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(94, 66);
+            this.rdoClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(63, 38);
             this.rdoClientEventIsUsingLowerPaddock.Name = "rdoClientEventIsUsingLowerPaddock";
             this.rdoClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(100, 17);
             this.rdoClientEventIsUsingLowerPaddock.TabIndex = 2;
@@ -192,10 +170,32 @@ namespace MMS_CapstoneProject
             this.rdoClientEventIsUsingLowerPaddock.Text = "Lower Paddock";
             this.rdoClientEventIsUsingLowerPaddock.UseVisualStyleBackColor = true;
             // 
+            // rdoClientEventIsUsingMiddlePaddock
+            // 
+            this.rdoClientEventIsUsingMiddlePaddock.AutoSize = true;
+            this.rdoClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(112, 15);
+            this.rdoClientEventIsUsingMiddlePaddock.Name = "rdoClientEventIsUsingMiddlePaddock";
+            this.rdoClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(102, 17);
+            this.rdoClientEventIsUsingMiddlePaddock.TabIndex = 1;
+            this.rdoClientEventIsUsingMiddlePaddock.TabStop = true;
+            this.rdoClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
+            this.rdoClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
+            // 
+            // rdoClientEventIsUsingUpperPaddock
+            // 
+            this.rdoClientEventIsUsingUpperPaddock.AutoSize = true;
+            this.rdoClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(6, 15);
+            this.rdoClientEventIsUsingUpperPaddock.Name = "rdoClientEventIsUsingUpperPaddock";
+            this.rdoClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(100, 17);
+            this.rdoClientEventIsUsingUpperPaddock.TabIndex = 0;
+            this.rdoClientEventIsUsingUpperPaddock.TabStop = true;
+            this.rdoClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
+            this.rdoClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
+            // 
             // lblClientEventIsLunchProvided
             // 
             this.lblClientEventIsLunchProvided.AutoSize = true;
-            this.lblClientEventIsLunchProvided.Location = new System.Drawing.Point(61, 195);
+            this.lblClientEventIsLunchProvided.Location = new System.Drawing.Point(40, 150);
             this.lblClientEventIsLunchProvided.Name = "lblClientEventIsLunchProvided";
             this.lblClientEventIsLunchProvided.Size = new System.Drawing.Size(85, 13);
             this.lblClientEventIsLunchProvided.TabIndex = 12;
@@ -204,7 +204,7 @@ namespace MMS_CapstoneProject
             // lblClientEventIsUsingPaddock
             // 
             this.lblClientEventIsUsingPaddock.AutoSize = true;
-            this.lblClientEventIsUsingPaddock.Location = new System.Drawing.Point(64, 256);
+            this.lblClientEventIsUsingPaddock.Location = new System.Drawing.Point(72, 195);
             this.lblClientEventIsUsingPaddock.Name = "lblClientEventIsUsingPaddock";
             this.lblClientEventIsUsingPaddock.Size = new System.Drawing.Size(53, 13);
             this.lblClientEventIsUsingPaddock.TabIndex = 14;
@@ -213,7 +213,7 @@ namespace MMS_CapstoneProject
             // lblClientEventWorkerCalloutSent
             // 
             this.lblClientEventWorkerCalloutSent.AutoSize = true;
-            this.lblClientEventWorkerCalloutSent.Location = new System.Drawing.Point(36, 437);
+            this.lblClientEventWorkerCalloutSent.Location = new System.Drawing.Point(23, 258);
             this.lblClientEventWorkerCalloutSent.Name = "lblClientEventWorkerCalloutSent";
             this.lblClientEventWorkerCalloutSent.Size = new System.Drawing.Size(105, 13);
             this.lblClientEventWorkerCalloutSent.TabIndex = 16;
@@ -222,7 +222,7 @@ namespace MMS_CapstoneProject
             // lblClientEventRequireSafetyDemo
             // 
             this.lblClientEventRequireSafetyDemo.AutoSize = true;
-            this.lblClientEventRequireSafetyDemo.Location = new System.Drawing.Point(36, 529);
+            this.lblClientEventRequireSafetyDemo.Location = new System.Drawing.Point(14, 306);
             this.lblClientEventRequireSafetyDemo.Name = "lblClientEventRequireSafetyDemo";
             this.lblClientEventRequireSafetyDemo.Size = new System.Drawing.Size(111, 13);
             this.lblClientEventRequireSafetyDemo.TabIndex = 18;
@@ -232,27 +232,16 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventWorkerCalloutSent.Controls.Add(this.rdoClientEventWorkerCalloutSent_False);
             this.gbClientEventWorkerCalloutSent.Controls.Add(this.rdoClientEventWorkerCalloutSent_True);
-            this.gbClientEventWorkerCalloutSent.Location = new System.Drawing.Point(126, 404);
+            this.gbClientEventWorkerCalloutSent.Location = new System.Drawing.Point(134, 245);
             this.gbClientEventWorkerCalloutSent.Name = "gbClientEventWorkerCalloutSent";
-            this.gbClientEventWorkerCalloutSent.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventWorkerCalloutSent.Size = new System.Drawing.Size(114, 34);
             this.gbClientEventWorkerCalloutSent.TabIndex = 17;
             this.gbClientEventWorkerCalloutSent.TabStop = false;
-            // 
-            // rdoClientEventWorkerCalloutSent_True
-            // 
-            this.rdoClientEventWorkerCalloutSent_True.AutoSize = true;
-            this.rdoClientEventWorkerCalloutSent_True.Location = new System.Drawing.Point(32, 31);
-            this.rdoClientEventWorkerCalloutSent_True.Name = "rdoClientEventWorkerCalloutSent_True";
-            this.rdoClientEventWorkerCalloutSent_True.Size = new System.Drawing.Size(47, 17);
-            this.rdoClientEventWorkerCalloutSent_True.TabIndex = 0;
-            this.rdoClientEventWorkerCalloutSent_True.TabStop = true;
-            this.rdoClientEventWorkerCalloutSent_True.Text = "True";
-            this.rdoClientEventWorkerCalloutSent_True.UseVisualStyleBackColor = true;
             // 
             // rdoClientEventWorkerCalloutSent_False
             // 
             this.rdoClientEventWorkerCalloutSent_False.AutoSize = true;
-            this.rdoClientEventWorkerCalloutSent_False.Location = new System.Drawing.Point(32, 67);
+            this.rdoClientEventWorkerCalloutSent_False.Location = new System.Drawing.Point(58, 11);
             this.rdoClientEventWorkerCalloutSent_False.Name = "rdoClientEventWorkerCalloutSent_False";
             this.rdoClientEventWorkerCalloutSent_False.Size = new System.Drawing.Size(50, 17);
             this.rdoClientEventWorkerCalloutSent_False.TabIndex = 1;
@@ -260,23 +249,34 @@ namespace MMS_CapstoneProject
             this.rdoClientEventWorkerCalloutSent_False.Text = "False";
             this.rdoClientEventWorkerCalloutSent_False.UseVisualStyleBackColor = true;
             // 
+            // rdoClientEventWorkerCalloutSent_True
+            // 
+            this.rdoClientEventWorkerCalloutSent_True.AutoSize = true;
+            this.rdoClientEventWorkerCalloutSent_True.Location = new System.Drawing.Point(6, 11);
+            this.rdoClientEventWorkerCalloutSent_True.Name = "rdoClientEventWorkerCalloutSent_True";
+            this.rdoClientEventWorkerCalloutSent_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventWorkerCalloutSent_True.TabIndex = 0;
+            this.rdoClientEventWorkerCalloutSent_True.TabStop = true;
+            this.rdoClientEventWorkerCalloutSent_True.Text = "True";
+            this.rdoClientEventWorkerCalloutSent_True.UseVisualStyleBackColor = true;
+            // 
             // txtClientEventId
             // 
-            this.txtClientEventId.Location = new System.Drawing.Point(99, 9);
+            this.txtClientEventId.Location = new System.Drawing.Point(134, 6);
             this.txtClientEventId.Name = "txtClientEventId";
             this.txtClientEventId.Size = new System.Drawing.Size(100, 20);
             this.txtClientEventId.TabIndex = 1;
             // 
             // txtClientEventClientId
             // 
-            this.txtClientEventClientId.Location = new System.Drawing.Point(114, 45);
+            this.txtClientEventClientId.Location = new System.Drawing.Point(134, 32);
             this.txtClientEventClientId.Name = "txtClientEventClientId";
             this.txtClientEventClientId.Size = new System.Drawing.Size(100, 20);
             this.txtClientEventClientId.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(220, 40);
+            this.button1.Location = new System.Drawing.Point(240, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -285,7 +285,7 @@ namespace MMS_CapstoneProject
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(220, 78);
+            this.button2.Location = new System.Drawing.Point(240, 53);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -294,21 +294,21 @@ namespace MMS_CapstoneProject
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(114, 83);
+            this.textBox3.Location = new System.Drawing.Point(134, 55);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 6;
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(114, 109);
+            this.maskedTextBox1.Location = new System.Drawing.Point(134, 81);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBox1.TabIndex = 9;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(114, 142);
+            this.textBox4.Location = new System.Drawing.Point(134, 107);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 11;
@@ -317,16 +317,16 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventRequireSafetyDemo.Controls.Add(this.rdoClientEventRequireSafetyDemo_False);
             this.gbClientEventRequireSafetyDemo.Controls.Add(this.rdoClientEventRequireSafetyDemo_True);
-            this.gbClientEventRequireSafetyDemo.Location = new System.Drawing.Point(126, 520);
+            this.gbClientEventRequireSafetyDemo.Location = new System.Drawing.Point(134, 285);
             this.gbClientEventRequireSafetyDemo.Name = "gbClientEventRequireSafetyDemo";
-            this.gbClientEventRequireSafetyDemo.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventRequireSafetyDemo.Size = new System.Drawing.Size(114, 34);
             this.gbClientEventRequireSafetyDemo.TabIndex = 19;
             this.gbClientEventRequireSafetyDemo.TabStop = false;
             // 
             // rdoClientEventRequireSafetyDemo_False
             // 
             this.rdoClientEventRequireSafetyDemo_False.AutoSize = true;
-            this.rdoClientEventRequireSafetyDemo_False.Location = new System.Drawing.Point(32, 67);
+            this.rdoClientEventRequireSafetyDemo_False.Location = new System.Drawing.Point(59, 11);
             this.rdoClientEventRequireSafetyDemo_False.Name = "rdoClientEventRequireSafetyDemo_False";
             this.rdoClientEventRequireSafetyDemo_False.Size = new System.Drawing.Size(50, 17);
             this.rdoClientEventRequireSafetyDemo_False.TabIndex = 1;
@@ -337,7 +337,7 @@ namespace MMS_CapstoneProject
             // rdoClientEventRequireSafetyDemo_True
             // 
             this.rdoClientEventRequireSafetyDemo_True.AutoSize = true;
-            this.rdoClientEventRequireSafetyDemo_True.Location = new System.Drawing.Point(32, 31);
+            this.rdoClientEventRequireSafetyDemo_True.Location = new System.Drawing.Point(6, 11);
             this.rdoClientEventRequireSafetyDemo_True.Name = "rdoClientEventRequireSafetyDemo_True";
             this.rdoClientEventRequireSafetyDemo_True.Size = new System.Drawing.Size(47, 17);
             this.rdoClientEventRequireSafetyDemo_True.TabIndex = 0;
@@ -349,16 +349,16 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventIsDeleted.Controls.Add(this.rdoClientEventIsDeleted_Disabled);
             this.gbClientEventIsDeleted.Controls.Add(this.rdoClientEventIsDeleted_Enabled);
-            this.gbClientEventIsDeleted.Location = new System.Drawing.Point(126, 626);
+            this.gbClientEventIsDeleted.Location = new System.Drawing.Point(134, 325);
             this.gbClientEventIsDeleted.Name = "gbClientEventIsDeleted";
-            this.gbClientEventIsDeleted.Size = new System.Drawing.Size(200, 100);
+            this.gbClientEventIsDeleted.Size = new System.Drawing.Size(148, 35);
             this.gbClientEventIsDeleted.TabIndex = 20;
             this.gbClientEventIsDeleted.TabStop = false;
             // 
             // rdoClientEventIsDeleted_Disabled
             // 
             this.rdoClientEventIsDeleted_Disabled.AutoSize = true;
-            this.rdoClientEventIsDeleted_Disabled.Location = new System.Drawing.Point(32, 67);
+            this.rdoClientEventIsDeleted_Disabled.Location = new System.Drawing.Point(76, 13);
             this.rdoClientEventIsDeleted_Disabled.Name = "rdoClientEventIsDeleted_Disabled";
             this.rdoClientEventIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
             this.rdoClientEventIsDeleted_Disabled.TabIndex = 1;
@@ -369,7 +369,7 @@ namespace MMS_CapstoneProject
             // rdoClientEventIsDeleted_Enabled
             // 
             this.rdoClientEventIsDeleted_Enabled.AutoSize = true;
-            this.rdoClientEventIsDeleted_Enabled.Location = new System.Drawing.Point(32, 31);
+            this.rdoClientEventIsDeleted_Enabled.Location = new System.Drawing.Point(6, 13);
             this.rdoClientEventIsDeleted_Enabled.Name = "rdoClientEventIsDeleted_Enabled";
             this.rdoClientEventIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
             this.rdoClientEventIsDeleted_Enabled.TabIndex = 0;
@@ -379,7 +379,7 @@ namespace MMS_CapstoneProject
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(39, 746);
+            this.btnEnter.Location = new System.Drawing.Point(76, 381);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 21;
@@ -388,7 +388,7 @@ namespace MMS_CapstoneProject
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(139, 746);
+            this.btnClear.Location = new System.Drawing.Point(159, 381);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 22;
@@ -397,7 +397,7 @@ namespace MMS_CapstoneProject
             // 
             // btnEscape
             // 
-            this.btnEscape.Location = new System.Drawing.Point(230, 746);
+            this.btnEscape.Location = new System.Drawing.Point(240, 381);
             this.btnEscape.Name = "btnEscape";
             this.btnEscape.Size = new System.Drawing.Size(75, 23);
             this.btnEscape.TabIndex = 23;
@@ -408,7 +408,7 @@ namespace MMS_CapstoneProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 816);
+            this.ClientSize = new System.Drawing.Size(370, 416);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
             this.Controls.Add(this.btnEnter);
