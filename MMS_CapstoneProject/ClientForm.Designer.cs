@@ -1,7 +1,7 @@
 ﻿
 namespace MMS_CapstoneProject
 {
-    partial class MainForm
+    partial class ClientForm
     {
         /// <summary>
         /// Required designer variable.

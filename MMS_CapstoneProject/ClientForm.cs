@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace MMS_CapstoneProject
 {
-    public partial class MainForm : Form
+    public partial class ClientForm : Form
     {
         private bool btnEditModeClicked = false;
 
 
-        public MainForm()
+        public ClientForm()
         {
             InitializeComponent();
         }

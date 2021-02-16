@@ -16,7 +16,7 @@ namespace MMS_CapstoneProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new ClientForm());
             //Application.Run(new TracksForm());
         }
     }
