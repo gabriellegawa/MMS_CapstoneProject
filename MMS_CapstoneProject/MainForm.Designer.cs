@@ -32,33 +32,33 @@ namespace MMS_CapstoneProject
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabClient = new System.Windows.Forms.TabPage();
             this.tabTrackWorker = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClient = new System.Windows.Forms.DataGridView();
             this.btnClientAddNew = new System.Windows.Forms.Button();
             this.txtClientSearch = new System.Windows.Forms.TextBox();
             this.btnClientSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnTrackWorkerSearch = new System.Windows.Forms.Button();
+            this.txtTrackWorkerSearch = new System.Windows.Forms.TextBox();
+            this.btnTrackWorkerAddNew = new System.Windows.Forms.Button();
+            this.dgvTrackWorker = new System.Windows.Forms.DataGridView();
             this.tabTrack = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnTrackSearch = new System.Windows.Forms.Button();
+            this.txtTrackSearch = new System.Windows.Forms.TextBox();
+            this.btnTrackAddNew = new System.Windows.Forms.Button();
+            this.dgvTrack = new System.Windows.Forms.DataGridView();
             this.tabClientEvent = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.btnClientEventSearch = new System.Windows.Forms.Button();
+            this.txtClientEventSearch = new System.Windows.Forms.TextBox();
+            this.btnClientEventAddNew = new System.Windows.Forms.Button();
+            this.dgvClientEvent = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabTrackWorker.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTrackWorker)).BeginInit();
             this.tabTrack.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             this.tabClientEvent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -78,7 +78,7 @@ namespace MMS_CapstoneProject
             this.tabClient.Controls.Add(this.btnClientSearch);
             this.tabClient.Controls.Add(this.txtClientSearch);
             this.tabClient.Controls.Add(this.btnClientAddNew);
-            this.tabClient.Controls.Add(this.dataGridView1);
+            this.tabClient.Controls.Add(this.dgvClient);
             this.tabClient.Location = new System.Drawing.Point(4, 22);
             this.tabClient.Name = "tabClient";
             this.tabClient.Padding = new System.Windows.Forms.Padding(3);
@@ -89,10 +89,10 @@ namespace MMS_CapstoneProject
             // 
             // tabTrackWorker
             // 
-            this.tabTrackWorker.Controls.Add(this.button1);
-            this.tabTrackWorker.Controls.Add(this.textBox1);
-            this.tabTrackWorker.Controls.Add(this.button2);
-            this.tabTrackWorker.Controls.Add(this.dataGridView2);
+            this.tabTrackWorker.Controls.Add(this.btnTrackWorkerSearch);
+            this.tabTrackWorker.Controls.Add(this.txtTrackWorkerSearch);
+            this.tabTrackWorker.Controls.Add(this.btnTrackWorkerAddNew);
+            this.tabTrackWorker.Controls.Add(this.dgvTrackWorker);
             this.tabTrackWorker.Location = new System.Drawing.Point(4, 22);
             this.tabTrackWorker.Name = "tabTrackWorker";
             this.tabTrackWorker.Padding = new System.Windows.Forms.Padding(3);
@@ -101,13 +101,13 @@ namespace MMS_CapstoneProject
             this.tabTrackWorker.Text = "Track Worker";
             this.tabTrackWorker.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvClient
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 63);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(762, 331);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Location = new System.Drawing.Point(0, 63);
+            this.dgvClient.Name = "dgvClient";
+            this.dgvClient.Size = new System.Drawing.Size(762, 331);
+            this.dgvClient.TabIndex = 0;
             // 
             // btnClientAddNew
             // 
@@ -135,46 +135,46 @@ namespace MMS_CapstoneProject
             this.btnClientSearch.Text = "Search";
             this.btnClientSearch.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnTrackWorkerSearch
             // 
-            this.button1.Location = new System.Drawing.Point(419, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 45);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTrackWorkerSearch.Location = new System.Drawing.Point(419, 9);
+            this.btnTrackWorkerSearch.Name = "btnTrackWorkerSearch";
+            this.btnTrackWorkerSearch.Size = new System.Drawing.Size(100, 45);
+            this.btnTrackWorkerSearch.TabIndex = 7;
+            this.btnTrackWorkerSearch.Text = "Search";
+            this.btnTrackWorkerSearch.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtTrackWorkerSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(273, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 29);
-            this.textBox1.TabIndex = 6;
+            this.txtTrackWorkerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerSearch.Location = new System.Drawing.Point(273, 13);
+            this.txtTrackWorkerSearch.Name = "txtTrackWorkerSearch";
+            this.txtTrackWorkerSearch.Size = new System.Drawing.Size(140, 29);
+            this.txtTrackWorkerSearch.TabIndex = 6;
             // 
-            // button2
+            // btnTrackWorkerAddNew
             // 
-            this.button2.Location = new System.Drawing.Point(9, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 45);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Add New";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTrackWorkerAddNew.Location = new System.Drawing.Point(9, 9);
+            this.btnTrackWorkerAddNew.Name = "btnTrackWorkerAddNew";
+            this.btnTrackWorkerAddNew.Size = new System.Drawing.Size(100, 45);
+            this.btnTrackWorkerAddNew.TabIndex = 5;
+            this.btnTrackWorkerAddNew.Text = "Add New";
+            this.btnTrackWorkerAddNew.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvTrackWorker
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 60);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(762, 331);
-            this.dataGridView2.TabIndex = 4;
+            this.dgvTrackWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTrackWorker.Location = new System.Drawing.Point(3, 60);
+            this.dgvTrackWorker.Name = "dgvTrackWorker";
+            this.dgvTrackWorker.Size = new System.Drawing.Size(762, 331);
+            this.dgvTrackWorker.TabIndex = 4;
             // 
             // tabTrack
             // 
-            this.tabTrack.Controls.Add(this.button3);
-            this.tabTrack.Controls.Add(this.textBox2);
-            this.tabTrack.Controls.Add(this.button4);
-            this.tabTrack.Controls.Add(this.dataGridView3);
+            this.tabTrack.Controls.Add(this.btnTrackSearch);
+            this.tabTrack.Controls.Add(this.txtTrackSearch);
+            this.tabTrack.Controls.Add(this.btnTrackAddNew);
+            this.tabTrack.Controls.Add(this.dgvTrack);
             this.tabTrack.Location = new System.Drawing.Point(4, 22);
             this.tabTrack.Name = "tabTrack";
             this.tabTrack.Padding = new System.Windows.Forms.Padding(3);
@@ -183,46 +183,46 @@ namespace MMS_CapstoneProject
             this.tabTrack.Text = "Track";
             this.tabTrack.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnTrackSearch
             // 
-            this.button3.Location = new System.Drawing.Point(419, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 45);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnTrackSearch.Location = new System.Drawing.Point(419, 9);
+            this.btnTrackSearch.Name = "btnTrackSearch";
+            this.btnTrackSearch.Size = new System.Drawing.Size(100, 45);
+            this.btnTrackSearch.TabIndex = 7;
+            this.btnTrackSearch.Text = "Search";
+            this.btnTrackSearch.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtTrackSearch
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(273, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 29);
-            this.textBox2.TabIndex = 6;
+            this.txtTrackSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackSearch.Location = new System.Drawing.Point(273, 13);
+            this.txtTrackSearch.Name = "txtTrackSearch";
+            this.txtTrackSearch.Size = new System.Drawing.Size(140, 29);
+            this.txtTrackSearch.TabIndex = 6;
             // 
-            // button4
+            // btnTrackAddNew
             // 
-            this.button4.Location = new System.Drawing.Point(9, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 45);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Add New";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnTrackAddNew.Location = new System.Drawing.Point(9, 9);
+            this.btnTrackAddNew.Name = "btnTrackAddNew";
+            this.btnTrackAddNew.Size = new System.Drawing.Size(100, 45);
+            this.btnTrackAddNew.TabIndex = 5;
+            this.btnTrackAddNew.Text = "Add New";
+            this.btnTrackAddNew.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // dgvTrack
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 60);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(762, 331);
-            this.dataGridView3.TabIndex = 4;
+            this.dgvTrack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTrack.Location = new System.Drawing.Point(3, 60);
+            this.dgvTrack.Name = "dgvTrack";
+            this.dgvTrack.Size = new System.Drawing.Size(762, 331);
+            this.dgvTrack.TabIndex = 4;
             // 
             // tabClientEvent
             // 
-            this.tabClientEvent.Controls.Add(this.button5);
-            this.tabClientEvent.Controls.Add(this.textBox3);
-            this.tabClientEvent.Controls.Add(this.button6);
-            this.tabClientEvent.Controls.Add(this.dataGridView4);
+            this.tabClientEvent.Controls.Add(this.btnClientEventSearch);
+            this.tabClientEvent.Controls.Add(this.txtClientEventSearch);
+            this.tabClientEvent.Controls.Add(this.btnClientEventAddNew);
+            this.tabClientEvent.Controls.Add(this.dgvClientEvent);
             this.tabClientEvent.Location = new System.Drawing.Point(4, 22);
             this.tabClientEvent.Name = "tabClientEvent";
             this.tabClientEvent.Padding = new System.Windows.Forms.Padding(3);
@@ -231,39 +231,39 @@ namespace MMS_CapstoneProject
             this.tabClientEvent.Text = "Client Event";
             this.tabClientEvent.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnClientEventSearch
             // 
-            this.button5.Location = new System.Drawing.Point(419, 9);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 45);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Search";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnClientEventSearch.Location = new System.Drawing.Point(419, 9);
+            this.btnClientEventSearch.Name = "btnClientEventSearch";
+            this.btnClientEventSearch.Size = new System.Drawing.Size(100, 45);
+            this.btnClientEventSearch.TabIndex = 7;
+            this.btnClientEventSearch.Text = "Search";
+            this.btnClientEventSearch.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtClientEventSearch
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(273, 13);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 29);
-            this.textBox3.TabIndex = 6;
+            this.txtClientEventSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientEventSearch.Location = new System.Drawing.Point(273, 13);
+            this.txtClientEventSearch.Name = "txtClientEventSearch";
+            this.txtClientEventSearch.Size = new System.Drawing.Size(140, 29);
+            this.txtClientEventSearch.TabIndex = 6;
             // 
-            // button6
+            // btnClientEventAddNew
             // 
-            this.button6.Location = new System.Drawing.Point(9, 9);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 45);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Add New";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnClientEventAddNew.Location = new System.Drawing.Point(9, 9);
+            this.btnClientEventAddNew.Name = "btnClientEventAddNew";
+            this.btnClientEventAddNew.Size = new System.Drawing.Size(100, 45);
+            this.btnClientEventAddNew.TabIndex = 5;
+            this.btnClientEventAddNew.Text = "Add New";
+            this.btnClientEventAddNew.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // dgvClientEvent
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 60);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(762, 331);
-            this.dataGridView4.TabIndex = 4;
+            this.dgvClientEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientEvent.Location = new System.Drawing.Point(3, 60);
+            this.dgvClientEvent.Name = "dgvClientEvent";
+            this.dgvClientEvent.Size = new System.Drawing.Size(762, 331);
+            this.dgvClientEvent.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -278,14 +278,14 @@ namespace MMS_CapstoneProject
             this.tabClient.PerformLayout();
             this.tabTrackWorker.ResumeLayout(false);
             this.tabTrackWorker.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTrackWorker)).EndInit();
             this.tabTrack.ResumeLayout(false);
             this.tabTrack.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).EndInit();
             this.tabClientEvent.ResumeLayout(false);
             this.tabClientEvent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientEvent)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,23 +295,23 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabClient;
         private System.Windows.Forms.TabPage tabTrackWorker;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Button btnClientSearch;
         private System.Windows.Forms.TextBox txtClientSearch;
         private System.Windows.Forms.Button btnClientAddNew;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnTrackWorkerSearch;
+        private System.Windows.Forms.TextBox txtTrackWorkerSearch;
+        private System.Windows.Forms.Button btnTrackWorkerAddNew;
+        private System.Windows.Forms.DataGridView dgvTrackWorker;
         private System.Windows.Forms.TabPage tabTrack;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button btnTrackSearch;
+        private System.Windows.Forms.TextBox txtTrackSearch;
+        private System.Windows.Forms.Button btnTrackAddNew;
+        private System.Windows.Forms.DataGridView dgvTrack;
         private System.Windows.Forms.TabPage tabClientEvent;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Button btnClientEventSearch;
+        private System.Windows.Forms.TextBox txtClientEventSearch;
+        private System.Windows.Forms.Button btnClientEventAddNew;
+        private System.Windows.Forms.DataGridView dgvClientEvent;
     }
 }
