@@ -32,6 +32,8 @@ namespace MMS_CapstoneProject
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tpClient = new System.Windows.Forms.TabPage();
             this.gbClientTexBox = new System.Windows.Forms.GroupBox();
+            this.rbClientIsDeleted_1 = new System.Windows.Forms.RadioButton();
+            this.rbClientIsDeleted = new System.Windows.Forms.RadioButton();
             this.txtPrimaryContactCell = new System.Windows.Forms.MaskedTextBox();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.txtClientId = new System.Windows.Forms.TextBox();
@@ -62,8 +64,10 @@ namespace MMS_CapstoneProject
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.rbClientIsDeleted = new System.Windows.Forms.RadioButton();
-            this.rbClientIsDeleted_1 = new System.Windows.Forms.RadioButton();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.TabControl1.SuspendLayout();
             this.tpClient.SuspendLayout();
             this.gbClientTexBox.SuspendLayout();
@@ -71,6 +75,8 @@ namespace MMS_CapstoneProject
             this.gbCreate.SuspendLayout();
             this.gbEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl1
@@ -123,6 +129,28 @@ namespace MMS_CapstoneProject
             this.gbClientTexBox.Size = new System.Drawing.Size(318, 259);
             this.gbClientTexBox.TabIndex = 17;
             this.gbClientTexBox.TabStop = false;
+            // 
+            // rbClientIsDeleted_1
+            // 
+            this.rbClientIsDeleted_1.AutoSize = true;
+            this.rbClientIsDeleted_1.Location = new System.Drawing.Point(187, 161);
+            this.rbClientIsDeleted_1.Name = "rbClientIsDeleted_1";
+            this.rbClientIsDeleted_1.Size = new System.Drawing.Size(66, 17);
+            this.rbClientIsDeleted_1.TabIndex = 22;
+            this.rbClientIsDeleted_1.Text = "Disabled";
+            this.rbClientIsDeleted_1.UseVisualStyleBackColor = true;
+            // 
+            // rbClientIsDeleted
+            // 
+            this.rbClientIsDeleted.AutoSize = true;
+            this.rbClientIsDeleted.Checked = true;
+            this.rbClientIsDeleted.Location = new System.Drawing.Point(45, 161);
+            this.rbClientIsDeleted.Name = "rbClientIsDeleted";
+            this.rbClientIsDeleted.Size = new System.Drawing.Size(64, 17);
+            this.rbClientIsDeleted.TabIndex = 21;
+            this.rbClientIsDeleted.TabStop = true;
+            this.rbClientIsDeleted.Text = "Enabled";
+            this.rbClientIsDeleted.UseVisualStyleBackColor = true;
             // 
             // txtPrimaryContactCell
             // 
@@ -414,6 +442,10 @@ namespace MMS_CapstoneProject
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnSearch);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.btnAdd);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -422,27 +454,38 @@ namespace MMS_CapstoneProject
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // rbClientIsDeleted
+            // btnAdd
             // 
-            this.rbClientIsDeleted.AutoSize = true;
-            this.rbClientIsDeleted.Checked = true;
-            this.rbClientIsDeleted.Location = new System.Drawing.Point(45, 161);
-            this.rbClientIsDeleted.Name = "rbClientIsDeleted";
-            this.rbClientIsDeleted.Size = new System.Drawing.Size(64, 17);
-            this.rbClientIsDeleted.TabIndex = 21;
-            this.rbClientIsDeleted.TabStop = true;
-            this.rbClientIsDeleted.Text = "Enabled";
-            this.rbClientIsDeleted.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(6, 6);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add New";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // rbClientIsDeleted_1
+            // dataGridView1
             // 
-            this.rbClientIsDeleted_1.AutoSize = true;
-            this.rbClientIsDeleted_1.Location = new System.Drawing.Point(187, 161);
-            this.rbClientIsDeleted_1.Name = "rbClientIsDeleted_1";
-            this.rbClientIsDeleted_1.Size = new System.Drawing.Size(66, 17);
-            this.rbClientIsDeleted_1.TabIndex = 22;
-            this.rbClientIsDeleted_1.Text = "Disabled";
-            this.rbClientIsDeleted_1.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(493, 363);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(109, 9);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(140, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(389, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -461,6 +504,9 @@ namespace MMS_CapstoneProject
             this.gbCreate.ResumeLayout(false);
             this.gbEdit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -502,6 +548,10 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.MaskedTextBox txtPrimaryContactCell;
         private System.Windows.Forms.RadioButton rbClientIsDeleted;
         private System.Windows.Forms.RadioButton rbClientIsDeleted_1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,7 +98,7 @@ namespace MMS_CapstoneProject
                 client.PrimaryContactCell = primaryContactCell;
                 client.PrimaryContactEmail = primaryContactEmail;
 
-                SqliteDataAccess.SaveClient(client);
+                ClientDataAccess.SaveClient(client);
                 RefreshDataGridViewData(dataGridViewClient);
 
                 txtClientName.Text = string.Empty;
@@ -168,14 +169,14 @@ namespace MMS_CapstoneProject
 
                 if (rbClientIsDeleted_1.Checked)
                 {
-                    SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
+                    ClientDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
                 }
                 else
                 {
-                    SqliteDataAccess.ActivateClient(int.Parse(txtClientId.Text));
+                    ClientDataAccess.ActivateClient(int.Parse(txtClientId.Text));
                 }
 
-                SqliteDataAccess.UpdateClient(client, int.Parse(txtClientId.Text));
+                ClientDataAccess.UpdateClient(client, int.Parse(txtClientId.Text));
                 RefreshDataGridViewData(dataGridViewClient);
             }
             else
@@ -186,7 +187,7 @@ namespace MMS_CapstoneProject
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            SqliteDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
+            ClientDataAccess.DeactivateClient(int.Parse(txtClientId.Text));
 
             ClearClientTextBox();
 
@@ -329,7 +330,7 @@ namespace MMS_CapstoneProject
 
             if (dataGridView == dataGridViewClient)
             {
-                source = new BindingSource(SqliteDataAccess.LoadAllClient(), null);
+                source = new BindingSource(ClientDataAccess.LoadAllClient(), null);
             }
 
             dataGridView.DataSource = source;

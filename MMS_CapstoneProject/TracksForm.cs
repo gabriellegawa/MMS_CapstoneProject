@@ -20,28 +20,28 @@ namespace MMS_CapstoneProject
 
         private void TracksForm_Load(object sender, EventArgs e)
         {
-            RefreshDataGridViewData(dataGridViewTrack);
+            //RefreshDataGridViewData(dataGridViewTrack);
         }
 
-        /// <summary>
-        /// RefreshDataGridViewData -  refresh data grid data
-        /// </summary>
-        public void RefreshDataGridViewData(DataGridView dataGridView)
-        {
-            var source = new BindingSource();
+        ///// <summary>
+        ///// RefreshDataGridViewData -  refresh data grid data
+        ///// </summary>
+        //public void RefreshDataGridViewData(DataGridView dataGridView)
+        //{
+        //    var source = new BindingSource();
 
-            if (dataGridView == dataGridViewTrack)
-            {
-                source = new BindingSource(SqliteDataAccess.LoadTrack(), null);
-            }
+        //    if (dataGridView == dataGridViewTrack)
+        //    {
+        //        source = new BindingSource(SqliteDataAccess.LoadTrack(), null);
+        //    }
 
-            dataGridView.DataSource = source;
-            dataGridView.AutoResizeColumns();
+        //    dataGridView.DataSource = source;
+        //    dataGridView.AutoResizeColumns();
 
-            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-            this.Width = 500 + dgv_width;
+        //    int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+        //    this.Width = 500 + dgv_width;
 
-            dataGridViewTrack.ClearSelection();
-        }
+        //    dataGridViewTrack.ClearSelection();
+        //}
     }
 }

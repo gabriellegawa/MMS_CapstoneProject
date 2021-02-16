@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
-    class ClientDataAccess : SqliteDataAccess
+    public class ClientDataAccess : SqliteDataAccess
     {
         /// <summary>
         /// LoadAllClient - Retrieve every client record from database
@@ -235,12 +235,12 @@ namespace MMSLibrary.DataAccess
                 cnn.Open();
                 string sqlStatement = "INSERT INTO Clients(name, primaryContactName, primaryContactCell, primaryContactEmail, isDeleted) VALUES(@name, @primaryContactName, @primaryContactCell, @primaryContactEmail, @isDeleted)";
 
+                // Prepared statement
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@name", client.Name);
                 cmd.Parameters.AddWithValue("@primaryContactName", client.PrimaryContactName);
                 cmd.Parameters.AddWithValue("@primaryContactCell", client.PrimaryContactCell);
                 cmd.Parameters.AddWithValue("@primaryContactEmail", client.PrimaryContactEmail);
-                // HARD CODED FALSE
                 cmd.Parameters.AddWithValue("@isDeleted", false);
 
                 try
