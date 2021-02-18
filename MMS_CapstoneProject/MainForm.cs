@@ -16,5 +16,10 @@ namespace MMS_CapstoneProject
         {
             InitializeComponent();
         }
+
+        private void btnClientAddNew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

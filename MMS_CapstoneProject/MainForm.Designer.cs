@@ -31,11 +31,11 @@ namespace MMS_CapstoneProject
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabClient = new System.Windows.Forms.TabPage();
-            this.tabTrackWorker = new System.Windows.Forms.TabPage();
-            this.dgvClient = new System.Windows.Forms.DataGridView();
-            this.btnClientAddNew = new System.Windows.Forms.Button();
-            this.txtClientSearch = new System.Windows.Forms.TextBox();
             this.btnClientSearch = new System.Windows.Forms.Button();
+            this.txtClientSearch = new System.Windows.Forms.TextBox();
+            this.btnClientAddNew = new System.Windows.Forms.Button();
+            this.dgvClient = new System.Windows.Forms.DataGridView();
+            this.tabTrackWorker = new System.Windows.Forms.TabPage();
             this.btnTrackWorkerSearch = new System.Windows.Forms.Button();
             this.txtTrackWorkerSearch = new System.Windows.Forms.TextBox();
             this.btnTrackWorkerAddNew = new System.Windows.Forms.Button();
@@ -52,8 +52,8 @@ namespace MMS_CapstoneProject
             this.dgvClientEvent = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabClient.SuspendLayout();
-            this.tabTrackWorker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
+            this.tabTrackWorker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrackWorker)).BeginInit();
             this.tabTrack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
@@ -87,6 +87,41 @@ namespace MMS_CapstoneProject
             this.tabClient.Text = "Client";
             this.tabClient.UseVisualStyleBackColor = true;
             // 
+            // btnClientSearch
+            // 
+            this.btnClientSearch.Location = new System.Drawing.Point(416, 12);
+            this.btnClientSearch.Name = "btnClientSearch";
+            this.btnClientSearch.Size = new System.Drawing.Size(100, 45);
+            this.btnClientSearch.TabIndex = 3;
+            this.btnClientSearch.Text = "Search";
+            this.btnClientSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtClientSearch
+            // 
+            this.txtClientSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientSearch.Location = new System.Drawing.Point(270, 16);
+            this.txtClientSearch.Name = "txtClientSearch";
+            this.txtClientSearch.Size = new System.Drawing.Size(140, 29);
+            this.txtClientSearch.TabIndex = 2;
+            // 
+            // btnClientAddNew
+            // 
+            this.btnClientAddNew.Location = new System.Drawing.Point(6, 12);
+            this.btnClientAddNew.Name = "btnClientAddNew";
+            this.btnClientAddNew.Size = new System.Drawing.Size(100, 45);
+            this.btnClientAddNew.TabIndex = 1;
+            this.btnClientAddNew.Text = "Add New";
+            this.btnClientAddNew.UseVisualStyleBackColor = true;
+            this.btnClientAddNew.Click += new System.EventHandler(this.btnClientAddNew_Click);
+            // 
+            // dgvClient
+            // 
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Location = new System.Drawing.Point(0, 63);
+            this.dgvClient.Name = "dgvClient";
+            this.dgvClient.Size = new System.Drawing.Size(762, 331);
+            this.dgvClient.TabIndex = 0;
+            // 
             // tabTrackWorker
             // 
             this.tabTrackWorker.Controls.Add(this.btnTrackWorkerSearch);
@@ -100,40 +135,6 @@ namespace MMS_CapstoneProject
             this.tabTrackWorker.TabIndex = 1;
             this.tabTrackWorker.Text = "Track Worker";
             this.tabTrackWorker.UseVisualStyleBackColor = true;
-            // 
-            // dgvClient
-            // 
-            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClient.Location = new System.Drawing.Point(0, 63);
-            this.dgvClient.Name = "dgvClient";
-            this.dgvClient.Size = new System.Drawing.Size(762, 331);
-            this.dgvClient.TabIndex = 0;
-            // 
-            // btnClientAddNew
-            // 
-            this.btnClientAddNew.Location = new System.Drawing.Point(6, 12);
-            this.btnClientAddNew.Name = "btnClientAddNew";
-            this.btnClientAddNew.Size = new System.Drawing.Size(100, 45);
-            this.btnClientAddNew.TabIndex = 1;
-            this.btnClientAddNew.Text = "Add New";
-            this.btnClientAddNew.UseVisualStyleBackColor = true;
-            // 
-            // txtClientSearch
-            // 
-            this.txtClientSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClientSearch.Location = new System.Drawing.Point(270, 16);
-            this.txtClientSearch.Name = "txtClientSearch";
-            this.txtClientSearch.Size = new System.Drawing.Size(140, 29);
-            this.txtClientSearch.TabIndex = 2;
-            // 
-            // btnClientSearch
-            // 
-            this.btnClientSearch.Location = new System.Drawing.Point(416, 12);
-            this.btnClientSearch.Name = "btnClientSearch";
-            this.btnClientSearch.Size = new System.Drawing.Size(100, 45);
-            this.btnClientSearch.TabIndex = 3;
-            this.btnClientSearch.Text = "Search";
-            this.btnClientSearch.UseVisualStyleBackColor = true;
             // 
             // btnTrackWorkerSearch
             // 
@@ -276,9 +277,9 @@ namespace MMS_CapstoneProject
             this.tabControl1.ResumeLayout(false);
             this.tabClient.ResumeLayout(false);
             this.tabClient.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             this.tabTrackWorker.ResumeLayout(false);
             this.tabTrackWorker.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrackWorker)).EndInit();
             this.tabTrack.ResumeLayout(false);
             this.tabTrack.PerformLayout();
