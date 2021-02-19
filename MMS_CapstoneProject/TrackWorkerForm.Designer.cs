@@ -29,6 +29,7 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTrackWorkerId = new System.Windows.Forms.Label();
             this.txtTrackWorkerId = new System.Windows.Forms.TextBox();
             this.txtTrackWorkerFirstName = new System.Windows.Forms.TextBox();
@@ -49,8 +50,10 @@ namespace MMS_CapstoneProject
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnEscape = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbIsCapableCaptain.SuspendLayout();
             this.gbIsDeleted.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTrackWorkerId
@@ -75,6 +78,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerFirstName.Name = "txtTrackWorkerFirstName";
             this.txtTrackWorkerFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerFirstName.TabIndex = 3;
+            this.txtTrackWorkerFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerFirstName_Validating);
             // 
             // lblTrackWorkerFirstName
             // 
@@ -91,6 +95,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerLastName.Name = "txtTrackWorkerLastName";
             this.txtTrackWorkerLastName.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerLastName.TabIndex = 5;
+            this.txtTrackWorkerLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerLastName_Validating);
             // 
             // lblTrackWorkerLastName
             // 
@@ -113,6 +118,7 @@ namespace MMS_CapstoneProject
             // txtTrackWorkerCell
             // 
             this.txtTrackWorkerCell.Location = new System.Drawing.Point(116, 84);
+            this.txtTrackWorkerCell.Mask = "(999) 000-0000";
             this.txtTrackWorkerCell.Name = "txtTrackWorkerCell";
             this.txtTrackWorkerCell.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerCell.TabIndex = 7;
@@ -132,6 +138,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerEmail.Name = "txtTrackWorkerEmail";
             this.txtTrackWorkerEmail.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerEmail.TabIndex = 9;
+            this.txtTrackWorkerEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerEmail_Validating);
             // 
             // lblTrackWorkerIsCapableCaptain
             // 
@@ -214,6 +221,7 @@ namespace MMS_CapstoneProject
             this.btnEnter.TabIndex = 13;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // btnEscape
             // 
@@ -232,6 +240,10 @@ namespace MMS_CapstoneProject
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // errorProviderApp
+            // 
+            this.errorProviderApp.ContainerControl = this;
             // 
             // TrackWorkerForm
             // 
@@ -261,6 +273,7 @@ namespace MMS_CapstoneProject
             this.gbIsCapableCaptain.PerformLayout();
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +301,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnEscape;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ErrorProvider errorProviderApp;
     }
 }

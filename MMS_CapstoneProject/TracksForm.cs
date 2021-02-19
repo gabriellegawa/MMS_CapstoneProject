@@ -18,30 +18,17 @@ namespace MMS_CapstoneProject
             InitializeComponent();
         }
 
-        private void TracksForm_Load(object sender, EventArgs e)
+        private void btnEnter_Click(object sender, EventArgs e)
         {
-            //RefreshDataGridViewData(dataGridViewTrack);
+
         }
 
-        ///// <summary>
-        ///// RefreshDataGridViewData -  refresh data grid data
-        ///// </summary>
-        //public void RefreshDataGridViewData(DataGridView dataGridView)
-        //{
-        //    var source = new BindingSource();
-
-        //    if (dataGridView == dataGridViewTrack)
-        //    {
-        //        source = new BindingSource(SqliteDataAccess.LoadTrack(), null);
-        //    }
-
-        //    dataGridView.DataSource = source;
-        //    dataGridView.AutoResizeColumns();
-
-        //    int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-        //    this.Width = 500 + dgv_width;
-
-        //    dataGridViewTrack.ClearSelection();
-        //}
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtTrackId.Clear();
+            txtTrackName.Clear();
+            cbTrackConfiguration.Items.Clear();
+            rdoIsDeleted_Enabled.Checked = true;
+        }
     }
 }

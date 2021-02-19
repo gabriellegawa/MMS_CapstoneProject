@@ -127,12 +127,14 @@ namespace MMS_CapstoneProject
             // 
             // btnClear
             // 
+            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.Location = new System.Drawing.Point(118, 141);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 29;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnEscape
             // 
@@ -151,11 +153,14 @@ namespace MMS_CapstoneProject
             this.btnEnter.TabIndex = 28;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // TracksForm
             // 
+            this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClear;
             this.ClientSize = new System.Drawing.Size(324, 198);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
@@ -169,7 +174,6 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackName);
             this.Name = "TracksForm";
             this.Text = "TracksForm";
-            this.Load += new System.EventHandler(this.TracksForm_Load);
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();
             this.ResumeLayout(false);
