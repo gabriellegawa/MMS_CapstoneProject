@@ -42,8 +42,8 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerEmail = new System.Windows.Forms.TextBox();
             this.lblTrackWorkerIsCapableCaptain = new System.Windows.Forms.Label();
             this.gbIsCapableCaptain = new System.Windows.Forms.GroupBox();
-            this.rdioIsCapableCaptain_False = new System.Windows.Forms.RadioButton();
-            this.rdioIsCapableCaptain_True = new System.Windows.Forms.RadioButton();
+            this.rdoIsCapableCaptain_False = new System.Windows.Forms.RadioButton();
+            this.rdoIsCapableCaptain_True = new System.Windows.Forms.RadioButton();
             this.gbIsDeleted = new System.Windows.Forms.GroupBox();
             this.rdoIsDeleted_Disabled = new System.Windows.Forms.RadioButton();
             this.rdoIsDeleted_Enabled = new System.Windows.Forms.RadioButton();
@@ -151,35 +151,35 @@ namespace MMS_CapstoneProject
             // 
             // gbIsCapableCaptain
             // 
-            this.gbIsCapableCaptain.Controls.Add(this.rdioIsCapableCaptain_False);
-            this.gbIsCapableCaptain.Controls.Add(this.rdioIsCapableCaptain_True);
+            this.gbIsCapableCaptain.Controls.Add(this.rdoIsCapableCaptain_False);
+            this.gbIsCapableCaptain.Controls.Add(this.rdoIsCapableCaptain_True);
             this.gbIsCapableCaptain.Location = new System.Drawing.Point(116, 136);
             this.gbIsCapableCaptain.Name = "gbIsCapableCaptain";
             this.gbIsCapableCaptain.Size = new System.Drawing.Size(114, 34);
             this.gbIsCapableCaptain.TabIndex = 11;
             this.gbIsCapableCaptain.TabStop = false;
             // 
-            // rdioIsCapableCaptain_False
+            // rdoIsCapableCaptain_False
             // 
-            this.rdioIsCapableCaptain_False.AutoSize = true;
-            this.rdioIsCapableCaptain_False.Location = new System.Drawing.Point(59, 11);
-            this.rdioIsCapableCaptain_False.Name = "rdioIsCapableCaptain_False";
-            this.rdioIsCapableCaptain_False.Size = new System.Drawing.Size(50, 17);
-            this.rdioIsCapableCaptain_False.TabIndex = 1;
-            this.rdioIsCapableCaptain_False.Text = "False";
-            this.rdioIsCapableCaptain_False.UseVisualStyleBackColor = true;
+            this.rdoIsCapableCaptain_False.AutoSize = true;
+            this.rdoIsCapableCaptain_False.Location = new System.Drawing.Point(59, 11);
+            this.rdoIsCapableCaptain_False.Name = "rdoIsCapableCaptain_False";
+            this.rdoIsCapableCaptain_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoIsCapableCaptain_False.TabIndex = 1;
+            this.rdoIsCapableCaptain_False.Text = "False";
+            this.rdoIsCapableCaptain_False.UseVisualStyleBackColor = true;
             // 
-            // rdioIsCapableCaptain_True
+            // rdoIsCapableCaptain_True
             // 
-            this.rdioIsCapableCaptain_True.AutoSize = true;
-            this.rdioIsCapableCaptain_True.Checked = true;
-            this.rdioIsCapableCaptain_True.Location = new System.Drawing.Point(6, 11);
-            this.rdioIsCapableCaptain_True.Name = "rdioIsCapableCaptain_True";
-            this.rdioIsCapableCaptain_True.Size = new System.Drawing.Size(47, 17);
-            this.rdioIsCapableCaptain_True.TabIndex = 0;
-            this.rdioIsCapableCaptain_True.TabStop = true;
-            this.rdioIsCapableCaptain_True.Text = "True";
-            this.rdioIsCapableCaptain_True.UseVisualStyleBackColor = true;
+            this.rdoIsCapableCaptain_True.AutoSize = true;
+            this.rdoIsCapableCaptain_True.Checked = true;
+            this.rdoIsCapableCaptain_True.Location = new System.Drawing.Point(6, 11);
+            this.rdoIsCapableCaptain_True.Name = "rdoIsCapableCaptain_True";
+            this.rdoIsCapableCaptain_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoIsCapableCaptain_True.TabIndex = 0;
+            this.rdoIsCapableCaptain_True.TabStop = true;
+            this.rdoIsCapableCaptain_True.Text = "True";
+            this.rdoIsCapableCaptain_True.UseVisualStyleBackColor = true;
             // 
             // gbIsDeleted
             // 
@@ -269,6 +269,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackWorkerId);
             this.Name = "TrackWorkerForm";
             this.Text = "TrackWorkerForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrackWorkerForm_FormClosing);
             this.gbIsCapableCaptain.ResumeLayout(false);
             this.gbIsCapableCaptain.PerformLayout();
             this.gbIsDeleted.ResumeLayout(false);
@@ -293,8 +294,8 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.TextBox txtTrackWorkerEmail;
         private System.Windows.Forms.Label lblTrackWorkerIsCapableCaptain;
         private System.Windows.Forms.GroupBox gbIsCapableCaptain;
-        private System.Windows.Forms.RadioButton rdioIsCapableCaptain_False;
-        private System.Windows.Forms.RadioButton rdioIsCapableCaptain_True;
+        private System.Windows.Forms.RadioButton rdoIsCapableCaptain_False;
+        private System.Windows.Forms.RadioButton rdoIsCapableCaptain_True;
         private System.Windows.Forms.GroupBox gbIsDeleted;
         private System.Windows.Forms.RadioButton rdoIsDeleted_Disabled;
         private System.Windows.Forms.RadioButton rdoIsDeleted_Enabled;
