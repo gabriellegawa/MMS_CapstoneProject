@@ -29,6 +29,7 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblClientEventId = new System.Windows.Forms.Label();
             this.lblClientEventClientId = new System.Windows.Forms.Label();
             this.lblClientEventTrackId = new System.Windows.Forms.Label();
@@ -52,9 +53,9 @@ namespace MMS_CapstoneProject
             this.txtClientEventClientId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTrackID = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtWorkerRequested = new System.Windows.Forms.TextBox();
             this.gbClientEventRequireSafetyDemo = new System.Windows.Forms.GroupBox();
             this.rdoClientEventRequireSafetyDemo_False = new System.Windows.Forms.RadioButton();
             this.rdoClientEventRequireSafetyDemo_True = new System.Windows.Forms.RadioButton();
@@ -64,11 +65,13 @@ namespace MMS_CapstoneProject
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEscape = new System.Windows.Forms.Button();
+            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbClientEventIsLunchProvided.SuspendLayout();
             this.gbClientEventIsUsingPaddock.SuspendLayout();
             this.gbClientEventWorkerCalloutSent.SuspendLayout();
             this.gbClientEventRequireSafetyDemo.SuspendLayout();
             this.gbClientEventIsDeleted.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblClientEventId
@@ -292,26 +295,28 @@ namespace MMS_CapstoneProject
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtTrackID
             // 
-            this.textBox3.Location = new System.Drawing.Point(134, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtTrackID.Location = new System.Drawing.Point(134, 55);
+            this.txtTrackID.Name = "txtTrackID";
+            this.txtTrackID.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackID.TabIndex = 6;
             // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(134, 81);
+            this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBox1.TabIndex = 9;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox4
+            // txtWorkerRequested
             // 
-            this.textBox4.Location = new System.Drawing.Point(134, 107);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 11;
+            this.txtWorkerRequested.Location = new System.Drawing.Point(134, 107);
+            this.txtWorkerRequested.Name = "txtWorkerRequested";
+            this.txtWorkerRequested.Size = new System.Drawing.Size(100, 20);
+            this.txtWorkerRequested.TabIndex = 11;
             // 
             // gbClientEventRequireSafetyDemo
             // 
@@ -404,6 +409,10 @@ namespace MMS_CapstoneProject
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
             // 
+            // errorProviderApp
+            // 
+            this.errorProviderApp.ContainerControl = this;
+            // 
             // ClientEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,10 +423,10 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.gbClientEventIsDeleted);
             this.Controls.Add(this.gbClientEventRequireSafetyDemo);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtWorkerRequested);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtTrackID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtClientEventClientId);
             this.Controls.Add(this.txtClientEventId);
@@ -445,6 +454,7 @@ namespace MMS_CapstoneProject
             this.gbClientEventRequireSafetyDemo.PerformLayout();
             this.gbClientEventIsDeleted.ResumeLayout(false);
             this.gbClientEventIsDeleted.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,9 +485,9 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.TextBox txtClientEventClientId;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTrackID;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtWorkerRequested;
         private System.Windows.Forms.GroupBox gbClientEventRequireSafetyDemo;
         private System.Windows.Forms.RadioButton rdoClientEventRequireSafetyDemo_False;
         private System.Windows.Forms.RadioButton rdoClientEventRequireSafetyDemo_True;
@@ -487,5 +497,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEscape;
+        private System.Windows.Forms.ErrorProvider errorProviderApp;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMSLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,14 @@ namespace MMS_CapstoneProject
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Valdidation GOOD", "Demo App - Message!");
+                TrackWorkerModel trackWorker = new TrackWorkerModel();
+                trackWorker.FirstName = txtTrackWorkerFirstName.Text;
+                trackWorker.LastName = txtTrackWorkerLastName.Text;
+                trackWorker.Email = txtTrackWorkerEmail.Text;
+                trackWorker.Cell = txtTrackWorkerCell.Text;
+                trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
+
+
             }
         }
 
@@ -77,6 +85,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -119,6 +132,11 @@ namespace MMS_CapstoneProject
             {
                 return false;
             }
+        }
+
+        private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
         }
     }
 }
