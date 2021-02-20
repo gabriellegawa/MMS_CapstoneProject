@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
-    class TrackWorkerDataAccess : SqliteDataAccess
+    public class TrackWorkerDataAccess : SqliteDataAccess
     {
         /// <summary>
         /// LoadAllTrackWorker - Retrieve every track worker record from database

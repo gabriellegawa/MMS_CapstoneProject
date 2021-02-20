@@ -161,6 +161,7 @@ namespace MMS_CapstoneProject
             this.btnTrackWorkerAddNew.TabIndex = 5;
             this.btnTrackWorkerAddNew.Text = "Add New";
             this.btnTrackWorkerAddNew.UseVisualStyleBackColor = true;
+            this.btnTrackWorkerAddNew.Click += new System.EventHandler(this.btnTrackWorkerAddNew_Click);
             // 
             // dgvTrackWorker
             // 
@@ -274,6 +275,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabClient.ResumeLayout(false);
             this.tabClient.PerformLayout();

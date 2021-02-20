@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MMSLibrary;
+using MMSLibrary.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,29 @@ namespace MMS_CapstoneProject
         private void btnClientAddNew_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTrackWorkerAddNew_Click(object sender, EventArgs e)
+        {
+            TrackWorkerForm trackWorkerForm = new TrackWorkerForm();
+            trackWorkerForm.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
+            RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
+        }
+
+        public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
+        {
+            dataGridView.DataSource = list;
+            dataGridView.AutoResizeColumns();
+
+            //int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            //this.Width = 430 + dgv_width;
+
+            dataGridView.ClearSelection();
         }
     }
 }
