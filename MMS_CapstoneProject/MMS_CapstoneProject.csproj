@@ -57,6 +57,12 @@
     <Compile Include="ClientEventForm.Designer.cs">
       <DependentUpon>ClientEventForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataGridViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,11 +70,11 @@
       <DependentUpon>DataGridViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperClass.cs" />
-    <Compile Include="ClientForm.cs">
+    <Compile Include="ClientForm_draft1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientForm.Designer.cs">
-      <DependentUpon>ClientForm.cs</DependentUpon>
+    <Compile Include="ClientForm_draft1.Designer.cs">
+      <DependentUpon>ClientForm_draft1.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -96,8 +102,8 @@
     <EmbeddedResource Include="DataGridViewForm.resx">
       <DependentUpon>DataGridViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientForm.resx">
-      <DependentUpon>ClientForm.cs</DependentUpon>
+    <EmbeddedResource Include="ClientForm_draft1.resx">
+      <DependentUpon>ClientForm_draft1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
