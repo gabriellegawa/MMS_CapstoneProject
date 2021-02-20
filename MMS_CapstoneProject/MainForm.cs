@@ -41,8 +41,8 @@ namespace MMS_CapstoneProject
             dataGridView.DataSource = list;
             dataGridView.AutoResizeColumns();
 
-            //int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-            //this.Width = 430 + dgv_width;
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 365 + dgv_width;
 
             dataGridView.ClearSelection();
         }

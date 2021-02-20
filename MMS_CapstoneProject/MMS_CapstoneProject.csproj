@@ -99,6 +99,9 @@
     <EmbeddedResource Include="ClientEventForm.resx">
       <DependentUpon>ClientEventForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataGridViewForm.resx">
       <DependentUpon>DataGridViewForm.cs</DependentUpon>
     </EmbeddedResource>

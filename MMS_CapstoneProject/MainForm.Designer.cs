@@ -63,6 +63,9 @@ namespace MMS_CapstoneProject
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabClient);
             this.tabControl1.Controls.Add(this.tabTrackWorker);
             this.tabControl1.Controls.Add(this.tabTrack);
@@ -116,6 +119,9 @@ namespace MMS_CapstoneProject
             // 
             // dgvClient
             // 
+            this.dgvClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Location = new System.Drawing.Point(0, 63);
             this.dgvClient.Name = "dgvClient";
@@ -165,6 +171,9 @@ namespace MMS_CapstoneProject
             // 
             // dgvTrackWorker
             // 
+            this.dgvTrackWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTrackWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrackWorker.Location = new System.Drawing.Point(3, 60);
             this.dgvTrackWorker.Name = "dgvTrackWorker";
@@ -213,6 +222,9 @@ namespace MMS_CapstoneProject
             // 
             // dgvTrack
             // 
+            this.dgvTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTrack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrack.Location = new System.Drawing.Point(3, 60);
             this.dgvTrack.Name = "dgvTrack";
@@ -261,6 +273,9 @@ namespace MMS_CapstoneProject
             // 
             // dgvClientEvent
             // 
+            this.dgvClientEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientEvent.Location = new System.Drawing.Point(3, 60);
             this.dgvClientEvent.Name = "dgvClientEvent";
