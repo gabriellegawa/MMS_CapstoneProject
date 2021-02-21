@@ -26,11 +26,15 @@ namespace MMS_CapstoneProject
 
         private void btnTrackWorkerAddNew_Click(object sender, EventArgs e)
         {
-            TrackWorkerForm trackWorkerForm = new TrackWorkerForm();
+            TrackWorkerForm trackWorkerForm = new TrackWorkerForm(this);
             trackWorkerForm.ShowDialog();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+            RefreshAllDataGridView();
+        }
+        public void RefreshAllDataGridView()
         {
             RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
             RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());

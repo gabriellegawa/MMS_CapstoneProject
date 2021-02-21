@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,11 @@ namespace MMS_CapstoneProject
 {
     public partial class TrackWorkerForm : Form
     {
-        public TrackWorkerForm()
+        private readonly MainForm _mainForm;
+
+        public TrackWorkerForm(MainForm mainForm)
         {
+            _mainForm = mainForm;
             InitializeComponent();
         }
 
@@ -29,7 +33,19 @@ namespace MMS_CapstoneProject
                 trackWorker.Cell = txtTrackWorkerCell.Text;
                 trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
 
-
+                try
+                {
+                    TrackWorkerDataAccess.SaveTrackWorker(trackWorker);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Runtime Error\n" + ex.Message, "Unexpected Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Close();
+                }
             }
         }
 
@@ -84,7 +100,11 @@ namespace MMS_CapstoneProject
                 errorProviderApp.SetError(txtTrackWorkerEmail, "");
             }
         }
-
+        private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+            _mainForm.RefreshAllDataGridView();
+        }
         /// <summary>
         /// https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
         /// </summary>
@@ -134,9 +154,5 @@ namespace MMS_CapstoneProject
             }
         }
 
-        private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = false;
-        }
     }
 }
