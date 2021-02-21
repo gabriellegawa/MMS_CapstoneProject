@@ -20,11 +20,14 @@ namespace MMS_CapstoneProject
         {
             _mainForm = mainForm;
             InitializeComponent();
+
+            btnEnter.Click += btnCreate_Click;
         }
         public TrackWorkerForm(MainForm mainForm, TrackWorkerModel trackWorker)
         {
             _mainForm = mainForm;
             InitializeComponent();
+            btnEnter.Click += btnUpdate_Click;
 
             txtTrackWorkerId.Text = trackWorker.Id.ToString();
             txtTrackWorkerFirstName.Text = trackWorker.FirstName;
@@ -43,7 +46,7 @@ namespace MMS_CapstoneProject
             btnEnter.Text = "Update";
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
@@ -57,6 +60,33 @@ namespace MMS_CapstoneProject
                 try
                 {
                     TrackWorkerDataAccess.SaveTrackWorker(trackWorker);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Runtime Error\n" + ex.Message, "Unexpected Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                TrackWorkerModel trackWorker = new TrackWorkerModel();
+                trackWorker.FirstName = txtTrackWorkerFirstName.Text;
+                trackWorker.LastName = txtTrackWorkerLastName.Text;
+                trackWorker.Cell = txtTrackWorkerCell.Text;
+                trackWorker.Email = txtTrackWorkerEmail.Text;
+                trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
+
+                try
+                {
+                    TrackWorkerDataAccess.UpdateTrackWorker(trackWorker, int.Parse(txtTrackWorkerId.Text));
                 }
                 catch (Exception ex)
                 {
@@ -175,5 +205,9 @@ namespace MMS_CapstoneProject
             }
         }
 
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

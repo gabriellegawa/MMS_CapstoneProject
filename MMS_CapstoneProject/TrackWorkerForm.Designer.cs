@@ -67,6 +67,7 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackWorkerId
             // 
+            this.txtTrackWorkerId.Enabled = false;
             this.txtTrackWorkerId.Location = new System.Drawing.Point(116, 6);
             this.txtTrackWorkerId.Name = "txtTrackWorkerId";
             this.txtTrackWorkerId.Size = new System.Drawing.Size(100, 20);
@@ -221,7 +222,6 @@ namespace MMS_CapstoneProject
             this.btnEnter.TabIndex = 13;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // btnEscape
             // 
@@ -231,6 +231,7 @@ namespace MMS_CapstoneProject
             this.btnEscape.TabIndex = 15;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
+            this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
             // 
             // btnClear
             // 
@@ -250,6 +251,7 @@ namespace MMS_CapstoneProject
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClear;
             this.ClientSize = new System.Drawing.Size(282, 276);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);

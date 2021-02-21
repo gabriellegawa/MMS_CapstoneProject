@@ -125,7 +125,7 @@ namespace MMS_CapstoneProject
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Location = new System.Drawing.Point(0, 63);
             this.dgvClient.Name = "dgvClient";
-            this.dgvClient.Size = new System.Drawing.Size(762, 331);
+            this.dgvClient.Size = new System.Drawing.Size(768, 331);
             this.dgvClient.TabIndex = 0;
             // 
             // tabTrackWorker
