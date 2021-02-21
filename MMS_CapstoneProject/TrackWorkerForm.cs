@@ -21,6 +21,27 @@ namespace MMS_CapstoneProject
             _mainForm = mainForm;
             InitializeComponent();
         }
+        public TrackWorkerForm(MainForm mainForm, TrackWorkerModel trackWorker)
+        {
+            _mainForm = mainForm;
+            InitializeComponent();
+
+            txtTrackWorkerId.Text = trackWorker.Id.ToString();
+            txtTrackWorkerFirstName.Text = trackWorker.FirstName;
+            txtTrackWorkerLastName.Text = trackWorker.LastName;
+            txtTrackWorkerCell.Text = trackWorker.Cell;
+            txtTrackWorkerEmail.Text = trackWorker.Email;
+            if (trackWorker.IsCapableCaptain)
+            {
+                rdoIsCapableCaptain_True.Checked = true;
+            }
+            else
+            {
+                rdoIsCapableCaptain_False.Checked = true;
+            }
+
+            btnEnter.Text = "Update";
+        }
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
@@ -29,15 +50,15 @@ namespace MMS_CapstoneProject
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
                 trackWorker.FirstName = txtTrackWorkerFirstName.Text;
                 trackWorker.LastName = txtTrackWorkerLastName.Text;
-                trackWorker.Email = txtTrackWorkerEmail.Text;
                 trackWorker.Cell = txtTrackWorkerCell.Text;
+                trackWorker.Email = txtTrackWorkerEmail.Text;
                 trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
 
                 try
                 {
                     TrackWorkerDataAccess.SaveTrackWorker(trackWorker);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Runtime Error\n" + ex.Message, "Unexpected Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -88,7 +109,7 @@ namespace MMS_CapstoneProject
                 txtTrackWorkerEmail.Focus();
                 errorProviderApp.SetError(txtTrackWorkerEmail, "Email should not be left blank!");
             }
-            else if(!IsValidEmail(txtTrackWorkerEmail.Text))
+            else if (!IsValidEmail(txtTrackWorkerEmail.Text))
             {
                 e.Cancel = true;
                 txtTrackWorkerEmail.Focus();

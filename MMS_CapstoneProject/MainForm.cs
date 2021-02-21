@@ -50,5 +50,36 @@ namespace MMS_CapstoneProject
 
             dataGridView.ClearSelection();
         }
+
+        private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TrackWorkerModel trackWorker = new TrackWorkerModel();
+
+            trackWorker.Id = int.Parse(dgvTrackWorker.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+            trackWorker.FirstName = dgvTrackWorker.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
+            trackWorker.LastName = dgvTrackWorker.Rows[e.RowIndex].Cells["LastName"].Value.ToString();
+            trackWorker.Cell = dgvTrackWorker.Rows[e.RowIndex].Cells["Cell"].Value.ToString();
+            trackWorker.Email = dgvTrackWorker.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+
+            if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsCapableCaptain"].Value.ToString() == "1")
+            {
+                trackWorker.IsCapableCaptain = true;
+            }
+            else
+            {
+                trackWorker.IsCapableCaptain = false;
+            }
+            if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "1")
+            {
+                trackWorker.IsDeleted = true;
+            }
+            else
+            {
+                trackWorker.IsDeleted = false;
+            }
+            Console.WriteLine();
+            TrackWorkerForm trackWorkerForm = new TrackWorkerForm(this, trackWorker);
+            trackWorkerForm.ShowDialog();
+        }
     }
 }

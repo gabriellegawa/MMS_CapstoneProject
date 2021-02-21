@@ -179,6 +179,7 @@ namespace MMS_CapstoneProject
             this.dgvTrackWorker.Name = "dgvTrackWorker";
             this.dgvTrackWorker.Size = new System.Drawing.Size(762, 331);
             this.dgvTrackWorker.TabIndex = 4;
+            this.dgvTrackWorker.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrackWorker_CellClick);
             // 
             // tabTrack
             // 
