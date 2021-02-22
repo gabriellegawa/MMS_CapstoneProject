@@ -125,7 +125,7 @@ namespace MMS_CapstoneProject
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Location = new System.Drawing.Point(0, 63);
             this.dgvClient.Name = "dgvClient";
-            this.dgvClient.Size = new System.Drawing.Size(762, 331);
+            this.dgvClient.Size = new System.Drawing.Size(768, 331);
             this.dgvClient.TabIndex = 0;
             // 
             // tabTrackWorker
@@ -158,6 +158,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerSearch.Name = "txtTrackWorkerSearch";
             this.txtTrackWorkerSearch.Size = new System.Drawing.Size(140, 29);
             this.txtTrackWorkerSearch.TabIndex = 6;
+            this.txtTrackWorkerSearch.TextChanged += new System.EventHandler(this.txtTrackWorkerSearch_TextChanged);
             // 
             // btnTrackWorkerAddNew
             // 
@@ -179,6 +180,7 @@ namespace MMS_CapstoneProject
             this.dgvTrackWorker.Name = "dgvTrackWorker";
             this.dgvTrackWorker.Size = new System.Drawing.Size(762, 331);
             this.dgvTrackWorker.TabIndex = 4;
+            this.dgvTrackWorker.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrackWorker_CellClick);
             // 
             // tabTrack
             // 

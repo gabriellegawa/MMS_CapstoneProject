@@ -183,7 +183,7 @@ namespace MMSLibrary.DataAccess
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO TrackWorkers(firstName, lastName, cell, email, isCapableCaptain, isDeleted) VALUES(@firstName, @lastName, @cell, @email, isCapableCaptain, @isDeleted)";
+                string sqlStatement = "INSERT INTO TrackWorkers(firstName, lastName, cell, email, isCapableCaptain, isDeleted) VALUES(@firstName, @lastName, @cell, @email, @isCapableCaptain, @isDeleted)";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@firstName", trackWorker.FirstName);

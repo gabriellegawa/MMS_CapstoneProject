@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,23 +14,98 @@ namespace MMS_CapstoneProject
 {
     public partial class TrackWorkerForm : Form
     {
-        public TrackWorkerForm()
+        private readonly MainForm _mainForm;
+
+        public TrackWorkerForm(MainForm mainForm)
         {
+            _mainForm = mainForm;
             InitializeComponent();
+
+            btnEnter.Click += btnCreate_Click;
+        }
+        public TrackWorkerForm(MainForm mainForm, TrackWorkerModel trackWorker)
+        {
+            _mainForm = mainForm;
+            InitializeComponent();
+            btnEnter.Click += btnUpdate_Click;
+
+            txtTrackWorkerId.Text = trackWorker.Id.ToString();
+            txtTrackWorkerFirstName.Text = trackWorker.FirstName;
+            txtTrackWorkerLastName.Text = trackWorker.LastName;
+            txtTrackWorkerCell.Text = trackWorker.Cell;
+            txtTrackWorkerEmail.Text = trackWorker.Email;
+            if (trackWorker.IsCapableCaptain)
+            {
+                rdoIsCapableCaptain_True.Checked = true;
+            }
+            else
+            {
+                rdoIsCapableCaptain_False.Checked = true;
+            }
+            if (trackWorker.IsDeleted)
+            {
+                rdoIsDeleted_Enabled.Checked = true;
+            }
+            else
+            {
+                rdoIsDeleted_Disabled.Checked = true;
+            }
+
+            btnEnter.Text = "Update";
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
-                trackWorker.FirstName = txtTrackWorkerFirstName.Text;
-                trackWorker.LastName = txtTrackWorkerLastName.Text;
-                trackWorker.Email = txtTrackWorkerEmail.Text;
-                trackWorker.Cell = txtTrackWorkerCell.Text;
+                trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
+                trackWorker.LastName = txtTrackWorkerLastName.Text.Trim();
+                trackWorker.Cell = txtTrackWorkerCell.Text.Trim();
+                trackWorker.Email = txtTrackWorkerEmail.Text.Trim();
                 trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
 
+                try
+                {
+                    TrackWorkerDataAccess.SaveTrackWorker(trackWorker);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Runtime Error\n" + ex.Message, "Unexpected Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Close();
+                }
+            }
+        }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                TrackWorkerModel trackWorker = new TrackWorkerModel();
+                trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
+                trackWorker.LastName = txtTrackWorkerLastName.Text.Trim();
+                trackWorker.Cell = txtTrackWorkerCell.Text.Trim();
+                trackWorker.Email = txtTrackWorkerEmail.Text.Trim();
+                trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
+                trackWorker.IsDeleted = rdoIsDeleted_Disabled.Checked ? true : false;
+
+                try
+                {
+                    TrackWorkerDataAccess.UpdateTrackWorker(trackWorker, int.Parse(txtTrackWorkerId.Text));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Runtime Error\n" + ex.Message, "Unexpected Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Close();
+                }
             }
         }
 
@@ -63,7 +139,6 @@ namespace MMS_CapstoneProject
             }
         }
 
-
         private void txtTrackWorkerEmail_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTrackWorkerEmail.Text))
@@ -72,7 +147,7 @@ namespace MMS_CapstoneProject
                 txtTrackWorkerEmail.Focus();
                 errorProviderApp.SetError(txtTrackWorkerEmail, "Email should not be left blank!");
             }
-            else if(!IsValidEmail(txtTrackWorkerEmail.Text))
+            else if (!IsValidEmail(txtTrackWorkerEmail.Text))
             {
                 e.Cancel = true;
                 txtTrackWorkerEmail.Focus();
@@ -84,7 +159,11 @@ namespace MMS_CapstoneProject
                 errorProviderApp.SetError(txtTrackWorkerEmail, "");
             }
         }
-
+        private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+            _mainForm.RefreshAllDataGridView();
+        }
         /// <summary>
         /// https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
         /// </summary>
@@ -134,9 +213,20 @@ namespace MMS_CapstoneProject
             }
         }
 
-        private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnEscape_Click(object sender, EventArgs e)
         {
-            e.Cancel = false;
+            this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtTrackWorkerId.Clear();
+            txtTrackWorkerFirstName.Clear();
+            txtTrackWorkerLastName.Clear();
+            txtTrackWorkerCell.Clear();
+            txtTrackWorkerEmail.Clear();
+            rdoIsCapableCaptain_True.Checked = true;
+            rdoIsDeleted_Enabled.Checked = true;
         }
     }
 }
