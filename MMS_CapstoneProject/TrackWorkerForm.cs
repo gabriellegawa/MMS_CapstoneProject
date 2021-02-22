@@ -139,7 +139,6 @@ namespace MMS_CapstoneProject
             }
         }
 
-
         private void txtTrackWorkerEmail_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTrackWorkerEmail.Text))
@@ -217,6 +216,17 @@ namespace MMS_CapstoneProject
         private void btnEscape_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtTrackWorkerId.Clear();
+            txtTrackWorkerFirstName.Clear();
+            txtTrackWorkerLastName.Clear();
+            txtTrackWorkerCell.Clear();
+            txtTrackWorkerEmail.Clear();
+            rdoIsCapableCaptain_True.Checked = true;
+            rdoIsDeleted_Enabled.Checked = true;
         }
     }
 }

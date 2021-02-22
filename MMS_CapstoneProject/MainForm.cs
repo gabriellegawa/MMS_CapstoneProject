@@ -22,7 +22,8 @@ namespace MMS_CapstoneProject
 
         private void btnClientAddNew_Click(object sender, EventArgs e)
         {
-
+            ClientForm clientForm = new ClientForm(this);
+            clientForm.ShowDialog();
         }
 
         private void btnTrackWorkerAddNew_Click(object sender, EventArgs e)

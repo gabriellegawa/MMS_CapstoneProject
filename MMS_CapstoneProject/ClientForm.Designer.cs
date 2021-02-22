@@ -56,6 +56,7 @@ namespace MMS_CapstoneProject
             this.btnClear.TabIndex = 30;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnEscape
             // 
@@ -65,6 +66,7 @@ namespace MMS_CapstoneProject
             this.btnEscape.TabIndex = 31;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
+            this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
             // 
             // btnEnter
             // 
@@ -209,6 +211,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblClientId);
             this.Name = "ClientForm";
             this.Text = "ClientForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();
             this.ResumeLayout(false);
