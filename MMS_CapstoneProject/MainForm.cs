@@ -140,5 +140,29 @@ namespace MMS_CapstoneProject
             return dataTable;
         }
 
+        private void dgvClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ClientModel clientModel = new ClientModel();
+
+                clientModel.Id = int.Parse(dgvClient.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                clientModel.Name = dgvClient.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                clientModel.PrimaryContactName = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactName"].Value.ToString();
+                clientModel.PrimaryContactCell = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactCell"].Value.ToString();
+                clientModel.PrimaryContactEmail = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactEmail"].Value.ToString();
+
+                if (dgvClient.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "1")
+                {
+                    clientModel.IsDeleted = true;
+                }
+                else
+                {
+                    clientModel.IsDeleted = false;
+                }
+                ClientForm clientForm = new ClientForm(this, clientModel);
+                clientForm.ShowDialog();
+            }
+        }
     }
 }

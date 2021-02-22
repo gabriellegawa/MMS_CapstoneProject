@@ -127,6 +127,7 @@ namespace MMS_CapstoneProject
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.Size = new System.Drawing.Size(768, 331);
             this.dgvClient.TabIndex = 0;
+            this.dgvClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellClick);
             // 
             // tabTrackWorker
             // 
