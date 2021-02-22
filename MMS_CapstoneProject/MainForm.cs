@@ -94,6 +94,7 @@ namespace MMS_CapstoneProject
             string searchQuery = "";
             int rowCount = (dgvTrackWorker.DataSource as DataTable).Rows.Count;
 
+            // 1 is because we are not filtering by id
             for (int count = 1; count <= rowCount; count++)
             {
                 searchQuery += string.Format(dgvTrackWorker.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtTrackWorkerSearch.Text.Trim());
@@ -103,7 +104,6 @@ namespace MMS_CapstoneProject
                 }
             }
             (dgvTrackWorker.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
-            //(dgvTrackWorker.DataSource as DataTable).DefaultView.RowFilter = string.Format("FullName LIKE '%{0}%'", txtTrackWorkerSearch.Text) + " OR " + string.Format("Cell LIKE '%{0}%'", txtTrackWorkerSearch.Text);
         }
 
         /// <summary>

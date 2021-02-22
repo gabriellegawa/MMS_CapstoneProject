@@ -42,6 +42,14 @@ namespace MMS_CapstoneProject
             {
                 rdoIsCapableCaptain_False.Checked = true;
             }
+            if (trackWorker.IsDeleted)
+            {
+                rdoIsDeleted_Enabled.Checked = true;
+            }
+            else
+            {
+                rdoIsDeleted_Disabled.Checked = true;
+            }
 
             btnEnter.Text = "Update";
         }
@@ -83,6 +91,7 @@ namespace MMS_CapstoneProject
                 trackWorker.Cell = txtTrackWorkerCell.Text.Trim();
                 trackWorker.Email = txtTrackWorkerEmail.Text.Trim();
                 trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
+                trackWorker.IsDeleted = rdoIsDeleted_Disabled.Checked ? true : false;
 
                 try
                 {
