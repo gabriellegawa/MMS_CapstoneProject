@@ -158,6 +158,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerSearch.Name = "txtTrackWorkerSearch";
             this.txtTrackWorkerSearch.Size = new System.Drawing.Size(140, 29);
             this.txtTrackWorkerSearch.TabIndex = 6;
+            this.txtTrackWorkerSearch.TextChanged += new System.EventHandler(this.txtTrackWorkerSearch_TextChanged);
             // 
             // btnTrackWorkerAddNew
             // 

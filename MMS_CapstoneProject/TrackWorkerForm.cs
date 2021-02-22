@@ -51,10 +51,10 @@ namespace MMS_CapstoneProject
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
-                trackWorker.FirstName = txtTrackWorkerFirstName.Text;
-                trackWorker.LastName = txtTrackWorkerLastName.Text;
-                trackWorker.Cell = txtTrackWorkerCell.Text;
-                trackWorker.Email = txtTrackWorkerEmail.Text;
+                trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
+                trackWorker.LastName = txtTrackWorkerLastName.Text.Trim();
+                trackWorker.Cell = txtTrackWorkerCell.Text.Trim();
+                trackWorker.Email = txtTrackWorkerEmail.Text.Trim();
                 trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
 
                 try
@@ -78,10 +78,10 @@ namespace MMS_CapstoneProject
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
-                trackWorker.FirstName = txtTrackWorkerFirstName.Text;
-                trackWorker.LastName = txtTrackWorkerLastName.Text;
-                trackWorker.Cell = txtTrackWorkerCell.Text;
-                trackWorker.Email = txtTrackWorkerEmail.Text;
+                trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
+                trackWorker.LastName = txtTrackWorkerLastName.Text.Trim();
+                trackWorker.Cell = txtTrackWorkerCell.Text.Trim();
+                trackWorker.Email = txtTrackWorkerEmail.Text.Trim();
                 trackWorker.IsCapableCaptain = rdoIsCapableCaptain_True.Checked ? true : false;
 
                 try
