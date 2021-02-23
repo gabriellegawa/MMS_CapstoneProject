@@ -44,11 +44,11 @@ namespace MMS_CapstoneProject
             }
             if (trackWorker.IsDeleted)
             {
-                rdoIsDeleted_Enabled.Checked = true;
+                rdoIsDeleted_Disabled.Checked = true;
             }
             else
             {
-                rdoIsDeleted_Disabled.Checked = true;
+                rdoIsDeleted_Enabled.Checked = true;
             }
 
             btnEnter.Text = "Update";

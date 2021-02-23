@@ -65,7 +65,7 @@ namespace MMS_CapstoneProject
                 trackWorker.Cell = dgvTrackWorker.Rows[e.RowIndex].Cells["Cell"].Value.ToString();
                 trackWorker.Email = dgvTrackWorker.Rows[e.RowIndex].Cells["Email"].Value.ToString();
 
-                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsCapableCaptain"].Value.ToString() == "1")
+                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsCapableCaptain"].Value.ToString() == "True")
                 {
                     trackWorker.IsCapableCaptain = true;
                 }
@@ -73,7 +73,7 @@ namespace MMS_CapstoneProject
                 {
                     trackWorker.IsCapableCaptain = false;
                 }
-                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "1")
+                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
                 {
                     trackWorker.IsDeleted = true;
                 }
@@ -152,7 +152,7 @@ namespace MMS_CapstoneProject
                 clientModel.PrimaryContactCell = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactCell"].Value.ToString();
                 clientModel.PrimaryContactEmail = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactEmail"].Value.ToString();
 
-                if (dgvClient.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "1")
+                if (dgvClient.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
                 {
                     clientModel.IsDeleted = true;
                 }
