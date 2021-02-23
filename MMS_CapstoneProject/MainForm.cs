@@ -55,7 +55,7 @@ namespace MMS_CapstoneProject
 
         private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
 
@@ -163,6 +163,28 @@ namespace MMS_CapstoneProject
                 ClientForm clientForm = new ClientForm(this, clientModel);
                 clientForm.ShowDialog();
             }
+        }
+
+        private void txtClientSearch_TextChanged(object sender, EventArgs e)
+        {
+            // START with
+            //(dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Name LIKE '{0}%'", searchTextBox.Text);
+            // CONTAIN
+
+            string searchQuery = "";
+            //int rowCount = (dgvClient.DataSource as DataTable).Rows.Count;
+            //int rowCount = dgvClient.RowCount - 2;
+            int rowCount = 4;
+
+            for (int count = 1; count <= rowCount; count++)
+            {
+                searchQuery += string.Format(dgvClient.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
+                if (count != rowCount)
+                {
+                    searchQuery += " OR ";
+                }
+            }
+            (dgvClient.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
         }
     }
 }

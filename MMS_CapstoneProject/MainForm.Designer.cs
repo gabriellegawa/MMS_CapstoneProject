@@ -106,6 +106,7 @@ namespace MMS_CapstoneProject
             this.txtClientSearch.Name = "txtClientSearch";
             this.txtClientSearch.Size = new System.Drawing.Size(140, 29);
             this.txtClientSearch.TabIndex = 2;
+            this.txtClientSearch.TextChanged += new System.EventHandler(this.txtClientSearch_TextChanged);
             // 
             // btnClientAddNew
             // 
