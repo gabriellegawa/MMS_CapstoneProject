@@ -139,6 +139,21 @@ namespace MMS_CapstoneProject
             }
         }
 
+        private void txtTrackWorkerCell_Validating(object sender, CancelEventArgs e)
+        {
+            if (!txtTrackWorkerCell.MaskFull)
+            {
+                e.Cancel = true;
+                txtTrackWorkerCell.Focus();
+                errorProviderApp.SetError(txtTrackWorkerCell, "Cell should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtTrackWorkerCell, "");
+            }
+        }
+
         private void txtTrackWorkerEmail_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTrackWorkerEmail.Text))
@@ -159,6 +174,7 @@ namespace MMS_CapstoneProject
                 errorProviderApp.SetError(txtTrackWorkerEmail, "");
             }
         }
+
         private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
@@ -228,5 +244,6 @@ namespace MMS_CapstoneProject
             rdoIsCapableCaptain_True.Checked = true;
             rdoIsDeleted_Enabled.Checked = true;
         }
+
     }
 }

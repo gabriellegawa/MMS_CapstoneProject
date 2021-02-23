@@ -116,5 +116,35 @@ namespace MMS_CapstoneProject
             txtClientPrimaryContactEmail.Clear();
             rdoIsDeleted_Enabled.Checked = true;
         }
+
+        private void txtClientName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtClientName.Text))
+            {
+                e.Cancel = true;
+                txtClientName.Focus();
+                errorProviderApp.SetError(txtClientName, "Client Name should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtClientName, "");
+            }
+        }
+
+        private void txtClientPrimaryContactName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtClientPrimaryContactName.Text))
+            {
+                e.Cancel = true;
+                txtClientPrimaryContactName.Focus();
+                errorProviderApp.SetError(txtClientPrimaryContactName, "Client Primary Contact Name should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtClientPrimaryContactName, "");
+            }
+        }
     }
 }

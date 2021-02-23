@@ -29,6 +29,7 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEscape = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
@@ -45,7 +46,9 @@ namespace MMS_CapstoneProject
             this.lblClientName = new System.Windows.Forms.Label();
             this.txtClientId = new System.Windows.Forms.TextBox();
             this.lblClientId = new System.Windows.Forms.Label();
+            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbIsDeleted.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClear
@@ -148,6 +151,7 @@ namespace MMS_CapstoneProject
             this.txtClientPrimaryContactName.Name = "txtClientPrimaryContactName";
             this.txtClientPrimaryContactName.Size = new System.Drawing.Size(100, 20);
             this.txtClientPrimaryContactName.TabIndex = 21;
+            this.txtClientPrimaryContactName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactName_Validating);
             // 
             // lblClientPrimaryContactName
             // 
@@ -164,6 +168,7 @@ namespace MMS_CapstoneProject
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(100, 20);
             this.txtClientName.TabIndex = 19;
+            this.txtClientName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientName_Validating);
             // 
             // lblClientName
             // 
@@ -190,6 +195,10 @@ namespace MMS_CapstoneProject
             this.lblClientId.TabIndex = 16;
             this.lblClientId.Text = "ID:";
             // 
+            // errorProviderApp
+            // 
+            this.errorProviderApp.ContainerControl = this;
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +223,7 @@ namespace MMS_CapstoneProject
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +247,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Label lblClientName;
         private System.Windows.Forms.TextBox txtClientId;
         private System.Windows.Forms.Label lblClientId;
+        private System.Windows.Forms.ErrorProvider errorProviderApp;
     }
 }

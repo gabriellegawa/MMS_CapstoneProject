@@ -223,6 +223,7 @@ namespace MMS_CapstoneProject
             this.btnTrackAddNew.TabIndex = 5;
             this.btnTrackAddNew.Text = "Add New";
             this.btnTrackAddNew.UseVisualStyleBackColor = true;
+            this.btnTrackAddNew.Click += new System.EventHandler(this.btnTrackAddNew_Click);
             // 
             // dgvTrack
             // 
