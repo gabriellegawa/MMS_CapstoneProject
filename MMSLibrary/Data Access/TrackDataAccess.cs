@@ -144,12 +144,11 @@ namespace MMSLibrary
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE Tracks SET [name] = @updatedName, [configuration] = @updatedConfiguration"
+                string sqlStatement = "UPDATE Tracks SET [name] = @updatedName "
                                     + "WHERE [id] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedName", updatedTrack.Name);
-                cmd.Parameters.AddWithValue("@updatedConfiguration", updatedTrack.Configuration);
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -180,11 +179,10 @@ namespace MMSLibrary
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO Tracks(name, configuration, isDeleted) VALUES(@name, @configuration, @isDeleted)";
+                string sqlStatement = "INSERT INTO Tracks(name, isDeleted) VALUES(@name, @isDeleted)";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@name", track.Name);
-                cmd.Parameters.AddWithValue("@configuration", track.Configuration);
                 // HARD CODED FALSE
                 cmd.Parameters.AddWithValue("@isDeleted", false);
 

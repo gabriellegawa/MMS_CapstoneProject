@@ -13,6 +13,6 @@ namespace MMSLibrary
         /// </summary>
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Configuration { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

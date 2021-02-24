@@ -29,6 +29,7 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTrackName = new System.Windows.Forms.Label();
             this.txtTrackName = new System.Windows.Forms.TextBox();
             this.lblTrackConfiguration = new System.Windows.Forms.Label();
@@ -41,7 +42,9 @@ namespace MMS_CapstoneProject
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEscape = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
+            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbIsDeleted.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTrackName
@@ -59,6 +62,7 @@ namespace MMS_CapstoneProject
             this.txtTrackName.Name = "txtTrackName";
             this.txtTrackName.Size = new System.Drawing.Size(100, 20);
             this.txtTrackName.TabIndex = 1;
+            this.txtTrackName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackName_Validating);
             // 
             // lblTrackConfiguration
             // 
@@ -154,6 +158,10 @@ namespace MMS_CapstoneProject
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
             // 
+            // errorProviderApp
+            // 
+            this.errorProviderApp.ContainerControl = this;
+            // 
             // TracksForm
             // 
             this.AcceptButton = this.btnEnter;
@@ -175,6 +183,7 @@ namespace MMS_CapstoneProject
             this.Text = "TracksForm";
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +203,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEscape;
         private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.ErrorProvider errorProviderApp;
     }
 }
