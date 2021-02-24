@@ -51,8 +51,8 @@ namespace MMS_CapstoneProject
             this.rdoClientEventWorkerCalloutSent_True = new System.Windows.Forms.RadioButton();
             this.txtClientEventId = new System.Windows.Forms.TextBox();
             this.txtClientEventClientId = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClientAdd = new System.Windows.Forms.Button();
+            this.btnTrackAdd = new System.Windows.Forms.Button();
             this.txtTrackID = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.txtWorkerRequested = new System.Windows.Forms.TextBox();
@@ -277,23 +277,25 @@ namespace MMS_CapstoneProject
             this.txtClientEventClientId.Size = new System.Drawing.Size(100, 20);
             this.txtClientEventClientId.TabIndex = 3;
             // 
-            // button1
+            // btnClientAdd
             // 
-            this.button1.Location = new System.Drawing.Point(240, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnClientAdd.Location = new System.Drawing.Point(240, 30);
+            this.btnClientAdd.Name = "btnClientAdd";
+            this.btnClientAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnClientAdd.TabIndex = 4;
+            this.btnClientAdd.Text = "Add";
+            this.btnClientAdd.UseVisualStyleBackColor = true;
+            this.btnClientAdd.Click += new System.EventHandler(this.btnClientAdd_Click);
             // 
-            // button2
+            // btnTrackAdd
             // 
-            this.button2.Location = new System.Drawing.Point(240, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTrackAdd.Location = new System.Drawing.Point(240, 53);
+            this.btnTrackAdd.Name = "btnTrackAdd";
+            this.btnTrackAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnTrackAdd.TabIndex = 7;
+            this.btnTrackAdd.Text = "Add";
+            this.btnTrackAdd.UseVisualStyleBackColor = true;
+            this.btnTrackAdd.Click += new System.EventHandler(this.btnTrackAdd_Click);
             // 
             // txtTrackID
             // 
@@ -425,9 +427,9 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.gbClientEventRequireSafetyDemo);
             this.Controls.Add(this.txtWorkerRequested);
             this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTrackAdd);
             this.Controls.Add(this.txtTrackID);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClientAdd);
             this.Controls.Add(this.txtClientEventClientId);
             this.Controls.Add(this.txtClientEventId);
             this.Controls.Add(this.gbClientEventWorkerCalloutSent);
@@ -483,8 +485,8 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.RadioButton rdoClientEventWorkerCalloutSent_True;
         private System.Windows.Forms.TextBox txtClientEventId;
         private System.Windows.Forms.TextBox txtClientEventClientId;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClientAdd;
+        private System.Windows.Forms.Button btnTrackAdd;
         private System.Windows.Forms.TextBox txtTrackID;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox txtWorkerRequested;

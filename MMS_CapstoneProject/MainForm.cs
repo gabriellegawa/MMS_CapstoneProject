@@ -19,30 +19,43 @@ namespace MMS_CapstoneProject
         {
             InitializeComponent();
         }
+
         private void btnClientAddNew_Click(object sender, EventArgs e)
         {
             ClientForm clientForm = new ClientForm(this);
             clientForm.ShowDialog();
         }
+
         private void btnTrackWorkerAddNew_Click(object sender, EventArgs e)
         {
             TrackWorkerForm trackWorkerForm = new TrackWorkerForm(this);
             trackWorkerForm.ShowDialog();
         }
+
         private void btnTrackAddNew_Click(object sender, EventArgs e)
         {
             TracksForm tracksForm = new TracksForm(this);
             tracksForm.ShowDialog();
         }
+
+        private void btnClientEventAddNew_Click(object sender, EventArgs e)
+        {
+            ClientEventForm clientEventForm = new ClientEventForm(this);
+            clientEventForm.ShowDialog();
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshAllDataGridView();
         }
+
         public void RefreshAllDataGridView()
         {
             RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
             RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
+            RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
         }
+
         public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
         {
             dataGridView.DataSource = ToDataTable(list);
@@ -53,6 +66,7 @@ namespace MMS_CapstoneProject
 
             dataGridView.ClearSelection();
         }
+
         private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)

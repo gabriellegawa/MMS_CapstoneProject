@@ -275,6 +275,7 @@ namespace MMS_CapstoneProject
             this.btnClientEventAddNew.TabIndex = 5;
             this.btnClientEventAddNew.Text = "Add New";
             this.btnClientEventAddNew.UseVisualStyleBackColor = true;
+            this.btnClientEventAddNew.Click += new System.EventHandler(this.btnClientEventAddNew_Click);
             // 
             // dgvClientEvent
             // 
