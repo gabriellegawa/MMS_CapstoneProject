@@ -148,6 +148,7 @@ namespace MMS_CapstoneProject
             this.btnEscape.TabIndex = 30;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
+            this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
             // 
             // btnEnter
             // 
@@ -181,6 +182,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackName);
             this.Name = "TracksForm";
             this.Text = "TracksForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TracksForm_FormClosing);
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();

@@ -144,11 +144,12 @@ namespace MMSLibrary
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE Tracks SET [name] = @updatedName "
+                string sqlStatement = "UPDATE Tracks SET [name] = @updatedName, [isDeleted] = @updatedIsDeleted "
                                     + "WHERE [id] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedName", updatedTrack.Name);
+                cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedTrack.IsDeleted);
 
                 cmd.Parameters.AddWithValue("@id", id);
 

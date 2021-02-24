@@ -214,6 +214,7 @@ namespace MMS_CapstoneProject
             this.txtTrackSearch.Name = "txtTrackSearch";
             this.txtTrackSearch.Size = new System.Drawing.Size(140, 29);
             this.txtTrackSearch.TabIndex = 6;
+            this.txtTrackSearch.TextChanged += new System.EventHandler(this.txtTrackSearch_TextChanged);
             // 
             // btnTrackAddNew
             // 
@@ -235,6 +236,7 @@ namespace MMS_CapstoneProject
             this.dgvTrack.Name = "dgvTrack";
             this.dgvTrack.Size = new System.Drawing.Size(762, 331);
             this.dgvTrack.TabIndex = 4;
+            this.dgvTrack.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrack_CellClick);
             // 
             // tabClientEvent
             // 

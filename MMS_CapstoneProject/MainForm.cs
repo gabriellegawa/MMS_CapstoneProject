@@ -201,5 +201,35 @@ namespace MMS_CapstoneProject
             (dgvClient.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
         }
 
+        private void dgvTrack_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                TrackModel trackModel = new TrackModel();
+
+                trackModel.Id = int.Parse(dgvTrack.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                trackModel.Name = dgvTrack.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+
+                if (dgvTrack.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
+                {
+                    trackModel.IsDeleted = true;
+                }
+                else
+                {
+                    trackModel.IsDeleted = false;
+                }
+                TracksForm tracksForm = new TracksForm(this, trackModel);
+                tracksForm.ShowDialog();
+            }
+        }
+
+        private void txtTrackSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = "";
+
+            searchQuery = string.Format("Name LIKE '%{0}%'", txtTrackSearch.Text);
+
+            (dgvTrack.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+        }
     }
 }

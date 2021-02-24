@@ -66,7 +66,37 @@ namespace MMS_CapstoneProject
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                _trackModel = new TrackModel();
+                _trackModel.Name = txtTrackName.Text.Trim();
+                _trackModel.IsDeleted = rdoIsDeleted_Disabled.Checked ? true : false;
 
+                try
+                {
+                    TrackDataAccess.UpdateTrack(_trackModel, int.Parse(txtTrackId.Text));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Runtime Error\n" + ex.Message, "Unexpected Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void TracksForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+            _mainForm.RefreshAllDataGridView();
+        }
+
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -91,5 +121,6 @@ namespace MMS_CapstoneProject
                 errorProviderApp.SetError(txtTrackName, "");
             }
         }
+
     }
 }
