@@ -153,7 +153,6 @@ namespace MMS_CapstoneProject
             this.btnEnter.TabIndex = 28;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // TracksForm
             // 

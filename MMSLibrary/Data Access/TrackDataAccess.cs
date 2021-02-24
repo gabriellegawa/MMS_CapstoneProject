@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary
 {
-    class TrackDataAccess : SqliteDataAccess
+    public class TrackDataAccess : SqliteDataAccess
     {
         /// <summary>
         /// LoadAllTrack - Retrieve every track record from database
@@ -149,7 +149,7 @@ namespace MMSLibrary
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedName", updatedTrack.Name);
-                cmd.Parameters.AddWithValue("@updatedConfiguration", updatedTrack.TrackConfiguration);
+                cmd.Parameters.AddWithValue("@updatedConfiguration", updatedTrack.Configuration);
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -184,7 +184,7 @@ namespace MMSLibrary
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@name", track.Name);
-                cmd.Parameters.AddWithValue("@configuration", track.TrackConfiguration);
+                cmd.Parameters.AddWithValue("@configuration", track.Configuration);
                 // HARD CODED FALSE
                 cmd.Parameters.AddWithValue("@isDeleted", false);
 

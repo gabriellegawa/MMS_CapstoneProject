@@ -13,12 +13,16 @@ namespace MMS_CapstoneProject
 {
     public partial class TracksForm : Form
     {
-        public TracksForm()
+        private readonly MainForm _mainForm;
+        public TracksForm(MainForm mainForm)
         {
+            _mainForm = mainForm;
             InitializeComponent();
+
+            btnEnter.Click += btnCreate_Click;
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
 
         }

@@ -32,14 +32,28 @@ namespace MMS_CapstoneProject
             trackWorkerForm.ShowDialog();
         }
 
+        private void btnTrackAddNew_Click(object sender, EventArgs e)
+        {
+            TracksForm tracksForm = new TracksForm(this);
+            tracksForm.ShowDialog();
+        }
+
+        private void btnClientEventAddNew_Click(object sender, EventArgs e)
+        {
+            ClientEventForm clientEventForm = new ClientEventForm(this);
+            clientEventForm.ShowDialog();
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshAllDataGridView();
         }
+
         public void RefreshAllDataGridView()
         {
             RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
             RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
+            RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
         }
 
         public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
@@ -55,7 +69,7 @@ namespace MMS_CapstoneProject
 
         private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
 
@@ -65,7 +79,7 @@ namespace MMS_CapstoneProject
                 trackWorker.Cell = dgvTrackWorker.Rows[e.RowIndex].Cells["Cell"].Value.ToString();
                 trackWorker.Email = dgvTrackWorker.Rows[e.RowIndex].Cells["Email"].Value.ToString();
 
-                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsCapableCaptain"].Value.ToString() == "1")
+                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsCapableCaptain"].Value.ToString() == "True")
                 {
                     trackWorker.IsCapableCaptain = true;
                 }
@@ -73,7 +87,7 @@ namespace MMS_CapstoneProject
                 {
                     trackWorker.IsCapableCaptain = false;
                 }
-                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "1")
+                if (dgvTrackWorker.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
                 {
                     trackWorker.IsDeleted = true;
                 }
@@ -138,6 +152,53 @@ namespace MMS_CapstoneProject
             }
             //put a breakpoint here and check datatable
             return dataTable;
+        }
+
+        private void dgvClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ClientModel clientModel = new ClientModel();
+
+                clientModel.Id = int.Parse(dgvClient.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                clientModel.Name = dgvClient.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                clientModel.PrimaryContactName = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactName"].Value.ToString();
+                clientModel.PrimaryContactCell = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactCell"].Value.ToString();
+                clientModel.PrimaryContactEmail = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactEmail"].Value.ToString();
+
+                if (dgvClient.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
+                {
+                    clientModel.IsDeleted = true;
+                }
+                else
+                {
+                    clientModel.IsDeleted = false;
+                }
+                ClientForm clientForm = new ClientForm(this, clientModel);
+                clientForm.ShowDialog();
+            }
+        }
+
+        private void txtClientSearch_TextChanged(object sender, EventArgs e)
+        {
+            // START with
+            //(dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Name LIKE '{0}%'", searchTextBox.Text);
+            // CONTAIN
+
+            string searchQuery = "";
+            //int rowCount = (dgvClient.DataSource as DataTable).Rows.Count;
+            //int rowCount = dgvClient.RowCount - 2;
+            int rowCount = 4;
+
+            for (int count = 1; count <= rowCount; count++)
+            {
+                searchQuery += string.Format(dgvClient.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
+                if (count != rowCount)
+                {
+                    searchQuery += " OR ";
+                }
+            }
+            (dgvClient.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
         }
 
     }

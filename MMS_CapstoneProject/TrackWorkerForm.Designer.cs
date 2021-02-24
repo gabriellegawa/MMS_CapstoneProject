@@ -123,6 +123,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerCell.Name = "txtTrackWorkerCell";
             this.txtTrackWorkerCell.Size = new System.Drawing.Size(100, 20);
             this.txtTrackWorkerCell.TabIndex = 7;
+            this.txtTrackWorkerCell.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerCell_Validating);
             // 
             // lblClientWorkerEmail
             // 

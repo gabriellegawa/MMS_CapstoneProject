@@ -15,8 +15,8 @@ namespace MMSLibrary
 
         [Key]
         public int Id { get; set; }
-        public ClientModel ClientId { get; set; }
-        public TrackModel ClientEventTrack { get; set; }
+        public int ClientId { get; set; }
+        public int ClientEventTrack { get; set; }
         public DateTime ClientEventDate { get; set; }
         public int ClientEventWorkerRequested { get; set; }
         public bool IsLunchProvided { get; set; }

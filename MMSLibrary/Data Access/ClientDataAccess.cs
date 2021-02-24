@@ -195,7 +195,7 @@ namespace MMSLibrary.DataAccess
                 cnn.Open();
 
                 string sqlStatement = "UPDATE Clients SET [name] = @updatedName, [primaryContactName] = @updatedPrimaryContactName, "
-                                    + "[primaryContactCell] = @updatedPrimaryContactCell, [primaryContactEmail] = @updatedPrimaryContactEmail "
+                                    + "[primaryContactCell] = @updatedPrimaryContactCell, [primaryContactEmail] = @updatedPrimaryContactEmail, [isDeleted] = @updatedIsDeleted "
                                     + "WHERE [id] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
@@ -203,6 +203,7 @@ namespace MMSLibrary.DataAccess
                 cmd.Parameters.AddWithValue("@updatedPrimaryContactName", updatedClient.PrimaryContactName);
                 cmd.Parameters.AddWithValue("@updatedPrimaryContactCell", updatedClient.PrimaryContactCell);
                 cmd.Parameters.AddWithValue("@updatedPrimaryContactEmail", updatedClient.PrimaryContactEmail);
+                cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedClient.IsDeleted);
 
                 cmd.Parameters.AddWithValue("@id", id);
 

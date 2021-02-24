@@ -106,6 +106,7 @@ namespace MMS_CapstoneProject
             this.txtClientSearch.Name = "txtClientSearch";
             this.txtClientSearch.Size = new System.Drawing.Size(140, 29);
             this.txtClientSearch.TabIndex = 2;
+            this.txtClientSearch.TextChanged += new System.EventHandler(this.txtClientSearch_TextChanged);
             // 
             // btnClientAddNew
             // 
@@ -127,6 +128,7 @@ namespace MMS_CapstoneProject
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.Size = new System.Drawing.Size(768, 331);
             this.dgvClient.TabIndex = 0;
+            this.dgvClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellClick);
             // 
             // tabTrackWorker
             // 
@@ -221,6 +223,7 @@ namespace MMS_CapstoneProject
             this.btnTrackAddNew.TabIndex = 5;
             this.btnTrackAddNew.Text = "Add New";
             this.btnTrackAddNew.UseVisualStyleBackColor = true;
+            this.btnTrackAddNew.Click += new System.EventHandler(this.btnTrackAddNew_Click);
             // 
             // dgvTrack
             // 
@@ -272,6 +275,7 @@ namespace MMS_CapstoneProject
             this.btnClientEventAddNew.TabIndex = 5;
             this.btnClientEventAddNew.Text = "Add New";
             this.btnClientEventAddNew.UseVisualStyleBackColor = true;
+            this.btnClientEventAddNew.Click += new System.EventHandler(this.btnClientEventAddNew_Click);
             // 
             // dgvClientEvent
             // 

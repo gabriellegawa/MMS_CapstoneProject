@@ -35,11 +35,11 @@ namespace MMS_CapstoneProject
             
             if (clientModel.IsDeleted)
             {
-                rdoIsDeleted_Enabled.Checked = true;
+                rdoIsDeleted_Disabled.Checked = true;
             }
             else
             {
-                rdoIsDeleted_Disabled.Checked = true;
+                rdoIsDeleted_Enabled.Checked = true;
             }
 
             btnEnter.Text = "Update";
@@ -115,6 +115,36 @@ namespace MMS_CapstoneProject
             txtClientPrimaryContactCell.Clear();
             txtClientPrimaryContactEmail.Clear();
             rdoIsDeleted_Enabled.Checked = true;
+        }
+
+        private void txtClientName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtClientName.Text))
+            {
+                e.Cancel = true;
+                txtClientName.Focus();
+                errorProviderApp.SetError(txtClientName, "Client Name should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtClientName, "");
+            }
+        }
+
+        private void txtClientPrimaryContactName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtClientPrimaryContactName.Text))
+            {
+                e.Cancel = true;
+                txtClientPrimaryContactName.Focus();
+                errorProviderApp.SetError(txtClientPrimaryContactName, "Client Primary Contact Name should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtClientPrimaryContactName, "");
+            }
         }
     }
 }
