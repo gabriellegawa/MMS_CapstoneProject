@@ -1,11 +1,8 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
@@ -60,6 +57,78 @@ namespace MMSLibrary.DataAccess
                 return output.ToList();
             }
         }
+        /// <summary>
+        /// LoadDeletedClientEvent - load a record of client event from database that are deleted
+        /// </summary>
+        /// <returns>list of client event</returns>
+        public static List<int> LoadClientEventTrackWorker(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<int>("SELECT trackWorkersId FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = " + id, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static void SaveClientEventTrackWorker(List<int> trackWorkerIdList, int clientEventId)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Open();
+                try
+                {
+                    foreach (int trackWorkerId in trackWorkerIdList)
+                    {
+                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(clientsEventsId, trackWorkersId, isAssigned) VALUES (@clientsEventsId, @trackWorkersId, @isAssigned) ";
+
+                        var cmd = new SQLiteCommand(sqlStatement, cnn);
+                        cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
+                        cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
+                        cmd.Parameters.AddWithValue("@isAssigned", true);
+
+                        cmd.Prepare();
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+        }
+
+        public static bool RemoveAllClientEventTrackWorker(int clientEventId)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "DELETE FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = @clientsEventsId ";
+
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
+
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
+        }
+
         /// <summary>
         /// DeactivateClientEvent - deactivate record of client event by setting isDeleted field to 1
         /// </summary>
@@ -138,24 +207,24 @@ namespace MMSLibrary.DataAccess
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE ClientEvent SET [clientId] = @updatedClientId, [trackId] = @updatedTrackId, [date] = @updatedDate, "
+                string sqlStatement = "UPDATE ClientEvents SET [clientId] = @updatedClientId, [trackId] = @updatedTrackId, [date] = @updatedDate, "
                                     + "[workersRequested] = @updatedWorkersRequested, [isLunchProvided] = @updatedIsLunchProvided, "
                                     + "[isUsingUpperPaddock] = @updatedisUsingUpperPaddock, [isUsingMiddlePaddock] = @updatedisUsingMiddlePaddock, "
                                     + "[isUsingLowerPaddock] = @updatedisUsingLowerPaddock, [workerCalloutSent] = @updatedWorkerCalloutSent, "
-                                    + "[requiredSafetyDemo] = @updatedRequiredSafetyDemo, [isDeleted] = @updatedIsDeleted "
+                                    + "[requireSafetyDemo] = @updatedRequireSafetyDemo, [isDeleted] = @updatedIsDeleted "
                                     + "WHERE [id] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedClientId", updatedClientEvent.ClientId);
-                cmd.Parameters.AddWithValue("@updatedTrackId", updatedClientEvent.ClientEventTrack);
-                cmd.Parameters.AddWithValue("@updatedDate", updatedClientEvent.ClientEventDate);
-                cmd.Parameters.AddWithValue("@updatedWorkersRequested", updatedClientEvent.ClientEventWorkerRequested);
+                cmd.Parameters.AddWithValue("@updatedTrackId", updatedClientEvent.TrackId);
+                cmd.Parameters.AddWithValue("@updatedDate", updatedClientEvent.Date);
+                cmd.Parameters.AddWithValue("@updatedWorkersRequested", updatedClientEvent.WorkersRequested);
                 cmd.Parameters.AddWithValue("@updatedIsLunchProvided", updatedClientEvent.IsLunchProvided);
                 cmd.Parameters.AddWithValue("@updatedisUsingUpperPaddock", updatedClientEvent.IsUsingUpperPaddock);
                 cmd.Parameters.AddWithValue("@updatedisUsingMiddlePaddock", updatedClientEvent.IsUsingMiddlePaddock);
                 cmd.Parameters.AddWithValue("@updatedisUsingLowerPaddock", updatedClientEvent.IsUsingLowerPaddock);
                 cmd.Parameters.AddWithValue("@updatedWorkerCalloutSent", updatedClientEvent.WorkerCalloutSent);
-                cmd.Parameters.AddWithValue("@updatedRequiredSafetyDemo", updatedClientEvent.RequiresSafetyDemo);
+                cmd.Parameters.AddWithValue("@updatedRequireSafetyDemo", updatedClientEvent.RequireSafetyDemo);
                 cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedClientEvent.IsDeleted);
 
                 cmd.Parameters.AddWithValue("@id", id);
@@ -193,15 +262,15 @@ namespace MMSLibrary.DataAccess
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@clientId", clientEvent.ClientId);
-                cmd.Parameters.AddWithValue("@trackId", clientEvent.ClientEventTrack);
-                cmd.Parameters.AddWithValue("@date", clientEvent.ClientEventDate);
-                cmd.Parameters.AddWithValue("@workerRequested", clientEvent.ClientEventWorkerRequested);
+                cmd.Parameters.AddWithValue("@trackId", clientEvent.TrackId);
+                cmd.Parameters.AddWithValue("@date", clientEvent.Date);
+                cmd.Parameters.AddWithValue("@workerRequested", clientEvent.WorkersRequested);
                 cmd.Parameters.AddWithValue("@isLunchProvided", clientEvent.IsLunchProvided);
                 cmd.Parameters.AddWithValue("@isUsingUpperPaddock", clientEvent.IsUsingUpperPaddock);
                 cmd.Parameters.AddWithValue("@isUsingMiddlePaddock", clientEvent.IsUsingMiddlePaddock);
                 cmd.Parameters.AddWithValue("@isUsingLowerPaddock", clientEvent.IsUsingLowerPaddock);
                 cmd.Parameters.AddWithValue("@workerCalloutSent", clientEvent.WorkerCalloutSent);
-                cmd.Parameters.AddWithValue("@requireSafetyDemo", clientEvent.RequiresSafetyDemo);
+                cmd.Parameters.AddWithValue("@requireSafetyDemo", clientEvent.RequireSafetyDemo);
                 // HARD CODED FALSE
                 cmd.Parameters.AddWithValue("@isDeleted", false);
 

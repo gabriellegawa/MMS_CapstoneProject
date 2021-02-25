@@ -1,11 +1,8 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
@@ -42,12 +39,12 @@ namespace MMSLibrary.DataAccess
         /// </summary>
         /// <param name="id">client id</param>
         /// <returns>List of Client Model</returns>
-        public static List<ClientModel> LoadClient(int id)
+        public static ClientModel LoadClient(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientModel>("SELECT * FROM Clients WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
-                return output.ToList();
+                var output = cnn.QuerySingle<ClientModel>("SELECT * FROM Clients WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                return output;
             }
         }
 

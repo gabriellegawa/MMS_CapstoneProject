@@ -39,6 +39,9 @@ namespace MMS_CapstoneProject
             this.rdoClientEventIsLunchProvided_False = new System.Windows.Forms.RadioButton();
             this.rdoClientEventIsLunchProvided_True = new System.Windows.Forms.RadioButton();
             this.gbClientEventIsUsingPaddock = new System.Windows.Forms.GroupBox();
+            this.cbClientEventIsUsingLowerPaddock = new System.Windows.Forms.CheckBox();
+            this.cbClientEventIsUsingMiddlePaddock = new System.Windows.Forms.CheckBox();
+            this.cbClientEventIsUsingUpperPaddock = new System.Windows.Forms.CheckBox();
             this.lblClientEventIsLunchProvided = new System.Windows.Forms.Label();
             this.lblClientEventIsUsingPaddock = new System.Windows.Forms.Label();
             this.lblClientEventWorkerCalloutSent = new System.Windows.Forms.Label();
@@ -47,7 +50,7 @@ namespace MMS_CapstoneProject
             this.rdoClientEventWorkerCalloutSent_False = new System.Windows.Forms.RadioButton();
             this.rdoClientEventWorkerCalloutSent_True = new System.Windows.Forms.RadioButton();
             this.txtClientEventId = new System.Windows.Forms.TextBox();
-            this.txtClientEventClientId = new System.Windows.Forms.TextBox();
+            this.txtClientId = new System.Windows.Forms.TextBox();
             this.btnClientAdd = new System.Windows.Forms.Button();
             this.btnTrackAdd = new System.Windows.Forms.Button();
             this.txtTrackID = new System.Windows.Forms.TextBox();
@@ -64,9 +67,6 @@ namespace MMS_CapstoneProject
             this.btnEscape = new System.Windows.Forms.Button();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageTrackWorker = new System.Windows.Forms.Button();
-            this.cbClientEventIsUsingUpperPaddock = new System.Windows.Forms.CheckBox();
-            this.cbClientEventIsUsingMiddlePaddock = new System.Windows.Forms.CheckBox();
-            this.cbClientEventIsUsingLowerPaddock = new System.Windows.Forms.CheckBox();
             this.gbClientEventIsLunchProvided.SuspendLayout();
             this.gbClientEventIsUsingPaddock.SuspendLayout();
             this.gbClientEventWorkerCalloutSent.SuspendLayout();
@@ -163,6 +163,36 @@ namespace MMS_CapstoneProject
             this.gbClientEventIsUsingPaddock.TabIndex = 15;
             this.gbClientEventIsUsingPaddock.TabStop = false;
             // 
+            // cbClientEventIsUsingLowerPaddock
+            // 
+            this.cbClientEventIsUsingLowerPaddock.AutoSize = true;
+            this.cbClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(59, 40);
+            this.cbClientEventIsUsingLowerPaddock.Name = "cbClientEventIsUsingLowerPaddock";
+            this.cbClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(101, 17);
+            this.cbClientEventIsUsingLowerPaddock.TabIndex = 5;
+            this.cbClientEventIsUsingLowerPaddock.Text = "Lower Paddock";
+            this.cbClientEventIsUsingLowerPaddock.UseVisualStyleBackColor = true;
+            // 
+            // cbClientEventIsUsingMiddlePaddock
+            // 
+            this.cbClientEventIsUsingMiddlePaddock.AutoSize = true;
+            this.cbClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(112, 15);
+            this.cbClientEventIsUsingMiddlePaddock.Name = "cbClientEventIsUsingMiddlePaddock";
+            this.cbClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(103, 17);
+            this.cbClientEventIsUsingMiddlePaddock.TabIndex = 4;
+            this.cbClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
+            this.cbClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
+            // 
+            // cbClientEventIsUsingUpperPaddock
+            // 
+            this.cbClientEventIsUsingUpperPaddock.AutoSize = true;
+            this.cbClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(8, 17);
+            this.cbClientEventIsUsingUpperPaddock.Name = "cbClientEventIsUsingUpperPaddock";
+            this.cbClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(101, 17);
+            this.cbClientEventIsUsingUpperPaddock.TabIndex = 3;
+            this.cbClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
+            this.cbClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
+            // 
             // lblClientEventIsLunchProvided
             // 
             this.lblClientEventIsLunchProvided.AutoSize = true;
@@ -238,12 +268,12 @@ namespace MMS_CapstoneProject
             this.txtClientEventId.Size = new System.Drawing.Size(100, 20);
             this.txtClientEventId.TabIndex = 1;
             // 
-            // txtClientEventClientId
+            // txtClientId
             // 
-            this.txtClientEventClientId.Location = new System.Drawing.Point(134, 32);
-            this.txtClientEventClientId.Name = "txtClientEventClientId";
-            this.txtClientEventClientId.Size = new System.Drawing.Size(100, 20);
-            this.txtClientEventClientId.TabIndex = 3;
+            this.txtClientId.Location = new System.Drawing.Point(134, 32);
+            this.txtClientId.Name = "txtClientId";
+            this.txtClientId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientId.TabIndex = 3;
             // 
             // btnClientAdd
             // 
@@ -395,36 +425,6 @@ namespace MMS_CapstoneProject
             this.btnManageTrackWorker.UseVisualStyleBackColor = true;
             this.btnManageTrackWorker.Click += new System.EventHandler(this.btnManageTrackWorker_Click);
             // 
-            // cbClientEventIsUsingUpperPaddock
-            // 
-            this.cbClientEventIsUsingUpperPaddock.AutoSize = true;
-            this.cbClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(8, 17);
-            this.cbClientEventIsUsingUpperPaddock.Name = "cbClientEventIsUsingUpperPaddock";
-            this.cbClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(101, 17);
-            this.cbClientEventIsUsingUpperPaddock.TabIndex = 3;
-            this.cbClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
-            this.cbClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
-            // 
-            // cbClientEventIsUsingMiddlePaddock
-            // 
-            this.cbClientEventIsUsingMiddlePaddock.AutoSize = true;
-            this.cbClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(112, 15);
-            this.cbClientEventIsUsingMiddlePaddock.Name = "cbClientEventIsUsingMiddlePaddock";
-            this.cbClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(103, 17);
-            this.cbClientEventIsUsingMiddlePaddock.TabIndex = 4;
-            this.cbClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
-            this.cbClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
-            // 
-            // cbClientEventIsUsingLowerPaddock
-            // 
-            this.cbClientEventIsUsingLowerPaddock.AutoSize = true;
-            this.cbClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(59, 40);
-            this.cbClientEventIsUsingLowerPaddock.Name = "cbClientEventIsUsingLowerPaddock";
-            this.cbClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(101, 17);
-            this.cbClientEventIsUsingLowerPaddock.TabIndex = 5;
-            this.cbClientEventIsUsingLowerPaddock.Text = "Lower Paddock";
-            this.cbClientEventIsUsingLowerPaddock.UseVisualStyleBackColor = true;
-            // 
             // ClientEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,7 +441,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.btnTrackAdd);
             this.Controls.Add(this.txtTrackID);
             this.Controls.Add(this.btnClientAdd);
-            this.Controls.Add(this.txtClientEventClientId);
+            this.Controls.Add(this.txtClientId);
             this.Controls.Add(this.txtClientEventId);
             this.Controls.Add(this.gbClientEventWorkerCalloutSent);
             this.Controls.Add(this.lblClientEventRequireSafetyDemo);
@@ -457,6 +457,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblClientEventId);
             this.Name = "ClientEventForm";
             this.Text = "ClientEventForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientEventForm_FormClosing);
             this.gbClientEventIsLunchProvided.ResumeLayout(false);
             this.gbClientEventIsLunchProvided.PerformLayout();
             this.gbClientEventIsUsingPaddock.ResumeLayout(false);
@@ -492,7 +493,7 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.RadioButton rdoClientEventWorkerCalloutSent_False;
         private System.Windows.Forms.RadioButton rdoClientEventWorkerCalloutSent_True;
         private System.Windows.Forms.TextBox txtClientEventId;
-        private System.Windows.Forms.TextBox txtClientEventClientId;
+        private System.Windows.Forms.TextBox txtClientId;
         private System.Windows.Forms.Button btnClientAdd;
         private System.Windows.Forms.Button btnTrackAdd;
         private System.Windows.Forms.TextBox txtTrackID;

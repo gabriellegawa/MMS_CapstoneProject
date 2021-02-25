@@ -1,13 +1,7 @@
 ﻿using MMSLibrary;
 using MMSLibrary.DataAccess;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MMS_CapstoneProject
@@ -32,7 +26,7 @@ namespace MMS_CapstoneProject
             txtClientPrimaryContactName.Text = clientModel.PrimaryContactName;
             txtClientPrimaryContactCell.Text = clientModel.PrimaryContactCell;
             txtClientPrimaryContactEmail.Text = clientModel.PrimaryContactEmail;
-            
+
             if (clientModel.IsDeleted)
             {
                 rdoIsDeleted_Disabled.Checked = true;

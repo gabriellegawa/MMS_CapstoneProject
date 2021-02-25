@@ -75,6 +75,7 @@ namespace MMS_CapstoneProject
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(776, 426);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabClient
             // 
@@ -289,6 +290,7 @@ namespace MMS_CapstoneProject
             this.dgvClientEvent.Name = "dgvClientEvent";
             this.dgvClientEvent.Size = new System.Drawing.Size(762, 331);
             this.dgvClientEvent.TabIndex = 4;
+            this.dgvClientEvent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientEvent_CellClick);
             // 
             // MainForm
             // 

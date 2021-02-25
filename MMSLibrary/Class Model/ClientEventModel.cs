@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MMSLibrary
 {
@@ -16,17 +13,19 @@ namespace MMSLibrary
         [Key]
         public int Id { get; set; }
         public int ClientId { get; set; }
-        public int ClientEventTrack { get; set; }
-        public DateTime ClientEventDate { get; set; }
-        public int ClientEventWorkerRequested { get; set; }
+        public int TrackId { get; set; }
+        public string Date { get; set; }
+        public int WorkersRequested { get; set; }
         public bool IsLunchProvided { get; set; }
         public bool IsUsingUpperPaddock { get; set; }
         public bool IsUsingMiddlePaddock { get; set; }
         public bool IsUsingLowerPaddock { get; set; }
         public bool WorkerCalloutSent { get; set; }
-        public bool RequiresSafetyDemo { get; set; }
+        public bool RequireSafetyDemo { get; set; }
         public bool IsDeleted { get; set; }
         public List<int> TrackWorkersId { get; set; }
-        
+        public string ClientName { get; set; }
+        public string TrackName { get; set; }
+
     }
 }

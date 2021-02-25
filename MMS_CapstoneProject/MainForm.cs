@@ -2,13 +2,8 @@
 using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MMS_CapstoneProject
@@ -51,23 +46,64 @@ namespace MMS_CapstoneProject
 
         public void RefreshAllDataGridView()
         {
+            RefreshDataGridViewClientEvent();
             RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
-            RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
             RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
-            RefreshDataGridViewData(dgvClientEvent, ClientEventDataAccess.LoadAllClientEvent());
+            RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
         }
 
         public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
         {
-            dataGridView.DataSource = ToDataTable(list);
+            DataTable dataTable = ToDataTable(list);
+            dataGridView.DataSource = dataTable;
             dataGridView.AutoResizeColumns();
+
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 180 + dgv_width;
+
+            dataGridView.ClearSelection();
+        }
+        public void RefreshDataGridViewClientEvent()
+        {
+            List<ClientEventModel> list = ClientEventDataAccess.LoadAllClientEvent();
+            DataGridView dataGridView = dgvClientEvent;
+            DataTable dataTable = ToDataTable(list);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row["ClientId"] != null)
+                {
+                    ClientModel clientModel = ClientDataAccess.LoadClient((int)row["ClientId"]);
+                    row["ClientName"] = clientModel.Name;
+                }
+                if (row["TrackId"] != null)
+                {
+
+                    TrackModel trackModel = TrackDataAccess.LoadTrack((int)row["TrackId"]);
+                    row["TrackName"] = trackModel.Name;
+                }
+            }
+            dataTable.Columns["Id"].SetOrdinal(0);
+            dataTable.Columns["ClientName"].SetOrdinal(1);
+            dataTable.Columns["TrackName"].SetOrdinal(2);
+
+            //dataTable.Columns["IsDeleted"].ColumnMapping = MappingType.Hidden;
+            //dataTable.Columns["ClientId"].ColumnMapping = MappingType.Hidden;
+            //dataTable.Columns["TrackId"].ColumnMapping = MappingType.Hidden;
+
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoResizeColumns();
+
+            dataGridView.Columns["IsDeleted"].Visible = false;
+            dataGridView.Columns["ClientId"].Visible = false;
+            dataGridView.Columns["TrackId"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
             this.Width = 365 + dgv_width;
 
             dataGridView.ClearSelection();
-        }
 
+        }
         private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -229,6 +265,114 @@ namespace MMS_CapstoneProject
             searchQuery = string.Format("Name LIKE '%{0}%'", txtTrackSearch.Text);
 
             (dgvTrack.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+        }
+
+        private void dgvClientEvent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ClientEventModel clientEventModel = new ClientEventModel();
+                clientEventModel.Id = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                clientEventModel.ClientId = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["ClientId"].Value.ToString());
+                clientEventModel.TrackId = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["TrackId"].Value.ToString());
+                clientEventModel.Date = dgvClientEvent.Rows[e.RowIndex].Cells["Date"].Value.ToString();
+                clientEventModel.WorkersRequested = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["WorkersRequested"].Value.ToString());
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["IsLunchProvided"].Value.ToString() == "True")
+                {
+                    clientEventModel.IsLunchProvided = true;
+                }
+                else
+                {
+                    clientEventModel.IsLunchProvided = false;
+                }
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["IsUsingUpperPaddock"].Value.ToString() == "True")
+                {
+                    clientEventModel.IsUsingUpperPaddock = true;
+                }
+                else
+                {
+                    clientEventModel.IsUsingUpperPaddock = false;
+                }
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["IsUsingMiddlePaddock"].Value.ToString() == "True")
+                {
+                    clientEventModel.IsUsingMiddlePaddock = true;
+                }
+                else
+                {
+                    clientEventModel.IsUsingMiddlePaddock = false;
+                }
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["IsUsingLowerPaddock"].Value.ToString() == "True")
+                {
+                    clientEventModel.IsUsingLowerPaddock = true;
+                }
+                else
+                {
+                    clientEventModel.IsUsingLowerPaddock = false;
+                }
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["WorkerCalloutSent"].Value.ToString() == "True")
+                {
+                    clientEventModel.WorkerCalloutSent = true;
+                }
+                else
+                {
+                    clientEventModel.WorkerCalloutSent = false;
+                }
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["RequireSafetyDemo"].Value.ToString() == "True")
+                {
+                    clientEventModel.RequireSafetyDemo = true;
+                }
+                else
+                {
+                    clientEventModel.RequireSafetyDemo = false;
+                }
+
+                if (dgvClientEvent.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
+                {
+                    clientEventModel.IsDeleted = true;
+                }
+                else
+                {
+                    clientEventModel.IsDeleted = false;
+                }
+                ClientEventForm tracksForm = new ClientEventForm(this, clientEventModel);
+                tracksForm.ShowDialog();
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+
+                case 0:
+                    {
+                        RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
+                        break;
+                    }
+                case 1:
+                    {
+                        RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
+                        break;
+                    }
+                case 2:
+                    {
+                        RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
+                        this.Width += 250;
+                        break;
+                    }
+                case 3:
+                    {
+                        RefreshDataGridViewClientEvent();
+                        break;
+                    }
+            }
+
         }
     }
 }

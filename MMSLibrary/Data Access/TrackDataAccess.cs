@@ -1,11 +1,8 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MMSLibrary
 {
@@ -42,12 +39,12 @@ namespace MMSLibrary
         /// </summary>
         /// <param name="id">track id</param>
         /// <returns>List of Track Model</returns>
-        public static List<TrackModel> LoadTrack(int id)
+        public static TrackModel LoadTrack(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackModel>("SELECT * FROM Tracks WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
-                return output.ToList();
+                var output = cnn.QuerySingle<TrackModel>("SELECT * FROM Tracks WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                return output;
             }
         }
 

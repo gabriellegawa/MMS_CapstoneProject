@@ -1,11 +1,8 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
@@ -153,7 +150,7 @@ namespace MMSLibrary.DataAccess
                 cmd.Parameters.AddWithValue("@updatedEmail", updatedTrackWorker.Email);
                 cmd.Parameters.AddWithValue("@updatedIsCapableCaptain", updatedTrackWorker.IsCapableCaptain);
                 cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedTrackWorker.IsDeleted);
-                
+
                 cmd.Parameters.AddWithValue("@id", id);
 
                 try

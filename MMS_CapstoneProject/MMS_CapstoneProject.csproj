@@ -69,7 +69,6 @@
     <Compile Include="DataGridViewForm.Designer.cs">
       <DependentUpon>DataGridViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HelperClass.cs" />
     <Compile Include="ClientForm_draft1.cs">
       <SubType>Form</SubType>
     </Compile>

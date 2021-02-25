@@ -1,13 +1,9 @@
 ﻿using MMSLibrary;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MMS_CapstoneProject
@@ -80,7 +76,7 @@ namespace MMS_CapstoneProject
         {
             if (dgvData.SelectedRows.Count > 0)
             {
-                _clientEventForm.SetClientEventClientId(Convert.ToInt32(dgvData.CurrentRow.Cells["Id"].Value));
+                _clientEventForm.SetClientEventClientId(Convert.ToInt32(dgvData.CurrentRow.Cells["Id"].Value), dgvData.CurrentRow.Cells["Name"].Value.ToString());
                 this.Close();
             }
         }
@@ -89,7 +85,7 @@ namespace MMS_CapstoneProject
         {
             if (dgvData.SelectedRows.Count > 0)
             {
-                _clientEventForm.SetClientEventTrackId(Convert.ToInt32(dgvData.CurrentRow.Cells["Id"].Value));
+                _clientEventForm.SetClientEventTrackId(Convert.ToInt32(dgvData.CurrentRow.Cells["Id"].Value), dgvData.CurrentRow.Cells["Name"].Value.ToString());
                 this.Close();
             }
         }
