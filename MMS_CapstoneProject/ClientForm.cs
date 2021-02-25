@@ -146,5 +146,35 @@ namespace MMS_CapstoneProject
                 errorProviderApp.SetError(txtClientPrimaryContactName, "");
             }
         }
+
+        private void txtClientPrimaryContactCell_Validating(object sender, CancelEventArgs e)
+        {
+            if (!txtClientPrimaryContactCell.MaskFull)
+            {
+                e.Cancel = true;
+                txtClientPrimaryContactCell.Focus();
+                errorProviderApp.SetError(txtClientPrimaryContactCell, "Cell should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtClientPrimaryContactCell, "");
+            }
+        }
+
+        private void txtClientPrimaryContactEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtClientPrimaryContactEmail.Text))
+            {
+                e.Cancel = true;
+                txtClientPrimaryContactEmail.Focus();
+                errorProviderApp.SetError(txtClientPrimaryContactEmail, "Client Primary Contact Email should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderApp.SetError(txtClientPrimaryContactEmail, "");
+            }
+        }
     }
 }

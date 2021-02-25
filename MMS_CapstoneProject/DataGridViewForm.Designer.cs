@@ -29,27 +29,31 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.txtDataGridViewSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(410, 403);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvData.Location = new System.Drawing.Point(0, 56);
+            this.dgvData.Name = "dgvData";
+            this.dgvData.Size = new System.Drawing.Size(434, 403);
+            this.dgvData.TabIndex = 0;
             // 
-            // textBox1
+            // txtDataGridViewSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtDataGridViewSearch.Location = new System.Drawing.Point(153, 18);
+            this.txtDataGridViewSearch.Name = "txtDataGridViewSearch";
+            this.txtDataGridViewSearch.Size = new System.Drawing.Size(100, 20);
+            this.txtDataGridViewSearch.TabIndex = 1;
+            this.txtDataGridViewSearch.TextChanged += new System.EventHandler(this.txtDataGridViewSearch_TextChanged);
             // 
             // btnSearch
             // 
@@ -76,11 +80,11 @@ namespace MMS_CapstoneProject
             this.ClientSize = new System.Drawing.Size(434, 459);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txtDataGridViewSearch);
+            this.Controls.Add(this.dgvData);
             this.Name = "DataGridViewForm";
             this.Text = "DataGridViewForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,8 +92,8 @@ namespace MMS_CapstoneProject
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.TextBox txtDataGridViewSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSelect;
     }

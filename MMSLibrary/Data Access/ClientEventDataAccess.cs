@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.DataAccess
 {
-    class ClientEventDataAccess : SqliteDataAccess
+    public class ClientEventDataAccess : SqliteDataAccess
     {
         /// <summary>
         /// LoadAllClientEvent - load every record of client event from database
@@ -139,9 +139,9 @@ namespace MMSLibrary.DataAccess
                 cnn.Open();
 
                 string sqlStatement = "UPDATE ClientEvent SET [clientId] = @updatedClientId, [trackId] = @updatedTrackId, [date] = @updatedDate, "
-                                    + "[workersRequested] = @updatedWorkersRequested, [isLunchProvided] = @updatedIsLunchProvided, " 
-                                    + "[isUsingUpperPaddock] = @updatedisUsingUpperPaddock, [isUsingMiddlePaddock] = @updatedisUsingMiddlePaddock, " 
-                                    + "[isUsingLowerPaddock] = @updatedisUsingLowerPaddock, [workerCalloutSent] = @updatedWorkerCalloutSent, " 
+                                    + "[workersRequested] = @updatedWorkersRequested, [isLunchProvided] = @updatedIsLunchProvided, "
+                                    + "[isUsingUpperPaddock] = @updatedisUsingUpperPaddock, [isUsingMiddlePaddock] = @updatedisUsingMiddlePaddock, "
+                                    + "[isUsingLowerPaddock] = @updatedisUsingLowerPaddock, [workerCalloutSent] = @updatedWorkerCalloutSent, "
                                     + "[requiredSafetyDemo] = @updatedRequiredSafetyDemo, [isDeleted] = @updatedIsDeleted "
                                     + "WHERE [id] = @id";
 
@@ -186,9 +186,9 @@ namespace MMSLibrary.DataAccess
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO ClientEvents(clientId, trackId, date, workersRequested, isLunchProvided, " 
-                    + "isUsingUpperPaddock, isUsingMiddlePaddock, isUsingLowerPaddock, workerCalloutSent, requireSafetyDemo, " 
-                    + "isDeleted) VALUES( @clientId, @trackId, @date, @workerRequested, @isLunchProvided, @isUsingUpperPaddock, " 
+                string sqlStatement = "INSERT INTO ClientEvents(clientId, trackId, date, workersRequested, isLunchProvided, "
+                    + "isUsingUpperPaddock, isUsingMiddlePaddock, isUsingLowerPaddock, workerCalloutSent, requireSafetyDemo, "
+                    + "isDeleted) VALUES( @clientId, @trackId, @date, @workerRequested, @isLunchProvided, @isUsingUpperPaddock, "
                     + "@isUsingMiddlePaddock, @isUsingLowerPaddock, @workerCalloutSent, @requireSafetyDemo, @isDeleted )";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
@@ -201,7 +201,7 @@ namespace MMSLibrary.DataAccess
                 cmd.Parameters.AddWithValue("@isUsingMiddlePaddock", clientEvent.IsUsingMiddlePaddock);
                 cmd.Parameters.AddWithValue("@isUsingLowerPaddock", clientEvent.IsUsingLowerPaddock);
                 cmd.Parameters.AddWithValue("@workerCalloutSent", clientEvent.WorkerCalloutSent);
-                cmd.Parameters.AddWithValue("@requireSafetyDemo", clientEvent.RequiresSafetyDemo );
+                cmd.Parameters.AddWithValue("@requireSafetyDemo", clientEvent.RequiresSafetyDemo);
                 // HARD CODED FALSE
                 cmd.Parameters.AddWithValue("@isDeleted", false);
 
@@ -214,11 +214,43 @@ namespace MMSLibrary.DataAccess
                 {
                     throw ex;
                 }
+                try
+                {
+                    AddClientEvent_TrackWorker(clientEvent.TrackWorkersId, cnn);
+                }
                 finally
                 {
                     cnn.Close();
                 }
             }
+        }
+
+        public static void AddClientEvent_TrackWorker(List<int> trackWorkerIdlist, SQLiteConnection cnn)
+        {
+            var output = cnn.Query<int>("SELECT last_insert_rowid()", new DynamicParameters());
+            int lastID = output.ElementAt(0);
+
+            foreach (int trackWorkerId in trackWorkerIdlist)
+            {
+                string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(clientsEventsId, trackWorkersId, isAssigned) VALUES( @clientsEventsId, @trackWorkersId, @isAssigned)";
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@clientsEventsId", lastID);
+                cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
+                cmd.Parameters.AddWithValue("@isAssigned", true);
+
+                try
+                {
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+            }
+
+
+
         }
     }
 }

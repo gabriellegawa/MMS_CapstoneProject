@@ -244,6 +244,5 @@ namespace MMS_CapstoneProject
             rdoIsCapableCaptain_True.Checked = true;
             rdoIsDeleted_Enabled.Checked = true;
         }
-
     }
 }

@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS ClientEvents (
 	 FOREIGN KEY(trackId) REFERENCES Tracks(id));
 
 CREATE TABLE IF NOT EXISTS ClientsEvents_TrackWorkers (
-ClientsEventsId INTEGER REFERENCES ClientEvents(id),
-TrackWorkersId INTEGER REFERENCES TrackWorkers(id),
-isAssinged NUMERIC NOT NULL,
+clientsEventsId INTEGER REFERENCES ClientEvents(id),
+trackWorkersId INTEGER REFERENCES TrackWorkers(id),
+isAssigned NUMERIC NOT NULL,
 PRIMARY KEY(ClientsEventsId, TrackWorkersId));

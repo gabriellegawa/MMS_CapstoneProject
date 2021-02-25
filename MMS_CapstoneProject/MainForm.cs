@@ -54,6 +54,7 @@ namespace MMS_CapstoneProject
             RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
             RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
             RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
+            RefreshDataGridViewData(dgvClientEvent, ClientEventDataAccess.LoadAllClientEvent());
         }
 
         public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
@@ -107,7 +108,7 @@ namespace MMS_CapstoneProject
             // CONTAIN
 
             string searchQuery = "";
-            int rowCount = (dgvTrackWorker.DataSource as DataTable).Rows.Count;
+            int rowCount = (dgvTrackWorker.DataSource as DataTable).Columns.Count;
 
             // 1 is because we are not filtering by id
             for (int count = 1; count <= rowCount; count++)
@@ -186,9 +187,7 @@ namespace MMS_CapstoneProject
             // CONTAIN
 
             string searchQuery = "";
-            //int rowCount = (dgvClient.DataSource as DataTable).Rows.Count;
-            //int rowCount = dgvClient.RowCount - 2;
-            int rowCount = 4;
+            int rowCount = (dgvClient.DataSource as DataTable).Columns.Count;
 
             for (int count = 1; count <= rowCount; count++)
             {

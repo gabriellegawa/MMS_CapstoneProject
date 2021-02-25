@@ -101,6 +101,7 @@ namespace MMS_CapstoneProject
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            _trackModel = new TrackModel();
             txtTrackId.Clear();
             txtTrackName.Clear();
             cbTrackConfiguration.Items.Clear();
@@ -121,6 +122,5 @@ namespace MMS_CapstoneProject
                 errorProviderApp.SetError(txtTrackName, "");
             }
         }
-
     }
 }

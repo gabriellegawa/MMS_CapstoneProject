@@ -118,6 +118,7 @@ namespace MMS_CapstoneProject
             this.txtClientPrimaryContactEmail.Name = "txtClientPrimaryContactEmail";
             this.txtClientPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
             this.txtClientPrimaryContactEmail.TabIndex = 25;
+            this.txtClientPrimaryContactEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactEmail_Validating);
             // 
             // lblClientPrimaryContactEmail
             // 
@@ -135,6 +136,7 @@ namespace MMS_CapstoneProject
             this.txtClientPrimaryContactCell.Name = "txtClientPrimaryContactCell";
             this.txtClientPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
             this.txtClientPrimaryContactCell.TabIndex = 23;
+            this.txtClientPrimaryContactCell.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactCell_Validating);
             // 
             // lblClientPrimaryContactCell
             // 

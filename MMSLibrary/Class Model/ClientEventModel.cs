@@ -26,7 +26,7 @@ namespace MMSLibrary
         public bool WorkerCalloutSent { get; set; }
         public bool RequiresSafetyDemo { get; set; }
         public bool IsDeleted { get; set; }
-        public List<TrackWorkerModel> TrackWorkers { get; set; }
+        public List<int> TrackWorkersId { get; set; }
         
     }
 }
