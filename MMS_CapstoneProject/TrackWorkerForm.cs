@@ -204,11 +204,15 @@ namespace MMS_CapstoneProject
                     return match.Groups[1].Value + domainName;
                 }
             }
+#pragma warning disable CS0168 // The variable 'e' is declared but never used
             catch (RegexMatchTimeoutException e)
+#pragma warning restore CS0168 // The variable 'e' is declared but never used
             {
                 return false;
             }
+#pragma warning disable CS0168 // The variable 'e' is declared but never used
             catch (ArgumentException e)
+#pragma warning restore CS0168 // The variable 'e' is declared but never used
             {
                 return false;
             }

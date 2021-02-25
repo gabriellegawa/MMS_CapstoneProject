@@ -54,7 +54,6 @@ namespace MMS_CapstoneProject
             this.btnClientAdd = new System.Windows.Forms.Button();
             this.btnTrackAdd = new System.Windows.Forms.Button();
             this.txtTrackID = new System.Windows.Forms.TextBox();
-            this.txtClientEventDate = new System.Windows.Forms.MaskedTextBox();
             this.txtWorkerRequested = new System.Windows.Forms.TextBox();
             this.gbClientEventRequireSafetyDemo = new System.Windows.Forms.GroupBox();
             this.rdoClientEventRequireSafetyDemo_False = new System.Windows.Forms.RadioButton();
@@ -67,6 +66,7 @@ namespace MMS_CapstoneProject
             this.btnEscape = new System.Windows.Forms.Button();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageTrackWorker = new System.Windows.Forms.Button();
+            this.txtClientEventDate = new System.Windows.Forms.MaskedTextBox();
             this.gbClientEventIsLunchProvided.SuspendLayout();
             this.gbClientEventIsUsingPaddock.SuspendLayout();
             this.gbClientEventWorkerCalloutSent.SuspendLayout();
@@ -169,7 +169,7 @@ namespace MMS_CapstoneProject
             this.cbClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(59, 40);
             this.cbClientEventIsUsingLowerPaddock.Name = "cbClientEventIsUsingLowerPaddock";
             this.cbClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(101, 17);
-            this.cbClientEventIsUsingLowerPaddock.TabIndex = 5;
+            this.cbClientEventIsUsingLowerPaddock.TabIndex = 2;
             this.cbClientEventIsUsingLowerPaddock.Text = "Lower Paddock";
             this.cbClientEventIsUsingLowerPaddock.UseVisualStyleBackColor = true;
             // 
@@ -179,7 +179,7 @@ namespace MMS_CapstoneProject
             this.cbClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(112, 15);
             this.cbClientEventIsUsingMiddlePaddock.Name = "cbClientEventIsUsingMiddlePaddock";
             this.cbClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(103, 17);
-            this.cbClientEventIsUsingMiddlePaddock.TabIndex = 4;
+            this.cbClientEventIsUsingMiddlePaddock.TabIndex = 1;
             this.cbClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
             this.cbClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
             // 
@@ -189,7 +189,7 @@ namespace MMS_CapstoneProject
             this.cbClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(8, 17);
             this.cbClientEventIsUsingUpperPaddock.Name = "cbClientEventIsUsingUpperPaddock";
             this.cbClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(101, 17);
-            this.cbClientEventIsUsingUpperPaddock.TabIndex = 3;
+            this.cbClientEventIsUsingUpperPaddock.TabIndex = 0;
             this.cbClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
             this.cbClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
             // 
@@ -302,16 +302,6 @@ namespace MMS_CapstoneProject
             this.txtTrackID.Size = new System.Drawing.Size(100, 20);
             this.txtTrackID.TabIndex = 6;
             // 
-            // txtClientEventDate
-            // 
-            this.txtClientEventDate.Location = new System.Drawing.Point(134, 81);
-            this.txtClientEventDate.Mask = "00/00/0000";
-            this.txtClientEventDate.Name = "txtClientEventDate";
-            this.txtClientEventDate.Size = new System.Drawing.Size(100, 20);
-            this.txtClientEventDate.TabIndex = 9;
-            this.txtClientEventDate.ValidatingType = typeof(System.DateTime);
-            this.txtClientEventDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientEventDate_Validating);
-            // 
             // txtWorkerRequested
             // 
             this.txtWorkerRequested.Location = new System.Drawing.Point(134, 107);
@@ -389,7 +379,7 @@ namespace MMS_CapstoneProject
             this.btnEnter.Location = new System.Drawing.Point(76, 381);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 21;
+            this.btnEnter.TabIndex = 22;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
             // 
@@ -398,7 +388,7 @@ namespace MMS_CapstoneProject
             this.btnClear.Location = new System.Drawing.Point(159, 381);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 22;
+            this.btnClear.TabIndex = 23;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
@@ -407,7 +397,7 @@ namespace MMS_CapstoneProject
             this.btnEscape.Location = new System.Drawing.Point(240, 381);
             this.btnEscape.Name = "btnEscape";
             this.btnEscape.Size = new System.Drawing.Size(75, 23);
-            this.btnEscape.TabIndex = 23;
+            this.btnEscape.TabIndex = 24;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
             // 
@@ -420,10 +410,20 @@ namespace MMS_CapstoneProject
             this.btnManageTrackWorker.Location = new System.Drawing.Point(255, 247);
             this.btnManageTrackWorker.Name = "btnManageTrackWorker";
             this.btnManageTrackWorker.Size = new System.Drawing.Size(100, 72);
-            this.btnManageTrackWorker.TabIndex = 24;
+            this.btnManageTrackWorker.TabIndex = 21;
             this.btnManageTrackWorker.Text = "Manage Track Worker";
             this.btnManageTrackWorker.UseVisualStyleBackColor = true;
             this.btnManageTrackWorker.Click += new System.EventHandler(this.btnManageTrackWorker_Click);
+            // 
+            // txtClientEventDate
+            // 
+            this.txtClientEventDate.Location = new System.Drawing.Point(134, 81);
+            this.txtClientEventDate.Mask = "00/00/0000";
+            this.txtClientEventDate.Name = "txtClientEventDate";
+            this.txtClientEventDate.Size = new System.Drawing.Size(100, 20);
+            this.txtClientEventDate.TabIndex = 9;
+            this.txtClientEventDate.ValidatingType = typeof(System.DateTime);
+            this.txtClientEventDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientEventDate_Validating);
             // 
             // ClientEventForm
             // 
@@ -498,7 +498,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnClientAdd;
         private System.Windows.Forms.Button btnTrackAdd;
         private System.Windows.Forms.TextBox txtTrackID;
-        private System.Windows.Forms.MaskedTextBox txtClientEventDate;
         private System.Windows.Forms.TextBox txtWorkerRequested;
         private System.Windows.Forms.GroupBox gbClientEventRequireSafetyDemo;
         private System.Windows.Forms.RadioButton rdoClientEventRequireSafetyDemo_False;
@@ -514,5 +513,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.CheckBox cbClientEventIsUsingUpperPaddock;
         private System.Windows.Forms.CheckBox cbClientEventIsUsingLowerPaddock;
         private System.Windows.Forms.CheckBox cbClientEventIsUsingMiddlePaddock;
+        private System.Windows.Forms.MaskedTextBox txtClientEventDate;
     }
 }
