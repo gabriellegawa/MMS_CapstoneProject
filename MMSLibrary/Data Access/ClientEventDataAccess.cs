@@ -57,77 +57,6 @@ namespace MMSLibrary.DataAccess
                 return output.ToList();
             }
         }
-        /// <summary>
-        /// LoadDeletedClientEvent - load a record of client event from database that are deleted
-        /// </summary>
-        /// <returns>list of client event</returns>
-        public static List<int> LoadClientEventTrackWorker(int id)
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = cnn.Query<int>("SELECT trackWorkersId FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = " + id, new DynamicParameters());
-                return output.ToList();
-            }
-        }
-        public static void SaveClientEventTrackWorker(List<int> trackWorkerIdList, int clientEventId)
-        {
-            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                cnn.Open();
-                try
-                {
-                    foreach (int trackWorkerId in trackWorkerIdList)
-                    {
-                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(clientsEventsId, trackWorkersId, isAssigned) VALUES (@clientsEventsId, @trackWorkersId, @isAssigned) ";
-
-                        var cmd = new SQLiteCommand(sqlStatement, cnn);
-                        cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
-                        cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
-                        cmd.Parameters.AddWithValue("@isAssigned", true);
-
-                        cmd.Prepare();
-                        cmd.ExecuteNonQuery();
-
-                    }
-                }
-                catch (SQLiteException ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    cnn.Close();
-                }
-            }
-        }
-
-        public static bool RemoveAllClientEventTrackWorker(int clientEventId)
-        {
-            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var ReturnVal = 0;
-                cnn.Open();
-                string sqlStatement = "DELETE FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = @clientsEventsId ";
-
-                var cmd = new SQLiteCommand(sqlStatement, cnn);
-                cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
-
-                try
-                {
-                    cmd.Prepare();
-                    ReturnVal = cmd.ExecuteNonQuery();
-                }
-                catch (SQLiteException ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    cnn.Close();
-                }
-                return ReturnVal == 1;
-            }
-        }
 
         /// <summary>
         /// DeactivateClientEvent - deactivate record of client event by setting isDeleted field to 1
@@ -285,7 +214,7 @@ namespace MMSLibrary.DataAccess
                 }
                 try
                 {
-                    AddClientEvent_TrackWorker(clientEvent.TrackWorkersId, cnn);
+                    SaveClientEventTrackWorker(clientEvent.TrackWorkersId, cnn);
                 }
                 finally
                 {
@@ -294,7 +223,63 @@ namespace MMSLibrary.DataAccess
             }
         }
 
-        public static void AddClientEvent_TrackWorker(List<int> trackWorkerIdlist, SQLiteConnection cnn)
+        /// <summary>
+        /// LoadClientEventTrackWorker - load records from the join table
+        /// </summary>
+        /// <param name="id">client event</param>
+        /// <returns></returns>
+        public static List<int> LoadClientEventTrackWorker(int clientEventId)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<int>("SELECT trackWorkersId FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = " + clientEventId, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        /// <summary>
+        /// SaveClientEventTrackWorker - insert record to the join table
+        /// </summary>
+        /// <param name="trackWorkerIdList"> track worker id list</param>
+        /// <param name="clientEventId">client event id</param>
+        public static void SaveClientEventTrackWorker(List<int> trackWorkerIdList, int clientEventId)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Open();
+                try
+                {
+                    foreach (int trackWorkerId in trackWorkerIdList)
+                    {
+                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(clientsEventsId, trackWorkersId, isAssigned) VALUES (@clientsEventsId, @trackWorkersId, @isAssigned) ";
+
+                        var cmd = new SQLiteCommand(sqlStatement, cnn);
+                        cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
+                        cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
+                        cmd.Parameters.AddWithValue("@isAssigned", true);
+
+                        cmd.Prepare();
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// SaveClientEventTrackWorker - insert record to the join table after inserting client event
+        /// </summary>
+        /// <param name="trackWorkerIdlist">track worker id list</param>
+        /// <param name="cnn">database connection</param>
+        public static void SaveClientEventTrackWorker(List<int> trackWorkerIdlist, SQLiteConnection cnn)
         {
             var output = cnn.Query<int>("SELECT last_insert_rowid()", new DynamicParameters());
             int lastID = output.ElementAt(0);
@@ -317,9 +302,39 @@ namespace MMSLibrary.DataAccess
                     throw ex;
                 }
             }
+        }
 
+        /// <summary>
+        /// RemoveAllClientEventTrackWorker - remove every client event record from the join table for fresh data insert
+        /// </summary>
+        /// <param name="clientEventId">client event id</param>
+        /// <returns>bool true or false</returns>
+        public static bool RemoveAllClientEventTrackWorker(int clientEventId)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var ReturnVal = 0;
+                cnn.Open();
+                string sqlStatement = "DELETE FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = @clientsEventsId ";
 
+                var cmd = new SQLiteCommand(sqlStatement, cnn);
+                cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
 
+                try
+                {
+                    cmd.Prepare();
+                    ReturnVal = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return ReturnVal == 1;
+            }
         }
     }
 }

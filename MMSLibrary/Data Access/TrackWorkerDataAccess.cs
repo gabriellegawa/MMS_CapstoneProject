@@ -39,12 +39,12 @@ namespace MMSLibrary.DataAccess
         /// </summary>
         /// <param name="id">track worker id</param>
         /// <returns>List of track worker Model</returns>
-        public static List<TrackWorkerModel> LoadTrackWorker(int id)
+        public static TrackWorkerModel LoadTrackWorker(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
-                return output.ToList();
+                var output = cnn.QuerySingle<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                return output;
             }
         }
 
