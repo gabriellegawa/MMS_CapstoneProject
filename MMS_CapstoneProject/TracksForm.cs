@@ -98,7 +98,6 @@ namespace MMS_CapstoneProject
             _trackModel = new TrackModel();
             txtTrackId.Clear();
             txtTrackName.Clear();
-            cbTrackConfiguration.Items.Clear();
             rdoIsDeleted_Enabled.Checked = true;
         }
 

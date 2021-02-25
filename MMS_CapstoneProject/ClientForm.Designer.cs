@@ -53,10 +53,11 @@ namespace MMS_CapstoneProject
             // 
             // btnClear
             // 
+            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.Location = new System.Drawing.Point(88, 189);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 30;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -66,7 +67,7 @@ namespace MMS_CapstoneProject
             this.btnEscape.Location = new System.Drawing.Point(169, 189);
             this.btnEscape.Name = "btnEscape";
             this.btnEscape.Size = new System.Drawing.Size(75, 23);
-            this.btnEscape.TabIndex = 31;
+            this.btnEscape.TabIndex = 13;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
             this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
@@ -76,7 +77,7 @@ namespace MMS_CapstoneProject
             this.btnEnter.Location = new System.Drawing.Point(7, 189);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 29;
+            this.btnEnter.TabIndex = 11;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
             // 
@@ -87,7 +88,7 @@ namespace MMS_CapstoneProject
             this.gbIsDeleted.Location = new System.Drawing.Point(123, 137);
             this.gbIsDeleted.Name = "gbIsDeleted";
             this.gbIsDeleted.Size = new System.Drawing.Size(148, 35);
-            this.gbIsDeleted.TabIndex = 28;
+            this.gbIsDeleted.TabIndex = 10;
             this.gbIsDeleted.TabStop = false;
             // 
             // rdoIsDeleted_Disabled
@@ -117,17 +118,17 @@ namespace MMS_CapstoneProject
             this.txtClientPrimaryContactEmail.Location = new System.Drawing.Point(123, 111);
             this.txtClientPrimaryContactEmail.Name = "txtClientPrimaryContactEmail";
             this.txtClientPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtClientPrimaryContactEmail.TabIndex = 25;
+            this.txtClientPrimaryContactEmail.TabIndex = 9;
             this.txtClientPrimaryContactEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactEmail_Validating);
             // 
             // lblClientPrimaryContactEmail
             // 
             this.lblClientPrimaryContactEmail.AutoSize = true;
-            this.lblClientPrimaryContactEmail.Location = new System.Drawing.Point(81, 114);
+            this.lblClientPrimaryContactEmail.Location = new System.Drawing.Point(5, 114);
             this.lblClientPrimaryContactEmail.Name = "lblClientPrimaryContactEmail";
-            this.lblClientPrimaryContactEmail.Size = new System.Drawing.Size(35, 13);
-            this.lblClientPrimaryContactEmail.TabIndex = 24;
-            this.lblClientPrimaryContactEmail.Text = "Email:";
+            this.lblClientPrimaryContactEmail.Size = new System.Drawing.Size(112, 13);
+            this.lblClientPrimaryContactEmail.TabIndex = 8;
+            this.lblClientPrimaryContactEmail.Text = "Primary Contact Email:";
             // 
             // txtClientPrimaryContactCell
             // 
@@ -135,24 +136,24 @@ namespace MMS_CapstoneProject
             this.txtClientPrimaryContactCell.Mask = "(999) 000-0000";
             this.txtClientPrimaryContactCell.Name = "txtClientPrimaryContactCell";
             this.txtClientPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
-            this.txtClientPrimaryContactCell.TabIndex = 23;
+            this.txtClientPrimaryContactCell.TabIndex = 7;
             this.txtClientPrimaryContactCell.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactCell_Validating);
             // 
             // lblClientPrimaryContactCell
             // 
             this.lblClientPrimaryContactCell.AutoSize = true;
-            this.lblClientPrimaryContactCell.Location = new System.Drawing.Point(89, 88);
+            this.lblClientPrimaryContactCell.Location = new System.Drawing.Point(12, 88);
             this.lblClientPrimaryContactCell.Name = "lblClientPrimaryContactCell";
-            this.lblClientPrimaryContactCell.Size = new System.Drawing.Size(27, 13);
-            this.lblClientPrimaryContactCell.TabIndex = 22;
-            this.lblClientPrimaryContactCell.Text = "Cell:";
+            this.lblClientPrimaryContactCell.Size = new System.Drawing.Size(104, 13);
+            this.lblClientPrimaryContactCell.TabIndex = 6;
+            this.lblClientPrimaryContactCell.Text = "Primary Contact Cell:";
             // 
             // txtClientPrimaryContactName
             // 
             this.txtClientPrimaryContactName.Location = new System.Drawing.Point(123, 59);
             this.txtClientPrimaryContactName.Name = "txtClientPrimaryContactName";
             this.txtClientPrimaryContactName.Size = new System.Drawing.Size(100, 20);
-            this.txtClientPrimaryContactName.TabIndex = 21;
+            this.txtClientPrimaryContactName.TabIndex = 5;
             this.txtClientPrimaryContactName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactName_Validating);
             // 
             // lblClientPrimaryContactName
@@ -161,7 +162,7 @@ namespace MMS_CapstoneProject
             this.lblClientPrimaryContactName.Location = new System.Drawing.Point(2, 62);
             this.lblClientPrimaryContactName.Name = "lblClientPrimaryContactName";
             this.lblClientPrimaryContactName.Size = new System.Drawing.Size(115, 13);
-            this.lblClientPrimaryContactName.TabIndex = 20;
+            this.lblClientPrimaryContactName.TabIndex = 4;
             this.lblClientPrimaryContactName.Text = "Primary Contact Name:";
             // 
             // txtClientName
@@ -169,7 +170,7 @@ namespace MMS_CapstoneProject
             this.txtClientName.Location = new System.Drawing.Point(123, 33);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(100, 20);
-            this.txtClientName.TabIndex = 19;
+            this.txtClientName.TabIndex = 3;
             this.txtClientName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientName_Validating);
             // 
             // lblClientName
@@ -178,15 +179,16 @@ namespace MMS_CapstoneProject
             this.lblClientName.Location = new System.Drawing.Point(78, 36);
             this.lblClientName.Name = "lblClientName";
             this.lblClientName.Size = new System.Drawing.Size(38, 13);
-            this.lblClientName.TabIndex = 18;
+            this.lblClientName.TabIndex = 2;
             this.lblClientName.Text = "Name:";
             // 
             // txtClientId
             // 
+            this.txtClientId.Enabled = false;
             this.txtClientId.Location = new System.Drawing.Point(123, 7);
             this.txtClientId.Name = "txtClientId";
             this.txtClientId.Size = new System.Drawing.Size(100, 20);
-            this.txtClientId.TabIndex = 17;
+            this.txtClientId.TabIndex = 1;
             // 
             // lblClientId
             // 
@@ -194,7 +196,7 @@ namespace MMS_CapstoneProject
             this.lblClientId.Location = new System.Drawing.Point(95, 10);
             this.lblClientId.Name = "lblClientId";
             this.lblClientId.Size = new System.Drawing.Size(21, 13);
-            this.lblClientId.TabIndex = 16;
+            this.lblClientId.TabIndex = 0;
             this.lblClientId.Text = "ID:";
             // 
             // errorProviderApp
@@ -203,8 +205,10 @@ namespace MMS_CapstoneProject
             // 
             // ClientForm
             // 
+            this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClear;
             this.ClientSize = new System.Drawing.Size(282, 216);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
@@ -221,6 +225,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.txtClientId);
             this.Controls.Add(this.lblClientId);
             this.Name = "ClientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ClientForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.gbIsDeleted.ResumeLayout(false);

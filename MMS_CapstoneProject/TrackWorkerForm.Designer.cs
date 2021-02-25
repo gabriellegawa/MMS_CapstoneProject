@@ -273,6 +273,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.txtTrackWorkerId);
             this.Controls.Add(this.lblTrackWorkerId);
             this.Name = "TrackWorkerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TrackWorkerForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrackWorkerForm_FormClosing);
             this.gbIsCapableCaptain.ResumeLayout(false);

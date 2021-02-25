@@ -456,6 +456,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblClientEventClientId);
             this.Controls.Add(this.lblClientEventId);
             this.Name = "ClientEventForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ClientEventForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientEventForm_FormClosing);
             this.gbClientEventIsLunchProvided.ResumeLayout(false);
