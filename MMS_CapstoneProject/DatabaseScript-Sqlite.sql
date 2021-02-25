@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS ClientEvents (
 	 id INTEGER PRIMARY KEY,
 	 clientId INTEGER,
 	 trackId INTEGER,
-	 date NUMERIC NOT NULL,
+	 date TEXT NOT NULL,
 	 workersRequested INTEGER NOT NULL,
 	 isLunchProvided NUMERIC NOT NULL,
 	 isUsingUpperPaddock NUMERIC NOT NULL,
