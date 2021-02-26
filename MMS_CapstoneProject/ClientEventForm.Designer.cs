@@ -400,6 +400,7 @@ namespace MMS_CapstoneProject
             this.btnEscape.TabIndex = 24;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
+            this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
             // 
             // errorProviderApp
             // 

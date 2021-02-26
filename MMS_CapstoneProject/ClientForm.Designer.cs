@@ -176,11 +176,11 @@ namespace MMS_CapstoneProject
             // lblClientName
             // 
             this.lblClientName.AutoSize = true;
-            this.lblClientName.Location = new System.Drawing.Point(78, 36);
+            this.lblClientName.Location = new System.Drawing.Point(49, 36);
             this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(38, 13);
+            this.lblClientName.Size = new System.Drawing.Size(67, 13);
             this.lblClientName.TabIndex = 2;
-            this.lblClientName.Text = "Name:";
+            this.lblClientName.Text = "Client Name:";
             // 
             // txtClientId
             // 

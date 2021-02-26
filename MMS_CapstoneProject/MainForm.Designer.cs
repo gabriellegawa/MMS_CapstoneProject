@@ -121,12 +121,15 @@ namespace MMS_CapstoneProject
             // 
             // dgvClient
             // 
+            this.dgvClient.AllowUserToAddRows = false;
+            this.dgvClient.AllowUserToDeleteRows = false;
             this.dgvClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Location = new System.Drawing.Point(0, 63);
             this.dgvClient.Name = "dgvClient";
+            this.dgvClient.ReadOnly = true;
+            this.dgvClient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvClient.Size = new System.Drawing.Size(768, 331);
             this.dgvClient.TabIndex = 0;
             this.dgvClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellClick);

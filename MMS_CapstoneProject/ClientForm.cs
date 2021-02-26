@@ -93,7 +93,7 @@ namespace MMS_CapstoneProject
         private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
-            _mainForm.RefreshAllDataGridView();
+            _mainForm.RefreshDataGridViewClient();
         }
 
         private void btnEscape_Click(object sender, EventArgs e)

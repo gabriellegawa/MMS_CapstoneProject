@@ -85,7 +85,7 @@ namespace MMS_CapstoneProject
         private void TracksForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
-            _mainForm.RefreshAllDataGridView();
+            _mainForm.RefreshDataGridViewTrack();
         }
 
         private void btnEscape_Click(object sender, EventArgs e)

@@ -47,9 +47,9 @@ namespace MMS_CapstoneProject
         public void RefreshAllDataGridView()
         {
             RefreshDataGridViewClientEvent();
-            RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
-            RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
-            RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
+            RefreshDataGridViewTrackWorker();
+            RefreshDataGridViewTrack();
+            RefreshDataGridViewClient();
         }
 
         public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
@@ -57,12 +57,71 @@ namespace MMS_CapstoneProject
             DataTable dataTable = ToDataTable(list);
             dataGridView.DataSource = dataTable;
             dataGridView.AutoResizeColumns();
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
             this.Width = 180 + dgv_width;
 
             dataGridView.ClearSelection();
         }
+
+        public void RefreshDataGridViewClient()
+        {
+            List<ClientModel> list = ClientDataAccess.LoadAllClient();
+            DataGridView dataGridView = dgvClient;
+            DataTable dataTable = ToDataTable(list);
+            
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            dataGridView.Columns["Id"].HeaderText = "Client ID";
+            dataGridView.Columns["Name"].HeaderText = "Client Name";
+            //dataGridView.Columns["IsDeleted"].Visible = false;
+
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 365 + dgv_width;
+
+            dataGridView.ClearSelection();
+        }
+
+        public void RefreshDataGridViewTrackWorker()
+        {
+            List<TrackWorkerModel> list = TrackWorkerDataAccess.LoadAllTrackWorker();
+            DataGridView dataGridView = dgvTrackWorker;
+            DataTable dataTable = ToDataTable(list);
+
+            dataGridView.DataSource = dataTable;
+            //dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridView.AutoResizeColumns();
+
+            dataGridView.Columns["Id"].HeaderText = "Track Worker ID";
+            //dataGridView.Columns["IsDeleted"].Visible = false;
+
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+
+            this.Width = 365 + dgv_width;
+
+            dataGridView.ClearSelection();
+        }
+
+        public void RefreshDataGridViewTrack()
+        {
+            List<TrackModel> list = TrackDataAccess.LoadAllTrack();
+            DataGridView dataGridView = dgvTrack;
+            DataTable dataTable = ToDataTable(list);
+
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            dataGridView.Columns["Id"].HeaderText = "Track ID";
+            //dataGridView.Columns["IsDeleted"].Visible = false;
+
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 365 + dgv_width;
+
+            dataGridView.ClearSelection();
+        }
+
         public void RefreshDataGridViewClientEvent()
         {
             List<ClientEventModel> list = ClientEventDataAccess.LoadAllClientEvent();
@@ -87,12 +146,8 @@ namespace MMS_CapstoneProject
             dataTable.Columns["ClientName"].SetOrdinal(1);
             dataTable.Columns["TrackName"].SetOrdinal(2);
 
-            //dataTable.Columns["IsDeleted"].ColumnMapping = MappingType.Hidden;
-            //dataTable.Columns["ClientId"].ColumnMapping = MappingType.Hidden;
-            //dataTable.Columns["TrackId"].ColumnMapping = MappingType.Hidden;
-
             dataGridView.DataSource = dataTable;
-            dataGridView.AutoResizeColumns();
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             dataGridView.Columns["IsDeleted"].Visible = false;
             dataGridView.Columns["ClientId"].Visible = false;
@@ -102,7 +157,6 @@ namespace MMS_CapstoneProject
             this.Width = 365 + dgv_width;
 
             dataGridView.ClearSelection();
-
         }
         private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -352,18 +406,17 @@ namespace MMS_CapstoneProject
 
                 case 0:
                     {
-                        RefreshDataGridViewData(dgvClient, ClientDataAccess.LoadAllClient());
+                        RefreshDataGridViewClient();
                         break;
                     }
                 case 1:
                     {
-                        RefreshDataGridViewData(dgvTrackWorker, TrackWorkerDataAccess.LoadAllTrackWorker());
+                        RefreshDataGridViewTrackWorker();
                         break;
                     }
                 case 2:
                     {
-                        RefreshDataGridViewData(dgvTrack, TrackDataAccess.LoadAllTrack());
-                        this.Width += 250;
+                        RefreshDataGridViewTrack();
                         break;
                     }
                 case 3:

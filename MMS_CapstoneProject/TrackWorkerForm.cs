@@ -174,7 +174,7 @@ namespace MMS_CapstoneProject
         private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
-            _mainForm.RefreshAllDataGridView();
+            _mainForm.RefreshDataGridViewTrackWorker();
         }
         /// <summary>
         /// https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format

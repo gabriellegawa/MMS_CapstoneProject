@@ -330,5 +330,10 @@ namespace MMS_CapstoneProject
             e.Cancel = false;
             _mainForm.RefreshDataGridViewClientEvent();
         }
+
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
