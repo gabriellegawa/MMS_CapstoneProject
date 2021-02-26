@@ -264,6 +264,7 @@ namespace MMS_CapstoneProject
             // 
             // txtClientEventId
             // 
+            this.txtClientEventId.Enabled = false;
             this.txtClientEventId.Location = new System.Drawing.Point(134, 6);
             this.txtClientEventId.Name = "txtClientEventId";
             this.txtClientEventId.Size = new System.Drawing.Size(100, 20);
@@ -271,6 +272,7 @@ namespace MMS_CapstoneProject
             // 
             // txtClientId
             // 
+            this.txtClientId.Enabled = false;
             this.txtClientId.Location = new System.Drawing.Point(134, 32);
             this.txtClientId.Name = "txtClientId";
             this.txtClientId.Size = new System.Drawing.Size(100, 20);
@@ -298,6 +300,7 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackID
             // 
+            this.txtTrackID.Enabled = false;
             this.txtTrackID.Location = new System.Drawing.Point(134, 55);
             this.txtTrackID.Name = "txtTrackID";
             this.txtTrackID.Size = new System.Drawing.Size(100, 20);

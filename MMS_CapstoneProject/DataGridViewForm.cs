@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,7 @@ namespace MMS_CapstoneProject
     public partial class DataGridViewForm : Form
     {
         private readonly ClientEventForm _clientEventForm;
+        private readonly MainForm _mainForm;
         public DataGridViewForm(ClientEventForm clientEventForm, List<ClientModel> list)
         {
             InitializeComponent();
@@ -72,6 +74,48 @@ namespace MMS_CapstoneProject
             _clientEventForm = clientEventForm;
         }
 
+        public DataGridViewForm(MainForm mainForm, List<ClientEventModel> clientEventsList)
+        {
+            InitializeComponent();
+
+            DataGridView dataGridView = dgvData;
+            DataTable dataTable = ToDataTable(clientEventsList);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row["ClientId"] != null)
+                {
+                    ClientModel clientModel = ClientDataAccess.LoadClient((int)row["ClientId"]);
+                    row["ClientName"] = clientModel.Name;
+                }
+                if (row["TrackId"] != null)
+                {
+
+                    TrackModel trackModel = TrackDataAccess.LoadTrack((int)row["TrackId"]);
+                    row["TrackName"] = trackModel.Name;
+                }
+            }
+            dataTable.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
+            dataTable.Columns["Id"].SetOrdinal(1);
+            dataTable.Columns["ClientName"].SetOrdinal(2);
+            dataTable.Columns["TrackName"].SetOrdinal(3);
+
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            dataGridView.Columns["IsDeleted"].Visible = false;
+            dataGridView.Columns["ClientId"].Visible = false;
+            dataGridView.Columns["TrackId"].Visible = false;
+
+            int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 365 + dgv_width;
+
+            dataGridView.ClearSelection();
+
+            btnSelect.Click += btnAddClientEvent_Click;
+            _mainForm = mainForm;
+        }
+
         private void btnAddClient_Click(object sender, EventArgs e)
         {
             if (dgvData.SelectedRows.Count > 0)
@@ -111,6 +155,32 @@ namespace MMS_CapstoneProject
             else
             {
                 MessageBox.Show("Please select atleast 1 worker", "Empty Selection",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAddClientEvent_Click(object sender, EventArgs e)
+        {
+            List<int> clientEventIdList = new List<int>();
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                var isChecked = row.Cells[0].Value.ToString();
+
+                if (isChecked == "True")
+                {
+                    clientEventIdList.Add(int.Parse(row.Cells[1].Value.ToString()));
+                }
+            }
+
+            if (clientEventIdList.Count() > 0)
+            {
+                _mainForm.SetClientEventIdList(clientEventIdList);
+                _mainForm.SetWebBrowserTable();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please select atleast 1 event", "Empty Selection",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

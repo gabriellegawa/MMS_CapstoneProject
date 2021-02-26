@@ -37,12 +37,12 @@ namespace MMSLibrary.DataAccess
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>list of client event</returns>
-        public static List<ClientEventModel> LoadClientEvent(int id)
+        public static ClientEventModel LoadClientEvent(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientEventModel>("SELECT * FROM ClientEvents WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
-                return output.ToList();
+                var output = cnn.QuerySingle<ClientEventModel>("SELECT * FROM ClientEvents WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                return output;
             }
         }
         /// <summary>

@@ -3,6 +3,7 @@ using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace MMS_CapstoneProject
 {
     public partial class MainForm : Form
     {
+        private static List<int> _clientEventIdList = new List<int>();
         public MainForm()
         {
             InitializeComponent();
@@ -70,7 +72,7 @@ namespace MMS_CapstoneProject
             List<ClientModel> list = ClientDataAccess.LoadAllClient();
             DataGridView dataGridView = dgvClient;
             DataTable dataTable = ToDataTable(list);
-            
+
             dataGridView.DataSource = dataTable;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
@@ -426,6 +428,85 @@ namespace MMS_CapstoneProject
                     }
             }
 
+        }
+
+        private void btnSelectEvent_Click(object sender, EventArgs e)
+        {
+            DataGridViewForm dataGridViewForm = new DataGridViewForm(this, ClientEventDataAccess.LoadClientEvent());
+            dataGridViewForm.ShowDialog();
+        }
+
+        public void SetClientEventIdList(List<int> clientEventIdList)
+        {
+            _clientEventIdList = clientEventIdList;
+        }
+
+        public void SetWebBrowserTable()
+        {
+            List<ClientEventModel> clientEventModelsList = new List<ClientEventModel>();
+            List<int> allClientEventTrackWorkerIdList = new List<int>();
+            foreach (int clientEventId in _clientEventIdList)
+            {
+                ClientEventModel clientEvent = ClientEventDataAccess.LoadClientEvent(clientEventId);
+                clientEvent.TrackWorkersId = ClientEventDataAccess.LoadClientEventTrackWorker(clientEventId);
+                allClientEventTrackWorkerIdList = allClientEventTrackWorkerIdList.Union(clientEvent.TrackWorkersId).ToList();
+                clientEventModelsList.Add(clientEvent);
+            }
+
+            string stringTableHTML = "<table style=\"border: 1px solid black;\">";
+            stringTableHTML += "<tr>";
+            stringTableHTML += "<td></td>";
+            foreach (ClientEventModel clientEvent in clientEventModelsList)
+            {
+                ClientModel client = ClientDataAccess.LoadClient(clientEvent.ClientId);
+                stringTableHTML += "<td style=\"border: 1px solid black;\">" + client.Name + "</td>";
+            }
+            stringTableHTML += "</tr>";
+            stringTableHTML += "<tr>";
+            stringTableHTML += "<td></td>";
+            foreach (ClientEventModel clientEvent in clientEventModelsList)
+            {
+                stringTableHTML += "<td style=\"border: 1px solid black;\">" + clientEvent.Date + "</td>";
+            }
+            stringTableHTML += "</tr>";
+            stringTableHTML += "<tr>";
+            stringTableHTML += "<td style=\"border: 1px solid black;\"># Workers Needed</td>";
+            foreach (ClientEventModel clientEvent in clientEventModelsList)
+            {
+                stringTableHTML += "<td style=\"border: 1px solid black;\">" + clientEvent.WorkersRequested + "</td>";
+            }
+            stringTableHTML += "</tr>";
+            stringTableHTML += "<tr>";
+            stringTableHTML += "<td style=\"border: 1px solid black;\">Track</td>";
+            foreach (ClientEventModel clientEvent in clientEventModelsList)
+            {
+                TrackModel track = TrackDataAccess.LoadTrack(clientEvent.TrackId);
+                stringTableHTML += "<td style=\"border: 1px solid black;\">" + track.Name + "</td>";
+            }
+            stringTableHTML += "</tr>";
+
+            stringTableHTML += "<tr><td><b>Worker Name</b></td></tr>";
+            foreach (int trackWorkerId in allClientEventTrackWorkerIdList)
+            {
+                stringTableHTML += "<tr>";
+                TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
+                stringTableHTML += "<td style=\"border: 1px solid black;\">" + trackWorker.FullName + "</td>";
+                foreach (ClientEventModel clientEvent in clientEventModelsList)
+                {
+                    if (clientEvent.TrackWorkersId.Contains(trackWorkerId))
+                    {
+                        stringTableHTML += "<td style=\"border: 1px solid black;\">X</td>";
+                    }
+                    else
+                    {
+                        stringTableHTML += "<td style=\"border: 1px solid black;\">&nbsp;</td>";
+                    }
+                }
+                stringTableHTML += "</tr>";
+            }
+            stringTableHTML += "</table>";
+
+            webBrowser1.DocumentText = stringTableHTML;
         }
     }
 }
