@@ -30,6 +30,7 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEscape = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
@@ -224,9 +225,10 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblClientName);
             this.Controls.Add(this.txtClientId);
             this.Controls.Add(this.lblClientId);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ClientForm";
+            this.Text = "Client Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();

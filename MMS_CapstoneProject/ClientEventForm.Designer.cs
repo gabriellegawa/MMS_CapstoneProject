@@ -30,6 +30,7 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientEventForm));
             this.lblClientEventId = new System.Windows.Forms.Label();
             this.lblClientEventClientId = new System.Windows.Forms.Label();
             this.lblClientEventTrackId = new System.Windows.Forms.Label();
@@ -456,9 +457,10 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblClientEventTrackId);
             this.Controls.Add(this.lblClientEventClientId);
             this.Controls.Add(this.lblClientEventId);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientEventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ClientEventForm";
+            this.Text = "Client Event Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientEventForm_FormClosing);
             this.gbClientEventIsLunchProvided.ResumeLayout(false);
             this.gbClientEventIsLunchProvided.PerformLayout();

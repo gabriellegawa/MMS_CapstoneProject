@@ -29,6 +29,7 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataGridViewForm));
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.txtDataGridViewSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -82,8 +83,9 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtDataGridViewSearch);
             this.Controls.Add(this.dgvData);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataGridViewForm";
-            this.Text = "DataGridViewForm";
+            this.Text = "Data Entry Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

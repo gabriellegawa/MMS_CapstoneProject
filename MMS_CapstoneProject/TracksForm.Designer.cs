@@ -30,6 +30,7 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TracksForm));
             this.lblTrackName = new System.Windows.Forms.Label();
             this.txtTrackName = new System.Windows.Forms.TextBox();
             this.lblTrackId = new System.Windows.Forms.Label();
@@ -160,9 +161,10 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackId);
             this.Controls.Add(this.txtTrackName);
             this.Controls.Add(this.lblTrackName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TracksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "TracksForm";
+            this.Text = "Tracks Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TracksForm_FormClosing);
             this.gbIsDeleted.ResumeLayout(false);
             this.gbIsDeleted.PerformLayout();

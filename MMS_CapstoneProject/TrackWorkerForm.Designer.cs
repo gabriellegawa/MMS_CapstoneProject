@@ -30,6 +30,7 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrackWorkerForm));
             this.lblTrackWorkerId = new System.Windows.Forms.Label();
             this.txtTrackWorkerId = new System.Windows.Forms.TextBox();
             this.txtTrackWorkerFirstName = new System.Windows.Forms.TextBox();
@@ -272,9 +273,10 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackWorkerFirstName);
             this.Controls.Add(this.txtTrackWorkerId);
             this.Controls.Add(this.lblTrackWorkerId);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrackWorkerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "TrackWorkerForm";
+            this.Text = "Track Worker Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrackWorkerForm_FormClosing);
             this.gbIsCapableCaptain.ResumeLayout(false);
             this.gbIsCapableCaptain.PerformLayout();

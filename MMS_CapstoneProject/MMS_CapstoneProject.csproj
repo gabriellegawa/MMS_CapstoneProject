@@ -89,6 +89,8 @@
     <Compile Include="TrackWorkerForm.Designer.cs">
       <DependentUpon>TrackWorkerForm.cs</DependentUpon>
     </Compile>
+    <Content Include="Resources\MMS logo.ico" />
+    <None Include="Resources\MMS logo.jpg" />
     <EmbeddedResource Include="ClientEventForm.resx">
       <DependentUpon>ClientEventForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +111,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="DatabaseScript-Sqlite.sql" />
     <Content Include="MMSDB.db">
