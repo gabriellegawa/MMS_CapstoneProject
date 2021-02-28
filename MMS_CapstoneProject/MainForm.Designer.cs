@@ -30,7 +30,7 @@ namespace MMS_CapstoneProject
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabClient = new System.Windows.Forms.TabPage();
             this.btnClientSearch = new System.Windows.Forms.Button();
             this.txtClientSearch = new System.Windows.Forms.TextBox();
@@ -52,14 +52,14 @@ namespace MMS_CapstoneProject
             this.btnClientEventAddNew = new System.Windows.Forms.Button();
             this.dgvClientEvent = new System.Windows.Forms.DataGridView();
             this.tabEmail = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
             this.btnSelectEvent = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.txtEmailBody = new System.Windows.Forms.TextBox();
             this.lblEmailBody = new System.Windows.Forms.Label();
             this.txtEmailSubject = new System.Windows.Forms.TextBox();
             this.lblEmailSubject = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tabClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             this.tabTrackWorker.SuspendLayout();
@@ -71,22 +71,22 @@ namespace MMS_CapstoneProject
             this.tabEmail.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabClient);
-            this.tabControl1.Controls.Add(this.tabTrackWorker);
-            this.tabControl1.Controls.Add(this.tabTrack);
-            this.tabControl1.Controls.Add(this.tabClientEvent);
-            this.tabControl1.Controls.Add(this.tabEmail);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.Controls.Add(this.tabClient);
+            this.tabControl.Controls.Add(this.tabTrackWorker);
+            this.tabControl.Controls.Add(this.tabTrack);
+            this.tabControl.Controls.Add(this.tabClientEvent);
+            this.tabControl.Controls.Add(this.tabEmail);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(776, 426);
+            this.tabControl.TabIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabClient
             // 
@@ -308,9 +308,9 @@ namespace MMS_CapstoneProject
             // 
             // tabEmail
             // 
-            this.tabEmail.Controls.Add(this.button2);
+            this.tabEmail.Controls.Add(this.btnSend);
             this.tabEmail.Controls.Add(this.btnSelectEvent);
-            this.tabEmail.Controls.Add(this.webBrowser1);
+            this.tabEmail.Controls.Add(this.webBrowser);
             this.tabEmail.Controls.Add(this.txtEmailBody);
             this.tabEmail.Controls.Add(this.lblEmailBody);
             this.tabEmail.Controls.Add(this.txtEmailSubject);
@@ -323,18 +323,19 @@ namespace MMS_CapstoneProject
             this.tabEmail.Text = "Email";
             this.tabEmail.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSend
             // 
-            this.button2.Location = new System.Drawing.Point(259, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(493, 11);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 6;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnSelectEvent
             // 
-            this.btnSelectEvent.Location = new System.Drawing.Point(259, 38);
+            this.btnSelectEvent.Location = new System.Drawing.Point(372, 10);
             this.btnSelectEvent.Name = "btnSelectEvent";
             this.btnSelectEvent.Size = new System.Drawing.Size(115, 24);
             this.btnSelectEvent.TabIndex = 5;
@@ -342,25 +343,26 @@ namespace MMS_CapstoneProject
             this.btnSelectEvent.UseVisualStyleBackColor = true;
             this.btnSelectEvent.Click += new System.EventHandler(this.btnSelectEvent_Click);
             // 
-            // webBrowser1
+            // webBrowser
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(26, 147);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(410, 250);
-            this.webBrowser1.TabIndex = 4;
+            this.webBrowser.Location = new System.Drawing.Point(95, 147);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(473, 250);
+            this.webBrowser.TabIndex = 4;
             // 
             // txtEmailBody
             // 
-            this.txtEmailBody.Location = new System.Drawing.Point(117, 89);
+            this.txtEmailBody.Location = new System.Drawing.Point(95, 41);
+            this.txtEmailBody.Multiline = true;
             this.txtEmailBody.Name = "txtEmailBody";
-            this.txtEmailBody.Size = new System.Drawing.Size(100, 20);
+            this.txtEmailBody.Size = new System.Drawing.Size(473, 100);
             this.txtEmailBody.TabIndex = 3;
             // 
             // lblEmailBody
             // 
             this.lblEmailBody.AutoSize = true;
-            this.lblEmailBody.Location = new System.Drawing.Point(36, 89);
+            this.lblEmailBody.Location = new System.Drawing.Point(48, 44);
             this.lblEmailBody.Name = "lblEmailBody";
             this.lblEmailBody.Size = new System.Drawing.Size(31, 13);
             this.lblEmailBody.TabIndex = 2;
@@ -368,15 +370,15 @@ namespace MMS_CapstoneProject
             // 
             // txtEmailSubject
             // 
-            this.txtEmailSubject.Location = new System.Drawing.Point(117, 42);
+            this.txtEmailSubject.Location = new System.Drawing.Point(95, 13);
             this.txtEmailSubject.Name = "txtEmailSubject";
-            this.txtEmailSubject.Size = new System.Drawing.Size(100, 20);
+            this.txtEmailSubject.Size = new System.Drawing.Size(271, 20);
             this.txtEmailSubject.TabIndex = 1;
             // 
             // lblEmailSubject
             // 
             this.lblEmailSubject.AutoSize = true;
-            this.lblEmailSubject.Location = new System.Drawing.Point(33, 42);
+            this.lblEmailSubject.Location = new System.Drawing.Point(36, 16);
             this.lblEmailSubject.Name = "lblEmailSubject";
             this.lblEmailSubject.Size = new System.Drawing.Size(43, 13);
             this.lblEmailSubject.TabIndex = 0;
@@ -387,12 +389,12 @@ namespace MMS_CapstoneProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Motorsport Marshalling Services";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabClient.ResumeLayout(false);
             this.tabClient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
@@ -413,7 +415,7 @@ namespace MMS_CapstoneProject
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabClient;
         private System.Windows.Forms.TabPage tabTrackWorker;
         private System.Windows.Forms.DataGridView dgvClient;
@@ -435,12 +437,12 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnClientEventAddNew;
         private System.Windows.Forms.DataGridView dgvClientEvent;
         private System.Windows.Forms.TabPage tabEmail;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.TextBox txtEmailBody;
         private System.Windows.Forms.Label lblEmailBody;
         private System.Windows.Forms.TextBox txtEmailSubject;
         private System.Windows.Forms.Label lblEmailSubject;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnSelectEvent;
     }
 }

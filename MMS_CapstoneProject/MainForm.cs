@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -12,6 +14,7 @@ namespace MMS_CapstoneProject
     public partial class MainForm : Form
     {
         private static List<int> _clientEventIdList = new List<int>();
+        private static string stringBodyHTML;
         public MainForm()
         {
             InitializeComponent();
@@ -403,7 +406,7 @@ namespace MMS_CapstoneProject
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (tabControl1.SelectedIndex)
+            switch (tabControl.SelectedIndex)
             {
 
                 case 0:
@@ -453,60 +456,76 @@ namespace MMS_CapstoneProject
                 clientEventModelsList.Add(clientEvent);
             }
 
-            string stringTableHTML = "<table style=\"border: 1px solid black;\">";
-            stringTableHTML += "<tr>";
-            stringTableHTML += "<td></td>";
+            stringBodyHTML += "<table style=\"border: 1px solid black;\">";
+            stringBodyHTML += "<tr>";
+            stringBodyHTML += "<td></td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)
             {
                 ClientModel client = ClientDataAccess.LoadClient(clientEvent.ClientId);
-                stringTableHTML += "<td style=\"border: 1px solid black;\">" + client.Name + "</td>";
+                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + client.Name + "</td>";
             }
-            stringTableHTML += "</tr>";
-            stringTableHTML += "<tr>";
-            stringTableHTML += "<td></td>";
+            stringBodyHTML += "</tr>";
+            stringBodyHTML += "<tr>";
+            stringBodyHTML += "<td></td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)
             {
-                stringTableHTML += "<td style=\"border: 1px solid black;\">" + clientEvent.Date + "</td>";
+                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + clientEvent.Date + "</td>";
             }
-            stringTableHTML += "</tr>";
-            stringTableHTML += "<tr>";
-            stringTableHTML += "<td style=\"border: 1px solid black;\"># Workers Needed</td>";
+            stringBodyHTML += "</tr>";
+            stringBodyHTML += "<tr>";
+            stringBodyHTML += "<td style=\"border: 1px solid black;\"># Workers Needed</td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)
             {
-                stringTableHTML += "<td style=\"border: 1px solid black;\">" + clientEvent.WorkersRequested + "</td>";
+                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + clientEvent.WorkersRequested + "</td>";
             }
-            stringTableHTML += "</tr>";
-            stringTableHTML += "<tr>";
-            stringTableHTML += "<td style=\"border: 1px solid black;\">Track</td>";
+            stringBodyHTML += "</tr>";
+            stringBodyHTML += "<tr>";
+            stringBodyHTML += "<td style=\"border: 1px solid black;\">Track</td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)
             {
                 TrackModel track = TrackDataAccess.LoadTrack(clientEvent.TrackId);
-                stringTableHTML += "<td style=\"border: 1px solid black;\">" + track.Name + "</td>";
+                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + track.Name + "</td>";
             }
-            stringTableHTML += "</tr>";
+            stringBodyHTML += "</tr>";
 
-            stringTableHTML += "<tr><td><b>Worker Name</b></td></tr>";
+            stringBodyHTML += "<tr><td><b>Worker Name</b></td></tr>";
             foreach (int trackWorkerId in allClientEventTrackWorkerIdList)
             {
-                stringTableHTML += "<tr>";
+                stringBodyHTML += "<tr>";
                 TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
-                stringTableHTML += "<td style=\"border: 1px solid black;\">" + trackWorker.FullName + "</td>";
+                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + trackWorker.FullName + "</td>";
                 foreach (ClientEventModel clientEvent in clientEventModelsList)
                 {
                     if (clientEvent.TrackWorkersId.Contains(trackWorkerId))
                     {
-                        stringTableHTML += "<td style=\"border: 1px solid black;\">X</td>";
+                        stringBodyHTML += "<td style=\"border: 1px solid black;\">X</td>";
                     }
                     else
                     {
-                        stringTableHTML += "<td style=\"border: 1px solid black;\">&nbsp;</td>";
+                        stringBodyHTML += "<td style=\"border: 1px solid black;\">&nbsp;</td>";
                     }
                 }
-                stringTableHTML += "</tr>";
+                stringBodyHTML += "</tr>";
             }
-            stringTableHTML += "</table>";
+            stringBodyHTML += "</table>";
 
-            webBrowser1.DocumentText = stringTableHTML;
+            //webBrowser.DocumentText += stringTableHTML;
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            stringBodyHTML = "<p>" + txtEmailBody.Text.ToString() + "</p>" + stringBodyHTML;
+            webBrowser.DocumentText += stringBodyHTML;
+
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("myusername@gmail.com", "mypwd"),
+                EnableSsl = true
+            };
+            client.Send("myusername@gmail.com", "myusername@gmail.com", "test", "testbody");
+            Console.WriteLine("Sent");
+            Console.ReadLine();
+
         }
     }
 }
