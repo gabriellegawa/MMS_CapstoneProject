@@ -15,6 +15,7 @@ namespace MMS_CapstoneProject
     {
         private static List<int> _clientEventIdList = new List<int>();
         private static string stringBodyHTML;
+        List<int> allClientEventTrackWorkerIdList = new List<int>();
         public MainForm()
         {
             InitializeComponent();
@@ -447,7 +448,7 @@ namespace MMS_CapstoneProject
         public void SetWebBrowserTable()
         {
             List<ClientEventModel> clientEventModelsList = new List<ClientEventModel>();
-            List<int> allClientEventTrackWorkerIdList = new List<int>();
+            allClientEventTrackWorkerIdList = new List<int>();
             foreach (int clientEventId in _clientEventIdList)
             {
                 ClientEventModel clientEvent = ClientEventDataAccess.LoadClientEvent(clientEventId);
@@ -517,14 +518,52 @@ namespace MMS_CapstoneProject
             stringBodyHTML = "<p>" + txtEmailBody.Text.ToString() + "</p>" + stringBodyHTML;
             webBrowser.DocumentText += stringBodyHTML;
 
-            var client = new SmtpClient("smtp.gmail.com", 587)
+            MailAddress from = new MailAddress("ben@contoso.com", "Ben Miller");
+            string fromPassword = "password";
+            MailMessage message = new MailMessage();
+            message.From = from;
+            message.IsBodyHtml = true;
+
+            message.Subject = txtEmailSubject.Text.ToString();
+            message.Body = stringBodyHTML;
+
+            foreach (int trackWorkerId in allClientEventTrackWorkerIdList)
             {
-                Credentials = new NetworkCredential("myusername@gmail.com", "mypwd"),
+                TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
+                message.Bcc.Add(trackWorker.Email);
+            }
+
+            //SmtpClient client = new SmtpClient
+            //{
+            //    Host = "smtp.gmail.com",
+            //    Port = 587,
+            //    EnableSsl = true,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    UseDefaultCredentials = false,
+            //    Credentials = new NetworkCredential(from.Address, fromPassword)
+            //};
+
+            var client = new SmtpClient("smtp.mailtrap.io", 2525)
+            {
+                Credentials = new NetworkCredential("e105e0282339a3", "ac1ce2513bda52"),
                 EnableSsl = true
             };
-            client.Send("myusername@gmail.com", "myusername@gmail.com", "test", "testbody");
-            Console.WriteLine("Sent");
-            Console.ReadLine();
+
+
+            Console.WriteLine("Sending an email message to {0} and {1}.",
+                from.DisplayName, message.Bcc.ToString());
+
+            client.Send(message);
+
+            //using (var message = new MailMessage(fromAddress, toAddress)
+            //{
+            //    Subject = subject,
+            //    Body = body
+            //})
+            //{
+            //    smtp.Send(message);
+            //}
+
 
         }
     }
