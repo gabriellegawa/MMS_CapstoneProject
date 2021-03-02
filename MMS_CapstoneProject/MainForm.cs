@@ -81,7 +81,7 @@ namespace MMS_CapstoneProject
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             dataGridView.Columns["Id"].HeaderText = "Client ID";
-            dataGridView.Columns["Name"].HeaderText = "Client Name";
+            //dataGridView.Columns["Name"].HeaderText = "Client Name";
             //dataGridView.Columns["IsDeleted"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
@@ -285,10 +285,10 @@ namespace MMS_CapstoneProject
             string searchQuery = "";
             int rowCount = (dgvClient.DataSource as DataTable).Columns.Count;
 
-            for (int count = 1; count <= rowCount; count++)
+            for (int count = 1; count < rowCount - 1; count++)
             {
                 searchQuery += string.Format(dgvClient.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
-                if (count != rowCount)
+                if (count != rowCount - 2)
                 {
                     searchQuery += " OR ";
                 }
@@ -530,7 +530,10 @@ namespace MMS_CapstoneProject
             foreach (int trackWorkerId in allClientEventTrackWorkerIdList)
             {
                 TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
+                //BCC
                 message.Bcc.Add(trackWorker.Email);
+                //To - regular
+                //message.To.Add(trackWorker.Email);
             }
 
             //SmtpClient client = new SmtpClient
