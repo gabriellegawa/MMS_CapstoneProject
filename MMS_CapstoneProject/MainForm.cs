@@ -81,8 +81,8 @@ namespace MMS_CapstoneProject
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             dataGridView.Columns["Id"].HeaderText = "Client ID";
-            //dataGridView.Columns["Name"].HeaderText = "Client Name";
-            //dataGridView.Columns["IsDeleted"].Visible = false;
+            dataGridView.Columns["Name"].HeaderText = "Client Name";
+            dataGridView.Columns["IsDeleted"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
             this.Width = 365 + dgv_width;
@@ -287,13 +287,14 @@ namespace MMS_CapstoneProject
 
             for (int count = 1; count < rowCount - 1; count++)
             {
-                searchQuery += string.Format(dgvClient.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
+                searchQuery += string.Format(dgvClient.Columns[count].HeaderCell.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
                 if (count != rowCount - 2)
                 {
                     searchQuery += " OR ";
                 }
             }
             (dgvClient.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+
         }
 
         private void dgvTrack_CellClick(object sender, DataGridViewCellEventArgs e)
