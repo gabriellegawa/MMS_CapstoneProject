@@ -13,6 +13,7 @@ namespace MMS_CapstoneProject
         private static ClientEventModel _clientEvent = new ClientEventModel();
         public ClientEventForm(MainForm mainForm)
         {
+            _clientEvent = new ClientEventModel();
             _mainForm = mainForm;
             InitializeComponent();
 

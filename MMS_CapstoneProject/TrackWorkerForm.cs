@@ -11,7 +11,11 @@ namespace MMS_CapstoneProject
     public partial class TrackWorkerForm : Form
     {
         private readonly MainForm _mainForm;
-
+        /// <summary>
+        /// TrackWorkerForm constructor from main form, we pass mainform since we need to refresh datagridview on main form and this is one of the way
+        /// FOR CREATION OF TRACKWORKER
+        /// </summary>
+        /// <param name="mainForm">main form</param>
         public TrackWorkerForm(MainForm mainForm)
         {
             _mainForm = mainForm;
@@ -19,6 +23,11 @@ namespace MMS_CapstoneProject
 
             btnEnter.Click += btnCreate_Click;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mainForm"></param>
+        /// <param name="trackWorker"></param>
         public TrackWorkerForm(MainForm mainForm, TrackWorkerModel trackWorker)
         {
             _mainForm = mainForm;
