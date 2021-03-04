@@ -61,7 +61,9 @@ namespace MMS_CapstoneProject
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            bool bFirstNameValid = ValidatingFirstNameTextbox();
+
+            if (bFirstNameValid && ValidateChildren(ValidationConstraints.Enabled))
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
                 trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
@@ -88,7 +90,9 @@ namespace MMS_CapstoneProject
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            bool bFirstNameValid = ValidatingFirstNameTextbox();
+
+            if (bFirstNameValid && ValidateChildren(ValidationConstraints.Enabled))
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
                 trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
@@ -114,19 +118,20 @@ namespace MMS_CapstoneProject
             }
         }
 
-        private void txtTrackWorkerFirstName_Validating(object sender, CancelEventArgs e)
+        private bool ValidatingFirstNameTextbox()
         {
+            bool bStatus = true;
             if (string.IsNullOrWhiteSpace(txtTrackWorkerFirstName.Text))
             {
-                e.Cancel = true;
                 txtTrackWorkerFirstName.Focus();
                 errorProviderApp.SetError(txtTrackWorkerFirstName, "First Name should not be left blank!");
+                bStatus = false;
             }
             else
             {
-                e.Cancel = false;
                 errorProviderApp.SetError(txtTrackWorkerFirstName, "");
             }
+            return bStatus;
         }
 
         private void txtTrackWorkerLastName_Validating(object sender, CancelEventArgs e)
@@ -213,15 +218,11 @@ namespace MMS_CapstoneProject
                     return match.Groups[1].Value + domainName;
                 }
             }
-#pragma warning disable CS0168 // The variable 'e' is declared but never used
             catch (RegexMatchTimeoutException e)
-#pragma warning restore CS0168 // The variable 'e' is declared but never used
             {
                 return false;
             }
-#pragma warning disable CS0168 // The variable 'e' is declared but never used
             catch (ArgumentException e)
-#pragma warning restore CS0168 // The variable 'e' is declared but never used
             {
                 return false;
             }

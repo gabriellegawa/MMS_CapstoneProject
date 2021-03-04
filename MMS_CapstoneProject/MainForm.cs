@@ -99,6 +99,7 @@ namespace MMS_CapstoneProject
             dataGridView.DataSource = dataTable;
             //dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView.AutoResizeColumns();
+            dataGridView.AutoResizeRows();
 
             dataGridView.Columns["Id"].HeaderText = "Track Worker ID";
             //dataGridView.Columns["IsDeleted"].Visible = false;

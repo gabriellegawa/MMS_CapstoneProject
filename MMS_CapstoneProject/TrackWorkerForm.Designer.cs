@@ -52,6 +52,7 @@ namespace MMS_CapstoneProject
             this.btnEscape = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTipApp = new System.Windows.Forms.ToolTip(this.components);
             this.gbIsCapableCaptain.SuspendLayout();
             this.gbIsDeleted.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
@@ -60,95 +61,107 @@ namespace MMS_CapstoneProject
             // lblTrackWorkerId
             // 
             this.lblTrackWorkerId.AutoSize = true;
-            this.lblTrackWorkerId.Location = new System.Drawing.Point(88, 9);
+            this.lblTrackWorkerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrackWorkerId.Location = new System.Drawing.Point(114, 9);
             this.lblTrackWorkerId.Name = "lblTrackWorkerId";
-            this.lblTrackWorkerId.Size = new System.Drawing.Size(21, 13);
+            this.lblTrackWorkerId.Size = new System.Drawing.Size(30, 20);
             this.lblTrackWorkerId.TabIndex = 0;
             this.lblTrackWorkerId.Text = "ID:";
             // 
             // txtTrackWorkerId
             // 
             this.txtTrackWorkerId.Enabled = false;
-            this.txtTrackWorkerId.Location = new System.Drawing.Point(116, 6);
+            this.txtTrackWorkerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerId.Location = new System.Drawing.Point(150, 6);
             this.txtTrackWorkerId.Name = "txtTrackWorkerId";
-            this.txtTrackWorkerId.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerId.Size = new System.Drawing.Size(66, 26);
             this.txtTrackWorkerId.TabIndex = 1;
             // 
             // txtTrackWorkerFirstName
             // 
-            this.txtTrackWorkerFirstName.Location = new System.Drawing.Point(116, 32);
+            this.txtTrackWorkerFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerFirstName.Location = new System.Drawing.Point(150, 38);
             this.txtTrackWorkerFirstName.Name = "txtTrackWorkerFirstName";
-            this.txtTrackWorkerFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerFirstName.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerFirstName.TabIndex = 3;
-            this.txtTrackWorkerFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerFirstName_Validating);
+            this.toolTipApp.SetToolTip(this.txtTrackWorkerFirstName, "\"Track Worker First Name\"");
             // 
             // lblTrackWorkerFirstName
             // 
             this.lblTrackWorkerFirstName.AutoSize = true;
-            this.lblTrackWorkerFirstName.Location = new System.Drawing.Point(49, 35);
+            this.lblTrackWorkerFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrackWorkerFirstName.Location = new System.Drawing.Point(56, 41);
             this.lblTrackWorkerFirstName.Name = "lblTrackWorkerFirstName";
-            this.lblTrackWorkerFirstName.Size = new System.Drawing.Size(60, 13);
+            this.lblTrackWorkerFirstName.Size = new System.Drawing.Size(90, 20);
             this.lblTrackWorkerFirstName.TabIndex = 2;
             this.lblTrackWorkerFirstName.Text = "First Name:";
             // 
             // txtTrackWorkerLastName
             // 
-            this.txtTrackWorkerLastName.Location = new System.Drawing.Point(116, 58);
+            this.txtTrackWorkerLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerLastName.Location = new System.Drawing.Point(150, 70);
             this.txtTrackWorkerLastName.Name = "txtTrackWorkerLastName";
-            this.txtTrackWorkerLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerLastName.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerLastName.TabIndex = 5;
             this.txtTrackWorkerLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerLastName_Validating);
             // 
             // lblTrackWorkerLastName
             // 
             this.lblTrackWorkerLastName.AutoSize = true;
-            this.lblTrackWorkerLastName.Location = new System.Drawing.Point(48, 61);
+            this.lblTrackWorkerLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrackWorkerLastName.Location = new System.Drawing.Point(54, 73);
             this.lblTrackWorkerLastName.Name = "lblTrackWorkerLastName";
-            this.lblTrackWorkerLastName.Size = new System.Drawing.Size(61, 13);
+            this.lblTrackWorkerLastName.Size = new System.Drawing.Size(90, 20);
             this.lblTrackWorkerLastName.TabIndex = 4;
             this.lblTrackWorkerLastName.Text = "Last Name:";
             // 
             // lblTrackWorkerCell
             // 
             this.lblTrackWorkerCell.AutoSize = true;
-            this.lblTrackWorkerCell.Location = new System.Drawing.Point(82, 87);
+            this.lblTrackWorkerCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrackWorkerCell.Location = new System.Drawing.Point(105, 105);
             this.lblTrackWorkerCell.Name = "lblTrackWorkerCell";
-            this.lblTrackWorkerCell.Size = new System.Drawing.Size(27, 13);
+            this.lblTrackWorkerCell.Size = new System.Drawing.Size(39, 20);
             this.lblTrackWorkerCell.TabIndex = 6;
             this.lblTrackWorkerCell.Text = "Cell:";
             // 
             // txtTrackWorkerCell
             // 
-            this.txtTrackWorkerCell.Location = new System.Drawing.Point(116, 84);
+            this.txtTrackWorkerCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerCell.Location = new System.Drawing.Point(150, 102);
             this.txtTrackWorkerCell.Mask = "(999) 000-0000";
             this.txtTrackWorkerCell.Name = "txtTrackWorkerCell";
-            this.txtTrackWorkerCell.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerCell.Size = new System.Drawing.Size(117, 26);
             this.txtTrackWorkerCell.TabIndex = 7;
+            this.txtTrackWorkerCell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTrackWorkerCell.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerCell_Validating);
             // 
             // lblClientWorkerEmail
             // 
             this.lblClientWorkerEmail.AutoSize = true;
-            this.lblClientWorkerEmail.Location = new System.Drawing.Point(74, 113);
+            this.lblClientWorkerEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientWorkerEmail.Location = new System.Drawing.Point(92, 137);
             this.lblClientWorkerEmail.Name = "lblClientWorkerEmail";
-            this.lblClientWorkerEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblClientWorkerEmail.Size = new System.Drawing.Size(52, 20);
             this.lblClientWorkerEmail.TabIndex = 8;
             this.lblClientWorkerEmail.Text = "Email:";
             // 
             // txtTrackWorkerEmail
             // 
-            this.txtTrackWorkerEmail.Location = new System.Drawing.Point(116, 110);
+            this.txtTrackWorkerEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerEmail.Location = new System.Drawing.Point(150, 134);
             this.txtTrackWorkerEmail.Name = "txtTrackWorkerEmail";
-            this.txtTrackWorkerEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackWorkerEmail.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerEmail.TabIndex = 9;
             this.txtTrackWorkerEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerEmail_Validating);
             // 
             // lblTrackWorkerIsCapableCaptain
             // 
             this.lblTrackWorkerIsCapableCaptain.AutoSize = true;
-            this.lblTrackWorkerIsCapableCaptain.Location = new System.Drawing.Point(21, 149);
+            this.lblTrackWorkerIsCapableCaptain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrackWorkerIsCapableCaptain.Location = new System.Drawing.Point(13, 179);
             this.lblTrackWorkerIsCapableCaptain.Name = "lblTrackWorkerIsCapableCaptain";
-            this.lblTrackWorkerIsCapableCaptain.Size = new System.Drawing.Size(88, 13);
+            this.lblTrackWorkerIsCapableCaptain.Size = new System.Drawing.Size(131, 20);
             this.lblTrackWorkerIsCapableCaptain.TabIndex = 10;
             this.lblTrackWorkerIsCapableCaptain.Text = "Capable Captain:";
             // 
@@ -156,18 +169,19 @@ namespace MMS_CapstoneProject
             // 
             this.gbIsCapableCaptain.Controls.Add(this.rdoIsCapableCaptain_False);
             this.gbIsCapableCaptain.Controls.Add(this.rdoIsCapableCaptain_True);
-            this.gbIsCapableCaptain.Location = new System.Drawing.Point(116, 136);
+            this.gbIsCapableCaptain.Location = new System.Drawing.Point(150, 166);
             this.gbIsCapableCaptain.Name = "gbIsCapableCaptain";
-            this.gbIsCapableCaptain.Size = new System.Drawing.Size(114, 34);
+            this.gbIsCapableCaptain.Size = new System.Drawing.Size(193, 46);
             this.gbIsCapableCaptain.TabIndex = 11;
             this.gbIsCapableCaptain.TabStop = false;
             // 
             // rdoIsCapableCaptain_False
             // 
             this.rdoIsCapableCaptain_False.AutoSize = true;
-            this.rdoIsCapableCaptain_False.Location = new System.Drawing.Point(59, 11);
+            this.rdoIsCapableCaptain_False.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoIsCapableCaptain_False.Location = new System.Drawing.Point(101, 16);
             this.rdoIsCapableCaptain_False.Name = "rdoIsCapableCaptain_False";
-            this.rdoIsCapableCaptain_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoIsCapableCaptain_False.Size = new System.Drawing.Size(66, 24);
             this.rdoIsCapableCaptain_False.TabIndex = 1;
             this.rdoIsCapableCaptain_False.Text = "False";
             this.rdoIsCapableCaptain_False.UseVisualStyleBackColor = true;
@@ -176,9 +190,10 @@ namespace MMS_CapstoneProject
             // 
             this.rdoIsCapableCaptain_True.AutoSize = true;
             this.rdoIsCapableCaptain_True.Checked = true;
-            this.rdoIsCapableCaptain_True.Location = new System.Drawing.Point(6, 11);
+            this.rdoIsCapableCaptain_True.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoIsCapableCaptain_True.Location = new System.Drawing.Point(9, 16);
             this.rdoIsCapableCaptain_True.Name = "rdoIsCapableCaptain_True";
-            this.rdoIsCapableCaptain_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoIsCapableCaptain_True.Size = new System.Drawing.Size(59, 24);
             this.rdoIsCapableCaptain_True.TabIndex = 0;
             this.rdoIsCapableCaptain_True.TabStop = true;
             this.rdoIsCapableCaptain_True.Text = "True";
@@ -188,18 +203,19 @@ namespace MMS_CapstoneProject
             // 
             this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Disabled);
             this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Enabled);
-            this.gbIsDeleted.Location = new System.Drawing.Point(116, 176);
+            this.gbIsDeleted.Location = new System.Drawing.Point(151, 218);
             this.gbIsDeleted.Name = "gbIsDeleted";
-            this.gbIsDeleted.Size = new System.Drawing.Size(148, 35);
+            this.gbIsDeleted.Size = new System.Drawing.Size(193, 47);
             this.gbIsDeleted.TabIndex = 12;
             this.gbIsDeleted.TabStop = false;
             // 
             // rdoIsDeleted_Disabled
             // 
             this.rdoIsDeleted_Disabled.AutoSize = true;
-            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(76, 12);
+            this.rdoIsDeleted_Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(100, 12);
             this.rdoIsDeleted_Disabled.Name = "rdoIsDeleted_Disabled";
-            this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
+            this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(89, 24);
             this.rdoIsDeleted_Disabled.TabIndex = 1;
             this.rdoIsDeleted_Disabled.Text = "Disabled";
             this.rdoIsDeleted_Disabled.UseVisualStyleBackColor = true;
@@ -208,9 +224,10 @@ namespace MMS_CapstoneProject
             // 
             this.rdoIsDeleted_Enabled.AutoSize = true;
             this.rdoIsDeleted_Enabled.Checked = true;
+            this.rdoIsDeleted_Enabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(8, 12);
             this.rdoIsDeleted_Enabled.Name = "rdoIsDeleted_Enabled";
-            this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
+            this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(86, 24);
             this.rdoIsDeleted_Enabled.TabIndex = 0;
             this.rdoIsDeleted_Enabled.TabStop = true;
             this.rdoIsDeleted_Enabled.Text = "Enabled";
@@ -218,18 +235,20 @@ namespace MMS_CapstoneProject
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(13, 229);
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(17, 291);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.Size = new System.Drawing.Size(100, 39);
             this.btnEnter.TabIndex = 13;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
             // 
             // btnEscape
             // 
-            this.btnEscape.Location = new System.Drawing.Point(175, 229);
+            this.btnEscape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscape.Location = new System.Drawing.Point(240, 291);
             this.btnEscape.Name = "btnEscape";
-            this.btnEscape.Size = new System.Drawing.Size(75, 23);
+            this.btnEscape.Size = new System.Drawing.Size(100, 39);
             this.btnEscape.TabIndex = 15;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
@@ -238,9 +257,10 @@ namespace MMS_CapstoneProject
             // btnClear
             // 
             this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClear.Location = new System.Drawing.Point(94, 229);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(130, 291);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(100, 39);
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -256,7 +276,7 @@ namespace MMS_CapstoneProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClear;
-            this.ClientSize = new System.Drawing.Size(282, 276);
+            this.ClientSize = new System.Drawing.Size(368, 358);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
             this.Controls.Add(this.btnEnter);
@@ -273,6 +293,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackWorkerFirstName);
             this.Controls.Add(this.txtTrackWorkerId);
             this.Controls.Add(this.lblTrackWorkerId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrackWorkerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -291,7 +312,6 @@ namespace MMS_CapstoneProject
         #endregion
 
         private System.Windows.Forms.Label lblTrackWorkerId;
-        private System.Windows.Forms.TextBox txtTrackWorkerId;
         private System.Windows.Forms.TextBox txtTrackWorkerFirstName;
         private System.Windows.Forms.Label lblTrackWorkerFirstName;
         private System.Windows.Forms.TextBox txtTrackWorkerLastName;
@@ -311,5 +331,7 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.Button btnEscape;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ErrorProvider errorProviderApp;
+        private System.Windows.Forms.TextBox txtTrackWorkerId;
+        private System.Windows.Forms.ToolTip toolTipApp;
     }
 }
