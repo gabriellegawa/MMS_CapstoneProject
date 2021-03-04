@@ -103,7 +103,6 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerLastName.Name = "txtTrackWorkerLastName";
             this.txtTrackWorkerLastName.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerLastName.TabIndex = 5;
-            this.txtTrackWorkerLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerLastName_Validating);
             // 
             // lblTrackWorkerLastName
             // 
@@ -134,7 +133,6 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerCell.Size = new System.Drawing.Size(117, 26);
             this.txtTrackWorkerCell.TabIndex = 7;
             this.txtTrackWorkerCell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTrackWorkerCell.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerCell_Validating);
             // 
             // lblClientWorkerEmail
             // 
@@ -153,7 +151,6 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerEmail.Name = "txtTrackWorkerEmail";
             this.txtTrackWorkerEmail.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerEmail.TabIndex = 9;
-            this.txtTrackWorkerEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrackWorkerEmail_Validating);
             // 
             // lblTrackWorkerIsCapableCaptain
             // 

@@ -18,22 +18,28 @@ namespace MMS_CapstoneProject
         /// <param name="mainForm">main form</param>
         public TrackWorkerForm(MainForm mainForm)
         {
-            _mainForm = mainForm;
             InitializeComponent();
 
+            _mainForm = mainForm;
+            // Wire btnEnter click event into btnCreate_Click event
             btnEnter.Click += btnCreate_Click;
         }
         /// <summary>
-        /// 
+        /// TrackWorkerForm constructor from main form, we pass mainform since we need to refresh datagridview on main form and this is one of the way
+        ///     and we pass track worker object that we get from datagridview.
+        /// FOR UPDATE OF TRACKWORKER
         /// </summary>
-        /// <param name="mainForm"></param>
-        /// <param name="trackWorker"></param>
+        /// <param name="mainForm">main form</param>
+        /// <param name="trackWorker">track worker from datagridview</param>
         public TrackWorkerForm(MainForm mainForm, TrackWorkerModel trackWorker)
         {
-            _mainForm = mainForm;
             InitializeComponent();
+
+            _mainForm = mainForm;
+            // Wire btnEnter click event into btnUpdate_Click event
             btnEnter.Click += btnUpdate_Click;
 
+            // Moving TrackWorker data into the form
             txtTrackWorkerId.Text = trackWorker.Id.ToString();
             txtTrackWorkerFirstName.Text = trackWorker.FirstName;
             txtTrackWorkerLastName.Text = trackWorker.LastName;
@@ -55,15 +61,22 @@ namespace MMS_CapstoneProject
             {
                 rdoIsDeleted_Enabled.Checked = true;
             }
-
-            btnEnter.Text = "Update";
+            // Change the btnEnter text into Update
+            btnEnter.Text = "&Update";
         }
-
+        /// <summary>
+        /// btnCreate_Click - button create event for inserting new track worker into database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
             bool bFirstNameValid = ValidatingFirstNameTextbox();
+            bool bLastNameValid = ValidatingLastNameTextbox();
+            bool bCellValid = ValidatingCellTextbox();
+            bool bEmailValid = ValidatingEmailTextbox();
 
-            if (bFirstNameValid && ValidateChildren(ValidationConstraints.Enabled))
+            if (bFirstNameValid && bLastNameValid && bCellValid && bEmailValid)
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
                 trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
@@ -91,8 +104,11 @@ namespace MMS_CapstoneProject
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             bool bFirstNameValid = ValidatingFirstNameTextbox();
+            bool bLastNameValid = ValidatingLastNameTextbox();
+            bool bCellValid = ValidatingCellTextbox();
+            bool bEmailValid = ValidatingEmailTextbox();
 
-            if (bFirstNameValid && ValidateChildren(ValidationConstraints.Enabled))
+            if (bFirstNameValid && bLastNameValid && bCellValid && bEmailValid)
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
                 trackWorker.FirstName = txtTrackWorkerFirstName.Text.Trim();
@@ -134,55 +150,58 @@ namespace MMS_CapstoneProject
             return bStatus;
         }
 
-        private void txtTrackWorkerLastName_Validating(object sender, CancelEventArgs e)
+        private bool ValidatingLastNameTextbox()
         {
+            bool bStatus = true;
             if (string.IsNullOrWhiteSpace(txtTrackWorkerLastName.Text))
             {
-                e.Cancel = true;
                 txtTrackWorkerLastName.Focus();
                 errorProviderApp.SetError(txtTrackWorkerLastName, "Last Name should not be left blank!");
+                bStatus = false;
             }
             else
             {
-                e.Cancel = false;
                 errorProviderApp.SetError(txtTrackWorkerLastName, "");
             }
+            return bStatus;
         }
 
-        private void txtTrackWorkerCell_Validating(object sender, CancelEventArgs e)
+        private bool ValidatingCellTextbox()
         {
+            bool bStatus = true;
             if (!txtTrackWorkerCell.MaskFull)
             {
-                e.Cancel = true;
                 txtTrackWorkerCell.Focus();
                 errorProviderApp.SetError(txtTrackWorkerCell, "Cell should not be left blank!");
+                bStatus = false;
             }
             else
             {
-                e.Cancel = false;
                 errorProviderApp.SetError(txtTrackWorkerCell, "");
             }
+            return bStatus;
         }
 
-        private void txtTrackWorkerEmail_Validating(object sender, CancelEventArgs e)
+        private bool ValidatingEmailTextbox()
         {
+            bool bStatus = true;
             if (string.IsNullOrWhiteSpace(txtTrackWorkerEmail.Text))
             {
-                e.Cancel = true;
                 txtTrackWorkerEmail.Focus();
                 errorProviderApp.SetError(txtTrackWorkerEmail, "Email should not be left blank!");
+                bStatus = false;
             }
             else if (!IsValidEmail(txtTrackWorkerEmail.Text))
             {
-                e.Cancel = true;
                 txtTrackWorkerEmail.Focus();
                 errorProviderApp.SetError(txtTrackWorkerEmail, "Email is not valid!");
+                bStatus = false;
             }
             else
             {
-                e.Cancel = false;
                 errorProviderApp.SetError(txtTrackWorkerEmail, "");
             }
+            return bStatus;
         }
 
         private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -190,6 +209,24 @@ namespace MMS_CapstoneProject
             e.Cancel = false;
             _mainForm.RefreshDataGridViewTrackWorker();
         }
+        
+
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtTrackWorkerId.Clear();
+            txtTrackWorkerFirstName.Clear();
+            txtTrackWorkerLastName.Clear();
+            txtTrackWorkerCell.Clear();
+            txtTrackWorkerEmail.Clear();
+            rdoIsCapableCaptain_True.Checked = true;
+            rdoIsDeleted_Enabled.Checked = true;
+        }
+
         /// <summary>
         /// https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
         /// </summary>
@@ -237,22 +274,6 @@ namespace MMS_CapstoneProject
             {
                 return false;
             }
-        }
-
-        private void btnEscape_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtTrackWorkerId.Clear();
-            txtTrackWorkerFirstName.Clear();
-            txtTrackWorkerLastName.Clear();
-            txtTrackWorkerCell.Clear();
-            txtTrackWorkerEmail.Clear();
-            rdoIsCapableCaptain_True.Checked = true;
-            rdoIsDeleted_Enabled.Checked = true;
         }
     }
 }
