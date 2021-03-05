@@ -40,12 +40,13 @@ namespace MMS_CapstoneProject
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvData.Location = new System.Drawing.Point(0, 56);
+            this.dgvData.Location = new System.Drawing.Point(0, 65);
             this.dgvData.Name = "dgvData";
-            this.dgvData.Size = new System.Drawing.Size(434, 403);
+            this.dgvData.Size = new System.Drawing.Size(361, 372);
             this.dgvData.TabIndex = 0;
             // 
             // txtDataGridViewSearch
@@ -69,7 +70,7 @@ namespace MMS_CapstoneProject
             // 
             this.btnSelect.Location = new System.Drawing.Point(13, 18);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.Size = new System.Drawing.Size(67, 25);
             this.btnSelect.TabIndex = 3;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -78,11 +79,12 @@ namespace MMS_CapstoneProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 459);
+            this.ClientSize = new System.Drawing.Size(361, 437);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtDataGridViewSearch);
             this.Controls.Add(this.dgvData);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataGridViewForm";
             this.Text = "Data Entry Form";

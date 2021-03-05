@@ -29,7 +29,6 @@ namespace MMS_CapstoneProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabClient = new System.Windows.Forms.TabPage();
@@ -82,6 +81,7 @@ namespace MMS_CapstoneProject
             this.tabControl.Controls.Add(this.tabTrack);
             this.tabControl.Controls.Add(this.tabClientEvent);
             this.tabControl.Controls.Add(this.tabEmail);
+            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -95,17 +95,17 @@ namespace MMS_CapstoneProject
             this.tabClient.Controls.Add(this.txtClientSearch);
             this.tabClient.Controls.Add(this.btnClientAddNew);
             this.tabClient.Controls.Add(this.dgvClient);
-            this.tabClient.Location = new System.Drawing.Point(4, 22);
+            this.tabClient.Location = new System.Drawing.Point(4, 25);
             this.tabClient.Name = "tabClient";
             this.tabClient.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClient.Size = new System.Drawing.Size(768, 400);
+            this.tabClient.Size = new System.Drawing.Size(768, 397);
             this.tabClient.TabIndex = 0;
             this.tabClient.Text = "Client";
             this.tabClient.UseVisualStyleBackColor = true;
             // 
             // btnClientSearch
             // 
-            this.btnClientSearch.Location = new System.Drawing.Point(416, 12);
+            this.btnClientSearch.Location = new System.Drawing.Point(419, 9);
             this.btnClientSearch.Name = "btnClientSearch";
             this.btnClientSearch.Size = new System.Drawing.Size(100, 45);
             this.btnClientSearch.TabIndex = 2;
@@ -115,7 +115,7 @@ namespace MMS_CapstoneProject
             // txtClientSearch
             // 
             this.txtClientSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClientSearch.Location = new System.Drawing.Point(270, 16);
+            this.txtClientSearch.Location = new System.Drawing.Point(273, 9);
             this.txtClientSearch.Name = "txtClientSearch";
             this.txtClientSearch.Size = new System.Drawing.Size(140, 29);
             this.txtClientSearch.TabIndex = 1;
@@ -123,11 +123,11 @@ namespace MMS_CapstoneProject
             // 
             // btnClientAddNew
             // 
-            this.btnClientAddNew.Location = new System.Drawing.Point(6, 12);
+            this.btnClientAddNew.Location = new System.Drawing.Point(9, 9);
             this.btnClientAddNew.Name = "btnClientAddNew";
             this.btnClientAddNew.Size = new System.Drawing.Size(100, 45);
             this.btnClientAddNew.TabIndex = 0;
-            this.btnClientAddNew.Text = "Add New";
+            this.btnClientAddNew.Text = "Add &New";
             this.btnClientAddNew.UseVisualStyleBackColor = true;
             this.btnClientAddNew.Click += new System.EventHandler(this.btnClientAddNew_Click);
             // 
@@ -135,14 +135,12 @@ namespace MMS_CapstoneProject
             // 
             this.dgvClient.AllowUserToAddRows = false;
             this.dgvClient.AllowUserToDeleteRows = false;
-            this.dgvClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvClient.Location = new System.Drawing.Point(0, 63);
+            this.dgvClient.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvClient.Location = new System.Drawing.Point(3, 63);
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.ReadOnly = true;
             this.dgvClient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvClient.Size = new System.Drawing.Size(768, 331);
+            this.dgvClient.Size = new System.Drawing.Size(762, 331);
             this.dgvClient.TabIndex = 3;
             this.dgvClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellClick);
             // 
@@ -152,17 +150,17 @@ namespace MMS_CapstoneProject
             this.tabTrackWorker.Controls.Add(this.txtTrackWorkerSearch);
             this.tabTrackWorker.Controls.Add(this.btnTrackWorkerAddNew);
             this.tabTrackWorker.Controls.Add(this.dgvTrackWorker);
-            this.tabTrackWorker.Location = new System.Drawing.Point(4, 22);
+            this.tabTrackWorker.Location = new System.Drawing.Point(4, 25);
             this.tabTrackWorker.Name = "tabTrackWorker";
             this.tabTrackWorker.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrackWorker.Size = new System.Drawing.Size(768, 400);
+            this.tabTrackWorker.Size = new System.Drawing.Size(768, 397);
             this.tabTrackWorker.TabIndex = 1;
             this.tabTrackWorker.Text = "Track Worker";
             this.tabTrackWorker.UseVisualStyleBackColor = true;
             // 
             // btnTrackWorkerSearch
             // 
-            this.btnTrackWorkerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrackWorkerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnTrackWorkerSearch.Location = new System.Drawing.Point(419, 9);
             this.btnTrackWorkerSearch.Name = "btnTrackWorkerSearch";
             this.btnTrackWorkerSearch.Size = new System.Drawing.Size(100, 45);
@@ -172,16 +170,16 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackWorkerSearch
             // 
-            this.txtTrackWorkerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrackWorkerSearch.Location = new System.Drawing.Point(273, 18);
+            this.txtTrackWorkerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackWorkerSearch.Location = new System.Drawing.Point(273, 9);
             this.txtTrackWorkerSearch.Name = "txtTrackWorkerSearch";
-            this.txtTrackWorkerSearch.Size = new System.Drawing.Size(140, 26);
+            this.txtTrackWorkerSearch.Size = new System.Drawing.Size(140, 29);
             this.txtTrackWorkerSearch.TabIndex = 1;
             this.txtTrackWorkerSearch.TextChanged += new System.EventHandler(this.txtTrackWorkerSearch_TextChanged);
             // 
             // btnTrackWorkerAddNew
             // 
-            this.btnTrackWorkerAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrackWorkerAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnTrackWorkerAddNew.Location = new System.Drawing.Point(9, 9);
             this.btnTrackWorkerAddNew.Name = "btnTrackWorkerAddNew";
             this.btnTrackWorkerAddNew.Size = new System.Drawing.Size(100, 45);
@@ -194,20 +192,9 @@ namespace MMS_CapstoneProject
             // 
             this.dgvTrackWorker.AllowUserToAddRows = false;
             this.dgvTrackWorker.AllowUserToDeleteRows = false;
-            this.dgvTrackWorker.AllowUserToOrderColumns = true;
-            this.dgvTrackWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTrackWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTrackWorker.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTrackWorker.Location = new System.Drawing.Point(3, 60);
+            this.dgvTrackWorker.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvTrackWorker.Location = new System.Drawing.Point(3, 63);
             this.dgvTrackWorker.Name = "dgvTrackWorker";
             this.dgvTrackWorker.ReadOnly = true;
             this.dgvTrackWorker.Size = new System.Drawing.Size(762, 331);
@@ -220,16 +207,17 @@ namespace MMS_CapstoneProject
             this.tabTrack.Controls.Add(this.txtTrackSearch);
             this.tabTrack.Controls.Add(this.btnTrackAddNew);
             this.tabTrack.Controls.Add(this.dgvTrack);
-            this.tabTrack.Location = new System.Drawing.Point(4, 22);
+            this.tabTrack.Location = new System.Drawing.Point(4, 25);
             this.tabTrack.Name = "tabTrack";
             this.tabTrack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrack.Size = new System.Drawing.Size(768, 400);
+            this.tabTrack.Size = new System.Drawing.Size(768, 397);
             this.tabTrack.TabIndex = 2;
             this.tabTrack.Text = "Track";
             this.tabTrack.UseVisualStyleBackColor = true;
             // 
             // btnTrackSearch
             // 
+            this.btnTrackSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnTrackSearch.Location = new System.Drawing.Point(419, 9);
             this.btnTrackSearch.Name = "btnTrackSearch";
             this.btnTrackSearch.Size = new System.Drawing.Size(100, 45);
@@ -239,8 +227,8 @@ namespace MMS_CapstoneProject
             // 
             // txtTrackSearch
             // 
-            this.txtTrackSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrackSearch.Location = new System.Drawing.Point(273, 13);
+            this.txtTrackSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.txtTrackSearch.Location = new System.Drawing.Point(273, 9);
             this.txtTrackSearch.Name = "txtTrackSearch";
             this.txtTrackSearch.Size = new System.Drawing.Size(140, 29);
             this.txtTrackSearch.TabIndex = 1;
@@ -248,22 +236,24 @@ namespace MMS_CapstoneProject
             // 
             // btnTrackAddNew
             // 
+            this.btnTrackAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnTrackAddNew.Location = new System.Drawing.Point(9, 9);
             this.btnTrackAddNew.Name = "btnTrackAddNew";
             this.btnTrackAddNew.Size = new System.Drawing.Size(100, 45);
             this.btnTrackAddNew.TabIndex = 0;
-            this.btnTrackAddNew.Text = "Add New";
+            this.btnTrackAddNew.Text = "Add &New";
             this.btnTrackAddNew.UseVisualStyleBackColor = true;
             this.btnTrackAddNew.Click += new System.EventHandler(this.btnTrackAddNew_Click);
             // 
             // dgvTrack
             // 
-            this.dgvTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTrack.AllowUserToAddRows = false;
+            this.dgvTrack.AllowUserToDeleteRows = false;
             this.dgvTrack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrack.Location = new System.Drawing.Point(3, 60);
+            this.dgvTrack.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvTrack.Location = new System.Drawing.Point(3, 63);
             this.dgvTrack.Name = "dgvTrack";
+            this.dgvTrack.ReadOnly = true;
             this.dgvTrack.Size = new System.Drawing.Size(762, 331);
             this.dgvTrack.TabIndex = 3;
             this.dgvTrack.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrack_CellClick);
@@ -274,10 +264,10 @@ namespace MMS_CapstoneProject
             this.tabClientEvent.Controls.Add(this.txtClientEventSearch);
             this.tabClientEvent.Controls.Add(this.btnClientEventAddNew);
             this.tabClientEvent.Controls.Add(this.dgvClientEvent);
-            this.tabClientEvent.Location = new System.Drawing.Point(4, 22);
+            this.tabClientEvent.Location = new System.Drawing.Point(4, 25);
             this.tabClientEvent.Name = "tabClientEvent";
             this.tabClientEvent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClientEvent.Size = new System.Drawing.Size(768, 400);
+            this.tabClientEvent.Size = new System.Drawing.Size(768, 397);
             this.tabClientEvent.TabIndex = 3;
             this.tabClientEvent.Text = "Client Event";
             this.tabClientEvent.UseVisualStyleBackColor = true;
@@ -294,7 +284,7 @@ namespace MMS_CapstoneProject
             // txtClientEventSearch
             // 
             this.txtClientEventSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClientEventSearch.Location = new System.Drawing.Point(273, 13);
+            this.txtClientEventSearch.Location = new System.Drawing.Point(273, 9);
             this.txtClientEventSearch.Name = "txtClientEventSearch";
             this.txtClientEventSearch.Size = new System.Drawing.Size(140, 29);
             this.txtClientEventSearch.TabIndex = 1;
@@ -305,17 +295,15 @@ namespace MMS_CapstoneProject
             this.btnClientEventAddNew.Name = "btnClientEventAddNew";
             this.btnClientEventAddNew.Size = new System.Drawing.Size(100, 45);
             this.btnClientEventAddNew.TabIndex = 0;
-            this.btnClientEventAddNew.Text = "Add New";
+            this.btnClientEventAddNew.Text = "Add &New";
             this.btnClientEventAddNew.UseVisualStyleBackColor = true;
             this.btnClientEventAddNew.Click += new System.EventHandler(this.btnClientEventAddNew_Click);
             // 
             // dgvClientEvent
             // 
-            this.dgvClientEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientEvent.Location = new System.Drawing.Point(3, 60);
+            this.dgvClientEvent.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvClientEvent.Location = new System.Drawing.Point(3, 63);
             this.dgvClientEvent.Name = "dgvClientEvent";
             this.dgvClientEvent.Size = new System.Drawing.Size(762, 331);
             this.dgvClientEvent.TabIndex = 3;
@@ -330,10 +318,10 @@ namespace MMS_CapstoneProject
             this.tabEmail.Controls.Add(this.lblEmailBody);
             this.tabEmail.Controls.Add(this.txtEmailSubject);
             this.tabEmail.Controls.Add(this.lblEmailSubject);
-            this.tabEmail.Location = new System.Drawing.Point(4, 22);
+            this.tabEmail.Location = new System.Drawing.Point(4, 25);
             this.tabEmail.Name = "tabEmail";
             this.tabEmail.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEmail.Size = new System.Drawing.Size(768, 400);
+            this.tabEmail.Size = new System.Drawing.Size(768, 397);
             this.tabEmail.TabIndex = 4;
             this.tabEmail.Text = "Email";
             this.tabEmail.UseVisualStyleBackColor = true;
@@ -379,7 +367,7 @@ namespace MMS_CapstoneProject
             this.lblEmailBody.AutoSize = true;
             this.lblEmailBody.Location = new System.Drawing.Point(48, 44);
             this.lblEmailBody.Name = "lblEmailBody";
-            this.lblEmailBody.Size = new System.Drawing.Size(31, 13);
+            this.lblEmailBody.Size = new System.Drawing.Size(40, 16);
             this.lblEmailBody.TabIndex = 2;
             this.lblEmailBody.Text = "Body";
             // 
@@ -387,7 +375,7 @@ namespace MMS_CapstoneProject
             // 
             this.txtEmailSubject.Location = new System.Drawing.Point(95, 13);
             this.txtEmailSubject.Name = "txtEmailSubject";
-            this.txtEmailSubject.Size = new System.Drawing.Size(271, 20);
+            this.txtEmailSubject.Size = new System.Drawing.Size(271, 22);
             this.txtEmailSubject.TabIndex = 1;
             // 
             // lblEmailSubject
@@ -395,7 +383,7 @@ namespace MMS_CapstoneProject
             this.lblEmailSubject.AutoSize = true;
             this.lblEmailSubject.Location = new System.Drawing.Point(36, 16);
             this.lblEmailSubject.Name = "lblEmailSubject";
-            this.lblEmailSubject.Size = new System.Drawing.Size(43, 13);
+            this.lblEmailSubject.Size = new System.Drawing.Size(53, 16);
             this.lblEmailSubject.TabIndex = 0;
             this.lblEmailSubject.Text = "Subject";
             // 
@@ -407,6 +395,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.tabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Motorsport Marshalling Services";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl.ResumeLayout(false);

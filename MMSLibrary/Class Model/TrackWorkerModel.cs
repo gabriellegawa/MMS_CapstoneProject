@@ -14,7 +14,6 @@ namespace MMSLibrary
         public string Cell { get; set; }
         public bool IsCapableCaptain { get; set; }
         public bool IsDeleted { get; set; }
-        public List<ClientEventModel> ClientEvents { get; set; }
         public string FullName()
         {
             return FirstName + " " + LastName;

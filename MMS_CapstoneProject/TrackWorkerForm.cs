@@ -315,5 +315,10 @@ namespace MMS_CapstoneProject
                 return false;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

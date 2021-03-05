@@ -34,7 +34,7 @@ namespace MMS_CapstoneProject
                 rdoIsDeleted_Enabled.Checked = true;
             }
 
-            btnEnter.Text = "Update";
+            btnEnter.Text = "&Update";
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {

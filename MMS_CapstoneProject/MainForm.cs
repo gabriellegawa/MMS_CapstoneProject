@@ -164,7 +164,7 @@ namespace MMS_CapstoneProject
             dataGridView.Columns["TrackId"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
-            this.Width = 365 + dgv_width;
+            this.Width = 250 + dgv_width;
 
             dataGridView.ClearSelection();
         }
@@ -435,6 +435,11 @@ namespace MMS_CapstoneProject
                 case 3:
                     {
                         RefreshDataGridViewClientEvent();
+                        break;
+                    }
+                case 4:
+                    {
+                        this.Width = 800;
                         break;
                     }
             }

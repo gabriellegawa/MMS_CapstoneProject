@@ -225,6 +225,7 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblClientName);
             this.Controls.Add(this.txtClientId);
             this.Controls.Add(this.lblClientId);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

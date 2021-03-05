@@ -297,6 +297,9 @@ namespace MMS_CapstoneProject
             this.Controls.Add(this.lblTrackWorkerId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(384, 397);
+            this.MinimumSize = new System.Drawing.Size(384, 397);
             this.Name = "TrackWorkerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Track Worker Form";
