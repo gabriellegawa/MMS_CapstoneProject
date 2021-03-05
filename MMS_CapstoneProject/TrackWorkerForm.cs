@@ -11,6 +11,7 @@ namespace MMS_CapstoneProject
     public partial class TrackWorkerForm : Form
     {
         private readonly MainForm _mainForm;
+
         /// <summary>
         /// TrackWorkerForm constructor from main form, we pass mainform since we need to refresh datagridview on main form and this is one of the way
         /// FOR CREATION OF TRACKWORKER
@@ -24,6 +25,7 @@ namespace MMS_CapstoneProject
             // Wire btnEnter click event into btnCreate_Click event
             btnEnter.Click += btnCreate_Click;
         }
+
         /// <summary>
         /// TrackWorkerForm constructor from main form, we pass mainform since we need to refresh datagridview on main form and this is one of the way
         ///     and we pass track worker object that we get from datagridview.
@@ -64,8 +66,9 @@ namespace MMS_CapstoneProject
             // Change the btnEnter text into Update
             btnEnter.Text = "&Update";
         }
+
         /// <summary>
-        /// btnCreate_Click - button create event for inserting new track worker into database
+        /// btnCreate_Click - button click event for inserting new track worker into database
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -101,6 +104,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// btnUpdate_Click - button click event for updating track worker into database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             bool bFirstNameValid = ValidatingFirstNameTextbox();
@@ -134,6 +142,10 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// ValidatingFirstNameTextbox - validating first name textbox
+        /// </summary>
+        /// <returns>bool true or false</returns>
         private bool ValidatingFirstNameTextbox()
         {
             bool bStatus = true;
@@ -150,6 +162,10 @@ namespace MMS_CapstoneProject
             return bStatus;
         }
 
+        /// <summary>
+        /// ValidatingLastNameTextbox - validating last name textbox
+        /// </summary>
+        /// <returns>bool true or false</returns>
         private bool ValidatingLastNameTextbox()
         {
             bool bStatus = true;
@@ -166,6 +182,10 @@ namespace MMS_CapstoneProject
             return bStatus;
         }
 
+        /// <summary>
+        /// ValidatingCellTextbox - validating cell textbox
+        /// </summary>
+        /// <returns>bool true or false</returns>
         private bool ValidatingCellTextbox()
         {
             bool bStatus = true;
@@ -182,6 +202,10 @@ namespace MMS_CapstoneProject
             return bStatus;
         }
 
+        /// <summary>
+        /// ValidatingEmailTextbox - validating email textbox
+        /// </summary>
+        /// <returns>bool true or false</returns>
         private bool ValidatingEmailTextbox()
         {
             bool bStatus = true;
@@ -204,18 +228,33 @@ namespace MMS_CapstoneProject
             return bStatus;
         }
 
+        /// <summary>
+        /// TrackWorkerForm_FormClosing - Track Worker form closing event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TrackWorkerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = false;
+            //e.Cancel = false;
+            // Update datagridview on main form
             _mainForm.RefreshDataGridViewTrackWorker();
         }
-        
 
+        /// <summary>
+        /// btnEscape_Click - button escape click event to close the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEscape_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// btnClear_Click - button clear click event to clear all input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtTrackWorkerId.Clear();
@@ -228,10 +267,11 @@ namespace MMS_CapstoneProject
         }
 
         /// <summary>
+        /// IsValidEmail - validate email address
         /// https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">string email</param>
+        /// <returns>bool true or false</returns>
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))

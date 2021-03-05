@@ -8,13 +8,6 @@ namespace MMSLibrary
         /// Track worker model - this class attribute is based on TrackWorkers table in database
         /// </summary>
         public int Id { get; set; }
-        public string FullName
-        {
-            get
-            {
-                return $"{FirstName} {LastName}";
-            }
-        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -22,5 +15,9 @@ namespace MMSLibrary
         public bool IsCapableCaptain { get; set; }
         public bool IsDeleted { get; set; }
         public List<ClientEventModel> ClientEvents { get; set; }
+        public string FullName()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

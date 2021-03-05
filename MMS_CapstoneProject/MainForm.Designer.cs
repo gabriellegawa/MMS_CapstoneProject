@@ -192,6 +192,9 @@ namespace MMS_CapstoneProject
             // 
             // dgvTrackWorker
             // 
+            this.dgvTrackWorker.AllowUserToAddRows = false;
+            this.dgvTrackWorker.AllowUserToDeleteRows = false;
+            this.dgvTrackWorker.AllowUserToOrderColumns = true;
             this.dgvTrackWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -206,6 +209,7 @@ namespace MMS_CapstoneProject
             this.dgvTrackWorker.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTrackWorker.Location = new System.Drawing.Point(3, 60);
             this.dgvTrackWorker.Name = "dgvTrackWorker";
+            this.dgvTrackWorker.ReadOnly = true;
             this.dgvTrackWorker.Size = new System.Drawing.Size(762, 331);
             this.dgvTrackWorker.TabIndex = 3;
             this.dgvTrackWorker.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrackWorker_CellClick);

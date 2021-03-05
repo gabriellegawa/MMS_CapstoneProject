@@ -84,7 +84,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerFirstName.Name = "txtTrackWorkerFirstName";
             this.txtTrackWorkerFirstName.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerFirstName.TabIndex = 3;
-            this.toolTipApp.SetToolTip(this.txtTrackWorkerFirstName, "\"Track Worker First Name\"");
+            this.toolTipApp.SetToolTip(this.txtTrackWorkerFirstName, "Track Worker First Name");
             // 
             // lblTrackWorkerFirstName
             // 
@@ -103,6 +103,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerLastName.Name = "txtTrackWorkerLastName";
             this.txtTrackWorkerLastName.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerLastName.TabIndex = 5;
+            this.toolTipApp.SetToolTip(this.txtTrackWorkerLastName, "Track Worker Last Name");
             // 
             // lblTrackWorkerLastName
             // 
@@ -133,6 +134,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerCell.Size = new System.Drawing.Size(117, 26);
             this.txtTrackWorkerCell.TabIndex = 7;
             this.txtTrackWorkerCell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTipApp.SetToolTip(this.txtTrackWorkerCell, "Track Worker Cell Number");
             // 
             // lblClientWorkerEmail
             // 
@@ -151,6 +153,7 @@ namespace MMS_CapstoneProject
             this.txtTrackWorkerEmail.Name = "txtTrackWorkerEmail";
             this.txtTrackWorkerEmail.Size = new System.Drawing.Size(190, 26);
             this.txtTrackWorkerEmail.TabIndex = 9;
+            this.toolTipApp.SetToolTip(this.txtTrackWorkerEmail, "Track Worker Email Address");
             // 
             // lblTrackWorkerIsCapableCaptain
             // 
@@ -171,6 +174,7 @@ namespace MMS_CapstoneProject
             this.gbIsCapableCaptain.Size = new System.Drawing.Size(193, 46);
             this.gbIsCapableCaptain.TabIndex = 11;
             this.gbIsCapableCaptain.TabStop = false;
+            this.toolTipApp.SetToolTip(this.gbIsCapableCaptain, "Track Worker Capable Captain");
             // 
             // rdoIsCapableCaptain_False
             // 
@@ -205,6 +209,7 @@ namespace MMS_CapstoneProject
             this.gbIsDeleted.Size = new System.Drawing.Size(193, 47);
             this.gbIsDeleted.TabIndex = 12;
             this.gbIsDeleted.TabStop = false;
+            this.toolTipApp.SetToolTip(this.gbIsDeleted, "Track Worker Is Deleted");
             // 
             // rdoIsDeleted_Disabled
             // 
@@ -237,29 +242,29 @@ namespace MMS_CapstoneProject
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(100, 39);
             this.btnEnter.TabIndex = 13;
-            this.btnEnter.Text = "Create";
+            this.btnEnter.Text = "&Add";
             this.btnEnter.UseVisualStyleBackColor = true;
             // 
             // btnEscape
             // 
+            this.btnEscape.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnEscape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscape.Location = new System.Drawing.Point(240, 291);
             this.btnEscape.Name = "btnEscape";
             this.btnEscape.Size = new System.Drawing.Size(100, 39);
             this.btnEscape.TabIndex = 15;
-            this.btnEscape.Text = "Cancel";
+            this.btnEscape.Text = "&Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
             this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
             // 
             // btnClear
             // 
-            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(130, 291);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 39);
             this.btnClear.TabIndex = 14;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "C&lear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -272,7 +277,7 @@ namespace MMS_CapstoneProject
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClear;
+            this.CancelButton = this.btnEscape;
             this.ClientSize = new System.Drawing.Size(368, 358);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);

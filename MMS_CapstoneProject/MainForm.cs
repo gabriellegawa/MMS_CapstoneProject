@@ -96,12 +96,14 @@ namespace MMS_CapstoneProject
             DataGridView dataGridView = dgvTrackWorker;
             DataTable dataTable = ToDataTable(list);
 
+            dataTable.Columns["Id"].ColumnName = "Track Worker ID";
+
             dataGridView.DataSource = dataTable;
             //dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView.AutoResizeColumns();
             dataGridView.AutoResizeRows();
 
-            dataGridView.Columns["Id"].HeaderText = "Track Worker ID";
+            //dataGridView.Columns["Id"].HeaderText = "Track Worker ID";
             //dataGridView.Columns["IsDeleted"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
@@ -109,6 +111,7 @@ namespace MMS_CapstoneProject
             this.Width = 365 + dgv_width;
 
             dataGridView.ClearSelection();
+            txtTrackWorkerSearch.Clear();
         }
 
         public void RefreshDataGridViewTrack()
@@ -171,7 +174,7 @@ namespace MMS_CapstoneProject
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
 
-                trackWorker.Id = int.Parse(dgvTrackWorker.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                trackWorker.Id = int.Parse(dgvTrackWorker.Rows[e.RowIndex].Cells["Track Worker ID"].Value.ToString());
                 trackWorker.FirstName = dgvTrackWorker.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
                 trackWorker.LastName = dgvTrackWorker.Rows[e.RowIndex].Cells["LastName"].Value.ToString();
                 trackWorker.Cell = dgvTrackWorker.Rows[e.RowIndex].Cells["Cell"].Value.ToString();
@@ -208,15 +211,17 @@ namespace MMS_CapstoneProject
             int rowCount = (dgvTrackWorker.DataSource as DataTable).Columns.Count;
 
             // 1 is because we are not filtering by id
-            for (int count = 1; count <= rowCount; count++)
+            for (int count = 1; count < rowCount - 3; count++)
             {
                 searchQuery += string.Format(dgvTrackWorker.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtTrackWorkerSearch.Text.Trim());
-                if (count != rowCount)
+                if (count != rowCount - 4)
                 {
                     searchQuery += " OR ";
                 }
             }
             (dgvTrackWorker.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+            dgvTrackWorker.AutoResizeColumns();
+            dgvTrackWorker.AutoResizeRows();
         }
 
         /// <summary>
@@ -496,7 +501,7 @@ namespace MMS_CapstoneProject
             {
                 stringBodyHTML += "<tr>";
                 TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
-                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + trackWorker.FullName + "</td>";
+                stringBodyHTML += "<td style=\"border: 1px solid black;\">" + trackWorker.FullName() + "</td>";
                 foreach (ClientEventModel clientEvent in clientEventModelsList)
                 {
                     if (clientEvent.TrackWorkersId.Contains(trackWorkerId))
