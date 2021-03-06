@@ -8,6 +8,9 @@ namespace MMSLibrary.DataAccess
 {
     public class ClientDataAccess : SqliteDataAccess
     {
+        // TODO: USE CONSTANT
+        private const string TABLE_NAME = "Clients";
+
         /// <summary>
         /// LoadAllClient - Retrieve every client record from database
         /// </summary>
@@ -29,7 +32,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientModel>("SELECT * FROM Clients WHERE isDeleted = 0", new DynamicParameters());
+                var output = cnn.Query<ClientModel>("SELECT * FROM Clients WHERE IsDeleted = 0", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -43,7 +46,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.QuerySingle<ClientModel>("SELECT * FROM Clients WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                var output = cnn.QuerySingle<ClientModel>("SELECT * FROM Clients WHERE IsDeleted = 0 AND ClientID = " + id, new DynamicParameters());
                 return output;
             }
         }
@@ -56,7 +59,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientModel>("SELECT * FROM Clients WHERE isDeleted = 1", new DynamicParameters());
+                var output = cnn.Query<ClientModel>("SELECT * FROM Clients WHERE IsDeleted = 1", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -72,7 +75,7 @@ namespace MMSLibrary.DataAccess
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE Clients SET isDeleted = 1 WHERE id = @id ";
+                string sqlStatement = "UPDATE Clients SET IsDeleted = 1 WHERE ClientID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -105,7 +108,7 @@ namespace MMSLibrary.DataAccess
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE Clients SET isDeleted = 0 WHERE id = @id ";
+                string sqlStatement = "UPDATE Clients SET IsDeleted = 0 WHERE ClientID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -141,10 +144,10 @@ namespace MMSLibrary.DataAccess
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE Clients SET [name] = @updatedName, [primaryContactName] = @updatedPrimaryContactName, "
-                                    + "[primaryContactCell] = @updatedPrimaryContactCell, [primaryContactEmail] = @updatedPrimaryContactEmail, [isDeleted] = @updatedIsDeleted "
-                                    + "WHERE [id] = @id, [name] = @oldName, [primaryContactName] = @oldPrimaryContactName "
-                                    + "[primaryContactCell] = @oldPrimaryContactCell, [primaryContactEmail] = @oldPrimaryContactEmail";
+                string sqlStatement = "UPDATE Clients SET [Name] = @updatedName, [PrimaryContactName] = @updatedPrimaryContactName, "
+                                    + "[PrimaryContactCell] = @updatedPrimaryContactCell, [PrimaryContactEmail] = @updatedPrimaryContactEmail, [IsDeleted] = @updatedIsDeleted "
+                                    + "WHERE [ClientID] = @id, [Name] = @oldName, [PrimaryContactName] = @oldPrimaryContactName "
+                                    + "[PrimaryContactCell] = @oldPrimaryContactCell, [PrimaryContactEmail] = @oldPrimaryContactEmail";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedName", updatedClient.Name);
@@ -191,9 +194,9 @@ namespace MMSLibrary.DataAccess
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE Clients SET [name] = @updatedName, [primaryContactName] = @updatedPrimaryContactName, "
-                                    + "[primaryContactCell] = @updatedPrimaryContactCell, [primaryContactEmail] = @updatedPrimaryContactEmail, [isDeleted] = @updatedIsDeleted "
-                                    + "WHERE [id] = @id";
+                string sqlStatement = "UPDATE Clients SET [Name] = @updatedName, [PrimaryContactName] = @updatedPrimaryContactName, "
+                                    + "[PrimaryContactCell] = @updatedPrimaryContactCell, [PrimaryContactEmail] = @updatedPrimaryContactEmail, [IsDeleted] = @updatedIsDeleted "
+                                    + "WHERE [ClientID] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedName", updatedClient.Name);
@@ -231,7 +234,7 @@ namespace MMSLibrary.DataAccess
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO Clients(name, primaryContactName, primaryContactCell, primaryContactEmail, isDeleted) VALUES(@name, @primaryContactName, @primaryContactCell, @primaryContactEmail, @isDeleted)";
+                string sqlStatement = "INSERT INTO Clients(Name, PrimaryContactName, PrimaryContactCell, PrimaryContactEmail, IsDeleted) VALUES(@name, @primaryContactName, @primaryContactCell, @primaryContactEmail, @isDeleted)";
 
                 // Prepared statement
                 var cmd = new SQLiteCommand(sqlStatement, cnn);

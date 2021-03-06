@@ -28,7 +28,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientEventModel>("SELECT * FROM ClientEvents WHERE isDeleted = 0", new DynamicParameters());
+                var output = cnn.Query<ClientEventModel>("SELECT * FROM ClientEvents WHERE IsDeleted = 0", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -41,7 +41,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.QuerySingle<ClientEventModel>("SELECT * FROM ClientEvents WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                var output = cnn.QuerySingle<ClientEventModel>("SELECT * FROM ClientEvents WHERE IsDeleted = 0 AND ClientEventID = " + id, new DynamicParameters());
                 return output;
             }
         }
@@ -53,7 +53,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientEventModel>("SELECT * FROM ClientEvents WHERE isDeleted = 1 ", new DynamicParameters());
+                var output = cnn.Query<ClientEventModel>("SELECT * FROM ClientEvents WHERE IsDeleted = 1 ", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -69,7 +69,7 @@ namespace MMSLibrary.DataAccess
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE ClientEvents SET isDeleted = 1 WHERE id = @id ";
+                string sqlStatement = "UPDATE ClientEvents SET IsDeleted = 1 WHERE ClientEventID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -101,7 +101,7 @@ namespace MMSLibrary.DataAccess
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE ClientEvents SET isDeleted = 0 WHERE id = @id ";
+                string sqlStatement = "UPDATE ClientEvents SET IsDeleted = 0 WHERE ClientEventID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -136,12 +136,12 @@ namespace MMSLibrary.DataAccess
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE ClientEvents SET [clientId] = @updatedClientId, [trackId] = @updatedTrackId, [date] = @updatedDate, "
-                                    + "[workersRequested] = @updatedWorkersRequested, [isLunchProvided] = @updatedIsLunchProvided, "
-                                    + "[isUsingUpperPaddock] = @updatedisUsingUpperPaddock, [isUsingMiddlePaddock] = @updatedisUsingMiddlePaddock, "
-                                    + "[isUsingLowerPaddock] = @updatedisUsingLowerPaddock, [workerCalloutSent] = @updatedWorkerCalloutSent, "
-                                    + "[requireSafetyDemo] = @updatedRequireSafetyDemo, [isDeleted] = @updatedIsDeleted "
-                                    + "WHERE [id] = @id";
+                string sqlStatement = "UPDATE ClientEvents SET [ClientID] = @updatedClientId, [TrackID] = @updatedTrackId, [Date] = @updatedDate, "
+                                    + "[WorkersRequested] = @updatedWorkersRequested, [IsLunchProvided] = @updatedIsLunchProvided, "
+                                    + "[IsUsingUpperPaddock] = @updatedisUsingUpperPaddock, [IsUsingMiddlePaddock] = @updatedisUsingMiddlePaddock, "
+                                    + "[IsUsingLowerPaddock] = @updatedisUsingLowerPaddock, [WorkerCalloutSent] = @updatedWorkerCalloutSent, "
+                                    + "[RequireSafetyDemo] = @updatedRequireSafetyDemo, [IsDeleted] = @updatedIsDeleted "
+                                    + "WHERE [ClientEventID] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedClientId", updatedClientEvent.ClientId);
@@ -184,9 +184,9 @@ namespace MMSLibrary.DataAccess
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO ClientEvents(clientId, trackId, date, workersRequested, isLunchProvided, "
-                    + "isUsingUpperPaddock, isUsingMiddlePaddock, isUsingLowerPaddock, workerCalloutSent, requireSafetyDemo, "
-                    + "isDeleted) VALUES( @clientId, @trackId, @date, @workerRequested, @isLunchProvided, @isUsingUpperPaddock, "
+                string sqlStatement = "INSERT INTO ClientEvents(ClientID, TrackID, Date, WorkersRequested, IsLunchProvided, "
+                    + "IsUsingUpperPaddock, IsUsingMiddlePaddock, IsUsingLowerPaddock, WorkerCalloutSent, RequireSafetyDemo, "
+                    + "IsDeleted) VALUES( @clientId, @trackId, @date, @workerRequested, @isLunchProvided, @isUsingUpperPaddock, "
                     + "@isUsingMiddlePaddock, @isUsingLowerPaddock, @workerCalloutSent, @requireSafetyDemo, @isDeleted )";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
@@ -232,7 +232,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<int>("SELECT trackWorkersId FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = " + clientEventId, new DynamicParameters());
+                var output = cnn.Query<int>("SELECT TrackWorkersID FROM ClientsEvents_TrackWorkers WHERE ClientsEventsID = " + clientEventId, new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -251,12 +251,15 @@ namespace MMSLibrary.DataAccess
                 {
                     foreach (int trackWorkerId in trackWorkerIdList)
                     {
-                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(clientsEventsId, trackWorkersId, isAssigned) VALUES (@clientsEventsId, @trackWorkersId, @isAssigned) ";
+                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(ClientsEventsID, TrackWorkersID, IsApplied, IsSelected, IsPresent) " +
+                            "VALUES (@clientsEventsId, @trackWorkersId, @isApplied, @isSelected, @isPresent) ";
 
                         var cmd = new SQLiteCommand(sqlStatement, cnn);
                         cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
                         cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
-                        cmd.Parameters.AddWithValue("@isAssigned", true);
+                        cmd.Parameters.AddWithValue("@isApplied", true);
+                        cmd.Parameters.AddWithValue("@IsSelected", false);
+                        cmd.Parameters.AddWithValue("@IsPresent", false);
 
                         cmd.Prepare();
                         cmd.ExecuteNonQuery();

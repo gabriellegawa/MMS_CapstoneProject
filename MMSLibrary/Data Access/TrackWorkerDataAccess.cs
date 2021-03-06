@@ -29,7 +29,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0", new DynamicParameters());
+                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE IsDeleted = 0", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -43,7 +43,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.QuerySingle<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                var output = cnn.QuerySingle<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE IsDeleted = 0 AND TrackWorkerID = " + id, new DynamicParameters());
                 return output;
             }
         }
@@ -56,7 +56,7 @@ namespace MMSLibrary.DataAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE isDeleted = 1 ", new DynamicParameters());
+                var output = cnn.Query<TrackWorkerModel>("SELECT * FROM TrackWorkers WHERE IsDeleted = 1 ", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -72,7 +72,7 @@ namespace MMSLibrary.DataAccess
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE TrackWorkers SET isDeleted = 1 WHERE id = @id ";
+                string sqlStatement = "UPDATE TrackWorkers SET IsDeleted = 1 WHERE TrackWorkerID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -104,7 +104,7 @@ namespace MMSLibrary.DataAccess
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE TrackWorkers SET isDeleted = 0 WHERE id = @id ";
+                string sqlStatement = "UPDATE TrackWorkers SET IsDeleted = 0 WHERE TrackWorkerID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -139,9 +139,9 @@ namespace MMSLibrary.DataAccess
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE TrackWorkers SET [firstName] = @updatedFirstName, [lastName] = @updatedLastName, "
-                                    + "[cell] = @updatedCell, [email] = @updatedEmail, [isCapableCaptain] = @updatedIsCapableCaptain, [isDeleted] = @updatedIsDeleted "
-                                    + "WHERE [id] = @id";
+                string sqlStatement = "UPDATE TrackWorkers SET [FirstName] = @updatedFirstName, [LastName] = @updatedLastName, "
+                                    + "[Cell] = @updatedCell, [Email] = @updatedEmail, [IsCapableCaptain] = @updatedIsCapableCaptain, [IsDeleted] = @updatedIsDeleted "
+                                    + "WHERE [TrackWorkerID] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedFirstName", updatedTrackWorker.FirstName);
@@ -180,7 +180,7 @@ namespace MMSLibrary.DataAccess
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO TrackWorkers(firstName, lastName, cell, email, isCapableCaptain, isDeleted) VALUES(@firstName, @lastName, @cell, @email, @isCapableCaptain, @isDeleted)";
+                string sqlStatement = "INSERT INTO TrackWorkers(FirstName, LastName, Cell, Email, IsCapableCaptain, IsDeleted) VALUES(@firstName, @lastName, @cell, @email, @isCapableCaptain, @isDeleted)";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@firstName", trackWorker.FirstName);

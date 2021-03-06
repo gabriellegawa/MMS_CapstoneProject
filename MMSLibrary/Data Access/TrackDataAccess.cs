@@ -29,7 +29,7 @@ namespace MMSLibrary
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackModel>("SELECT * FROM Tracks WHERE isDeleted = 0", new DynamicParameters());
+                var output = cnn.Query<TrackModel>("SELECT * FROM Tracks WHERE IsDeleted = 0", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -43,7 +43,7 @@ namespace MMSLibrary
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.QuerySingle<TrackModel>("SELECT * FROM Tracks WHERE isDeleted = 0 AND id = " + id, new DynamicParameters());
+                var output = cnn.QuerySingle<TrackModel>("SELECT * FROM Tracks WHERE IsDeleted = 0 AND TrackID = " + id, new DynamicParameters());
                 return output;
             }
         }
@@ -56,7 +56,7 @@ namespace MMSLibrary
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TrackModel>("SELECT * FROM Tracks WHERE isDeleted = 1", new DynamicParameters());
+                var output = cnn.Query<TrackModel>("SELECT * FROM Tracks WHERE IsDeleted = 1", new DynamicParameters());
                 return output.ToList();
             }
         }
@@ -72,7 +72,7 @@ namespace MMSLibrary
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE Tracks SET isDeleted = 1 WHERE id = @id ";
+                string sqlStatement = "UPDATE Tracks SET IsDeleted = 1 WHERE TrackID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -105,7 +105,7 @@ namespace MMSLibrary
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "UPDATE Tracks SET isDeleted = 0 WHERE id = @id ";
+                string sqlStatement = "UPDATE Tracks SET IsDeleted = 0 WHERE TrackID = @id ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -141,8 +141,8 @@ namespace MMSLibrary
                 var ReturnVal = 0;
                 cnn.Open();
 
-                string sqlStatement = "UPDATE Tracks SET [name] = @updatedName, [isDeleted] = @updatedIsDeleted "
-                                    + "WHERE [id] = @id";
+                string sqlStatement = "UPDATE Tracks SET [Name] = @updatedName, [IsDeleted] = @updatedIsDeleted "
+                                    + "WHERE [TrackID] = @id";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@updatedName", updatedTrack.Name);
@@ -177,7 +177,7 @@ namespace MMSLibrary
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
-                string sqlStatement = "INSERT INTO Tracks(name, isDeleted) VALUES(@name, @isDeleted)";
+                string sqlStatement = "INSERT INTO Tracks(Name, IsDeleted) VALUES(@name, @isDeleted)";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@name", track.Name);
