@@ -340,9 +340,9 @@ namespace MMS_CapstoneProject
             if (e.RowIndex >= 0)
             {
                 ClientEventModel clientEventModel = new ClientEventModel();
-                clientEventModel.ClientEventID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-                clientEventModel.ClientID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["ClientId"].Value.ToString());
-                clientEventModel.TrackID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["TrackId"].Value.ToString());
+                clientEventModel.ClientEventID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["ClientEventID"].Value.ToString());
+                clientEventModel.ClientID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["ClientID"].Value.ToString());
+                clientEventModel.TrackID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["TrackID"].Value.ToString());
                 clientEventModel.Date = dgvClientEvent.Rows[e.RowIndex].Cells["Date"].Value.ToString();
                 clientEventModel.WorkersRequested = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["WorkersRequested"].Value.ToString());
 
@@ -465,7 +465,7 @@ namespace MMS_CapstoneProject
             foreach (int clientEventId in _clientEventIdList)
             {
                 ClientEventModel clientEvent = ClientEventDataAccess.LoadClientEvent(clientEventId);
-                clientEvent.TrackWorkersId = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventId);
+                clientEvent.TrackWorkersId = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorkerIDList(clientEventId);
                 allClientEventTrackWorkerIdList = allClientEventTrackWorkerIdList.Union(clientEvent.TrackWorkersId).ToList();
                 clientEventModelsList.Add(clientEvent);
             }

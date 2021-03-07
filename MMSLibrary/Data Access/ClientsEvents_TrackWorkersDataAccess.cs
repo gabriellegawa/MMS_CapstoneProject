@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MMSLibrary.Class_Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +17,16 @@ namespace MMSLibrary.Data_Access
         /// </summary>
         /// <param name="id">client event</param>
         /// <returns></returns>
-        public static List<int> LoadClientEventTrackWorker(int clientEventId)
+        public static List<ClientsEvents_TrackWorkersModel> LoadClientEventTrackWorker(int clientEventId)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<ClientsEvents_TrackWorkersModel>("SELECT TrackWorkerID, IsApplied, IsSelected, IsPresent FROM ClientsEvents_TrackWorkers WHERE ClientsEventID = " + clientEventId, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<int> LoadClientEventTrackWorkerIDList(int clientEventId)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -30,24 +40,24 @@ namespace MMSLibrary.Data_Access
         /// </summary>
         /// <param name="trackWorkerIdList"> track worker id list</param>
         /// <param name="clientEventId">client event id</param>
-        public static void SaveClientEventTrackWorker(List<int> trackWorkerIdList, int clientEventId)
+        public static void SaveClientEventTrackWorker(List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList, int clientEventId)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Open();
                 try
                 {
-                    foreach (int trackWorkerId in trackWorkerIdList)
+                    foreach (ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
                     {
-                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(ClientsEventsID, TrackWorkersID, IsApplied, IsSelected, IsPresent) " +
+                        string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(ClientsEventID, TrackWorkerID, IsApplied, IsSelected, IsPresent) " +
                             "VALUES (@clientsEventsId, @trackWorkersId, @isApplied, @isSelected, @isPresent) ";
 
                         var cmd = new SQLiteCommand(sqlStatement, cnn);
                         cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);
-                        cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
-                        cmd.Parameters.AddWithValue("@isApplied", true);
-                        cmd.Parameters.AddWithValue("@IsSelected", false);
-                        cmd.Parameters.AddWithValue("@IsPresent", false);
+                        cmd.Parameters.AddWithValue("@trackWorkersId", clientsEvents_TrackWorkers.TrackWorkerID);
+                        cmd.Parameters.AddWithValue("@isApplied", clientsEvents_TrackWorkers.IsApplied);
+                        cmd.Parameters.AddWithValue("@IsSelected", clientsEvents_TrackWorkers.IsSelected);
+                        cmd.Parameters.AddWithValue("@IsPresent", clientsEvents_TrackWorkers.IsPresent);
 
                         cmd.Prepare();
                         cmd.ExecuteNonQuery();
@@ -70,28 +80,33 @@ namespace MMSLibrary.Data_Access
         /// </summary>
         /// <param name="trackWorkerIdlist">track worker id list</param>
         /// <param name="cnn">database connection</param>
-        public static void SaveClientEventTrackWorker(List<int> trackWorkerIdlist, SQLiteConnection cnn)
+        public static void SaveClientEventTrackWorker(List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList, SQLiteConnection cnn)
         {
             var output = cnn.Query<int>("SELECT last_insert_rowid()", new DynamicParameters());
             int lastID = output.ElementAt(0);
 
-            foreach (int trackWorkerId in trackWorkerIdlist)
+            try
             {
-                string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(clientsEventsId, trackWorkersId, isAssigned) VALUES( @clientsEventsId, @trackWorkersId, @isAssigned)";
-                var cmd = new SQLiteCommand(sqlStatement, cnn);
-                cmd.Parameters.AddWithValue("@clientsEventsId", lastID);
-                cmd.Parameters.AddWithValue("@trackWorkersId", trackWorkerId);
-                cmd.Parameters.AddWithValue("@isAssigned", true);
-
-                try
+                foreach (ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
                 {
+                    string sqlStatement = "INSERT INTO ClientsEvents_TrackWorkers(ClientsEventID, TrackWorkerID, IsApplied, IsSelected, IsPresent) " +
+                        "VALUES (@clientsEventsId, @trackWorkersId, @isApplied, @isSelected, @isPresent) ";
+
+                    var cmd = new SQLiteCommand(sqlStatement, cnn);
+                    cmd.Parameters.AddWithValue("@clientsEventsId", lastID);
+                    cmd.Parameters.AddWithValue("@trackWorkersId", clientsEvents_TrackWorkers.TrackWorkerID);
+                    cmd.Parameters.AddWithValue("@isApplied", clientsEvents_TrackWorkers.IsApplied);
+                    cmd.Parameters.AddWithValue("@IsSelected", clientsEvents_TrackWorkers.IsSelected);
+                    cmd.Parameters.AddWithValue("@IsPresent", clientsEvents_TrackWorkers.IsPresent);
+
                     cmd.Prepare();
                     cmd.ExecuteNonQuery();
+
                 }
-                catch (SQLiteException ex)
-                {
-                    throw ex;
-                }
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
             }
         }
 
@@ -106,7 +121,7 @@ namespace MMSLibrary.Data_Access
             {
                 var ReturnVal = 0;
                 cnn.Open();
-                string sqlStatement = "DELETE FROM ClientsEvents_TrackWorkers WHERE clientsEventsId = @clientsEventsId ";
+                string sqlStatement = "DELETE FROM ClientsEvents_TrackWorkers WHERE clientsEventId = @clientsEventsId ";
 
                 var cmd = new SQLiteCommand(sqlStatement, cnn);
                 cmd.Parameters.AddWithValue("@clientsEventsId", clientEventId);

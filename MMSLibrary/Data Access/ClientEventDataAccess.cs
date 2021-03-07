@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MMSLibrary.Class_Model;
 using MMSLibrary.Data_Access;
 using System.Collections.Generic;
 using System.Data;
@@ -180,7 +181,7 @@ namespace MMSLibrary.DataAccess
         /// SaveClientEvent -  save a new record of client event
         /// </summary>
         /// <param name="clientEvent">new client event</param>
-        public static void SaveClientEvent(ClientEventModel clientEvent)
+        public static void SaveClientEvent(ClientEventModel clientEvent, List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -215,7 +216,7 @@ namespace MMSLibrary.DataAccess
                 }
                 try
                 {
-                    ClientsEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(clientEvent.TrackWorkersId, cnn);
+                    ClientsEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(clientsEvents_TrackWorkersList, cnn);
                 }
                 finally
                 {

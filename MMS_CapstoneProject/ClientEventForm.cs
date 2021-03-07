@@ -18,6 +18,7 @@ namespace MMS_CapstoneProject
         public ClientEventForm(MainForm mainForm)
         {
             _clientEvent = new ClientEventModel();
+            _clientsEvents_TrackWorkers = new List<ClientsEvents_TrackWorkersModel>();
             _mainForm = mainForm;
             InitializeComponent();
 
@@ -32,7 +33,7 @@ namespace MMS_CapstoneProject
             _clientEvent = clientEventModel;
             ClientModel clientModel = ClientDataAccess.LoadClient(_clientEvent.ClientID);
             TrackModel trackModel = TrackDataAccess.LoadTrack(_clientEvent.TrackID);
-            _clientEvent.TrackWorkersId = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventModel.ClientEventID);
+            _clientsEvents_TrackWorkers = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventModel.ClientEventID);
 
             txtClientEventId.Text = clientEventModel.ClientEventID.ToString();
             txtClientId.Text = clientModel.Name.ToString();
@@ -222,7 +223,7 @@ namespace MMS_CapstoneProject
                     errorProviderApp.SetError(btnTrackAdd, "You havent select a track");
                 }
 
-                if (_clientEvent.TrackWorkersId == null)
+                if (_clientsEvents_TrackWorkers.Count == 0)
                 {
                     isValid = false;
                     btnManageTrackWorker.Focus();
@@ -234,7 +235,7 @@ namespace MMS_CapstoneProject
                 {
                     try
                     {
-                        ClientEventDataAccess.SaveClientEvent(_clientEvent);
+                        ClientEventDataAccess.SaveClientEvent(_clientEvent, _clientsEvents_TrackWorkers);
                     }
                     catch (Exception ex)
                     {
@@ -300,7 +301,7 @@ namespace MMS_CapstoneProject
                     errorProviderApp.SetError(btnTrackAdd, "You havent select a track");
                 }
 
-                if (_clientEvent.TrackWorkersId == null)
+                if (_clientsEvents_TrackWorkers.Count == 0)
                 {
                     isValid = false;
                     btnManageTrackWorker.Focus();
@@ -314,7 +315,7 @@ namespace MMS_CapstoneProject
                     {
                         ClientEventDataAccess.UpdateClientEvent(_clientEvent, _clientEvent.ClientEventID);
                         ClientsEvents_TrackWorkersDataAccess.RemoveAllClientEventTrackWorker(_clientEvent.ClientEventID);
-                        ClientsEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(_clientEvent.TrackWorkersId, _clientEvent.ClientEventID);
+                        ClientsEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(_clientsEvents_TrackWorkers, _clientEvent.ClientEventID);
 
                     }
                     catch (Exception ex)
@@ -344,14 +345,14 @@ namespace MMS_CapstoneProject
         private void btnManageAttendance_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(string.Join("\n", _clientEvent.TrackWorkersId));
-            DataGridViewForm dataGridViewForm = new DataGridViewForm(this, _clientEvent.TrackWorkersId);
+            DataGridViewForm dataGridViewForm = new DataGridViewForm(this, _clientsEvents_TrackWorkers);
             dataGridViewForm.ShowDialog();
         }
         public void SetClientsEvents_TrackWorkers(List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkers)
         {
             _clientsEvents_TrackWorkers = clientsEvents_TrackWorkers;
             string example = "";
-            foreach(ClientsEvents_TrackWorkersModel model in _clientsEvents_TrackWorkers)
+            foreach (ClientsEvents_TrackWorkersModel model in _clientsEvents_TrackWorkers)
             {
                 example += model.TrackWorkerID + " " + model.IsApplied + " " + model.IsSelected + " " + model.IsPresent + "\n";
             }

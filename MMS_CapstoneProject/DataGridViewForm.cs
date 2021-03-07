@@ -121,14 +121,14 @@ namespace MMS_CapstoneProject
             _mainForm = mainForm;
         }
 
-        public DataGridViewForm(ClientEventForm clientEventForm, List<int> trackWorkerIDList)
+        public DataGridViewForm(ClientEventForm clientEventForm, List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList)
         {
             InitializeComponent();
             List<TrackWorkerModel> appliedTrackWorkerIdList = new List<TrackWorkerModel>();
 
-            foreach(int trackWorkerID in trackWorkerIDList)
+            foreach(ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
             {
-                appliedTrackWorkerIdList.Add(TrackWorkerDataAccess.LoadTrackWorker(trackWorkerID));
+                appliedTrackWorkerIdList.Add(TrackWorkerDataAccess.LoadTrackWorker(clientsEvents_TrackWorkers.TrackWorkerID));
             }
 
             var dataTable = ToDataTable(appliedTrackWorkerIdList);
@@ -145,7 +145,7 @@ namespace MMS_CapstoneProject
         {
             if (dgvData.SelectedRows.Count > 0)
             {
-                _clientEventForm.SetClientEventClientId(Convert.ToInt32(dgvData.CurrentRow.Cells["Id"].Value), dgvData.CurrentRow.Cells["Name"].Value.ToString());
+                _clientEventForm.SetClientEventClientId(Convert.ToInt32(dgvData.CurrentRow.Cells["ClientID"].Value), dgvData.CurrentRow.Cells["Name"].Value.ToString());
                 this.Close();
             }
         }
@@ -154,27 +154,34 @@ namespace MMS_CapstoneProject
         {
             if (dgvData.SelectedRows.Count > 0)
             {
-                _clientEventForm.SetClientEventTrackId(Convert.ToInt32(dgvData.CurrentRow.Cells["Id"].Value), dgvData.CurrentRow.Cells["Name"].Value.ToString());
+                _clientEventForm.SetClientEventTrackId(Convert.ToInt32(dgvData.CurrentRow.Cells["TrackID"].Value), dgvData.CurrentRow.Cells["Name"].Value.ToString());
                 this.Close();
             }
         }
 
         private void btnApplyTrackWorker_Click(object sender, EventArgs e)
         {
-            List<int> trackWorkerIdList = new List<int>();
+            List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
             foreach (DataGridViewRow row in dgvData.Rows)
             {
-                var isChecked = row.Cells[0].Value.ToString();
+                ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientsEvents_TrackWorkersModel();
+                var isApplied = row.Cells[0].Value.ToString();
+                var trackWorkerID = row.Cells[1].Value.ToString();
 
-                if (isChecked == "True")
+                if (isApplied == "True")
                 {
-                    trackWorkerIdList.Add(int.Parse(row.Cells[1].Value.ToString()));
+                    clientsEvents_TrackWorkers.IsApplied = true;
                 }
+                clientsEvents_TrackWorkers.TrackWorkerID = int.Parse(trackWorkerID);
+                clientsEvents_TrackWorkers.IsSelected = false;
+                clientsEvents_TrackWorkers.IsPresent = false;
+
+                clientsEvents_TrackWorkersList.Add(clientsEvents_TrackWorkers);
             }
 
-            if (trackWorkerIdList.Count() > 0)
+            if (clientsEvents_TrackWorkersList.Count() > 0)
             {
-                _clientEventForm.SetClientEventTrackWorkerId(trackWorkerIdList);
+                _clientEventForm.SetClientsEvents_TrackWorkers(clientsEvents_TrackWorkersList);
                 this.Close();
             }
             else
