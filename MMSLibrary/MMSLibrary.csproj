@@ -53,8 +53,10 @@
   <ItemGroup>
     <Compile Include="Class Model\ClientEventModel.cs" />
     <Compile Include="Class Model\ClientModel.cs" />
+    <Compile Include="Class Model\ClientsEvents_TrackWorkersModel.cs" />
     <Compile Include="Data Access\ClientDataAccess.cs" />
     <Compile Include="Data Access\ClientEventDataAccess.cs" />
+    <Compile Include="Data Access\ClientsEvents_TrackWorkersDataAccess.cs" />
     <Compile Include="Data Access\TrackWorkerDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data Access\SqliteDataAccess.cs" />

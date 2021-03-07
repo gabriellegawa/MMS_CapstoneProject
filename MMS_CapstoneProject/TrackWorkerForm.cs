@@ -42,7 +42,7 @@ namespace MMS_CapstoneProject
             btnEnter.Click += btnUpdate_Click;
 
             // Moving TrackWorker data into the form
-            txtTrackWorkerId.Text = trackWorker.Id.ToString();
+            txtTrackWorkerId.Text = trackWorker.TrackWorkerID.ToString();
             txtTrackWorkerFirstName.Text = trackWorker.FirstName;
             txtTrackWorkerLastName.Text = trackWorker.LastName;
             txtTrackWorkerCell.Text = trackWorker.Cell;

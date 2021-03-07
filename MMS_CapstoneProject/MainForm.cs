@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.Data_Access;
 using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -80,7 +81,7 @@ namespace MMS_CapstoneProject
             dataGridView.DataSource = dataTable;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
-            dataGridView.Columns["Id"].HeaderText = "Client ID";
+            //dataGridView.Columns["ClientID"].HeaderText = "Client ID";
             dataGridView.Columns["Name"].HeaderText = "Client Name";
             dataGridView.Columns["IsDeleted"].Visible = false;
 
@@ -96,7 +97,7 @@ namespace MMS_CapstoneProject
             DataGridView dataGridView = dgvTrackWorker;
             DataTable dataTable = ToDataTable(list);
 
-            dataTable.Columns["Id"].ColumnName = "Track Worker ID";
+            //dataTable.Columns["TrackWorkerID"].ColumnName = "Track Worker ID";
 
             dataGridView.DataSource = dataTable;
             //dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
@@ -123,7 +124,7 @@ namespace MMS_CapstoneProject
             dataGridView.DataSource = dataTable;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
-            dataGridView.Columns["Id"].HeaderText = "Track ID";
+            //dataGridView.Columns["TrackID"].HeaderText = "Track ID";
             //dataGridView.Columns["IsDeleted"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
@@ -140,19 +141,19 @@ namespace MMS_CapstoneProject
 
             foreach (DataRow row in dataTable.Rows)
             {
-                if (row["ClientId"] != null)
+                if (row["ClientID"] != null)
                 {
-                    ClientModel clientModel = ClientDataAccess.LoadClient((int)row["ClientId"]);
+                    ClientModel clientModel = ClientDataAccess.LoadClient((int)row["ClientID"]);
                     row["ClientName"] = clientModel.Name;
                 }
-                if (row["TrackId"] != null)
+                if (row["TrackID"] != null)
                 {
 
-                    TrackModel trackModel = TrackDataAccess.LoadTrack((int)row["TrackId"]);
+                    TrackModel trackModel = TrackDataAccess.LoadTrack((int)row["TrackID"]);
                     row["TrackName"] = trackModel.Name;
                 }
             }
-            dataTable.Columns["Id"].SetOrdinal(0);
+            dataTable.Columns["ClientEventID"].SetOrdinal(0);
             dataTable.Columns["ClientName"].SetOrdinal(1);
             dataTable.Columns["TrackName"].SetOrdinal(2);
 
@@ -174,7 +175,7 @@ namespace MMS_CapstoneProject
             {
                 TrackWorkerModel trackWorker = new TrackWorkerModel();
 
-                trackWorker.Id = int.Parse(dgvTrackWorker.Rows[e.RowIndex].Cells["Track Worker ID"].Value.ToString());
+                trackWorker.TrackWorkerID = int.Parse(dgvTrackWorker.Rows[e.RowIndex].Cells["TrackWorkerID"].Value.ToString());
                 trackWorker.FirstName = dgvTrackWorker.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
                 trackWorker.LastName = dgvTrackWorker.Rows[e.RowIndex].Cells["LastName"].Value.ToString();
                 trackWorker.Cell = dgvTrackWorker.Rows[e.RowIndex].Cells["Cell"].Value.ToString();
@@ -263,7 +264,7 @@ namespace MMS_CapstoneProject
             {
                 ClientModel clientModel = new ClientModel();
 
-                clientModel.Id = int.Parse(dgvClient.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                clientModel.ClientID = int.Parse(dgvClient.Rows[e.RowIndex].Cells["ClientID"].Value.ToString());
                 clientModel.Name = dgvClient.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 clientModel.PrimaryContactName = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactName"].Value.ToString();
                 clientModel.PrimaryContactCell = dgvClient.Rows[e.RowIndex].Cells["PrimaryContactCell"].Value.ToString();
@@ -309,7 +310,7 @@ namespace MMS_CapstoneProject
             {
                 TrackModel trackModel = new TrackModel();
 
-                trackModel.Id = int.Parse(dgvTrack.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                trackModel.TrackID = int.Parse(dgvTrack.Rows[e.RowIndex].Cells["TrackID"].Value.ToString());
                 trackModel.Name = dgvTrack.Rows[e.RowIndex].Cells["Name"].Value.ToString();
 
                 if (dgvTrack.Rows[e.RowIndex].Cells["IsDeleted"].Value.ToString() == "True")
@@ -339,9 +340,9 @@ namespace MMS_CapstoneProject
             if (e.RowIndex >= 0)
             {
                 ClientEventModel clientEventModel = new ClientEventModel();
-                clientEventModel.Id = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-                clientEventModel.ClientId = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["ClientId"].Value.ToString());
-                clientEventModel.TrackId = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["TrackId"].Value.ToString());
+                clientEventModel.ClientEventID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                clientEventModel.ClientID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["ClientId"].Value.ToString());
+                clientEventModel.TrackID = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["TrackId"].Value.ToString());
                 clientEventModel.Date = dgvClientEvent.Rows[e.RowIndex].Cells["Date"].Value.ToString();
                 clientEventModel.WorkersRequested = int.Parse(dgvClientEvent.Rows[e.RowIndex].Cells["WorkersRequested"].Value.ToString());
 
@@ -464,7 +465,7 @@ namespace MMS_CapstoneProject
             foreach (int clientEventId in _clientEventIdList)
             {
                 ClientEventModel clientEvent = ClientEventDataAccess.LoadClientEvent(clientEventId);
-                clientEvent.TrackWorkersId = ClientEventDataAccess.LoadClientEventTrackWorker(clientEventId);
+                clientEvent.TrackWorkersId = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventId);
                 allClientEventTrackWorkerIdList = allClientEventTrackWorkerIdList.Union(clientEvent.TrackWorkersId).ToList();
                 clientEventModelsList.Add(clientEvent);
             }
@@ -474,7 +475,7 @@ namespace MMS_CapstoneProject
             stringBodyHTML += "<td></td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)
             {
-                ClientModel client = ClientDataAccess.LoadClient(clientEvent.ClientId);
+                ClientModel client = ClientDataAccess.LoadClient(clientEvent.ClientID);
                 stringBodyHTML += "<td style=\"border: 1px solid black;\">" + client.Name + "</td>";
             }
             stringBodyHTML += "</tr>";
@@ -496,7 +497,7 @@ namespace MMS_CapstoneProject
             stringBodyHTML += "<td style=\"border: 1px solid black;\">Track</td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)
             {
-                TrackModel track = TrackDataAccess.LoadTrack(clientEvent.TrackId);
+                TrackModel track = TrackDataAccess.LoadTrack(clientEvent.TrackID);
                 stringBodyHTML += "<td style=\"border: 1px solid black;\">" + track.Name + "</td>";
             }
             stringBodyHTML += "</tr>";

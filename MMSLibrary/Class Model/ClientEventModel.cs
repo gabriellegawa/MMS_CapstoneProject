@@ -11,9 +11,9 @@ namespace MMSLibrary
         /// </summary>
 
         [Key]
-        public int Id { get; set; }
-        public int ClientId { get; set; }
-        public int TrackId { get; set; }
+        public int ClientEventID { get; set; }
+        public int ClientID { get; set; }
+        public int TrackID { get; set; }
         public string Date { get; set; }
         public int WorkersRequested { get; set; }
         public bool IsLunchProvided { get; set; }

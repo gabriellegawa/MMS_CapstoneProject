@@ -22,7 +22,7 @@ namespace MMS_CapstoneProject
             InitializeComponent();
             btnEnter.Click += btnUpdate_Click;
 
-            txtTrackId.Text = trackModel.Id.ToString();
+            txtTrackId.Text = trackModel.TrackID.ToString();
             txtTrackName.Text = trackModel.Name;
 
             if (trackModel.IsDeleted)

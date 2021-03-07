@@ -21,7 +21,7 @@ namespace MMS_CapstoneProject
             InitializeComponent();
             btnEnter.Click += btnUpdate_Click;
 
-            txtClientId.Text = clientModel.Id.ToString();
+            txtClientId.Text = clientModel.ClientID.ToString();
             txtClientName.Text = clientModel.Name;
             txtClientPrimaryContactName.Text = clientModel.PrimaryContactName;
             txtClientPrimaryContactCell.Text = clientModel.PrimaryContactCell;

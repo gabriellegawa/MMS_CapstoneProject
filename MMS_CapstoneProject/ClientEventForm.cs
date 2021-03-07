@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.Data_Access;
 using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,11 @@ namespace MMS_CapstoneProject
             btnEnter.Click += btnClientEventUpdate_Click;
 
             _clientEvent = clientEventModel;
-            ClientModel clientModel = ClientDataAccess.LoadClient(_clientEvent.ClientId);
-            TrackModel trackModel = TrackDataAccess.LoadTrack(_clientEvent.TrackId);
-            _clientEvent.TrackWorkersId = ClientEventDataAccess.LoadClientEventTrackWorker(clientEventModel.Id);
+            ClientModel clientModel = ClientDataAccess.LoadClient(_clientEvent.ClientID);
+            TrackModel trackModel = TrackDataAccess.LoadTrack(_clientEvent.TrackID);
+            _clientEvent.TrackWorkersId = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventModel.ClientEventID);
 
-            txtClientEventId.Text = clientEventModel.Id.ToString();
+            txtClientEventId.Text = clientEventModel.ClientEventID.ToString();
             txtClientId.Text = clientModel.Name.ToString();
             txtTrackID.Text = trackModel.Name.ToString();
 
@@ -107,7 +108,7 @@ namespace MMS_CapstoneProject
 
         public void SetClientEventClientId(int clientId, string clientName)
         {
-            _clientEvent.ClientId = clientId;
+            _clientEvent.ClientID = clientId;
             txtClientId.Text = clientName;
         }
 
@@ -118,7 +119,7 @@ namespace MMS_CapstoneProject
         }
         public void SetClientEventTrackId(int trackId, string trackName)
         {
-            _clientEvent.TrackId = trackId;
+            _clientEvent.TrackID = trackId;
             txtTrackID.Text = trackName;
         }
 
@@ -204,14 +205,14 @@ namespace MMS_CapstoneProject
                         _clientEvent.IsUsingLowerPaddock = false;
                 }
 
-                if (_clientEvent.ClientId == 0)
+                if (_clientEvent.ClientID == 0)
                 {
                     isValid = false;
                     btnClientAdd.Focus();
                     errorProviderApp.SetError(btnClientAdd, "You havent select a client");
                 }
 
-                if (_clientEvent.TrackId == 0)
+                if (_clientEvent.TrackID == 0)
                 {
                     isValid = false;
                     btnTrackAdd.Focus();
@@ -251,7 +252,7 @@ namespace MMS_CapstoneProject
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 bool isValid = true;
-                _clientEvent.Id = int.Parse(txtClientEventId.Text.Trim());
+                _clientEvent.ClientEventID = int.Parse(txtClientEventId.Text.Trim());
                 _clientEvent.WorkersRequested = int.Parse(txtWorkerRequested.Text.Trim());
                 _clientEvent.Date = txtClientEventDate.Text.Trim();
                 _clientEvent.IsLunchProvided = rdoClientEventIsLunchProvided_True.Checked ? true : false;
@@ -282,14 +283,14 @@ namespace MMS_CapstoneProject
                         _clientEvent.IsUsingLowerPaddock = false;
                 }
 
-                if (_clientEvent.ClientId == 0)
+                if (_clientEvent.ClientID == 0)
                 {
                     isValid = false;
                     btnClientAdd.Focus();
                     errorProviderApp.SetError(btnClientAdd, "You havent select a client");
                 }
 
-                if (_clientEvent.TrackId == 0)
+                if (_clientEvent.TrackID == 0)
                 {
                     isValid = false;
                     btnTrackAdd.Focus();
@@ -308,9 +309,9 @@ namespace MMS_CapstoneProject
                 {
                     try
                     {
-                        ClientEventDataAccess.UpdateClientEvent(_clientEvent, _clientEvent.Id);
-                        ClientEventDataAccess.RemoveAllClientEventTrackWorker(_clientEvent.Id);
-                        ClientEventDataAccess.SaveClientEventTrackWorker(_clientEvent.TrackWorkersId, _clientEvent.Id);
+                        ClientEventDataAccess.UpdateClientEvent(_clientEvent, _clientEvent.ClientEventID);
+                        ClientsEvents_TrackWorkersDataAccess.RemoveAllClientEventTrackWorker(_clientEvent.ClientEventID);
+                        ClientsEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(_clientEvent.TrackWorkersId, _clientEvent.ClientEventID);
 
                     }
                     catch (Exception ex)
@@ -335,6 +336,13 @@ namespace MMS_CapstoneProject
         private void btnEscape_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnManageAttendance_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(string.Join("\n", _clientEvent.TrackWorkersId));
+            DataGridViewForm dataGridViewForm = new DataGridViewForm(this, _clientEvent.TrackWorkersId);
+            dataGridViewForm.ShowDialog();
         }
     }
 }

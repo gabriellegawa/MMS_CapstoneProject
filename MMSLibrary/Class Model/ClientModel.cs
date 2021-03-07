@@ -1,11 +1,14 @@
-﻿namespace MMSLibrary
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MMSLibrary
 {
     public class ClientModel
     {
         /// <summary>
         /// Client model - this class attribute is based on Clients table in database
         /// </summary>
-        public int Id { get; set; }
+        public int ClientID { get; set; }
         public string Name { get; set; }
         public string PrimaryContactName { get; set; }
         public string PrimaryContactCell { get; set; }

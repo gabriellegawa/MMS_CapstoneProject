@@ -73,7 +73,11 @@ namespace MMS_CapstoneProject
             btnSelect.Click += btnAddTrackWorker_Click;
             _clientEventForm = clientEventForm;
         }
-
+        /// <summary>
+        /// FOR MAIL
+        /// </summary>
+        /// <param name="mainForm"></param>
+        /// <param name="clientEventsList"></param>
         public DataGridViewForm(MainForm mainForm, List<ClientEventModel> clientEventsList)
         {
             InitializeComponent();
@@ -95,7 +99,7 @@ namespace MMS_CapstoneProject
                     row["TrackName"] = trackModel.Name;
                 }
             }
-            dataTable.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
+            dataTable.Columns.Add("Applied", typeof(bool)).SetOrdinal(0);
             dataTable.Columns["Id"].SetOrdinal(1);
             dataTable.Columns["ClientName"].SetOrdinal(2);
             dataTable.Columns["TrackName"].SetOrdinal(3);
@@ -114,6 +118,25 @@ namespace MMS_CapstoneProject
 
             btnSelect.Click += btnAddClientEvent_Click;
             _mainForm = mainForm;
+        }
+
+        public DataGridViewForm(ClientEventForm clientEventForm, List<int> trackWorkerIDList)
+        {
+            InitializeComponent();
+            List<TrackWorkerModel> appliedTrackWorkerIdList = new List<TrackWorkerModel>();
+
+            foreach(int trackWorkerID in trackWorkerIDList)
+            {
+                appliedTrackWorkerIdList.Add(TrackWorkerDataAccess.LoadTrackWorker(trackWorkerID));
+            }
+
+            var dataTable = ToDataTable(appliedTrackWorkerIdList);
+            dataTable.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
+            dataTable.Columns.Add("Present", typeof(bool)).SetOrdinal(0);
+            dgvData.DataSource = dataTable;
+            dgvData.MultiSelect = false;
+
+            _clientEventForm = clientEventForm;
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)

@@ -156,7 +156,7 @@ namespace MMSLibrary.DataAccess
                 cmd.Parameters.AddWithValue("@updatedPrimaryContactEmail", updatedClient.PrimaryContactEmail);
                 cmd.Parameters.AddWithValue("@updatedIsDeleted", updatedClient.IsDeleted);
 
-                cmd.Parameters.AddWithValue("@id", oldClient.Id);
+                cmd.Parameters.AddWithValue("@id", oldClient.ClientID);
                 cmd.Parameters.AddWithValue("@oldName", oldClient.Name);
                 cmd.Parameters.AddWithValue("@oldPrimaryContactName", oldClient.PrimaryContactName);
                 cmd.Parameters.AddWithValue("@oldPrimaryContactCell", oldClient.PrimaryContactCell);

@@ -68,6 +68,7 @@ namespace MMS_CapstoneProject
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnManageTrackWorker = new System.Windows.Forms.Button();
             this.txtClientEventDate = new System.Windows.Forms.MaskedTextBox();
+            this.btnManageAttendance = new System.Windows.Forms.Button();
             this.gbClientEventIsLunchProvided.SuspendLayout();
             this.gbClientEventIsUsingPaddock.SuspendLayout();
             this.gbClientEventWorkerCalloutSent.SuspendLayout();
@@ -414,7 +415,7 @@ namespace MMS_CapstoneProject
             // 
             this.btnManageTrackWorker.Location = new System.Drawing.Point(255, 247);
             this.btnManageTrackWorker.Name = "btnManageTrackWorker";
-            this.btnManageTrackWorker.Size = new System.Drawing.Size(100, 72);
+            this.btnManageTrackWorker.Size = new System.Drawing.Size(100, 42);
             this.btnManageTrackWorker.TabIndex = 21;
             this.btnManageTrackWorker.Text = "Manage Track Worker";
             this.btnManageTrackWorker.UseVisualStyleBackColor = true;
@@ -430,11 +431,22 @@ namespace MMS_CapstoneProject
             this.txtClientEventDate.ValidatingType = typeof(System.DateTime);
             this.txtClientEventDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientEventDate_Validating);
             // 
+            // btnManageAttendance
+            // 
+            this.btnManageAttendance.Location = new System.Drawing.Point(250, 295);
+            this.btnManageAttendance.Name = "btnManageAttendance";
+            this.btnManageAttendance.Size = new System.Drawing.Size(75, 23);
+            this.btnManageAttendance.TabIndex = 25;
+            this.btnManageAttendance.Text = "ManageAttendance";
+            this.btnManageAttendance.UseVisualStyleBackColor = true;
+            this.btnManageAttendance.Click += new System.EventHandler(this.btnManageAttendance_Click);
+            // 
             // ClientEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 416);
+            this.Controls.Add(this.btnManageAttendance);
             this.Controls.Add(this.btnManageTrackWorker);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
@@ -521,5 +533,6 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.CheckBox cbClientEventIsUsingLowerPaddock;
         private System.Windows.Forms.CheckBox cbClientEventIsUsingMiddlePaddock;
         private System.Windows.Forms.MaskedTextBox txtClientEventDate;
+        private System.Windows.Forms.Button btnManageAttendance;
     }
 }
