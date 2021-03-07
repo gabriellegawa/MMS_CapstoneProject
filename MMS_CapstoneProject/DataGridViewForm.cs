@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.Class_Model;
 using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,7 @@ namespace MMS_CapstoneProject
                 }
             }
 
-            btnSelect.Click += btnAddTrackWorker_Click;
+            btnSelect.Click += btnApplyTrackWorker_Click;
             _clientEventForm = clientEventForm;
         }
         /// <summary>
@@ -132,10 +133,11 @@ namespace MMS_CapstoneProject
 
             var dataTable = ToDataTable(appliedTrackWorkerIdList);
             dataTable.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
-            dataTable.Columns.Add("Present", typeof(bool)).SetOrdinal(0);
+            dataTable.Columns.Add("Present", typeof(bool)).SetOrdinal(1);
             dgvData.DataSource = dataTable;
             dgvData.MultiSelect = false;
 
+            btnSelect.Click += btnSelectedTrackWorker_Click;
             _clientEventForm = clientEventForm;
         }
 
@@ -157,7 +159,7 @@ namespace MMS_CapstoneProject
             }
         }
 
-        private void btnAddTrackWorker_Click(object sender, EventArgs e)
+        private void btnApplyTrackWorker_Click(object sender, EventArgs e)
         {
             List<int> trackWorkerIdList = new List<int>();
             foreach (DataGridViewRow row in dgvData.Rows)
@@ -181,6 +183,43 @@ namespace MMS_CapstoneProject
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSelectedTrackWorker_Click(object sender, EventArgs e)
+        {
+            List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientsEvents_TrackWorkersModel();
+                var isSelected = row.Cells[0].Value.ToString();
+                var isPresent = row.Cells[1].Value.ToString();
+                var trackWorkerID = row.Cells[2].Value.ToString();
+
+                if (isSelected == "True")
+                {
+                    clientsEvents_TrackWorkers.IsSelected = true;
+                }
+                if (isPresent == "True")
+                {
+                    clientsEvents_TrackWorkers.IsPresent = true;
+                }
+                clientsEvents_TrackWorkers.TrackWorkerID = int.Parse(trackWorkerID);
+                clientsEvents_TrackWorkers.IsApplied = true;
+                clientsEvents_TrackWorkersList.Add(clientsEvents_TrackWorkers);
+            }
+
+            if (clientsEvents_TrackWorkersList.Count() > 0)
+            {
+                _clientEventForm.SetClientsEvents_TrackWorkers(clientsEvents_TrackWorkersList);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please select atleast 1 worker", "Empty Selection",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
         private void btnAddClientEvent_Click(object sender, EventArgs e)
         {

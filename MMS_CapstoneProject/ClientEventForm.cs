@@ -1,4 +1,5 @@
 ﻿using MMSLibrary;
+using MMSLibrary.Class_Model;
 using MMSLibrary.Data_Access;
 using MMSLibrary.DataAccess;
 using System;
@@ -12,6 +13,8 @@ namespace MMS_CapstoneProject
     {
         private readonly MainForm _mainForm;
         private static ClientEventModel _clientEvent = new ClientEventModel();
+        private static List<ClientsEvents_TrackWorkersModel> _clientsEvents_TrackWorkers = new List<ClientsEvents_TrackWorkersModel>();
+
         public ClientEventForm(MainForm mainForm)
         {
             _clientEvent = new ClientEventModel();
@@ -343,6 +346,16 @@ namespace MMS_CapstoneProject
             //MessageBox.Show(string.Join("\n", _clientEvent.TrackWorkersId));
             DataGridViewForm dataGridViewForm = new DataGridViewForm(this, _clientEvent.TrackWorkersId);
             dataGridViewForm.ShowDialog();
+        }
+        public void SetClientsEvents_TrackWorkers(List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkers)
+        {
+            _clientsEvents_TrackWorkers = clientsEvents_TrackWorkers;
+            string example = "";
+            foreach(ClientsEvents_TrackWorkersModel model in _clientsEvents_TrackWorkers)
+            {
+                example += model.TrackWorkerID + " " + model.IsApplied + " " + model.IsSelected + " " + model.IsPresent + "\n";
+            }
+            MessageBox.Show(example);
         }
     }
 }

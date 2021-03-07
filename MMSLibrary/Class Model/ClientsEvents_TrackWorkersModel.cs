@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.Class_Model
 {
-    class ClientsEvents_TrackWorkersModel
+    public class ClientsEvents_TrackWorkersModel
     {
         public int ClientEventID { get; set; }
         public int TrackWorkerID { get; set; }
