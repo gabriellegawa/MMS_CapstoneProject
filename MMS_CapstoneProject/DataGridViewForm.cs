@@ -150,7 +150,7 @@ namespace MMS_CapstoneProject
             InitializeComponent();
             List<TrackWorkerModel> appliedTrackWorkerIdList = new List<TrackWorkerModel>();
 
-            foreach(ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
+            foreach (ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
             {
                 appliedTrackWorkerIdList.Add(TrackWorkerDataAccess.LoadTrackWorker(clientsEvents_TrackWorkers.TrackWorkerID));
             }
@@ -203,19 +203,20 @@ namespace MMS_CapstoneProject
             List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
             foreach (DataGridViewRow row in dgvData.Rows)
             {
-                ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientsEvents_TrackWorkersModel();
                 var isApplied = row.Cells[0].Value.ToString();
-                var trackWorkerID = row.Cells[1].Value.ToString();
-
                 if (isApplied == "True")
                 {
-                    clientsEvents_TrackWorkers.IsApplied = true;
-                }
-                clientsEvents_TrackWorkers.TrackWorkerID = int.Parse(trackWorkerID);
-                clientsEvents_TrackWorkers.IsSelected = false;
-                clientsEvents_TrackWorkers.IsPresent = false;
+                    ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientsEvents_TrackWorkersModel();
+                    var trackWorkerID = row.Cells[1].Value.ToString();
 
-                clientsEvents_TrackWorkersList.Add(clientsEvents_TrackWorkers);
+                    clientsEvents_TrackWorkers.IsApplied = true;
+                    clientsEvents_TrackWorkers.TrackWorkerID = int.Parse(trackWorkerID);
+                    clientsEvents_TrackWorkers.IsSelected = false;
+                    clientsEvents_TrackWorkers.IsPresent = false;
+
+                    clientsEvents_TrackWorkersList.Add(clientsEvents_TrackWorkers);
+                }
+
             }
 
             if (clientsEvents_TrackWorkersList.Count() > 0)
