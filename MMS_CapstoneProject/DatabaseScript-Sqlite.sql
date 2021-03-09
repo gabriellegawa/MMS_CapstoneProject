@@ -5,46 +5,53 @@ DROP TABLE IF EXISTS Tracks;
 DROP TABLE IF EXISTS Clients;
 
 CREATE TABLE IF NOT EXISTS Clients (
-	 id INTEGER PRIMARY KEY,
-	 name TEXT NOT NULL,
-	 primaryContactName TEXT NOT NULL,
-	 primaryContactCell TEXT NOT NULL,
-	 primaryContactEmail TEXT NOT NULL,
-	 isDeleted NUMERIC DEFAULT 0);
+	 ClientID INTEGER PRIMARY KEY,
+	 Name TEXT NOT NULL,
+	 PrimaryContactName TEXT NOT NULL,
+	 PrimaryContactCell TEXT NOT NULL,
+	 PrimaryContactEmail TEXT NOT NULL,
+	 IsDeleted NUMERIC DEFAULT 0
+);
 
 CREATE TABLE IF NOT EXISTS Tracks (
-	 id INTEGER PRIMARY KEY,
-	 name TEXT NOT NULL,
+	 TrackID INTEGER PRIMARY KEY,
+	 Name TEXT NOT NULL,
 	 /*configuration TEXT NOT NULL,*/
-	 isDeleted NUMERIC DEFAULT 0);
+	 IsDeleted NUMERIC DEFAULT 0
+);
 
 CREATE TABLE IF NOT EXISTS TrackWorkers (
-	 id INTEGER PRIMARY KEY,
-	 firstName TEXT NOT NULL,
-	 lastName TEXT NOT NULL,
-	 cell TEXT NOT NULL,
-	 email TEXT NOT NULL,
-	 isCapableCaptain NUMERIC NOT NULL,
-	 isDeleted NUMERIC DEFAULT 0);
+	 TrackWorkerID INTEGER PRIMARY KEY,
+	 FirstName TEXT NOT NULL,
+	 LastName TEXT NOT NULL,
+	 Cell TEXT NOT NULL,
+	 Email TEXT NOT NULL,
+	 IsCapableCaptain NUMERIC NOT NULL,
+	 IsDeleted NUMERIC DEFAULT 0
+);
 	 
 CREATE TABLE IF NOT EXISTS ClientEvents (
-	 id INTEGER PRIMARY KEY,
-	 clientId INTEGER,
-	 trackId INTEGER,
-	 date TEXT NOT NULL,
-	 workersRequested INTEGER NOT NULL,
-	 isLunchProvided NUMERIC NOT NULL,
-	 isUsingUpperPaddock NUMERIC NOT NULL,
-	 isUsingMiddlePaddock NUMERIC NOT NULL,
-	 isUsingLowerPaddock NUMERIC NOT NULL,
-	 workerCalloutSent NUMERIC NOT NULL,
-	 requireSafetyDemo NUMERIC NOT NULL,
-	 isDeleted NUMERIC DEFAULT 0,
-	 FOREIGN KEY(clientId) REFERENCES Clients(id)
-	 FOREIGN KEY(trackId) REFERENCES Tracks(id));
+	 ClientEventID INTEGER PRIMARY KEY,
+	 ClientID INTEGER,
+	 TrackID INTEGER,
+	 Date TEXT NOT NULL,
+	 WorkersRequested INTEGER NOT NULL,
+	 IsLunchProvided NUMERIC NOT NULL,
+	 IsUsingUpperPaddock NUMERIC NOT NULL,
+	 IsUsingMiddlePaddock NUMERIC NOT NULL,
+	 IsUsingLowerPaddock NUMERIC NOT NULL,
+	 WorkerCalloutSent NUMERIC NOT NULL,
+	 RequireSafetyDemo NUMERIC NOT NULL,
+	 IsDeleted NUMERIC DEFAULT 0,
+	 FOREIGN KEY(ClientId) REFERENCES Clients(ClientID)
+	 FOREIGN KEY(TrackID) REFERENCES Tracks(TrackID)
+);
 
 CREATE TABLE IF NOT EXISTS ClientsEvents_TrackWorkers (
-clientsEventsId INTEGER REFERENCES ClientEvents(id),
-trackWorkersId INTEGER REFERENCES TrackWorkers(id),
-isAssigned NUMERIC NOT NULL,
-PRIMARY KEY(ClientsEventsId, TrackWorkersId));
+	ClientsEventID INTEGER REFERENCES ClientEvents(ClientEventID),
+	TrackWorkerID INTEGER REFERENCES TrackWorkers(TrackWorkerID),
+	IsApplied NUMERIC NOT NULL,
+	IsSelected NUMERIC NOT NULL,
+	IsPresent NUMERIC NOT NULL,
+	PRIMARY KEY(ClientsEventID, TrackWorkerID)
+);

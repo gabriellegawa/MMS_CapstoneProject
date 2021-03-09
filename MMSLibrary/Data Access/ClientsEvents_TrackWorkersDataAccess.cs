@@ -30,7 +30,7 @@ namespace MMSLibrary.Data_Access
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<int>("SELECT TrackWorkersID FROM ClientsEvents_TrackWorkers WHERE ClientsEventsID = " + clientEventId, new DynamicParameters());
+                var output = cnn.Query<int>("SELECT TrackWorkerID FROM ClientsEvents_TrackWorkers WHERE ClientsEventID = " + clientEventId, new DynamicParameters());
                 return output.ToList();
             }
         }

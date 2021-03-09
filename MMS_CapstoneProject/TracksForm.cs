@@ -7,8 +7,14 @@ namespace MMS_CapstoneProject
 {
     public partial class TracksForm : Form
     {
+        // track form variable
         private readonly MainForm _mainForm;
         private static TrackModel _trackModel = new TrackModel();
+
+        /// <summary>
+        /// TracksForm - for creating new track record
+        /// </summary>
+        /// <param name="mainForm"></param>
         public TracksForm(MainForm mainForm)
         {
             _mainForm = mainForm;
@@ -16,6 +22,12 @@ namespace MMS_CapstoneProject
 
             btnEnter.Click += btnCreate_Click;
         }
+
+        /// <summary>
+        /// TracksForm - for updating track record
+        /// </summary>
+        /// <param name="mainForm"></param>
+        /// <param name="trackModel"></param>
         public TracksForm(MainForm mainForm, TrackModel trackModel)
         {
             _mainForm = mainForm;
@@ -36,6 +48,12 @@ namespace MMS_CapstoneProject
 
             btnEnter.Text = "&Update";
         }
+
+        /// <summary>
+        /// btnCreate_Click - create new track record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -58,6 +76,12 @@ namespace MMS_CapstoneProject
                 }
             }
         }
+
+        /// <summary>
+        /// btnUpdate_Click - update track record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -82,17 +106,32 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// TracksForm_FormClosing - track form record closing event to update main form datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TracksForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
             _mainForm.RefreshDataGridViewTrack();
         }
 
+        /// <summary>
+        /// btnEscape_Click - for close the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEscape_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// btnClear_Click - clear the form data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             _trackModel = new TrackModel();
@@ -101,6 +140,11 @@ namespace MMS_CapstoneProject
             rdoIsDeleted_Enabled.Checked = true;
         }
 
+        /// <summary>
+        /// txtTrackName_Validating - validating event for track name textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTrackName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTrackName.Text))

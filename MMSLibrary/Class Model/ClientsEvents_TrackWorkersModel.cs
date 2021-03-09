@@ -8,6 +8,9 @@ namespace MMSLibrary.Class_Model
 {
     public class ClientsEvents_TrackWorkersModel
     {
+        /// <summary>
+        /// ClientsEvents_TrackWorkersModel - contain join table attributes
+        /// </summary>
         public int ClientEventID { get; set; }
         public int TrackWorkerID { get; set; }
         public bool IsApplied { get; set; }

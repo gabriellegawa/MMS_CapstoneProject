@@ -8,19 +8,32 @@ namespace MMS_CapstoneProject
 {
     public partial class ClientForm : Form
     {
+        /// client form variable
         private readonly MainForm _mainForm;
+
+        /// <summary>
+        /// ClientEventForm - for creating new client record
+        /// </summary>
+        /// <param name="mainForm">main form</param>
         public ClientForm(MainForm mainForm)
         {
             _mainForm = mainForm;
             InitializeComponent();
             btnEnter.Click += btnCreate_Click;
         }
+
+        /// <summary>
+        /// ClientForm - for updating client record
+        /// </summary>
+        /// <param name="mainForm">main form</param>
+        /// <param name="clientModel">client record</param>
         public ClientForm(MainForm mainForm, ClientModel clientModel)
         {
             _mainForm = mainForm;
             InitializeComponent();
             btnEnter.Click += btnUpdate_Click;
 
+            // load client data into the form
             txtClientId.Text = clientModel.ClientID.ToString();
             txtClientName.Text = clientModel.Name;
             txtClientPrimaryContactName.Text = clientModel.PrimaryContactName;
@@ -38,6 +51,12 @@ namespace MMS_CapstoneProject
 
             btnEnter.Text = "Update";
         }
+
+        /// <summary>
+        /// btnCreate_Click - for new client record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -63,6 +82,12 @@ namespace MMS_CapstoneProject
                 }
             }
         }
+
+        /// <summary>
+        /// btnUpdate_Click - for updating client record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -90,17 +115,32 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// ClientForm_FormClosing - form close event to update main form datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
             _mainForm.RefreshDataGridViewClient();
         }
 
+        /// <summary>
+        /// btnEscape_Click - close the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEscape_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// btnClear_Click - clear the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtClientId.Clear();
@@ -111,6 +151,11 @@ namespace MMS_CapstoneProject
             rdoIsDeleted_Enabled.Checked = true;
         }
 
+        /// <summary>
+        /// txtClientName_Validating - validating event for client name textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClientName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtClientName.Text))
@@ -126,6 +171,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// txtClientPrimaryContactName_Validating - validating event for primary contact name textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClientPrimaryContactName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtClientPrimaryContactName.Text))
@@ -141,6 +191,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// txtClientPrimaryContactCell_Validating - validating event for primary contact cell textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClientPrimaryContactCell_Validating(object sender, CancelEventArgs e)
         {
             if (!txtClientPrimaryContactCell.MaskFull)
@@ -156,6 +211,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// txtClientPrimaryContactEmail_Validating - validating event for primary contact email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClientPrimaryContactEmail_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtClientPrimaryContactEmail.Text))

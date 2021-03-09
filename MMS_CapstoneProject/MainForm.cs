@@ -14,43 +14,75 @@ namespace MMS_CapstoneProject
 {
     public partial class MainForm : Form
     {
+        // main form variable
         private static List<int> _clientEventIdList = new List<int>();
         private static string stringBodyHTML;
         List<int> allClientEventTrackWorkerIdList = new List<int>();
+        /// <summary>
+        /// MainForm - display initial main form
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// btnClientAddNew_Click - add new client record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClientAddNew_Click(object sender, EventArgs e)
         {
             ClientForm clientForm = new ClientForm(this);
             clientForm.ShowDialog();
         }
 
+        /// <summary>
+        /// btnTrackWorkerAddNew_Click - add new track worker record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTrackWorkerAddNew_Click(object sender, EventArgs e)
         {
             TrackWorkerForm trackWorkerForm = new TrackWorkerForm(this);
             trackWorkerForm.ShowDialog();
         }
 
+        /// <summary>
+        /// btnTrackAddNew_Click - add new track record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTrackAddNew_Click(object sender, EventArgs e)
         {
             TracksForm tracksForm = new TracksForm(this);
             tracksForm.ShowDialog();
         }
 
+        /// <summary>
+        /// btnClientEventAddNew_Click - add new client event record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClientEventAddNew_Click(object sender, EventArgs e)
         {
             ClientEventForm clientEventForm = new ClientEventForm(this);
             clientEventForm.ShowDialog();
         }
 
+        /// <summary>
+        /// MainForm_Load - load event to initial every datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshAllDataGridView();
         }
 
+        /// <summary>
+        /// RefreshAllDataGridView - refresh every datagridview
+        /// </summary>
         public void RefreshAllDataGridView()
         {
             RefreshDataGridViewClientEvent();
@@ -59,6 +91,13 @@ namespace MMS_CapstoneProject
             RefreshDataGridViewClient();
         }
 
+        /// <summary>
+        /// OBSOLETE
+        /// RefreshDataGridViewData - refresh datagridview
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dataGridView"></param>
+        /// <param name="list"></param>
         public void RefreshDataGridViewData<T>(DataGridView dataGridView, List<T> list)
         {
             DataTable dataTable = ToDataTable(list);
@@ -72,6 +111,9 @@ namespace MMS_CapstoneProject
             dataGridView.ClearSelection();
         }
 
+        /// <summary>
+        /// RefreshDataGridViewClient - refresh client data grid view
+        /// </summary>
         public void RefreshDataGridViewClient()
         {
             List<ClientModel> list = ClientDataAccess.LoadAllClient();
@@ -91,6 +133,9 @@ namespace MMS_CapstoneProject
             dataGridView.ClearSelection();
         }
 
+        /// <summary>
+        /// RefreshDataGridViewTrackWorker - refresh track worker data grid view
+        /// </summary>
         public void RefreshDataGridViewTrackWorker()
         {
             List<TrackWorkerModel> list = TrackWorkerDataAccess.LoadAllTrackWorker();
@@ -115,6 +160,9 @@ namespace MMS_CapstoneProject
             txtTrackWorkerSearch.Clear();
         }
 
+        /// <summary>
+        /// RefreshDataGridViewTrack - refresh track data grid view
+        /// </summary>
         public void RefreshDataGridViewTrack()
         {
             List<TrackModel> list = TrackDataAccess.LoadAllTrack();
@@ -133,6 +181,9 @@ namespace MMS_CapstoneProject
             dataGridView.ClearSelection();
         }
 
+        /// <summary>
+        /// RefreshDataGridViewClientEvent - refresh client event data grid view
+        /// </summary>
         public void RefreshDataGridViewClientEvent()
         {
             List<ClientEventModel> list = ClientEventDataAccess.LoadAllClientEvent();
@@ -169,6 +220,12 @@ namespace MMS_CapstoneProject
 
             dataGridView.ClearSelection();
         }
+
+        /// <summary>
+        /// dgvTrackWorker_CellClick - track worker data grid view cell click to update record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvTrackWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -202,6 +259,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// txtTrackWorkerSearch_TextChanged - for filtering track worker data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTrackWorkerSearch_TextChanged(object sender, EventArgs e)
         {
             // START with
@@ -226,6 +288,7 @@ namespace MMS_CapstoneProject
         }
 
         /// <summary>
+        /// ToDataTable - convert list into datatable
         /// credit : https://stackoverflow.com/questions/18100783/how-to-convert-a-list-into-data-table
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -258,6 +321,11 @@ namespace MMS_CapstoneProject
             return dataTable;
         }
 
+        /// <summary>
+        /// dgvClient_CellClick - client datagridview cell click event for updating client record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -283,6 +351,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// txtClientSearch_TextChanged - for filtering client data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClientSearch_TextChanged(object sender, EventArgs e)
         {
             // START with
@@ -304,6 +377,11 @@ namespace MMS_CapstoneProject
 
         }
 
+        /// <summary>
+        /// dgvTrack_CellClick - cell click event for updating track record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvTrack_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -326,6 +404,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// txtTrackSearch_TextChanged - for filtering track data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTrackSearch_TextChanged(object sender, EventArgs e)
         {
             string searchQuery = "";
@@ -335,6 +418,11 @@ namespace MMS_CapstoneProject
             (dgvTrack.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
         }
 
+        /// <summary>
+        /// dgvClientEvent_CellClick - client event cell click event for updating
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvClientEvent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -413,7 +501,12 @@ namespace MMS_CapstoneProject
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// tabControl_SelectedIndexChanged - tab control index change to change the form width
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (tabControl.SelectedIndex)
             {
@@ -447,17 +540,29 @@ namespace MMS_CapstoneProject
 
         }
 
+        /// <summary>
+        /// btnSelectEvent_Click - for adding client event for mailing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSelectEvent_Click(object sender, EventArgs e)
         {
             DataGridViewForm dataGridViewForm = new DataGridViewForm(this, ClientEventDataAccess.LoadClientEvent());
             dataGridViewForm.ShowDialog();
         }
 
+        /// <summary>
+        /// SetClientEventIdList - for passing client event from datagridview form into mainform
+        /// </summary>
+        /// <param name="clientEventIdList"> client Event Id List</param>
         public void SetClientEventIdList(List<int> clientEventIdList)
         {
             _clientEventIdList = clientEventIdList;
         }
 
+        /// <summary>
+        /// SetWebBrowserTable - for creating html mail
+        /// </summary>
         public void SetWebBrowserTable()
         {
             List<ClientEventModel> clientEventModelsList = new List<ClientEventModel>();
@@ -526,6 +631,11 @@ namespace MMS_CapstoneProject
             //webBrowser.DocumentText += stringTableHTML;
         }
 
+        /// <summary>
+        /// btnSend_Click - for sending email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSend_Click(object sender, EventArgs e)
         {
             stringBodyHTML = "<p>" + txtEmailBody.Text.ToString() + "</p>" + stringBodyHTML;

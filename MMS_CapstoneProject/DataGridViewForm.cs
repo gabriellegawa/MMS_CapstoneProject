@@ -12,8 +12,15 @@ namespace MMS_CapstoneProject
 {
     public partial class DataGridViewForm : Form
     {
+        // data grid view form variable
         private readonly ClientEventForm _clientEventForm;
         private readonly MainForm _mainForm;
+
+        /// <summary>
+        /// DataGridViewForm - for adding client for client event
+        /// </summary>
+        /// <param name="clientEventForm"></param>
+        /// <param name="list"></param>
         public DataGridViewForm(ClientEventForm clientEventForm, List<ClientModel> list)
         {
             InitializeComponent();
@@ -28,6 +35,11 @@ namespace MMS_CapstoneProject
             _clientEventForm = clientEventForm;
         }
 
+        /// <summary>
+        /// DataGridViewForm - for adding track for client event
+        /// </summary>
+        /// <param name="clientEventForm"></param>
+        /// <param name="list"></param>
         public DataGridViewForm(ClientEventForm clientEventForm, List<TrackModel> list)
         {
             InitializeComponent();
@@ -42,6 +54,12 @@ namespace MMS_CapstoneProject
             _clientEventForm = clientEventForm;
         }
 
+        /// <summary>
+        /// DataGridViewForm - add apply track worker for client event
+        /// </summary>
+        /// <param name="clientEventForm"></param>
+        /// <param name="list"></param>
+        /// <param name="trackWorkerIdList"></param>
         public DataGridViewForm(ClientEventForm clientEventForm, List<TrackWorkerModel> list, List<int> trackWorkerIdList)
         {
             InitializeComponent();
@@ -74,8 +92,9 @@ namespace MMS_CapstoneProject
             btnSelect.Click += btnApplyTrackWorker_Click;
             _clientEventForm = clientEventForm;
         }
+
         /// <summary>
-        /// FOR MAIL
+        /// DataGridViewForm - display all client event for mailing
         /// </summary>
         /// <param name="mainForm"></param>
         /// <param name="clientEventsList"></param>
@@ -101,7 +120,7 @@ namespace MMS_CapstoneProject
                 }
             }
             dataTable.Columns.Add("Applied", typeof(bool)).SetOrdinal(0);
-            dataTable.Columns["Id"].SetOrdinal(1);
+            dataTable.Columns["ClientEventID"].SetOrdinal(1);
             dataTable.Columns["ClientName"].SetOrdinal(2);
             dataTable.Columns["TrackName"].SetOrdinal(3);
 
@@ -121,6 +140,11 @@ namespace MMS_CapstoneProject
             _mainForm = mainForm;
         }
 
+        /// <summary>
+        /// DataGridViewForm - add selected track worker for client event
+        /// </summary>
+        /// <param name="clientEventForm"></param>
+        /// <param name="clientsEvents_TrackWorkersList"></param>
         public DataGridViewForm(ClientEventForm clientEventForm, List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList)
         {
             InitializeComponent();
@@ -141,6 +165,11 @@ namespace MMS_CapstoneProject
             _clientEventForm = clientEventForm;
         }
 
+        /// <summary>
+        /// btnAddClient_Click - add client for client event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddClient_Click(object sender, EventArgs e)
         {
             if (dgvData.SelectedRows.Count > 0)
@@ -150,6 +179,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// btnAddTrack_Click - add track for client event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddTrack_Click(object sender, EventArgs e)
         {
             if (dgvData.SelectedRows.Count > 0)
@@ -159,6 +193,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// btnApplyTrackWorker_Click - add apply track worker for client event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnApplyTrackWorker_Click(object sender, EventArgs e)
         {
             List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
@@ -191,6 +230,11 @@ namespace MMS_CapstoneProject
             }
         }
 
+        /// <summary>
+        /// btnSelectedTrackWorker_Click - add selected track worker for client event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSelectedTrackWorker_Click(object sender, EventArgs e)
         {
             List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
@@ -226,8 +270,11 @@ namespace MMS_CapstoneProject
             }
         }
 
-
-
+        /// <summary>
+        /// btnAddClientEvent_Click - add client event for mailing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddClientEvent_Click(object sender, EventArgs e)
         {
             List<int> clientEventIdList = new List<int>();
@@ -253,7 +300,9 @@ namespace MMS_CapstoneProject
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         /// <summary>
+        /// ToDataTable - convert list into data table
         /// credit : https://stackoverflow.com/questions/18100783/how-to-convert-a-list-into-data-table
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -286,6 +335,11 @@ namespace MMS_CapstoneProject
             return dataTable;
         }
 
+        /// <summary>
+        /// txtDataGridViewSearch_TextChanged - text change event for search textbox to filter data grid view data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDataGridViewSearch_TextChanged(object sender, EventArgs e)
         {
             string searchQuery = "";

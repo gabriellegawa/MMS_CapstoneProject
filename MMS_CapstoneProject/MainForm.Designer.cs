@@ -87,7 +87,7 @@ namespace MMS_CapstoneProject
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(776, 426);
             this.tabControl.TabIndex = 0;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabClient
             // 
