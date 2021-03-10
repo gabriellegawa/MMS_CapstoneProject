@@ -163,6 +163,25 @@ namespace MMS_CapstoneProject
             dgvData.MultiSelect = false;
             dgvData.ReadOnly = false;
 
+            if (clientsEvents_TrackWorkersList != null)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    DataGridViewCheckBoxCell isSelectedCell = row.Cells["Selected"] as DataGridViewCheckBoxCell;
+                    DataGridViewCheckBoxCell isPresentCell = row.Cells["Present"] as DataGridViewCheckBoxCell;
+                    isSelectedCell.Value = false;
+                    isPresentCell.Value = false;
+                    foreach (ClientsEvents_TrackWorkersModel trackWorkerId in clientsEvents_TrackWorkersList)
+                    {
+                        if (row.Cells["TrackWorkerID"].Value.ToString() == trackWorkerId.TrackWorkerID.ToString())
+                        {
+                            isSelectedCell.Value = trackWorkerId.IsSelected;
+                            isPresentCell.Value = trackWorkerId.IsPresent;
+                        }
+                    }
+                }
+            }
+
             foreach (DataGridViewColumn column in dgvData.Columns)
             {
                 if (column.HeaderText == "Selected" || column.HeaderText == "Present")

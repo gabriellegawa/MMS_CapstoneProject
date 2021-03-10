@@ -558,6 +558,7 @@ namespace MMS_CapstoneProject
         public void SetClientEventIdList(List<int> clientEventIdList)
         {
             _clientEventIdList = clientEventIdList;
+            stringBodyHTML = "";
         }
 
         /// <summary>
@@ -689,7 +690,6 @@ namespace MMS_CapstoneProject
             //{
             //    smtp.Send(message);
             //}
-
 
         }
     }
