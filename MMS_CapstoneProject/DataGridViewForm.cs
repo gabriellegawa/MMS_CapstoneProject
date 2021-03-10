@@ -60,7 +60,7 @@ namespace MMS_CapstoneProject
         /// <param name="clientEventForm"></param>
         /// <param name="list"></param>
         /// <param name="trackWorkerIdList"></param>
-        public DataGridViewForm(ClientEventForm clientEventForm, List<TrackWorkerModel> list, List<int> trackWorkerIdList)
+        public DataGridViewForm(ClientEventForm clientEventForm, List<TrackWorkerModel> list, List<ClientsEvents_TrackWorkersModel> trackWorkerIdList)
         {
             InitializeComponent();
             var dataTable = ToDataTable(list);
@@ -78,12 +78,11 @@ namespace MMS_CapstoneProject
                 {
                     DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
                     cell.Value = false;
-                    foreach (int trackWorkerId in trackWorkerIdList)
+                    foreach (ClientsEvents_TrackWorkersModel trackWorkerId in trackWorkerIdList)
                     {
-                        if (row.Cells[1].Value.ToString() == trackWorkerId.ToString())
+                        if (row.Cells[1].Value.ToString() == trackWorkerId.TrackWorkerID.ToString())
                         {
                             cell.Value = true;
-                            //row.Cells[0].Value = true;
                         }
                     }
                 }
@@ -147,6 +146,7 @@ namespace MMS_CapstoneProject
         /// <param name="clientsEvents_TrackWorkersList"></param>
         public DataGridViewForm(ClientEventForm clientEventForm, List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList)
         {
+            //TODO Need to Make is sticky for update
             InitializeComponent();
             List<TrackWorkerModel> appliedTrackWorkerIdList = new List<TrackWorkerModel>();
 
@@ -159,11 +159,37 @@ namespace MMS_CapstoneProject
             dataTable.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
             dataTable.Columns.Add("Present", typeof(bool)).SetOrdinal(1);
             dgvData.DataSource = dataTable;
+            dgvData.CellContentClick += dgrvProductTemplate_CellContentClick;
             dgvData.MultiSelect = false;
+            dgvData.ReadOnly = false;
+
+            foreach (DataGridViewColumn column in dgvData.Columns)
+            {
+                if (column.HeaderText == "Selected" || column.HeaderText == "Present")
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
+            }
 
             btnSelect.Click += btnSelectedTrackWorker_Click;
             _clientEventForm = clientEventForm;
         }
+
+        private void dgrvProductTemplate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (Convert.ToBoolean(dgvData.Rows[e.RowIndex].Cells["Selected"].EditedFormattedValue) == true)
+                {
+                    dgvData.Rows[e.RowIndex].Cells["Present"].Value = true;
+                }
+                else if (Convert.ToBoolean(dgvData.Rows[e.RowIndex].Cells["Selected"].EditedFormattedValue) == false)
+                {
+                    dgvData.Rows[e.RowIndex].Cells["Present"].Value = false;
+                }
+            }
+        }
+
 
         /// <summary>
         /// btnAddClient_Click - add client for client event

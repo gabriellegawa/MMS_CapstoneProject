@@ -168,7 +168,7 @@ namespace MMS_CapstoneProject
         /// <param name="e"></param>
         private void btnManageTrackWorker_Click(object sender, EventArgs e)
         {
-            DataGridViewForm dataGridViewForm = new DataGridViewForm(this, TrackWorkerDataAccess.LoadTrackWorker(), _clientEvent.TrackWorkersId);
+            DataGridViewForm dataGridViewForm = new DataGridViewForm(this, TrackWorkerDataAccess.LoadTrackWorker(), _clientsEvents_TrackWorkers);
             dataGridViewForm.ShowDialog();
         }
 
@@ -441,7 +441,7 @@ namespace MMS_CapstoneProject
             {
                 example += model.TrackWorkerID + " " + model.IsApplied + " " + model.IsSelected + " " + model.IsPresent + "\n";
             }
-            MessageBox.Show(example);
+            //MessageBox.Show(example);
         }
     }
 }
