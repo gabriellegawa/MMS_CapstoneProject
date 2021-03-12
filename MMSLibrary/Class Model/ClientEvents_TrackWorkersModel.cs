@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MMSLibrary.Class_Model
 {
-    public class ClientsEvents_TrackWorkersModel
+    public class ClientEvents_TrackWorkersModel
     {
         /// <summary>
         /// ClientsEvents_TrackWorkersModel - contain join table attributes

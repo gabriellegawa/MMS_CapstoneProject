@@ -5,6 +5,7 @@ using MMSLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MMS_CapstoneProject
@@ -14,7 +15,7 @@ namespace MMS_CapstoneProject
         // client event form variable
         private readonly MainForm _mainForm;
         private static ClientEventModel _clientEvent = new ClientEventModel();
-        private static List<ClientsEvents_TrackWorkersModel> _clientsEvents_TrackWorkers = new List<ClientsEvents_TrackWorkersModel>();
+        private static List<ClientEvents_TrackWorkersModel> _clientsEvents_TrackWorkers = new List<ClientEvents_TrackWorkersModel>();
 
         /// <summary>
         /// ClientEventForm - for creating new client event record
@@ -23,7 +24,7 @@ namespace MMS_CapstoneProject
         public ClientEventForm(MainForm mainForm)
         {
             _clientEvent = new ClientEventModel();
-            _clientsEvents_TrackWorkers = new List<ClientsEvents_TrackWorkersModel>();
+            _clientsEvents_TrackWorkers = new List<ClientEvents_TrackWorkersModel>();
             _mainForm = mainForm;
             InitializeComponent();
 
@@ -45,7 +46,7 @@ namespace MMS_CapstoneProject
             _clientEvent = clientEventModel;
             ClientModel clientModel = ClientDataAccess.LoadClient(_clientEvent.ClientID);
             TrackModel trackModel = TrackDataAccess.LoadTrack(_clientEvent.TrackID);
-            _clientsEvents_TrackWorkers = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventModel.ClientEventID);
+            _clientsEvents_TrackWorkers = ClientEvents_TrackWorkersDataAccess.LoadClientEventTrackWorker(clientEventModel.ClientEventID);
 
             txtClientEventId.Text = clientEventModel.ClientEventID.ToString();
             txtClientId.Text = clientModel.Name.ToString();
@@ -379,8 +380,8 @@ namespace MMS_CapstoneProject
                     {
                         // database insert statement
                         ClientEventDataAccess.UpdateClientEvent(_clientEvent, _clientEvent.ClientEventID);
-                        ClientsEvents_TrackWorkersDataAccess.RemoveAllClientEventTrackWorker(_clientEvent.ClientEventID);
-                        ClientsEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(_clientsEvents_TrackWorkers, _clientEvent.ClientEventID);
+                        ClientEvents_TrackWorkersDataAccess.RemoveAllClientEventTrackWorker(_clientEvent.ClientEventID);
+                        ClientEvents_TrackWorkersDataAccess.SaveClientEventTrackWorker(_clientsEvents_TrackWorkers, _clientEvent.ClientEventID);
 
                     }
                     catch (Exception ex)
@@ -433,15 +434,32 @@ namespace MMS_CapstoneProject
         /// SetClientsEvents_TrackWorkers - pass track worker model for client event from datagridviewform to clienteventform
         /// </summary>
         /// <param name="clientsEvents_TrackWorkers"></param>
-        public void SetClientsEvents_TrackWorkers(List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkers)
+        public void SetClientsEvents_TrackWorkers(List<ClientEvents_TrackWorkersModel> clientsEvents_TrackWorkers)
         {
-            _clientsEvents_TrackWorkers = clientsEvents_TrackWorkers;
-            string example = "";
-            foreach (ClientsEvents_TrackWorkersModel model in _clientsEvents_TrackWorkers)
+            //_clientsEvents_TrackWorkers = clientsEvents_TrackWorkers;
+            // TODO ONLY ADD IF NEW TRACK WORKER ID
+            // FIND A BETTER WAY TO DO THIS
+            // MAY CAUSE FUTURE PROBLEM
+            List<ClientEvents_TrackWorkersModel> listDifference = _clientsEvents_TrackWorkers.Where(x => !clientsEvents_TrackWorkers.Any(z => z.TrackWorkerID == x.TrackWorkerID)).ToList();
+
+            foreach (ClientEvents_TrackWorkersModel model in listDifference)
             {
-                example += model.TrackWorkerID + " " + model.IsApplied + " " + model.IsSelected + " " + model.IsPresent + "\n";
+                _clientsEvents_TrackWorkers.Remove(_clientsEvents_TrackWorkers.Single(s => s.TrackWorkerID == model.TrackWorkerID));
             }
-            //MessageBox.Show(example);
+
+            foreach (ClientEvents_TrackWorkersModel model in clientsEvents_TrackWorkers)
+            {
+                if (!_clientsEvents_TrackWorkers.Any(item => item.TrackWorkerID == model.TrackWorkerID))
+                {
+                    _clientsEvents_TrackWorkers.Add(model);
+                }
+                else if (model.IsApplied == true && model.IsSelected == true)
+                {
+                    _clientsEvents_TrackWorkers.Where(w => w.TrackWorkerID == model.TrackWorkerID).ToList().ForEach(s => s.IsApplied = model.IsApplied);
+                    _clientsEvents_TrackWorkers.Where(w => w.TrackWorkerID == model.TrackWorkerID).ToList().ForEach(s => s.IsSelected = model.IsSelected);
+                    _clientsEvents_TrackWorkers.Where(w => w.TrackWorkerID == model.TrackWorkerID).ToList().ForEach(s => s.IsPresent = model.IsPresent);
+                }
+            }
         }
     }
 }

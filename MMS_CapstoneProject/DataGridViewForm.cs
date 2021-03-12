@@ -60,7 +60,7 @@ namespace MMS_CapstoneProject
         /// <param name="clientEventForm"></param>
         /// <param name="list"></param>
         /// <param name="trackWorkerIdList"></param>
-        public DataGridViewForm(ClientEventForm clientEventForm, List<TrackWorkerModel> list, List<ClientsEvents_TrackWorkersModel> trackWorkerIdList)
+        public DataGridViewForm(ClientEventForm clientEventForm, List<TrackWorkerModel> list, List<ClientEvents_TrackWorkersModel> trackWorkerIdList)
         {
             InitializeComponent();
             var dataTable = ToDataTable(list);
@@ -78,7 +78,7 @@ namespace MMS_CapstoneProject
                 {
                     DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
                     cell.Value = false;
-                    foreach (ClientsEvents_TrackWorkersModel trackWorkerId in trackWorkerIdList)
+                    foreach (ClientEvents_TrackWorkersModel trackWorkerId in trackWorkerIdList)
                     {
                         if (row.Cells[1].Value.ToString() == trackWorkerId.TrackWorkerID.ToString())
                         {
@@ -144,13 +144,13 @@ namespace MMS_CapstoneProject
         /// </summary>
         /// <param name="clientEventForm"></param>
         /// <param name="clientsEvents_TrackWorkersList"></param>
-        public DataGridViewForm(ClientEventForm clientEventForm, List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList)
+        public DataGridViewForm(ClientEventForm clientEventForm, List<ClientEvents_TrackWorkersModel> clientsEvents_TrackWorkersList)
         {
             //TODO Need to Make is sticky for update
             InitializeComponent();
             List<TrackWorkerModel> appliedTrackWorkerIdList = new List<TrackWorkerModel>();
 
-            foreach (ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
+            foreach (ClientEvents_TrackWorkersModel clientsEvents_TrackWorkers in clientsEvents_TrackWorkersList)
             {
                 appliedTrackWorkerIdList.Add(TrackWorkerDataAccess.LoadTrackWorker(clientsEvents_TrackWorkers.TrackWorkerID));
             }
@@ -171,7 +171,7 @@ namespace MMS_CapstoneProject
                     DataGridViewCheckBoxCell isPresentCell = row.Cells["Present"] as DataGridViewCheckBoxCell;
                     isSelectedCell.Value = false;
                     isPresentCell.Value = false;
-                    foreach (ClientsEvents_TrackWorkersModel trackWorkerId in clientsEvents_TrackWorkersList)
+                    foreach (ClientEvents_TrackWorkersModel trackWorkerId in clientsEvents_TrackWorkersList)
                     {
                         if (row.Cells["TrackWorkerID"].Value.ToString() == trackWorkerId.TrackWorkerID.ToString())
                         {
@@ -245,13 +245,13 @@ namespace MMS_CapstoneProject
         /// <param name="e"></param>
         private void btnApplyTrackWorker_Click(object sender, EventArgs e)
         {
-            List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
+            List<ClientEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientEvents_TrackWorkersModel>();
             foreach (DataGridViewRow row in dgvData.Rows)
             {
                 var isApplied = row.Cells[0].Value.ToString();
                 if (isApplied == "True")
                 {
-                    ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientsEvents_TrackWorkersModel();
+                    ClientEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientEvents_TrackWorkersModel();
                     var trackWorkerID = row.Cells[1].Value.ToString();
 
                     clientsEvents_TrackWorkers.IsApplied = true;
@@ -283,10 +283,10 @@ namespace MMS_CapstoneProject
         /// <param name="e"></param>
         private void btnSelectedTrackWorker_Click(object sender, EventArgs e)
         {
-            List<ClientsEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientsEvents_TrackWorkersModel>();
+            List<ClientEvents_TrackWorkersModel> clientsEvents_TrackWorkersList = new List<ClientEvents_TrackWorkersModel>();
             foreach (DataGridViewRow row in dgvData.Rows)
             {
-                ClientsEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientsEvents_TrackWorkersModel();
+                ClientEvents_TrackWorkersModel clientsEvents_TrackWorkers = new ClientEvents_TrackWorkersModel();
                 var isSelected = row.Cells[0].Value.ToString();
                 var isPresent = row.Cells[1].Value.ToString();
                 var trackWorkerID = row.Cells[2].Value.ToString();

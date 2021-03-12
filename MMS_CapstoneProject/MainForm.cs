@@ -571,7 +571,7 @@ namespace MMS_CapstoneProject
             foreach (int clientEventId in _clientEventIdList)
             {
                 ClientEventModel clientEvent = ClientEventDataAccess.LoadClientEvent(clientEventId);
-                clientEvent.TrackWorkersId = ClientsEvents_TrackWorkersDataAccess.LoadClientEventTrackWorkerIDList(clientEventId);
+                clientEvent.TrackWorkersId = ClientEvents_TrackWorkersDataAccess.LoadClientEventTrackWorkerIDList(clientEventId);
                 allClientEventTrackWorkerIdList = allClientEventTrackWorkerIdList.Union(clientEvent.TrackWorkersId).ToList();
                 clientEventModelsList.Add(clientEvent);
             }
