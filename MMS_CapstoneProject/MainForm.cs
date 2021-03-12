@@ -679,8 +679,14 @@ namespace MMS_CapstoneProject
 
             Console.WriteLine("Sending an email message to {0} and {1}.",
                 from.DisplayName, message.Bcc.ToString());
-
-            client.Send(message);
+            try
+            {
+                client.Send(message);
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show("Some text", "Some title", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             //using (var message = new MailMessage(fromAddress, toAddress)
             //{

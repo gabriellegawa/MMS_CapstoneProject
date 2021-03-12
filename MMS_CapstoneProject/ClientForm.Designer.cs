@@ -54,7 +54,6 @@ namespace MMS_CapstoneProject
             // 
             // btnClear
             // 
-            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.Location = new System.Drawing.Point(88, 189);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
