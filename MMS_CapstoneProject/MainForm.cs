@@ -78,6 +78,7 @@ namespace MMS_CapstoneProject
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshAllDataGridView();
+            dgvTrackWorkerReport.DataSource = ToDataTable(TrackWorkerReportDataAccess.LoadTrackWorkerReport());
         }
 
         /// <summary>
@@ -576,7 +577,7 @@ namespace MMS_CapstoneProject
                 clientEventModelsList.Add(clientEvent);
             }
 
-            stringBodyHTML += "<table style=\"border: 1px solid black;\">";
+            stringBodyHTML += "<table style=\"border: 1px solid black;text-align:center;\">";
             stringBodyHTML += "<tr>";
             stringBodyHTML += "<td></td>";
             foreach (ClientEventModel clientEvent in clientEventModelsList)

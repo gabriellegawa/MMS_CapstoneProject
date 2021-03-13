@@ -453,6 +453,7 @@ namespace MMS_CapstoneProject
                 {
                     _clientsEvents_TrackWorkers.Add(model);
                 }
+                // if the data is already changed
                 else if (model.IsApplied == true && model.IsSelected == true)
                 {
                     _clientsEvents_TrackWorkers.Where(w => w.TrackWorkerID == model.TrackWorkerID).ToList().ForEach(s => s.IsApplied = model.IsApplied);

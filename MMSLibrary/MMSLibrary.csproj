@@ -54,10 +54,12 @@
     <Compile Include="Class Model\ClientEventModel.cs" />
     <Compile Include="Class Model\ClientModel.cs" />
     <Compile Include="Class Model\ClientEvents_TrackWorkersModel.cs" />
+    <Compile Include="Class Model\TrackWorkerReportModel.cs" />
     <Compile Include="Data Access\ClientDataAccess.cs" />
     <Compile Include="Data Access\ClientEventDataAccess.cs" />
     <Compile Include="Data Access\ClientEvents_TrackWorkersDataAccess.cs" />
     <Compile Include="Data Access\TrackWorkerDataAccess.cs" />
+    <Compile Include="Data Access\TrackWorkerReportDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data Access\SqliteDataAccess.cs" />
     <Compile Include="Data Access\TrackDataAccess.cs" />
