@@ -78,7 +78,6 @@ namespace MMS_CapstoneProject
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshAllDataGridView();
-            dgvTrackWorkerReport.DataSource = ToDataTable(TrackWorkerReportDataAccess.LoadTrackWorkerReport());
         }
 
         /// <summary>
@@ -90,6 +89,7 @@ namespace MMS_CapstoneProject
             RefreshDataGridViewTrackWorker();
             RefreshDataGridViewTrack();
             RefreshDataGridViewClient();
+            RefreshDataGridViewTrackWorkerReport();
         }
 
         /// <summary>
@@ -112,6 +112,14 @@ namespace MMS_CapstoneProject
             dataGridView.ClearSelection();
         }
 
+        public void RefreshDataGridViewTrackWorkerReport()
+        {
+            dgvTrackWorkerReport.DataSource = ToDataTable(TrackWorkerReportDataAccess.LoadTrackWorkerReport());
+            dgvTrackWorkerReport.AutoResizeColumns();
+            dgvTrackWorkerReport.AutoResizeRows();
+            dgvTrackWorkerReport.ClearSelection();
+        }
+
         /// <summary>
         /// RefreshDataGridViewClient - refresh client data grid view
         /// </summary>
@@ -125,7 +133,7 @@ namespace MMS_CapstoneProject
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             //dataGridView.Columns["ClientID"].HeaderText = "Client ID";
-            dataGridView.Columns["Name"].HeaderText = "Client Name";
+            //dataGridView.Columns["Name"].HeaderText = "Client Name";
             dataGridView.Columns["IsDeleted"].Visible = false;
 
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
@@ -286,6 +294,7 @@ namespace MMS_CapstoneProject
             (dgvTrackWorker.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
             dgvTrackWorker.AutoResizeColumns();
             dgvTrackWorker.AutoResizeRows();
+            dgvTrackWorker.ClearSelection();
         }
 
         /// <summary>
@@ -368,13 +377,16 @@ namespace MMS_CapstoneProject
 
             for (int count = 1; count < rowCount - 1; count++)
             {
-                searchQuery += string.Format(dgvClient.Columns[count].HeaderCell.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
+                searchQuery += string.Format(dgvClient.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtClientSearch.Text.Trim());
                 if (count != rowCount - 2)
                 {
                     searchQuery += " OR ";
                 }
             }
             (dgvClient.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+            dgvClient.AutoResizeColumns();
+            dgvClient.AutoResizeRows();
+            dgvClient.ClearSelection();
 
         }
 
@@ -417,6 +429,9 @@ namespace MMS_CapstoneProject
             searchQuery = string.Format("Name LIKE '%{0}%'", txtTrackSearch.Text);
 
             (dgvTrack.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+            dgvTrack.AutoResizeColumns();
+            dgvTrack.AutoResizeRows();
+            dgvTrack.ClearSelection();
         }
 
         /// <summary>
@@ -501,6 +516,33 @@ namespace MMS_CapstoneProject
                 tracksForm.ShowDialog();
             }
         }
+        private void txtClientEventSearch_TextChanged(object sender, EventArgs e)
+        {
+            // START with
+            //(dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Name LIKE '{0}%'", searchTextBox.Text);
+            // CONTAIN
+
+            string searchQuery = "";
+            int rowCount = (dgvClientEvent.DataSource as DataTable).Columns.Count;
+
+            for (int count = 1; count < rowCount - 1; count++)
+            {
+                if (dgvClientEvent.Columns[count].HeaderText.ToString().StartsWith("Is") == false && dgvClientEvent.Columns[count].HeaderText.ToString() != "WorkersRequested"
+                    && dgvClientEvent.Columns[count].HeaderText.ToString() != "WorkerCalloutSent" && dgvClientEvent.Columns[count].HeaderText.ToString() != "RequireSafetyDemo"
+                    && dgvClientEvent.Columns[count].HeaderText.ToString() != "ClientEventID" && dgvClientEvent.Columns[count].HeaderText.ToString() != "ClientID"
+                    && dgvClientEvent.Columns[count].HeaderText.ToString() != "TrackID")
+                {
+                    searchQuery += string.Format(dgvClientEvent.Columns[count].HeaderText.ToString() + " LIKE '%{0}%'", txtClientEventSearch.Text.Trim());
+                    searchQuery += " OR ";
+                }
+
+            }
+            searchQuery = searchQuery.Substring(0, searchQuery.Length - 3);
+            (dgvClientEvent.DataSource as DataTable).DefaultView.RowFilter = searchQuery;
+            dgvClientEvent.AutoResizeColumns();
+            dgvClientEvent.AutoResizeRows();
+            dgvClientEvent.ClearSelection();
+        }
 
         /// <summary>
         /// tabControl_SelectedIndexChanged - tab control index change to change the form width
@@ -530,10 +572,17 @@ namespace MMS_CapstoneProject
                 case 3:
                     {
                         RefreshDataGridViewClientEvent();
+                        this.CenterToScreen();
                         break;
                     }
                 case 4:
                     {
+                        this.Width = 800;
+                        break;
+                    }
+                case 5:
+                    {
+                        RefreshDataGridViewTrackWorkerReport();
                         this.Width = 800;
                         break;
                     }
@@ -640,64 +689,65 @@ namespace MMS_CapstoneProject
         /// <param name="e"></param>
         private void btnSend_Click(object sender, EventArgs e)
         {
-            stringBodyHTML = "<p>" + txtEmailBody.Text.ToString() + "</p>" + stringBodyHTML;
-            webBrowser.DocumentText += stringBodyHTML;
-
-            MailAddress from = new MailAddress("ben@contoso.com", "Ben Miller");
-            string fromPassword = "password";
-            MailMessage message = new MailMessage();
-            message.From = from;
-            message.IsBodyHtml = true;
-
-            message.Subject = txtEmailSubject.Text.ToString();
-            message.Body = stringBodyHTML;
-
-            foreach (int trackWorkerId in allClientEventTrackWorkerIdList)
+            if (stringBodyHTML == null)
             {
-                TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
-                //BCC
-                message.Bcc.Add(trackWorker.Email);
-                //To - regular
-                //message.To.Add(trackWorker.Email);
+                MessageBox.Show("You haven't click any event", "Status Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            //SmtpClient client = new SmtpClient
-            //{
-            //    Host = "smtp.gmail.com",
-            //    Port = 587,
-            //    EnableSsl = true,
-            //    DeliveryMethod = SmtpDeliveryMethod.Network,
-            //    UseDefaultCredentials = false,
-            //    Credentials = new NetworkCredential(from.Address, fromPassword)
-            //};
-
-            var client = new SmtpClient("smtp.mailtrap.io", 2525)
+            else
             {
-                Credentials = new NetworkCredential("e105e0282339a3", "ac1ce2513bda52"),
-                EnableSsl = true
-            };
+                stringBodyHTML = "<p>" + txtEmailBody.Text.ToString() + "</p>" + stringBodyHTML;
+                webBrowser.DocumentText += stringBodyHTML;
 
+                MailAddress from = new MailAddress("ben@contoso.com", "Ben Miller");
+                string fromPassword = "password";
 
-            Console.WriteLine("Sending an email message to {0} and {1}.",
-                from.DisplayName, message.Bcc.ToString());
-            try
-            {
-                client.Send(message);
+                MailMessage message = new MailMessage();
+                message.From = from;
+                message.IsBodyHtml = true;
+
+                message.Subject = txtEmailSubject.Text.ToString();
+                message.Body = stringBodyHTML;
+
+                foreach (int trackWorkerId in allClientEventTrackWorkerIdList)
+                {
+                    TrackWorkerModel trackWorker = TrackWorkerDataAccess.LoadTrackWorker(trackWorkerId);
+                    //BCC
+                    message.Bcc.Add(trackWorker.Email);
+                    //To - regular
+                    //message.To.Add(trackWorker.Email);
+                }
+
+                //SmtpClient client = new SmtpClient
+                //{
+                //    Host = "smtp.gmail.com",
+                //    Port = 587,
+                //    EnableSsl = true,
+                //    DeliveryMethod = SmtpDeliveryMethod.Network,
+                //    UseDefaultCredentials = false,
+                //    Credentials = new NetworkCredential(from.Address, fromPassword)
+                //};
+
+                var client = new SmtpClient("smtp.mailtrap.io", 2525)
+                {
+                    Credentials = new NetworkCredential("e105e0282339a3", "ac1ce2513bda52"),
+                    EnableSsl = true
+                };
+
+                Console.WriteLine("Sending an email message to {0} and {1}.",
+                    from.DisplayName, message.Bcc.ToString());
+                try
+                {
+                    client.Send(message);
+                    MessageBox.Show("Sucessfully delivered email", "Status Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    stringBodyHTML = "";
+
+                }
+                catch (SmtpException ex)
+                {
+                    MessageBox.Show("Failed in sending email", "Status Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (SmtpException ex)
-            {
-                MessageBox.Show("Some text", "Some title", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            //using (var message = new MailMessage(fromAddress, toAddress)
-            //{
-            //    Subject = subject,
-            //    Body = body
-            //})
-            //{
-            //    smtp.Send(message);
-            //}
-
         }
+
     }
 }

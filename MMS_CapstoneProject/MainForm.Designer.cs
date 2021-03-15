@@ -54,8 +54,8 @@ namespace MMS_CapstoneProject
             this.tabEmail = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEmailPassword = new System.Windows.Forms.TextBox();
+            this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnSelectEvent = new System.Windows.Forms.Button();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
@@ -64,7 +64,6 @@ namespace MMS_CapstoneProject
             this.txtEmailSubject = new System.Windows.Forms.TextBox();
             this.lblEmailSubject = new System.Windows.Forms.Label();
             this.tabReport = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvTrackWorkerReport = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabClient.SuspendLayout();
@@ -145,11 +144,13 @@ namespace MMS_CapstoneProject
             // 
             this.dgvClient.AllowUserToAddRows = false;
             this.dgvClient.AllowUserToDeleteRows = false;
-            this.dgvClient.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Location = new System.Drawing.Point(3, 63);
+            this.dgvClient.MultiSelect = false;
             this.dgvClient.Name = "dgvClient";
-            this.dgvClient.ReadOnly = true;
-            this.dgvClient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvClient.Size = new System.Drawing.Size(762, 331);
             this.dgvClient.TabIndex = 3;
             this.dgvClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellClick);
@@ -202,9 +203,12 @@ namespace MMS_CapstoneProject
             // 
             this.dgvTrackWorker.AllowUserToAddRows = false;
             this.dgvTrackWorker.AllowUserToDeleteRows = false;
+            this.dgvTrackWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTrackWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrackWorker.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTrackWorker.Location = new System.Drawing.Point(3, 63);
+            this.dgvTrackWorker.MultiSelect = false;
             this.dgvTrackWorker.Name = "dgvTrackWorker";
             this.dgvTrackWorker.ReadOnly = true;
             this.dgvTrackWorker.Size = new System.Drawing.Size(762, 331);
@@ -259,9 +263,12 @@ namespace MMS_CapstoneProject
             // 
             this.dgvTrack.AllowUserToAddRows = false;
             this.dgvTrack.AllowUserToDeleteRows = false;
+            this.dgvTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTrack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrack.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTrack.Location = new System.Drawing.Point(3, 63);
+            this.dgvTrack.MultiSelect = false;
             this.dgvTrack.Name = "dgvTrack";
             this.dgvTrack.ReadOnly = true;
             this.dgvTrack.Size = new System.Drawing.Size(762, 331);
@@ -298,6 +305,7 @@ namespace MMS_CapstoneProject
             this.txtClientEventSearch.Name = "txtClientEventSearch";
             this.txtClientEventSearch.Size = new System.Drawing.Size(140, 29);
             this.txtClientEventSearch.TabIndex = 1;
+            this.txtClientEventSearch.TextChanged += new System.EventHandler(this.txtClientEventSearch_TextChanged);
             // 
             // btnClientEventAddNew
             // 
@@ -311,9 +319,15 @@ namespace MMS_CapstoneProject
             // 
             // dgvClientEvent
             // 
+            this.dgvClientEvent.AllowUserToAddRows = false;
+            this.dgvClientEvent.AllowUserToDeleteRows = false;
+            this.dgvClientEvent.AllowUserToOrderColumns = true;
+            this.dgvClientEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientEvent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvClientEvent.Location = new System.Drawing.Point(3, 63);
+            this.dgvClientEvent.MultiSelect = false;
             this.dgvClientEvent.Name = "dgvClientEvent";
             this.dgvClientEvent.Size = new System.Drawing.Size(762, 331);
             this.dgvClientEvent.TabIndex = 3;
@@ -323,8 +337,8 @@ namespace MMS_CapstoneProject
             // 
             this.tabEmail.Controls.Add(this.label2);
             this.tabEmail.Controls.Add(this.label1);
-            this.tabEmail.Controls.Add(this.textBox3);
-            this.tabEmail.Controls.Add(this.textBox2);
+            this.tabEmail.Controls.Add(this.txtEmailPassword);
+            this.tabEmail.Controls.Add(this.txtEmailAddress);
             this.tabEmail.Controls.Add(this.btnSend);
             this.tabEmail.Controls.Add(this.btnSelectEvent);
             this.tabEmail.Controls.Add(this.webBrowser);
@@ -343,34 +357,35 @@ namespace MMS_CapstoneProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(575, 127);
+            this.label2.Location = new System.Drawing.Point(574, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 10;
-            this.label2.Text = "label2";
+            this.label2.Text = "Password:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(574, 88);
+            this.label1.Location = new System.Drawing.Point(574, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
+            this.label1.Text = "Email:";
             // 
-            // textBox3
+            // txtEmailPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(626, 121);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 8;
+            this.txtEmailPassword.Location = new System.Drawing.Point(652, 44);
+            this.txtEmailPassword.Name = "txtEmailPassword";
+            this.txtEmailPassword.PasswordChar = '*';
+            this.txtEmailPassword.Size = new System.Drawing.Size(100, 22);
+            this.txtEmailPassword.TabIndex = 8;
             // 
-            // textBox2
+            // txtEmailAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(625, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 7;
+            this.txtEmailAddress.Location = new System.Drawing.Point(652, 16);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(100, 22);
+            this.txtEmailAddress.TabIndex = 7;
             // 
             // btnSend
             // 
@@ -435,7 +450,6 @@ namespace MMS_CapstoneProject
             // 
             // tabReport
             // 
-            this.tabReport.Controls.Add(this.textBox1);
             this.tabReport.Controls.Add(this.dgvTrackWorkerReport);
             this.tabReport.Location = new System.Drawing.Point(4, 25);
             this.tabReport.Name = "tabReport";
@@ -445,19 +459,13 @@ namespace MMS_CapstoneProject
             this.tabReport.Text = "Report";
             this.tabReport.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(88, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
-            // 
             // dgvTrackWorkerReport
             // 
             this.dgvTrackWorkerReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrackWorkerReport.Location = new System.Drawing.Point(45, 66);
+            this.dgvTrackWorkerReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTrackWorkerReport.Location = new System.Drawing.Point(3, 3);
             this.dgvTrackWorkerReport.Name = "dgvTrackWorkerReport";
-            this.dgvTrackWorkerReport.Size = new System.Drawing.Size(610, 210);
+            this.dgvTrackWorkerReport.Size = new System.Drawing.Size(762, 391);
             this.dgvTrackWorkerReport.TabIndex = 0;
             // 
             // MainForm
@@ -487,7 +495,6 @@ namespace MMS_CapstoneProject
             this.tabEmail.ResumeLayout(false);
             this.tabEmail.PerformLayout();
             this.tabReport.ResumeLayout(false);
-            this.tabReport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrackWorkerReport)).EndInit();
             this.ResumeLayout(false);
 
@@ -527,9 +534,8 @@ namespace MMS_CapstoneProject
         private System.Windows.Forms.TabPage tabReport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmailPassword;
+        private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.DataGridView dgvTrackWorkerReport;
     }
 }

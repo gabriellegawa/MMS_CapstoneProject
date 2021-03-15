@@ -26,6 +26,7 @@ namespace MMS_CapstoneProject
             InitializeComponent();
             dgvData.DataSource = ToDataTable(list);
             dgvData.MultiSelect = false;
+            dgvData.ReadOnly = true;
 
             dgvData.AutoResizeColumns();
             int dgv_width = dgvData.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
@@ -45,6 +46,7 @@ namespace MMS_CapstoneProject
             InitializeComponent();
             dgvData.DataSource = ToDataTable(list);
             dgvData.MultiSelect = false;
+            dgvData.ReadOnly = true;
 
             dgvData.AutoResizeColumns();
             int dgv_width = dgvData.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
@@ -64,7 +66,7 @@ namespace MMS_CapstoneProject
         {
             InitializeComponent();
             var dataTable = ToDataTable(list);
-            dataTable.Columns.Add("Selected", typeof(bool)).SetOrdinal(0);
+            dataTable.Columns.Add("Applied", typeof(bool)).SetOrdinal(0);
             dgvData.DataSource = dataTable;
             dgvData.MultiSelect = false;
 
@@ -87,7 +89,13 @@ namespace MMS_CapstoneProject
                     }
                 }
             }
-
+            foreach (DataGridViewColumn column in dgvData.Columns)
+            {
+                if (column.HeaderText == "Applied")
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
+            }
             btnSelect.Click += btnApplyTrackWorker_Click;
             _clientEventForm = clientEventForm;
         }
@@ -133,6 +141,13 @@ namespace MMS_CapstoneProject
             int dgv_width = dataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
             this.Width = 365 + dgv_width;
 
+            foreach (DataGridViewColumn column in dgvData.Columns)
+            {
+                if (column.HeaderText == "Applied")
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
+            }
             dataGridView.ClearSelection();
 
             btnSelect.Click += btnAddClientEvent_Click;
