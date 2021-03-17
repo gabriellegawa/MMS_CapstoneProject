@@ -1,10 +1,4 @@
-﻿using Dapper;
-using MMSLibrary.Class_Model;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SQLite;
-using System.Linq;
+﻿using System.Configuration;
 
 namespace MMSLibrary
 {

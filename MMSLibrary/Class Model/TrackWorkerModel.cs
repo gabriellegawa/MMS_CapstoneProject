@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MMSLibrary
+﻿namespace MMSLibrary
 {
     public class TrackWorkerModel
     {
