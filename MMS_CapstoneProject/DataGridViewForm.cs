@@ -177,6 +177,8 @@ namespace MMS_CapstoneProject
             dgvData.CellContentClick += dgrvProductTemplate_CellContentClick;
             dgvData.MultiSelect = false;
             dgvData.ReadOnly = false;
+            int dgv_width = dgvData.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+            this.Width = 365 + dgv_width;
 
             if (clientsEvents_TrackWorkersList != null)
             {
