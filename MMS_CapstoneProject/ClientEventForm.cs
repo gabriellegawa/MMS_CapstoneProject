@@ -462,5 +462,20 @@ namespace MMS_CapstoneProject
                 }
             }
         }
+
+        private void gbClientEventIsDeleted_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

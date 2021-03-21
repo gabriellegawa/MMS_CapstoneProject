@@ -54,9 +54,11 @@ namespace MMS_CapstoneProject
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(88, 189);
+            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(147, 225);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(100, 39);
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@ namespace MMS_CapstoneProject
             // 
             // btnEscape
             // 
-            this.btnEscape.Location = new System.Drawing.Point(169, 189);
+            this.btnEscape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscape.Location = new System.Drawing.Point(277, 225);
             this.btnEscape.Name = "btnEscape";
-            this.btnEscape.Size = new System.Drawing.Size(75, 23);
+            this.btnEscape.Size = new System.Drawing.Size(100, 39);
             this.btnEscape.TabIndex = 13;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@ namespace MMS_CapstoneProject
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(7, 189);
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(12, 225);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.Size = new System.Drawing.Size(100, 39);
             this.btnEnter.TabIndex = 11;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
@@ -85,18 +89,19 @@ namespace MMS_CapstoneProject
             // 
             this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Disabled);
             this.gbIsDeleted.Controls.Add(this.rdoIsDeleted_Enabled);
-            this.gbIsDeleted.Location = new System.Drawing.Point(123, 137);
+            this.gbIsDeleted.Location = new System.Drawing.Point(188, 167);
             this.gbIsDeleted.Name = "gbIsDeleted";
-            this.gbIsDeleted.Size = new System.Drawing.Size(148, 35);
+            this.gbIsDeleted.Size = new System.Drawing.Size(193, 47);
             this.gbIsDeleted.TabIndex = 10;
             this.gbIsDeleted.TabStop = false;
             // 
             // rdoIsDeleted_Disabled
             // 
             this.rdoIsDeleted_Disabled.AutoSize = true;
-            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(76, 12);
+            this.rdoIsDeleted_Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoIsDeleted_Disabled.Location = new System.Drawing.Point(98, 12);
             this.rdoIsDeleted_Disabled.Name = "rdoIsDeleted_Disabled";
-            this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
+            this.rdoIsDeleted_Disabled.Size = new System.Drawing.Size(89, 24);
             this.rdoIsDeleted_Disabled.TabIndex = 1;
             this.rdoIsDeleted_Disabled.Text = "Disabled";
             this.rdoIsDeleted_Disabled.UseVisualStyleBackColor = true;
@@ -105,9 +110,10 @@ namespace MMS_CapstoneProject
             // 
             this.rdoIsDeleted_Enabled.AutoSize = true;
             this.rdoIsDeleted_Enabled.Checked = true;
-            this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(8, 12);
+            this.rdoIsDeleted_Enabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoIsDeleted_Enabled.Location = new System.Drawing.Point(6, 12);
             this.rdoIsDeleted_Enabled.Name = "rdoIsDeleted_Enabled";
-            this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
+            this.rdoIsDeleted_Enabled.Size = new System.Drawing.Size(86, 24);
             this.rdoIsDeleted_Enabled.TabIndex = 0;
             this.rdoIsDeleted_Enabled.TabStop = true;
             this.rdoIsDeleted_Enabled.Text = "Enabled";
@@ -115,87 +121,97 @@ namespace MMS_CapstoneProject
             // 
             // txtClientPrimaryContactEmail
             // 
-            this.txtClientPrimaryContactEmail.Location = new System.Drawing.Point(123, 111);
+            this.txtClientPrimaryContactEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientPrimaryContactEmail.Location = new System.Drawing.Point(188, 135);
             this.txtClientPrimaryContactEmail.Name = "txtClientPrimaryContactEmail";
-            this.txtClientPrimaryContactEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtClientPrimaryContactEmail.Size = new System.Drawing.Size(100, 26);
             this.txtClientPrimaryContactEmail.TabIndex = 9;
             this.txtClientPrimaryContactEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactEmail_Validating);
             // 
             // lblClientPrimaryContactEmail
             // 
             this.lblClientPrimaryContactEmail.AutoSize = true;
-            this.lblClientPrimaryContactEmail.Location = new System.Drawing.Point(5, 114);
+            this.lblClientPrimaryContactEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientPrimaryContactEmail.Location = new System.Drawing.Point(5, 138);
             this.lblClientPrimaryContactEmail.Name = "lblClientPrimaryContactEmail";
-            this.lblClientPrimaryContactEmail.Size = new System.Drawing.Size(112, 13);
+            this.lblClientPrimaryContactEmail.Size = new System.Drawing.Size(168, 20);
             this.lblClientPrimaryContactEmail.TabIndex = 8;
             this.lblClientPrimaryContactEmail.Text = "Primary Contact Email:";
             // 
             // txtClientPrimaryContactCell
             // 
-            this.txtClientPrimaryContactCell.Location = new System.Drawing.Point(123, 85);
+            this.txtClientPrimaryContactCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientPrimaryContactCell.Location = new System.Drawing.Point(188, 103);
             this.txtClientPrimaryContactCell.Mask = "(999) 000-0000";
             this.txtClientPrimaryContactCell.Name = "txtClientPrimaryContactCell";
-            this.txtClientPrimaryContactCell.Size = new System.Drawing.Size(100, 20);
+            this.txtClientPrimaryContactCell.Size = new System.Drawing.Size(100, 26);
             this.txtClientPrimaryContactCell.TabIndex = 7;
             this.txtClientPrimaryContactCell.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactCell_Validating);
             // 
             // lblClientPrimaryContactCell
             // 
             this.lblClientPrimaryContactCell.AutoSize = true;
-            this.lblClientPrimaryContactCell.Location = new System.Drawing.Point(12, 88);
+            this.lblClientPrimaryContactCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientPrimaryContactCell.Location = new System.Drawing.Point(18, 106);
             this.lblClientPrimaryContactCell.Name = "lblClientPrimaryContactCell";
-            this.lblClientPrimaryContactCell.Size = new System.Drawing.Size(104, 13);
+            this.lblClientPrimaryContactCell.Size = new System.Drawing.Size(155, 20);
             this.lblClientPrimaryContactCell.TabIndex = 6;
             this.lblClientPrimaryContactCell.Text = "Primary Contact Cell:";
             // 
             // txtClientPrimaryContactName
             // 
-            this.txtClientPrimaryContactName.Location = new System.Drawing.Point(123, 59);
+            this.txtClientPrimaryContactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientPrimaryContactName.Location = new System.Drawing.Point(188, 71);
             this.txtClientPrimaryContactName.Name = "txtClientPrimaryContactName";
-            this.txtClientPrimaryContactName.Size = new System.Drawing.Size(100, 20);
+            this.txtClientPrimaryContactName.Size = new System.Drawing.Size(100, 26);
             this.txtClientPrimaryContactName.TabIndex = 5;
             this.txtClientPrimaryContactName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientPrimaryContactName_Validating);
             // 
             // lblClientPrimaryContactName
             // 
             this.lblClientPrimaryContactName.AutoSize = true;
-            this.lblClientPrimaryContactName.Location = new System.Drawing.Point(2, 62);
+            this.lblClientPrimaryContactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientPrimaryContactName.Location = new System.Drawing.Point(2, 74);
             this.lblClientPrimaryContactName.Name = "lblClientPrimaryContactName";
-            this.lblClientPrimaryContactName.Size = new System.Drawing.Size(115, 13);
+            this.lblClientPrimaryContactName.Size = new System.Drawing.Size(171, 20);
             this.lblClientPrimaryContactName.TabIndex = 4;
             this.lblClientPrimaryContactName.Text = "Primary Contact Name:";
             // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(123, 33);
+            this.txtClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientName.Location = new System.Drawing.Point(188, 39);
             this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(100, 20);
+            this.txtClientName.Size = new System.Drawing.Size(100, 26);
             this.txtClientName.TabIndex = 3;
             this.txtClientName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientName_Validating);
             // 
             // lblClientName
             // 
             this.lblClientName.AutoSize = true;
-            this.lblClientName.Location = new System.Drawing.Point(49, 36);
+            this.lblClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientName.Location = new System.Drawing.Point(74, 45);
             this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(67, 13);
+            this.lblClientName.Size = new System.Drawing.Size(99, 20);
             this.lblClientName.TabIndex = 2;
             this.lblClientName.Text = "Client Name:";
             // 
             // txtClientId
             // 
             this.txtClientId.Enabled = false;
-            this.txtClientId.Location = new System.Drawing.Point(123, 7);
+            this.txtClientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientId.Location = new System.Drawing.Point(188, 7);
             this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientId.Size = new System.Drawing.Size(100, 26);
             this.txtClientId.TabIndex = 1;
             // 
             // lblClientId
             // 
             this.lblClientId.AutoSize = true;
-            this.lblClientId.Location = new System.Drawing.Point(95, 10);
+            this.lblClientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientId.Location = new System.Drawing.Point(143, 10);
             this.lblClientId.Name = "lblClientId";
-            this.lblClientId.Size = new System.Drawing.Size(21, 13);
+            this.lblClientId.Size = new System.Drawing.Size(30, 20);
             this.lblClientId.TabIndex = 0;
             this.lblClientId.Text = "ID:";
             // 
@@ -209,7 +225,7 @@ namespace MMS_CapstoneProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClear;
-            this.ClientSize = new System.Drawing.Size(282, 216);
+            this.ClientSize = new System.Drawing.Size(389, 276);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
             this.Controls.Add(this.btnEnter);

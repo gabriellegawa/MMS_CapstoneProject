@@ -80,45 +80,50 @@ namespace MMS_CapstoneProject
             // lblClientEventId
             // 
             this.lblClientEventId.AutoSize = true;
-            this.lblClientEventId.Location = new System.Drawing.Point(107, 9);
+            this.lblClientEventId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventId.Location = new System.Drawing.Point(136, 9);
             this.lblClientEventId.Name = "lblClientEventId";
-            this.lblClientEventId.Size = new System.Drawing.Size(21, 13);
+            this.lblClientEventId.Size = new System.Drawing.Size(30, 20);
             this.lblClientEventId.TabIndex = 0;
             this.lblClientEventId.Text = "ID:";
             // 
             // lblClientEventClientId
             // 
             this.lblClientEventClientId.AutoSize = true;
-            this.lblClientEventClientId.Location = new System.Drawing.Point(78, 35);
+            this.lblClientEventClientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventClientId.Location = new System.Drawing.Point(92, 41);
             this.lblClientEventClientId.Name = "lblClientEventClientId";
-            this.lblClientEventClientId.Size = new System.Drawing.Size(50, 13);
+            this.lblClientEventClientId.Size = new System.Drawing.Size(74, 20);
             this.lblClientEventClientId.TabIndex = 2;
             this.lblClientEventClientId.Text = "Client ID:";
             // 
             // lblClientEventTrackId
             // 
             this.lblClientEventTrackId.AutoSize = true;
-            this.lblClientEventTrackId.Location = new System.Drawing.Point(73, 58);
+            this.lblClientEventTrackId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventTrackId.Location = new System.Drawing.Point(93, 73);
             this.lblClientEventTrackId.Name = "lblClientEventTrackId";
-            this.lblClientEventTrackId.Size = new System.Drawing.Size(52, 13);
+            this.lblClientEventTrackId.Size = new System.Drawing.Size(73, 20);
             this.lblClientEventTrackId.TabIndex = 5;
             this.lblClientEventTrackId.Text = "Track ID:";
             // 
             // lblClientEventDate
             // 
             this.lblClientEventDate.AutoSize = true;
-            this.lblClientEventDate.Location = new System.Drawing.Point(92, 84);
+            this.lblClientEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventDate.Location = new System.Drawing.Point(118, 105);
             this.lblClientEventDate.Name = "lblClientEventDate";
-            this.lblClientEventDate.Size = new System.Drawing.Size(33, 13);
+            this.lblClientEventDate.Size = new System.Drawing.Size(48, 20);
             this.lblClientEventDate.TabIndex = 8;
             this.lblClientEventDate.Text = "Date:";
             // 
             // lblClientEventWorkersRequested
             // 
             this.lblClientEventWorkersRequested.AutoSize = true;
-            this.lblClientEventWorkersRequested.Location = new System.Drawing.Point(28, 114);
+            this.lblClientEventWorkersRequested.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventWorkersRequested.Location = new System.Drawing.Point(19, 137);
             this.lblClientEventWorkersRequested.Name = "lblClientEventWorkersRequested";
-            this.lblClientEventWorkersRequested.Size = new System.Drawing.Size(100, 13);
+            this.lblClientEventWorkersRequested.Size = new System.Drawing.Size(147, 20);
             this.lblClientEventWorkersRequested.TabIndex = 10;
             this.lblClientEventWorkersRequested.Text = "Worker Requested:";
             // 
@@ -126,18 +131,19 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventIsLunchProvided.Controls.Add(this.rdoClientEventIsLunchProvided_False);
             this.gbClientEventIsLunchProvided.Controls.Add(this.rdoClientEventIsLunchProvided_True);
-            this.gbClientEventIsLunchProvided.Location = new System.Drawing.Point(134, 136);
+            this.gbClientEventIsLunchProvided.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbClientEventIsLunchProvided.Location = new System.Drawing.Point(180, 166);
             this.gbClientEventIsLunchProvided.Name = "gbClientEventIsLunchProvided";
-            this.gbClientEventIsLunchProvided.Size = new System.Drawing.Size(114, 34);
+            this.gbClientEventIsLunchProvided.Size = new System.Drawing.Size(166, 47);
             this.gbClientEventIsLunchProvided.TabIndex = 13;
             this.gbClientEventIsLunchProvided.TabStop = false;
             // 
             // rdoClientEventIsLunchProvided_False
             // 
             this.rdoClientEventIsLunchProvided_False.AutoSize = true;
-            this.rdoClientEventIsLunchProvided_False.Location = new System.Drawing.Point(59, 12);
+            this.rdoClientEventIsLunchProvided_False.Location = new System.Drawing.Point(88, 17);
             this.rdoClientEventIsLunchProvided_False.Name = "rdoClientEventIsLunchProvided_False";
-            this.rdoClientEventIsLunchProvided_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventIsLunchProvided_False.Size = new System.Drawing.Size(66, 24);
             this.rdoClientEventIsLunchProvided_False.TabIndex = 1;
             this.rdoClientEventIsLunchProvided_False.TabStop = true;
             this.rdoClientEventIsLunchProvided_False.Text = "False";
@@ -146,9 +152,9 @@ namespace MMS_CapstoneProject
             // rdoClientEventIsLunchProvided_True
             // 
             this.rdoClientEventIsLunchProvided_True.AutoSize = true;
-            this.rdoClientEventIsLunchProvided_True.Location = new System.Drawing.Point(6, 12);
+            this.rdoClientEventIsLunchProvided_True.Location = new System.Drawing.Point(16, 17);
             this.rdoClientEventIsLunchProvided_True.Name = "rdoClientEventIsLunchProvided_True";
-            this.rdoClientEventIsLunchProvided_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventIsLunchProvided_True.Size = new System.Drawing.Size(59, 24);
             this.rdoClientEventIsLunchProvided_True.TabIndex = 0;
             this.rdoClientEventIsLunchProvided_True.TabStop = true;
             this.rdoClientEventIsLunchProvided_True.Text = "True";
@@ -159,18 +165,19 @@ namespace MMS_CapstoneProject
             this.gbClientEventIsUsingPaddock.Controls.Add(this.cbClientEventIsUsingLowerPaddock);
             this.gbClientEventIsUsingPaddock.Controls.Add(this.cbClientEventIsUsingMiddlePaddock);
             this.gbClientEventIsUsingPaddock.Controls.Add(this.cbClientEventIsUsingUpperPaddock);
-            this.gbClientEventIsUsingPaddock.Location = new System.Drawing.Point(134, 176);
+            this.gbClientEventIsUsingPaddock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbClientEventIsUsingPaddock.Location = new System.Drawing.Point(180, 222);
             this.gbClientEventIsUsingPaddock.Name = "gbClientEventIsUsingPaddock";
-            this.gbClientEventIsUsingPaddock.Size = new System.Drawing.Size(221, 63);
+            this.gbClientEventIsUsingPaddock.Size = new System.Drawing.Size(294, 80);
             this.gbClientEventIsUsingPaddock.TabIndex = 15;
             this.gbClientEventIsUsingPaddock.TabStop = false;
             // 
             // cbClientEventIsUsingLowerPaddock
             // 
             this.cbClientEventIsUsingLowerPaddock.AutoSize = true;
-            this.cbClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(59, 40);
+            this.cbClientEventIsUsingLowerPaddock.Location = new System.Drawing.Point(88, 44);
             this.cbClientEventIsUsingLowerPaddock.Name = "cbClientEventIsUsingLowerPaddock";
-            this.cbClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(101, 17);
+            this.cbClientEventIsUsingLowerPaddock.Size = new System.Drawing.Size(137, 24);
             this.cbClientEventIsUsingLowerPaddock.TabIndex = 2;
             this.cbClientEventIsUsingLowerPaddock.Text = "Lower Paddock";
             this.cbClientEventIsUsingLowerPaddock.UseVisualStyleBackColor = true;
@@ -178,9 +185,9 @@ namespace MMS_CapstoneProject
             // cbClientEventIsUsingMiddlePaddock
             // 
             this.cbClientEventIsUsingMiddlePaddock.AutoSize = true;
-            this.cbClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(112, 15);
+            this.cbClientEventIsUsingMiddlePaddock.Location = new System.Drawing.Point(152, 17);
             this.cbClientEventIsUsingMiddlePaddock.Name = "cbClientEventIsUsingMiddlePaddock";
-            this.cbClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(103, 17);
+            this.cbClientEventIsUsingMiddlePaddock.Size = new System.Drawing.Size(140, 24);
             this.cbClientEventIsUsingMiddlePaddock.TabIndex = 1;
             this.cbClientEventIsUsingMiddlePaddock.Text = "Middle Paddock";
             this.cbClientEventIsUsingMiddlePaddock.UseVisualStyleBackColor = true;
@@ -190,7 +197,7 @@ namespace MMS_CapstoneProject
             this.cbClientEventIsUsingUpperPaddock.AutoSize = true;
             this.cbClientEventIsUsingUpperPaddock.Location = new System.Drawing.Point(8, 17);
             this.cbClientEventIsUsingUpperPaddock.Name = "cbClientEventIsUsingUpperPaddock";
-            this.cbClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(101, 17);
+            this.cbClientEventIsUsingUpperPaddock.Size = new System.Drawing.Size(138, 24);
             this.cbClientEventIsUsingUpperPaddock.TabIndex = 0;
             this.cbClientEventIsUsingUpperPaddock.Text = "Upper Paddock";
             this.cbClientEventIsUsingUpperPaddock.UseVisualStyleBackColor = true;
@@ -198,36 +205,40 @@ namespace MMS_CapstoneProject
             // lblClientEventIsLunchProvided
             // 
             this.lblClientEventIsLunchProvided.AutoSize = true;
-            this.lblClientEventIsLunchProvided.Location = new System.Drawing.Point(40, 150);
+            this.lblClientEventIsLunchProvided.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventIsLunchProvided.Location = new System.Drawing.Point(44, 185);
             this.lblClientEventIsLunchProvided.Name = "lblClientEventIsLunchProvided";
-            this.lblClientEventIsLunchProvided.Size = new System.Drawing.Size(85, 13);
+            this.lblClientEventIsLunchProvided.Size = new System.Drawing.Size(122, 20);
             this.lblClientEventIsLunchProvided.TabIndex = 12;
             this.lblClientEventIsLunchProvided.Text = "Lunch Provided:";
             // 
             // lblClientEventIsUsingPaddock
             // 
             this.lblClientEventIsUsingPaddock.AutoSize = true;
-            this.lblClientEventIsUsingPaddock.Location = new System.Drawing.Point(72, 195);
+            this.lblClientEventIsUsingPaddock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventIsUsingPaddock.Location = new System.Drawing.Point(91, 243);
             this.lblClientEventIsUsingPaddock.Name = "lblClientEventIsUsingPaddock";
-            this.lblClientEventIsUsingPaddock.Size = new System.Drawing.Size(53, 13);
+            this.lblClientEventIsUsingPaddock.Size = new System.Drawing.Size(75, 20);
             this.lblClientEventIsUsingPaddock.TabIndex = 14;
             this.lblClientEventIsUsingPaddock.Text = "Paddock:";
             // 
             // lblClientEventWorkerCalloutSent
             // 
             this.lblClientEventWorkerCalloutSent.AutoSize = true;
-            this.lblClientEventWorkerCalloutSent.Location = new System.Drawing.Point(23, 258);
+            this.lblClientEventWorkerCalloutSent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventWorkerCalloutSent.Location = new System.Drawing.Point(11, 321);
             this.lblClientEventWorkerCalloutSent.Name = "lblClientEventWorkerCalloutSent";
-            this.lblClientEventWorkerCalloutSent.Size = new System.Drawing.Size(105, 13);
+            this.lblClientEventWorkerCalloutSent.Size = new System.Drawing.Size(155, 20);
             this.lblClientEventWorkerCalloutSent.TabIndex = 16;
             this.lblClientEventWorkerCalloutSent.Text = "Worker Callout Sent:";
             // 
             // lblClientEventRequireSafetyDemo
             // 
             this.lblClientEventRequireSafetyDemo.AutoSize = true;
-            this.lblClientEventRequireSafetyDemo.Location = new System.Drawing.Point(14, 306);
+            this.lblClientEventRequireSafetyDemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientEventRequireSafetyDemo.Location = new System.Drawing.Point(0, 374);
             this.lblClientEventRequireSafetyDemo.Name = "lblClientEventRequireSafetyDemo";
-            this.lblClientEventRequireSafetyDemo.Size = new System.Drawing.Size(111, 13);
+            this.lblClientEventRequireSafetyDemo.Size = new System.Drawing.Size(166, 20);
             this.lblClientEventRequireSafetyDemo.TabIndex = 18;
             this.lblClientEventRequireSafetyDemo.Text = "Require Safety Demo:";
             // 
@@ -235,18 +246,19 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventWorkerCalloutSent.Controls.Add(this.rdoClientEventWorkerCalloutSent_False);
             this.gbClientEventWorkerCalloutSent.Controls.Add(this.rdoClientEventWorkerCalloutSent_True);
-            this.gbClientEventWorkerCalloutSent.Location = new System.Drawing.Point(134, 245);
+            this.gbClientEventWorkerCalloutSent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbClientEventWorkerCalloutSent.Location = new System.Drawing.Point(180, 302);
             this.gbClientEventWorkerCalloutSent.Name = "gbClientEventWorkerCalloutSent";
-            this.gbClientEventWorkerCalloutSent.Size = new System.Drawing.Size(114, 34);
+            this.gbClientEventWorkerCalloutSent.Size = new System.Drawing.Size(166, 47);
             this.gbClientEventWorkerCalloutSent.TabIndex = 17;
             this.gbClientEventWorkerCalloutSent.TabStop = false;
             // 
             // rdoClientEventWorkerCalloutSent_False
             // 
             this.rdoClientEventWorkerCalloutSent_False.AutoSize = true;
-            this.rdoClientEventWorkerCalloutSent_False.Location = new System.Drawing.Point(58, 11);
+            this.rdoClientEventWorkerCalloutSent_False.Location = new System.Drawing.Point(88, 17);
             this.rdoClientEventWorkerCalloutSent_False.Name = "rdoClientEventWorkerCalloutSent_False";
-            this.rdoClientEventWorkerCalloutSent_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventWorkerCalloutSent_False.Size = new System.Drawing.Size(66, 24);
             this.rdoClientEventWorkerCalloutSent_False.TabIndex = 1;
             this.rdoClientEventWorkerCalloutSent_False.TabStop = true;
             this.rdoClientEventWorkerCalloutSent_False.Text = "False";
@@ -255,9 +267,9 @@ namespace MMS_CapstoneProject
             // rdoClientEventWorkerCalloutSent_True
             // 
             this.rdoClientEventWorkerCalloutSent_True.AutoSize = true;
-            this.rdoClientEventWorkerCalloutSent_True.Location = new System.Drawing.Point(6, 11);
+            this.rdoClientEventWorkerCalloutSent_True.Location = new System.Drawing.Point(16, 17);
             this.rdoClientEventWorkerCalloutSent_True.Name = "rdoClientEventWorkerCalloutSent_True";
-            this.rdoClientEventWorkerCalloutSent_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventWorkerCalloutSent_True.Size = new System.Drawing.Size(59, 24);
             this.rdoClientEventWorkerCalloutSent_True.TabIndex = 0;
             this.rdoClientEventWorkerCalloutSent_True.TabStop = true;
             this.rdoClientEventWorkerCalloutSent_True.Text = "True";
@@ -266,24 +278,27 @@ namespace MMS_CapstoneProject
             // txtClientEventId
             // 
             this.txtClientEventId.Enabled = false;
-            this.txtClientEventId.Location = new System.Drawing.Point(134, 6);
+            this.txtClientEventId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientEventId.Location = new System.Drawing.Point(180, 6);
             this.txtClientEventId.Name = "txtClientEventId";
-            this.txtClientEventId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientEventId.Size = new System.Drawing.Size(100, 26);
             this.txtClientEventId.TabIndex = 1;
             // 
             // txtClientId
             // 
             this.txtClientId.Enabled = false;
-            this.txtClientId.Location = new System.Drawing.Point(134, 32);
+            this.txtClientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientId.Location = new System.Drawing.Point(180, 38);
             this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(100, 20);
+            this.txtClientId.Size = new System.Drawing.Size(100, 26);
             this.txtClientId.TabIndex = 3;
             // 
             // btnClientAdd
             // 
-            this.btnClientAdd.Location = new System.Drawing.Point(240, 30);
+            this.btnClientAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientAdd.Location = new System.Drawing.Point(286, 39);
             this.btnClientAdd.Name = "btnClientAdd";
-            this.btnClientAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnClientAdd.Size = new System.Drawing.Size(100, 25);
             this.btnClientAdd.TabIndex = 4;
             this.btnClientAdd.Text = "Add";
             this.btnClientAdd.UseVisualStyleBackColor = true;
@@ -291,9 +306,10 @@ namespace MMS_CapstoneProject
             // 
             // btnTrackAdd
             // 
-            this.btnTrackAdd.Location = new System.Drawing.Point(240, 53);
+            this.btnTrackAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrackAdd.Location = new System.Drawing.Point(286, 71);
             this.btnTrackAdd.Name = "btnTrackAdd";
-            this.btnTrackAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnTrackAdd.Size = new System.Drawing.Size(100, 25);
             this.btnTrackAdd.TabIndex = 7;
             this.btnTrackAdd.Text = "Add";
             this.btnTrackAdd.UseVisualStyleBackColor = true;
@@ -302,16 +318,18 @@ namespace MMS_CapstoneProject
             // txtTrackID
             // 
             this.txtTrackID.Enabled = false;
-            this.txtTrackID.Location = new System.Drawing.Point(134, 55);
+            this.txtTrackID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrackID.Location = new System.Drawing.Point(180, 70);
             this.txtTrackID.Name = "txtTrackID";
-            this.txtTrackID.Size = new System.Drawing.Size(100, 20);
+            this.txtTrackID.Size = new System.Drawing.Size(100, 26);
             this.txtTrackID.TabIndex = 6;
             // 
             // txtWorkerRequested
             // 
-            this.txtWorkerRequested.Location = new System.Drawing.Point(134, 107);
+            this.txtWorkerRequested.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWorkerRequested.Location = new System.Drawing.Point(180, 134);
             this.txtWorkerRequested.Name = "txtWorkerRequested";
-            this.txtWorkerRequested.Size = new System.Drawing.Size(100, 20);
+            this.txtWorkerRequested.Size = new System.Drawing.Size(100, 26);
             this.txtWorkerRequested.TabIndex = 11;
             this.txtWorkerRequested.Validating += new System.ComponentModel.CancelEventHandler(this.txtWorkerRequested_Validating);
             // 
@@ -319,18 +337,19 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventRequireSafetyDemo.Controls.Add(this.rdoClientEventRequireSafetyDemo_False);
             this.gbClientEventRequireSafetyDemo.Controls.Add(this.rdoClientEventRequireSafetyDemo_True);
-            this.gbClientEventRequireSafetyDemo.Location = new System.Drawing.Point(134, 285);
+            this.gbClientEventRequireSafetyDemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbClientEventRequireSafetyDemo.Location = new System.Drawing.Point(180, 355);
             this.gbClientEventRequireSafetyDemo.Name = "gbClientEventRequireSafetyDemo";
-            this.gbClientEventRequireSafetyDemo.Size = new System.Drawing.Size(114, 34);
+            this.gbClientEventRequireSafetyDemo.Size = new System.Drawing.Size(166, 47);
             this.gbClientEventRequireSafetyDemo.TabIndex = 19;
             this.gbClientEventRequireSafetyDemo.TabStop = false;
             // 
             // rdoClientEventRequireSafetyDemo_False
             // 
             this.rdoClientEventRequireSafetyDemo_False.AutoSize = true;
-            this.rdoClientEventRequireSafetyDemo_False.Location = new System.Drawing.Point(59, 11);
+            this.rdoClientEventRequireSafetyDemo_False.Location = new System.Drawing.Point(88, 17);
             this.rdoClientEventRequireSafetyDemo_False.Name = "rdoClientEventRequireSafetyDemo_False";
-            this.rdoClientEventRequireSafetyDemo_False.Size = new System.Drawing.Size(50, 17);
+            this.rdoClientEventRequireSafetyDemo_False.Size = new System.Drawing.Size(66, 24);
             this.rdoClientEventRequireSafetyDemo_False.TabIndex = 1;
             this.rdoClientEventRequireSafetyDemo_False.TabStop = true;
             this.rdoClientEventRequireSafetyDemo_False.Text = "False";
@@ -339,9 +358,9 @@ namespace MMS_CapstoneProject
             // rdoClientEventRequireSafetyDemo_True
             // 
             this.rdoClientEventRequireSafetyDemo_True.AutoSize = true;
-            this.rdoClientEventRequireSafetyDemo_True.Location = new System.Drawing.Point(6, 11);
+            this.rdoClientEventRequireSafetyDemo_True.Location = new System.Drawing.Point(16, 17);
             this.rdoClientEventRequireSafetyDemo_True.Name = "rdoClientEventRequireSafetyDemo_True";
-            this.rdoClientEventRequireSafetyDemo_True.Size = new System.Drawing.Size(47, 17);
+            this.rdoClientEventRequireSafetyDemo_True.Size = new System.Drawing.Size(59, 24);
             this.rdoClientEventRequireSafetyDemo_True.TabIndex = 0;
             this.rdoClientEventRequireSafetyDemo_True.TabStop = true;
             this.rdoClientEventRequireSafetyDemo_True.Text = "True";
@@ -351,18 +370,20 @@ namespace MMS_CapstoneProject
             // 
             this.gbClientEventIsDeleted.Controls.Add(this.rdoClientEventIsDeleted_Disabled);
             this.gbClientEventIsDeleted.Controls.Add(this.rdoClientEventIsDeleted_Enabled);
-            this.gbClientEventIsDeleted.Location = new System.Drawing.Point(134, 325);
+            this.gbClientEventIsDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbClientEventIsDeleted.Location = new System.Drawing.Point(180, 408);
             this.gbClientEventIsDeleted.Name = "gbClientEventIsDeleted";
-            this.gbClientEventIsDeleted.Size = new System.Drawing.Size(148, 35);
+            this.gbClientEventIsDeleted.Size = new System.Drawing.Size(193, 47);
             this.gbClientEventIsDeleted.TabIndex = 20;
             this.gbClientEventIsDeleted.TabStop = false;
+            this.gbClientEventIsDeleted.Enter += new System.EventHandler(this.gbClientEventIsDeleted_Enter);
             // 
             // rdoClientEventIsDeleted_Disabled
             // 
             this.rdoClientEventIsDeleted_Disabled.AutoSize = true;
-            this.rdoClientEventIsDeleted_Disabled.Location = new System.Drawing.Point(76, 13);
+            this.rdoClientEventIsDeleted_Disabled.Location = new System.Drawing.Point(97, 17);
             this.rdoClientEventIsDeleted_Disabled.Name = "rdoClientEventIsDeleted_Disabled";
-            this.rdoClientEventIsDeleted_Disabled.Size = new System.Drawing.Size(66, 17);
+            this.rdoClientEventIsDeleted_Disabled.Size = new System.Drawing.Size(89, 24);
             this.rdoClientEventIsDeleted_Disabled.TabIndex = 1;
             this.rdoClientEventIsDeleted_Disabled.TabStop = true;
             this.rdoClientEventIsDeleted_Disabled.Text = "Disabled";
@@ -371,9 +392,9 @@ namespace MMS_CapstoneProject
             // rdoClientEventIsDeleted_Enabled
             // 
             this.rdoClientEventIsDeleted_Enabled.AutoSize = true;
-            this.rdoClientEventIsDeleted_Enabled.Location = new System.Drawing.Point(6, 13);
+            this.rdoClientEventIsDeleted_Enabled.Location = new System.Drawing.Point(6, 17);
             this.rdoClientEventIsDeleted_Enabled.Name = "rdoClientEventIsDeleted_Enabled";
-            this.rdoClientEventIsDeleted_Enabled.Size = new System.Drawing.Size(64, 17);
+            this.rdoClientEventIsDeleted_Enabled.Size = new System.Drawing.Size(86, 24);
             this.rdoClientEventIsDeleted_Enabled.TabIndex = 0;
             this.rdoClientEventIsDeleted_Enabled.TabStop = true;
             this.rdoClientEventIsDeleted_Enabled.Text = "Enabled";
@@ -381,27 +402,32 @@ namespace MMS_CapstoneProject
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(76, 381);
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(74, 479);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.Size = new System.Drawing.Size(100, 39);
             this.btnEnter.TabIndex = 22;
             this.btnEnter.Text = "Create";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(159, 381);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(180, 479);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(100, 39);
             this.btnClear.TabIndex = 23;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnEscape
             // 
-            this.btnEscape.Location = new System.Drawing.Point(240, 381);
+            this.btnEscape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscape.Location = new System.Drawing.Point(286, 479);
             this.btnEscape.Name = "btnEscape";
-            this.btnEscape.Size = new System.Drawing.Size(75, 23);
+            this.btnEscape.Size = new System.Drawing.Size(100, 39);
             this.btnEscape.TabIndex = 24;
             this.btnEscape.Text = "Cancel";
             this.btnEscape.UseVisualStyleBackColor = true;
@@ -413,9 +439,10 @@ namespace MMS_CapstoneProject
             // 
             // btnManageTrackWorker
             // 
-            this.btnManageTrackWorker.Location = new System.Drawing.Point(255, 247);
+            this.btnManageTrackWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageTrackWorker.Location = new System.Drawing.Point(352, 305);
             this.btnManageTrackWorker.Name = "btnManageTrackWorker";
-            this.btnManageTrackWorker.Size = new System.Drawing.Size(100, 42);
+            this.btnManageTrackWorker.Size = new System.Drawing.Size(131, 53);
             this.btnManageTrackWorker.TabIndex = 21;
             this.btnManageTrackWorker.Text = "Manage Track Worker";
             this.btnManageTrackWorker.UseVisualStyleBackColor = true;
@@ -423,21 +450,23 @@ namespace MMS_CapstoneProject
             // 
             // txtClientEventDate
             // 
-            this.txtClientEventDate.Location = new System.Drawing.Point(134, 81);
+            this.txtClientEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientEventDate.Location = new System.Drawing.Point(180, 102);
             this.txtClientEventDate.Mask = "00/00/0000";
             this.txtClientEventDate.Name = "txtClientEventDate";
-            this.txtClientEventDate.Size = new System.Drawing.Size(100, 20);
+            this.txtClientEventDate.Size = new System.Drawing.Size(100, 26);
             this.txtClientEventDate.TabIndex = 9;
             this.txtClientEventDate.ValidatingType = typeof(System.DateTime);
             this.txtClientEventDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientEventDate_Validating);
             // 
             // btnManageAttendance
             // 
-            this.btnManageAttendance.Location = new System.Drawing.Point(250, 295);
+            this.btnManageAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageAttendance.Location = new System.Drawing.Point(352, 364);
             this.btnManageAttendance.Name = "btnManageAttendance";
-            this.btnManageAttendance.Size = new System.Drawing.Size(75, 23);
+            this.btnManageAttendance.Size = new System.Drawing.Size(131, 51);
             this.btnManageAttendance.TabIndex = 25;
-            this.btnManageAttendance.Text = "ManageAttendance";
+            this.btnManageAttendance.Text = "Manage Attendance";
             this.btnManageAttendance.UseVisualStyleBackColor = true;
             this.btnManageAttendance.Click += new System.EventHandler(this.btnManageAttendance_Click);
             // 
@@ -445,15 +474,15 @@ namespace MMS_CapstoneProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 416);
+            this.ClientSize = new System.Drawing.Size(493, 532);
             this.Controls.Add(this.btnManageAttendance);
             this.Controls.Add(this.btnManageTrackWorker);
+            this.Controls.Add(this.txtWorkerRequested);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEscape);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.gbClientEventIsDeleted);
             this.Controls.Add(this.gbClientEventRequireSafetyDemo);
-            this.Controls.Add(this.txtWorkerRequested);
             this.Controls.Add(this.txtClientEventDate);
             this.Controls.Add(this.btnTrackAdd);
             this.Controls.Add(this.txtTrackID);
