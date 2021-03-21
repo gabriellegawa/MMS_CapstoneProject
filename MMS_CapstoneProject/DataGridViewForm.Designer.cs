@@ -69,7 +69,7 @@ namespace MMS_CapstoneProject
             // 
             // txtDataGridViewSearch
             // 
-            this.txtDataGridViewSearch.Location = new System.Drawing.Point(153, 18);
+            this.txtDataGridViewSearch.Location = new System.Drawing.Point(153, 29);
             this.txtDataGridViewSearch.Name = "txtDataGridViewSearch";
             this.txtDataGridViewSearch.Size = new System.Drawing.Size(100, 20);
             this.txtDataGridViewSearch.TabIndex = 1;
@@ -77,18 +77,20 @@ namespace MMS_CapstoneProject
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(278, 18);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(259, 18);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(100, 39);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // btnSelect
             // 
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.Location = new System.Drawing.Point(13, 18);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(67, 25);
+            this.btnSelect.Size = new System.Drawing.Size(100, 39);
             this.btnSelect.TabIndex = 3;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
