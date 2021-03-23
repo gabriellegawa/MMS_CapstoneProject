@@ -15,7 +15,7 @@ namespace MMSLibrary.Data_Access
             {
                 var output = cnn.Query<TrackWorkerReportModel>("SELECT t.FirstName || \" \" || t.LastName AS \"TrackWorkerFullName\", SUM(IsApplied) AS \"TotalDaysApplied\", " +
                     "SUM(IsSelected) AS \"TotalDaysSelected\", SUM(IsPresent) AS \"TotalDaysPresent\" " +
-                    "FROM  ClientEvents_TrackWorkers as j, TrackWorkers as t, ClientEvents " +
+                    "FROM  ClientEvents_TrackWorkers as j, TrackWorkers as t " +
                     "WHERE j.TrackWorkerId = t.TrackWorkerId " +
                     // For future development, just date format in yyyymmdd
                     //"AND substr(Date, 7) || substr(Date, 4, 2) || substr(Date, 1, 2) between '20101101' and '29991130' " +
