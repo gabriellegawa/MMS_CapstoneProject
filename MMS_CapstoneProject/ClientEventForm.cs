@@ -42,6 +42,8 @@ namespace MMS_CapstoneProject
             InitializeComponent();
             btnEnter.Click += btnClientEventUpdate_Click;
 
+            btnEnter.Text = "&Update";
+
             // load client event data to the form
             _clientEvent = clientEventModel;
             ClientModel clientModel = ClientDataAccess.LoadClient(_clientEvent.ClientID);
