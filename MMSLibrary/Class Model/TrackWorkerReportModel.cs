@@ -1,5 +1,8 @@
 ﻿namespace MMSLibrary.Class_Model
 {
+    /// <summary>
+    /// report model
+    /// </summary>
     public class TrackWorkerReportModel
     {
         public string TrackWorkerFullName { get; set; }

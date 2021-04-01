@@ -9,6 +9,10 @@ namespace MMSLibrary.Data_Access
 {
     public class TrackWorkerReportDataAccess : SqliteDataAccess
     {
+        /// <summary>
+        /// LoadTrackWorkerReport - load the report query to the model
+        /// </summary>
+        /// <returns></returns>
         public static List<TrackWorkerReportModel> LoadTrackWorkerReport()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
