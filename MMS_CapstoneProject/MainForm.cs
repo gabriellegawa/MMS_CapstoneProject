@@ -112,6 +112,9 @@ namespace MMS_CapstoneProject
             dataGridView.ClearSelection();
         }
 
+        /// <summary>
+        /// RefreshDataGridViewTrackWorkerReport - refresh track worker report data grid view
+        /// </summary>
         public void RefreshDataGridViewTrackWorkerReport()
         {
             dgvTrackWorkerReport.DataSource = ToDataTable(TrackWorkerReportDataAccess.LoadTrackWorkerReport());
